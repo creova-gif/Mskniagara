@@ -2,7 +2,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
 import { Badge } from '../components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs';
-import { Calendar, MapPin, Users, Clock, Inbox, ExternalLink } from 'lucide-react';
+import { Calendar, MapPin, Users, Clock, Inbox, ExternalLink, Star, Download } from 'lucide-react';
 import { TimelineBeam } from '../components/HeroAnimations';
 import { sanitizeUrl } from '../utils/security';
 
@@ -11,6 +11,51 @@ TODAY.setHours(0, 0, 0, 0);
 
 function isEventPast(dateValue: Date): boolean {
   return dateValue < TODAY;
+}
+
+/**
+ * Generates an RFC-5545 compliant .ics calendar invite string.
+ */
+function buildICS(params: {
+  title: string;
+  description: string;
+  location: string;
+  startISO: string; // e.g. "20260619T090000"
+  endISO: string;   // e.g. "20260619T130000"
+  url: string;
+}): string {
+  const now = new Date().toISOString().replace(/[-:.]/g, '').slice(0, 15) + 'Z';
+  return [
+    'BEGIN:VCALENDAR',
+    'VERSION:2.0',
+    'PRODID:-//MSK Niagara//EN',
+    'CALSCALE:GREGORIAN',
+    'METHOD:PUBLISH',
+    'BEGIN:VEVENT',
+    `DTSTART;TZID=America/Toronto:${params.startISO}`,
+    `DTEND;TZID=America/Toronto:${params.endISO}`,
+    `DTSTAMP:${now}`,
+    `UID:msk-symposium-2026@msk-niagara.ca`,
+    `SUMMARY:${params.title}`,
+    `DESCRIPTION:${params.description.replace(/\n/g, '\\n')}`,
+    `LOCATION:${params.location}`,
+    `URL:${params.url}`,
+    'STATUS:CONFIRMED',
+    'END:VEVENT',
+    'END:VCALENDAR',
+  ].join('\r\n');
+}
+
+function downloadICS(filename: string, content: string) {
+  const blob = new Blob([content], { type: 'text/calendar;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
 }
 
 export function Timeline() {
@@ -72,13 +117,24 @@ export function Timeline() {
       participants: language === 'en' ? 'Research Hub Teams, Community Partners' : 'Équipes des pôles de recherche, Partenaires communautaires',
     },
     {
-      dateValue: new Date('2026-12-31'),
-      date: '2026',
-      title: language === 'en' ? 'Research Symposium' : 'Symposium de recherche',
+      dateValue: new Date('2026-06-19'),
+      date: language === 'en' ? 'June 19, 2026' : '19 juin 2026',
+      title: language === 'en' ? '★ Community-University Symposium — Civic Square, Welland' : '★ Symposium communautaire-universitaire — Civic Square, Welland',
       description: language === 'en'
-        ? 'Research Symposium showcasing findings from all three research hubs and celebrating partnership achievements. (Exact date TBA)'
-        : 'Symposium de recherche présentant les résultats des trois pôles de recherche et célébrant les réalisations du partenariat. (Date exacte à déterminer)',
-      participants: language === 'en' ? 'All Partnership Members, Research Community, Public' : 'Tous les membres du partenariat, Communauté de recherche, Public',
+        ? 'The MSK/MSM team presents preliminary findings on five research projects focused on improving public and institutional awareness about the issues, needs and identities of Afro-descendant, immigrant and refugee populations in Niagara. Supported by the Social Justice Research Institute at Brock University. 9:00 AM – 1:00 PM, followed by a light lunch.'
+        : 'L\'équipe MSK/MSM présente les résultats préliminaires de cinq projets de recherche visant à sensibiliser le public et les institutions aux enjeux des populations afro-descendantes, immigrantes et réfugiées du Niagara. Soutenu par l\'Institut de recherche sur la justice sociale de l\'Université Brock. 9 h – 13 h, suivi d\'un déjeuner léger.',
+      participants: language === 'en' ? 'All Partnership Members, Research Community, Public — Registration Open' : 'Tous les membres du partenariat, Communauté de recherche, Public — Inscription ouverte',
+      isFeatured: true,
+      locationUrl: 'https://maps.app.goo.gl/nEzwTCaAiYCJ43Kn9',
+    },
+    {
+      dateValue: new Date('2027-03-31'),
+      date: '2027',
+      title: language === 'en' ? 'Grant Period Conclusion' : 'Fin de la période de subvention',
+      description: language === 'en'
+        ? 'Conclusion of the SSHRC Partnership Development Grant (March 2024–March 2027) period. Final research outputs, recommendations, and knowledge translation activities.'
+        : 'Conclusion de la période de la subvention de développement de partenariat du CRSH (mars 2024 – mars 2027). Productions finales de recherche, recommandations et activités de transfert de connaissances.',
+      participants: language === 'en' ? 'Research Team, Partners, SSHRC' : 'Équipe de recherche, Partenaires, CRSH',
     },
   ];
 
@@ -95,6 +151,7 @@ export function Timeline() {
       locationUrl: 'https://maps.app.goo.gl/nEzwTCaAiYCJ43Kn9',
       registration: language === 'en' ? 'Open (RSVP by May 29)' : 'Ouverte (RSVP avant le 29 mai)',
       registrationUrl: 'https://doodle.com/sign-up-sheet/participate/070efb40-abeb-4fb8-8d7e-7fba14025436/select',
+      isFeatured: true,
     },
     {
       dateValue: new Date('2026-02-20'),
@@ -126,10 +183,9 @@ export function Timeline() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <div className="relative overflow-hidden bg-[#8B0000]">
+      <header className="relative overflow-hidden bg-[#8B0000]">
         <div className="absolute inset-0 opacity-[0.06]"
           style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '32px 32px' }} />
-        {/* Animated timeline beam drawing across the hero */}
         <TimelineBeam />
         <div className="absolute bottom-0 left-0 right-0 h-14 bg-white"
           style={{ clipPath: 'polygon(0 100%, 100% 100%, 100% 0)' }} />
@@ -154,11 +210,105 @@ export function Timeline() {
             </p>
           </div>
         </div>
-      </div>
+      </header>
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-10 pb-20 relative z-20">
+      {/* Symposium Feature Banner */}
+      {!isEventPast(new Date('2026-06-19')) && (
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-8 relative z-20">
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#8B0000] via-[#A40000] to-[#8B0000] p-0.5 shadow-2xl">
+            <div className="relative bg-white rounded-[calc(1.5rem-2px)] overflow-hidden">
+              {/* Animated pulse border */}
+              <div className="absolute inset-0 rounded-[calc(1.5rem-2px)] border-4 border-[#8B0000]/20 animate-pulse" aria-hidden="true" />
+
+              <div className="flex flex-col lg:flex-row items-start lg:items-center gap-6 p-7 md:p-8">
+                {/* Icon cluster */}
+                <div className="relative flex-shrink-0">
+                  <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#8B0000] to-[#A40000] flex items-center justify-center shadow-xl">
+                    <Star className="w-10 h-10 text-white fill-white" />
+                  </div>
+                  {/* Pulsing live dot */}
+                  <span className="absolute -top-1 -right-1 flex h-4 w-4">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FFC956] opacity-75" />
+                    <span className="relative inline-flex rounded-full h-4 w-4 bg-[#FFC956]" />
+                  </span>
+                </div>
+
+                {/* Content */}
+                <div className="flex-1">
+                  <div className="flex flex-wrap items-center gap-2 mb-2">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#8B0000] text-white text-xs font-bold uppercase tracking-wider">
+                      <Star className="w-3 h-3 fill-white" />
+                      {language === 'en' ? 'Featured Event' : 'Événement vedette'}
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FFC956]/20 text-[#8B0000] text-xs font-bold uppercase tracking-wider border border-[#FFC956]/40">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#FFC956] animate-pulse" />
+                      {language === 'en' ? 'Registration Open' : 'Inscription ouverte'}
+                    </span>
+                  </div>
+                  <h2 className="text-xl md:text-2xl font-extrabold text-[#0A0A0A] mb-1.5" style={{ fontFamily: 'var(--font-heading)' }}>
+                    {language === 'en'
+                      ? 'Community-University Symposium — MSK/MSM 2026'
+                      : 'Symposium communautaire-universitaire — MSK/MSM 2026'}
+                  </h2>
+                  <div className="flex flex-wrap items-center gap-4 text-sm text-[#0A0A0A]/60 font-medium">
+                    <span className="flex items-center gap-1.5">
+                      <Calendar className="w-4 h-4 text-[#8B0000]" />
+                      {language === 'en' ? 'Friday, June 19, 2026 · 9:00 AM – 1:00 PM' : 'Vendredi 19 juin 2026 · 9 h – 13 h'}
+                    </span>
+                    <span className="flex items-center gap-1.5">
+                      <MapPin className="w-4 h-4 text-[#8B0000]" />
+                      <a
+                        href={sanitizeUrl('https://maps.app.goo.gl/nEzwTCaAiYCJ43Kn9')}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#8B0000] hover:underline font-semibold"
+                      >
+                        {language === 'en' ? 'Civic Square, Welland, ON' : 'Civic Square, Welland, ON'}
+                      </a>
+                    </span>
+                  </div>
+                </div>
+
+                {/* Action Buttons */}
+                <div className="flex flex-col sm:flex-row lg:flex-col gap-3 flex-shrink-0">
+                  <a
+                    href={sanitizeUrl('https://doodle.com/sign-up-sheet/participate/070efb40-abeb-4fb8-8d7e-7fba14025436/select')}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#8B0000] text-white font-bold rounded-xl hover:bg-[#A40000] transition-all duration-300 hover:scale-105 shadow-lg text-sm"
+                    aria-label={language === 'en' ? 'Register for the symposium' : 'S\'inscrire au symposium'}
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                    {language === 'en' ? 'Register Now' : 'S\'inscrire'}
+                  </a>
+                  <button
+                    onClick={() => {
+                      const ics = buildICS({
+                        title: 'MSK/MSM Community-University Symposium 2026',
+                        description: 'The MSK/MSM team presents preliminary findings on five research projects. Community Room, Civic Square, Welland. Supported by SJRI, Brock University.',
+                        location: 'Community Room, Civic Square, Welland, Ontario',
+                        startISO: '20260619T090000',
+                        endISO: '20260619T130000',
+                        url: 'https://msk-niagara.ca/timeline',
+                      });
+                      downloadICS('msk-symposium-2026.ics', ics);
+                    }}
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-[#8B0000]/30 text-[#8B0000] font-bold rounded-xl hover:border-[#8B0000] hover:bg-[#8B0000]/5 transition-all duration-300 text-sm"
+                    aria-label={language === 'en' ? 'Add event to calendar' : 'Ajouter l\'événement au calendrier'}
+                  >
+                    <Download className="w-4 h-4" />
+                    {language === 'en' ? 'Add to Calendar' : 'Ajouter au calendrier'}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-8 pb-20 relative z-20">
         <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden">
-          <Tabs defaultValue="timeline" className="w-full">
+          <Tabs defaultValue="upcoming" className="w-full">
             <div className="bg-gradient-to-r from-gray-50 to-white px-4 sm:px-6 py-4 border-b border-gray-200">
               <TabsList className="w-full md:w-auto bg-gray-100 p-1 rounded-full gap-2">
                 <TabsTrigger value="timeline" className="flex-1 md:flex-none data-[state=active]:bg-[#8B0000] data-[state=active]:text-white data-[state=inactive]:hover:bg-gray-200 rounded-full px-4 sm:px-6 py-2.5 transition-all duration-200 font-medium text-sm sm:text-base">
@@ -185,50 +335,81 @@ export function Timeline() {
                   <div className="space-y-6">
                     {timelineEvents.map((event, index) => {
                       const isPast = isEventPast(event.dateValue);
+                      const isFeatured = 'isFeatured' in event && event.isFeatured;
                       return (
                         <div key={index} className="relative pl-16 group">
                           <div className="absolute left-0 top-5 flex items-center gap-2">
                             <div className={`w-14 h-8 rounded-full flex items-center justify-center text-[10px] font-bold tracking-wider border transition-all duration-300 ${
-                              isPast
-                                ? 'bg-[#8B0000] border-[#8B0000] text-white group-hover:shadow-lg group-hover:shadow-[#8B0000]/30'
-                                : 'bg-white border-dashed border-[#8B0000]/60 text-[#8B0000]'
+                              isFeatured
+                                ? 'bg-[#FFC956] border-[#FFC956] text-[#0A0A0A] shadow-lg shadow-[#FFC956]/30'
+                                : isPast
+                                  ? 'bg-[#8B0000] border-[#8B0000] text-white group-hover:shadow-lg group-hover:shadow-[#8B0000]/30'
+                                  : 'bg-white border-dashed border-[#8B0000]/60 text-[#8B0000]'
                             }`}>
-                              {isPast ? '✓' : '→'}
+                              {isFeatured ? '★' : isPast ? '✓' : '→'}
                             </div>
                           </div>
 
                           <div className={`rounded-2xl border transition-all duration-300 group-hover:shadow-md overflow-hidden ${
-                            isPast
-                              ? 'bg-white border-gray-100 group-hover:border-[#8B0000]/20'
-                              : 'bg-[#8B0000]/5 border-dashed border-[#8B0000]/30'
+                            isFeatured
+                              ? 'bg-gradient-to-r from-[#8B0000]/5 to-[#FFC956]/5 border-[#8B0000]/30 group-hover:border-[#8B0000]/60 ring-2 ring-[#8B0000]/10'
+                              : isPast
+                                ? 'bg-white border-gray-100 group-hover:border-[#8B0000]/20'
+                                : 'bg-[#8B0000]/5 border-dashed border-[#8B0000]/30'
                           }`}>
                             <div className="p-5 md:p-6">
+                              {isFeatured && (
+                                <div className="flex items-center gap-2 mb-3">
+                                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#8B0000] text-white text-xs font-bold uppercase tracking-wider">
+                                    <Star className="w-3 h-3 fill-white" />
+                                    {language === 'en' ? 'Upcoming Symposium' : 'Symposium à venir'}
+                                  </span>
+                                  <span className="flex h-3 w-3">
+                                    <span className="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-[#FFC956] opacity-75" />
+                                    <span className="relative inline-flex rounded-full h-3 w-3 bg-[#FFC956]" />
+                                  </span>
+                                </div>
+                              )}
                               <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 mb-3">
                                 <div className="flex items-center gap-3">
                                   <span className={`text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full ${
-                                    isPast
-                                      ? 'bg-[#8B0000]/8 text-[#8B0000]'
-                                      : 'bg-amber-50 text-amber-700 border border-amber-200'
+                                    isFeatured
+                                      ? 'bg-[#8B0000]/10 text-[#8B0000] border border-[#8B0000]/20'
+                                      : isPast
+                                        ? 'bg-[#8B0000]/8 text-[#8B0000]'
+                                        : 'bg-amber-50 text-amber-700 border border-amber-200'
                                   }`}>
                                     {event.date}
                                   </span>
                                   <span className={`text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded ${
-                                    isPast ? 'text-gray-400' : 'text-amber-600'
+                                    isFeatured ? 'text-[#8B0000]' : isPast ? 'text-gray-400' : 'text-amber-600'
                                   }`}>
-                                    {isPast ? t('timeline.past') : t('common.upcoming')}
+                                    {isFeatured ? (language === 'en' ? 'Featured' : 'Vedette') : isPast ? t('timeline.past') : t('common.upcoming')}
                                   </span>
                                 </div>
                               </div>
 
-                              <h3 className="text-lg font-bold text-[#0A0A0A] mb-2 leading-snug"
+                              <h3 className={`text-lg font-bold mb-2 leading-snug ${isFeatured ? 'text-[#8B0000]' : 'text-[#0A0A0A]'}`}
                                 style={{ fontFamily: 'var(--font-heading)' }}>
                                 {event.title}
                               </h3>
                               <p className="text-sm text-gray-500 leading-relaxed mb-3">{event.description}</p>
-                              <div className="flex items-center gap-2 text-xs text-gray-400">
+                              <div className="flex items-center gap-2 text-xs text-gray-400 mb-2">
                                 <Users className="w-3.5 h-3.5 shrink-0" />
                                 <span>{event.participants}</span>
                               </div>
+                              {'locationUrl' in event && event.locationUrl && (
+                                <a
+                                  href={sanitizeUrl(event.locationUrl)}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="flex items-center gap-1.5 text-xs text-[#8B0000] hover:underline font-semibold"
+                                >
+                                  <MapPin className="w-3.5 h-3.5" />
+                                  {language === 'en' ? 'View on Map' : 'Voir sur la carte'}
+                                  <ExternalLink className="w-3 h-3" />
+                                </a>
+                              )}
                             </div>
                           </div>
                         </div>
@@ -251,7 +432,7 @@ export function Timeline() {
                   </div>
 
                   {upcomingEvents.length === 0 ? (
-                    <div className="flex flex-col items-center justify-center py-16 px-8 text-center rounded-2xl border border-dashed border-gray-200 bg-gray-50">
+                    <div className="flex flex-col items-center justify-center py-16 px-8 text-center rounded-2xl border border-dashed border-gray-200 bg-gray-50" role="status">
                       <Inbox className="w-10 h-10 text-gray-300 mb-4" />
                       <p className="text-base font-semibold text-gray-500 mb-1">
                         {language === 'en' ? 'No upcoming events at this time' : 'Aucun événement à venir pour l\'instant'}
@@ -271,7 +452,7 @@ export function Timeline() {
                   )}
                 </div>
 
-                {/* Past events (previously scheduled) */}
+                {/* Past events */}
                 {pastEvents.length > 0 && (
                   <div>
                     <div className="flex items-center gap-2 mb-5">
@@ -296,6 +477,8 @@ export function Timeline() {
   );
 }
 
+// ─── EventData Interface ──────────────────────────────────────────────────────
+
 interface EventData {
   dateValue: Date;
   date: string;
@@ -306,7 +489,10 @@ interface EventData {
   locationUrl?: string;
   registration: string;
   registrationUrl?: string;
+  isFeatured?: boolean;
 }
+
+// ─── EventCard Component ─────────────────────────────────────────────────────
 
 function EventCard({ event, isPast, language, t }: {
   event: EventData;
@@ -314,63 +500,112 @@ function EventCard({ event, isPast, language, t }: {
   language: string;
   t: (key: string) => string;
 }) {
+  const featured = event.isFeatured && !isPast;
+
   return (
-    <Card className={`transition-shadow ${isPast ? 'opacity-70' : 'hover:shadow-lg'}`}>
-      <CardHeader>
-        <div className="flex flex-wrap items-center gap-2 mb-2">
-          {isPast ? (
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-gray-100 text-gray-500 text-xs font-semibold">
-              <Clock className="w-3 h-3" />
-              {language === 'en' ? 'Past Event' : 'Événement passé'}
-            </span>
-          ) : (
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#8B0000]/10 text-[#8B0000] text-xs font-semibold">
-              <Calendar className="w-3 h-3" />
-              {language === 'en' ? 'Upcoming' : 'À venir'}
-            </span>
-          )}
-          <span className={`font-semibold text-sm ${isPast ? 'text-gray-400' : 'text-[#8B0000]'}`}>
-            {event.date}
+    <article className={`transition-all duration-300 rounded-2xl overflow-hidden ${
+      featured
+        ? 'ring-2 ring-[#8B0000] shadow-2xl'
+        : isPast
+          ? 'opacity-70'
+          : 'hover:shadow-lg'
+    }`}>
+      {featured && (
+        <div className="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-[#8B0000] to-[#A40000]">
+          <Star className="w-4 h-4 text-[#FFC956] fill-[#FFC956]" />
+          <span className="text-xs font-bold text-white uppercase tracking-wider">
+            {language === 'en' ? 'Featured Event — Registration Open' : 'Événement vedette — Inscription ouverte'}
           </span>
-          <span className="text-gray-300">•</span>
-          <span className="text-[#0A0A0A]/50 text-sm">{event.time}</span>
+          <span className="ml-auto flex h-3 w-3">
+            <span className="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-[#FFC956] opacity-75" />
+            <span className="relative inline-flex rounded-full h-3 w-3 bg-[#FFC956]" />
+          </span>
         </div>
-        <CardTitle className={`text-xl ${isPast ? 'text-gray-500' : 'text-[#0A0A0A]'}`}>{event.title}</CardTitle>
-      </CardHeader>
-      <CardContent className="space-y-4">
-        <p className={isPast ? 'text-gray-400' : 'text-[#0A0A0A]/70'}>{event.description}</p>
-
-        <div className="flex items-center gap-2 text-[#0A0A0A]/60">
-          <MapPin className="w-4 h-4 shrink-0" />
-          {event.locationUrl ? (
-            <a href={sanitizeUrl(event.locationUrl)} target="_blank" rel="noopener noreferrer" className="text-sm text-[#8B0000] hover:underline flex items-center gap-1">
-              {event.location}
-              <ExternalLink className="w-3 h-3" />
-            </a>
-          ) : (
-            <span className="text-sm">{event.location}</span>
-          )}
-        </div>
-
-        <div className="flex items-center justify-between pt-2 flex-wrap gap-2">
-          <div className="flex items-center gap-2">
-            <span className="text-sm text-[#0A0A0A]/50">{t('timeline.registration')}:</span>
-            <Badge variant={event.registration === 'Closed' || event.registration === 'Fermée' ? 'secondary' : 'default'} className={event.registration !== 'Closed' && event.registration !== 'Fermée' ? 'bg-[#089EA5] hover:bg-[#067A80]' : ''}>
-              {event.registration}
-            </Badge>
+      )}
+      <Card className={`rounded-none border-0 shadow-none ${featured ? 'bg-gradient-to-br from-white to-[#8B0000]/5' : ''}`}>
+        <CardHeader>
+          <div className="flex flex-wrap items-center gap-2 mb-2">
+            {isPast ? (
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-gray-100 text-gray-500 text-xs font-semibold">
+                <Clock className="w-3 h-3" />
+                {language === 'en' ? 'Past Event' : 'Événement passé'}
+              </span>
+            ) : (
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#8B0000]/10 text-[#8B0000] text-xs font-semibold">
+                <Calendar className="w-3 h-3" />
+                {language === 'en' ? 'Upcoming' : 'À venir'}
+              </span>
+            )}
+            <span className={`font-semibold text-sm ${isPast ? 'text-gray-400' : 'text-[#8B0000]'}`}>
+              {event.date}
+            </span>
+            <span className="text-gray-300">•</span>
+            <span className="text-[#0A0A0A]/50 text-sm">{event.time}</span>
           </div>
-          {event.registrationUrl && !isPast ? (
-            <a href={sanitizeUrl(event.registrationUrl)} target="_blank" rel="noopener noreferrer" className="px-4 py-2 bg-[#8B0000] text-white text-sm font-medium rounded-lg hover:bg-[#A40000] transition-colors inline-flex items-center gap-2">
-              {t('timeline.register')}
-              <ExternalLink className="w-4 h-4" />
-            </a>
-          ) : event.registration === 'Open' && !isPast && (
-            <button className="px-4 py-2 bg-[#8B0000] text-white text-sm font-medium rounded-lg hover:bg-[#A40000] transition-colors">
-              {t('timeline.register')}
-            </button>
-          )}
-        </div>
-      </CardContent>
-    </Card>
+          <CardTitle className={`text-xl ${isPast ? 'text-gray-500' : 'text-[#0A0A0A]'}`}>{event.title}</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <p className={isPast ? 'text-gray-400' : 'text-[#0A0A0A]/70'}>{event.description}</p>
+
+          <div className="flex items-center gap-2 text-[#0A0A0A]/60">
+            <MapPin className="w-4 h-4 shrink-0" />
+            {event.locationUrl ? (
+              <a href={sanitizeUrl(event.locationUrl)} target="_blank" rel="noopener noreferrer" className="text-sm text-[#8B0000] hover:underline flex items-center gap-1">
+                {event.location}
+                <ExternalLink className="w-3 h-3" />
+              </a>
+            ) : (
+              <span className="text-sm">{event.location}</span>
+            )}
+          </div>
+
+          <div className="flex items-center justify-between pt-2 flex-wrap gap-3">
+            <div className="flex items-center gap-2">
+              <span className="text-sm text-[#0A0A0A]/50">{t('timeline.registration')}:</span>
+              <Badge
+                variant={event.registration === 'Closed' || event.registration === 'Fermée' ? 'secondary' : 'default'}
+                className={event.registration !== 'Closed' && event.registration !== 'Fermée' ? 'bg-[#089EA5] hover:bg-[#067A80]' : ''}
+              >
+                {event.registration}
+              </Badge>
+            </div>
+            <div className="flex items-center gap-3 flex-wrap">
+              {event.registrationUrl && !isPast && (
+                <a
+                  href={sanitizeUrl(event.registrationUrl)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 bg-[#8B0000] text-white text-sm font-medium rounded-lg hover:bg-[#A40000] transition-colors inline-flex items-center gap-2"
+                  aria-label={language === 'en' ? `Register for ${event.title}` : `S'inscrire à ${event.title}`}
+                >
+                  {t('timeline.register')}
+                  <ExternalLink className="w-4 h-4" />
+                </a>
+              )}
+              {featured && (
+                <button
+                  onClick={() => {
+                    const ics = buildICS({
+                      title: 'MSK/MSM Community-University Symposium 2026',
+                      description: event.description,
+                      location: event.location,
+                      startISO: '20260619T090000',
+                      endISO: '20260619T130000',
+                      url: 'https://msk-niagara.ca/timeline',
+                    });
+                    downloadICS('msk-symposium-2026.ics', ics);
+                  }}
+                  className="px-4 py-2 border-2 border-[#8B0000]/30 text-[#8B0000] text-sm font-semibold rounded-lg hover:border-[#8B0000] hover:bg-[#8B0000]/5 transition-colors inline-flex items-center gap-2"
+                  aria-label={language === 'en' ? 'Add event to calendar' : 'Ajouter au calendrier'}
+                >
+                  <Download className="w-4 h-4" />
+                  {language === 'en' ? 'Add to Calendar' : 'Calendrier'}
+                </button>
+              )}
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+    </article>
   );
 }
