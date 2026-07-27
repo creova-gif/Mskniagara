@@ -311,6 +311,72 @@ export function Home() {
         </div>
       </section>
 
+      {/* Rooted in Niagara — Full-bleed aerial anchor section */}
+      <section className="relative overflow-hidden h-[380px] md:h-[460px] flex items-end">
+        {/* Niagara Falls aerial background */}
+        <img
+          src="https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&q=85&w=1920"
+          alt="Aerial view of Niagara Falls and the surrounding Niagara Region, Ontario, Canada"
+          className="absolute inset-0 w-full h-full object-cover object-center"
+          loading="lazy"
+        />
+        {/* Gradient overlays */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A]/60 via-transparent to-transparent" />
+
+        {/* Content bar */}
+        <div className="relative w-full mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-10 md:pb-14">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+            {/* Left: geo identity */}
+            <div>
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-6 h-px bg-[#8B0000]" />
+                <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/40">
+                  {language === 'en' ? 'Rooted in Niagara' : 'Ancré dans Niagara'}
+                </span>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-white leading-tight mb-2" style={{ fontFamily: 'var(--font-heading)' }}>
+                {language === 'en' ? 'Niagara Region, Ontario' : 'Région de Niagara, Ontario'}
+              </h2>
+              <p className="text-white/55 text-sm max-w-md leading-relaxed">
+                {language === 'en'
+                  ? 'Home to over 475,000 residents, 26+ nationalities, and one of Canada\'s fastest-growing immigrant populations. This is where our research lives.'
+                  : 'Accueillant plus de 475 000 résidents, 26+ nationalités et l\'une des populations immigrantes à la croissance la plus rapide au Canada. C\'est ici que vit notre recherche.'}
+              </p>
+            </div>
+
+            {/* Right: Brock aerial inset + stat chips */}
+            <div className="flex items-end gap-4">
+              {/* Brock University aerial thumbnail */}
+              <div className="hidden md:block relative w-48 h-32 rounded-xl overflow-hidden border-2 border-white/20 shadow-2xl flex-shrink-0 group">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Campus_bird%27s-eye_view%2C_Brock_University_%283920733004%29.jpg/600px-Campus_bird%27s-eye_view%2C_Brock_University_%283920733004%29.jpg"
+                  alt="Bird's-eye aerial view of Brock University campus in St. Catharines, Ontario"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                <div className="absolute bottom-2 left-2 right-2">
+                  <p className="text-white text-[9px] font-semibold leading-tight">Brock University · St. Catharines</p>
+                </div>
+              </div>
+
+              {/* Stat chips */}
+              <div className="flex flex-col gap-2">
+                <div className="bg-white/10 backdrop-blur-md border border-white/15 rounded-lg px-4 py-2 text-center">
+                  <div className="text-xl font-extrabold text-white leading-none" style={{ fontFamily: 'var(--font-heading)' }}>475K+</div>
+                  <div className="text-[9px] text-white/50 mt-0.5 font-medium uppercase tracking-wider">{language === 'en' ? 'Residents' : 'Résidents'}</div>
+                </div>
+                <div className="bg-[#8B0000]/70 backdrop-blur-md border border-[#8B0000]/50 rounded-lg px-4 py-2 text-center">
+                  <div className="text-xl font-extrabold text-white leading-none" style={{ fontFamily: 'var(--font-heading)' }}>26+</div>
+                  <div className="text-[9px] text-white/70 mt-0.5 font-medium uppercase tracking-wider">{language === 'en' ? 'Nationalities' : 'Nationalités'}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Research Hubs Visual Cards */}
       <section className="py-16 bg-gray-50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -357,7 +423,7 @@ export function Home() {
               {
                 number: '03',
                 color: '#7B5EA7',
-                image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80&w=600',
+                image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Bird%27s_eye_view_of_Brock_University%283920733844%29.jpg/1200px-Bird%27s_eye_view_of_Brock_University%283920733844%29.jpg',
                 title: language === 'en' ? 'Identity, Connections & Belonging' : 'Identité, liens et appartenance',
                 desc: language === 'en'
                   ? 'Fostering belonging among Afro-descendants, LGBTQ+ newcomers, and seasonal farmworkers.'
@@ -893,7 +959,7 @@ export function Home() {
                 descEn: 'Three collaborative hubs advancing community health, youth development, and belonging in Niagara.',
                 descFr: 'Trois pôles collaboratifs pour la santé communautaire, le développement des jeunes et l\'appartenance.',
                 delay: 0,
-                bgImage: 'https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&q=80&w=600'
+                bgImage: 'https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&q=80&w=600'
               },
               {
                 to: '/research/projects',
@@ -904,7 +970,7 @@ export function Home() {
                 descEn: 'Five active projects generating knowledge across housing, health, sport, and identity.',
                 descFr: 'Cinq projets actifs produisant des connaissances en logement, santé, sport et identité.',
                 delay: 100,
-                bgImage: 'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&q=80&w=600'
+                bgImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Campus_bird%27s-eye_view%2C_Brock_University_%283920733004%29.jpg/1200px-Campus_bird%27s-eye_view%2C_Brock_University_%283920733004%29.jpg'
               },
               {
                 to: '/community',
@@ -915,7 +981,7 @@ export function Home() {
                 descEn: '26 partner organizations co-creating equitable programs across the Niagara region.',
                 descFr: '26 organisations partenaires co-créant des programmes équitables dans la région de Niagara.',
                 delay: 200,
-                bgImage: 'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&q=80&w=600'
+                bgImage: 'https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&q=80&w=600'
               },
             ].map(({ to, num, Icon, titleEn, titleFr, descEn, descFr, delay, bgImage }) => (
               <Link

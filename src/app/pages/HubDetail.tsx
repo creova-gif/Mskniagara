@@ -20,7 +20,7 @@ export function HubDetail() {
     'childhood': {
       nameEn: 'Childhood and Growing Up Hub',
       nameFr: 'Pôle Enfance et développement',
-      image: 'https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&q=80&w=1200',
+      image: 'https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&q=80&w=1200',
       descriptionEn: 'The Childhood and Growing Up Hub listens to and responds to newcomer children with respect to their experiences in housing, sport/recreation and schooling. Our research examines how children navigate multiple spaces and systems, and aims to amplify their voices in shaping more inclusive and equitable communities.',
       descriptionFr: 'Le Pôle Enfance et développement écoute et répond aux besoins des enfants nouveaux arrivants concernant leur logement, leurs activités sportives et récréatives et leur scolarité. Notre recherche examine comment les enfants naviguent dans de multiples espaces et systèmes, et vise à amplifier leurs voix dans la construction de communautés plus inclusives et équitables.',
       color: '#089EA5',
@@ -71,7 +71,7 @@ export function HubDetail() {
     'health': {
       nameEn: 'Health Literacy Hub',
       nameFr: 'Pôle Littératie en santé',
-      image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1200',
+      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Bird%27s_eye_view_of_Brock_University%283920733844%29.jpg/1200px-Bird%27s_eye_view_of_Brock_University%283920733844%29.jpg',
       descriptionEn: 'The Health Literacy Hub promotes health literacy in immigrant and refugee populations. Our research develops culturally responsive health information and programs to improve health outcomes and reduce health disparities among newcomer communities in the Niagara region.',
       descriptionFr: 'Le Pôle Littératie en santé promeut la littératie en santé auprès des populations immigrantes et réfugiées. Notre recherche développe des informations et programmes de santé culturellement adaptés pour améliorer les résultats de santé et réduire les disparités en santé parmi les communautés nouvelles arrivantes dans la région de Niagara.',
       color: '#C97B2E',
@@ -122,7 +122,7 @@ export function HubDetail() {
     'identity': {
       nameEn: 'Identity, Connections and Belonging Hub',
       nameFr: 'Pôle Identité, relations et appartenance',
-      image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80&w=1200',
+      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/St._Catharine%27s_bird%27s-eye_view_%283919957873%29.jpg/1200px-St._Catharine%27s_bird%27s-eye_view_%283919957873%29.jpg',
       descriptionEn: 'The Identity, Connections and Belonging Hub hosts three distinct projects which foster a sense of belonging amongst three populations: Afro-descendants, sexual and gender diverse young adult newcomers, and seasonal agricultural workers. Our research explores identity formation, community connections, and experiences of belonging in the Niagara region.',
       descriptionFr: 'Le Pôle Identité, relations et appartenance héberge trois projets distincts visant à favoriser un sentiment d\'appartenance chez trois groupes de populations : les personnes afro-descendantes, les jeunes adultes nouveaux arrivants de diverses identités sexuelles et de genre, et les travailleurs agricoles saisonniers. Notre recherche explore la formation de l\'identité, les connexions communautaires et les expériences d\'appartenance dans la région de Niagara.',
       color: '#7B5EA7',
