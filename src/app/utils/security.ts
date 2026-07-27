@@ -273,9 +273,9 @@ export function sanitizeObject<T extends Record<string, any>>(
       const value = obj[key];
       
       if (typeof value === 'string') {
-        sanitized[key as keyof T] = sanitizeInput(value) as T[keyof T];
+        sanitized[key as keyof T] = sanitizeInput(value) as unknown as T[keyof T];
       } else if (typeof value === 'number' || typeof value === 'boolean') {
-        sanitized[key as keyof T] = value;
+        sanitized[key as keyof T] = value as unknown as T[keyof T];
       }
     }
   });

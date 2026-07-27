@@ -175,7 +175,9 @@ export function isValidFileType(filename: string, allowedTypes: string[]): boole
 export function preventClickjacking(): void {
   if (window.self !== window.top) {
     // Page is in an iframe - could be clickjacking attempt
-    window.top!.location = window.self.location;
+    if (window.top) {
+      window.top.location.href = window.self.location.href;
+    }
   }
 }
 

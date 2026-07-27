@@ -130,8 +130,8 @@
        TYPOGRAPHY SCALE
     ───────────────────────────────────────── */
     /* Font families (set in fonts.css) */
-    --font-heading: 'Bliss Light', 'Cabin', 'Plus Jakarta Sans', 'Trebuchet MS', system-ui, sans-serif;
-    --font-body:    'Circular', 'Inter', 'Trebuchet MS', system-ui, sans-serif;
+    --font-heading: 'Cabin', 'Plus Jakarta Sans', 'Trebuchet MS', system-ui, sans-serif;
+    --font-body:    'Inter', 'Trebuchet MS', system-ui, sans-serif;
     --font-mono:    'IBM Plex Mono', ui-monospace, 'JetBrains Mono', 'Fira Code', monospace;
 
     /* Font sizes */

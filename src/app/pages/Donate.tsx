@@ -1,11 +1,18 @@
 import { useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Heart, ShieldCheck, ArrowRight, CheckCircle2, Lock } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '../components/ui/card';
+import { Card, CardContent, CardHeader, CardDescription } from '../components/ui/card';
 import { TimelineBeam } from '../components/HeroAnimations';
+import { usePageMeta } from '../hooks/usePageMeta';
 
 export function Donate() {
   const { language, t } = useLanguage();
+  usePageMeta(
+    language === 'en' ? 'Donate | MSK Niagara' : 'Faire un don | MSK Niagara',
+    language === 'en'
+      ? 'Support community-based participatory research for a just and inclusive Niagara region.'
+      : 'Soutenez la recherche participative communautaire pour une région de Niagara juste et inclusive.'
+  );
   const [amount, setAmount] = useState<number | 'custom'>(50);
   const [customAmount, setCustomAmount] = useState<string>('');
   const [fund, setFund] = useState('general');
@@ -83,10 +90,10 @@ export function Donate() {
               
               {/* Step 1: Fund Designation */}
               <section>
-                <h3 className="text-xl font-semibold text-[#0A0A0A] mb-4 flex items-center gap-3" style={{ fontFamily: 'var(--font-heading)' }}>
+                <h2 className="text-xl font-semibold text-[#0A0A0A] mb-4 flex items-center gap-3" style={{ fontFamily: 'var(--font-heading)' }}>
                   <span className="w-8 h-8 rounded-full bg-[#8B0000]/10 text-[#8B0000] flex items-center justify-center text-sm font-bold">1</span>
                   {language === 'en' ? 'Select a Fund' : 'Sélectionnez un fonds'}
-                </h3>
+                </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {[
                     { id: 'general', label: language === 'en' ? 'General Research Fund (Area of greatest need)' : 'Fonds de recherche général' },
@@ -116,10 +123,10 @@ export function Donate() {
 
               {/* Step 2: Amount */}
               <section>
-                <h3 className="text-xl font-semibold text-[#0A0A0A] mb-4 flex items-center gap-3" style={{ fontFamily: 'var(--font-heading)' }}>
+                <h2 className="text-xl font-semibold text-[#0A0A0A] mb-4 flex items-center gap-3" style={{ fontFamily: 'var(--font-heading)' }}>
                   <span className="w-8 h-8 rounded-full bg-[#8B0000]/10 text-[#8B0000] flex items-center justify-center text-sm font-bold">2</span>
                   {language === 'en' ? 'Choose Amount' : 'Choisissez le montant'}
-                </h3>
+                </h2>
                 <div className="grid grid-cols-3 sm:grid-cols-5 gap-3 mb-4">
                   {[25, 50, 100, 250].map(val => (
                     <button
@@ -166,10 +173,10 @@ export function Donate() {
 
               {/* Step 3: Payment Mockup */}
               <section>
-                <h3 className="text-xl font-semibold text-[#0A0A0A] mb-4 flex items-center gap-3" style={{ fontFamily: 'var(--font-heading)' }}>
+                <h2 className="text-xl font-semibold text-[#0A0A0A] mb-4 flex items-center gap-3" style={{ fontFamily: 'var(--font-heading)' }}>
                   <span className="w-8 h-8 rounded-full bg-[#8B0000]/10 text-[#8B0000] flex items-center justify-center text-sm font-bold">3</span>
                   {language === 'en' ? 'Your Details' : 'Vos coordonnées'}
-                </h3>
+                </h2>
                 <div className="space-y-4">
                   <div className="grid grid-cols-2 gap-4">
                     <input type="text" placeholder={language === 'en' ? 'First Name' : 'Prénom'} required className="w-full p-4 rounded-xl border border-gray-200 focus:border-[#8B0000] focus:ring-1 focus:ring-[#8B0000] outline-none transition-all" />
@@ -218,9 +225,9 @@ export function Donate() {
               </div>
               <CardHeader className="pt-4">
                 <ShieldCheck className="w-8 h-8 text-[#8B0000] mb-2" />
-                <CardTitle className="text-xl" style={{ fontFamily: 'var(--font-heading)' }}>
+                <h3 className="text-xl leading-none" data-slot="card-title" style={{ fontFamily: 'var(--font-heading)' }}>
                   {language === 'en' ? 'Why Support Us?' : 'Pourquoi nous soutenir ?'}
-                </CardTitle>
+                </h3>
               </CardHeader>
               <CardContent className="space-y-4 text-white/70 text-sm leading-relaxed">
                 <p>
@@ -246,9 +253,9 @@ export function Donate() {
             </Card>
 
             <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-              <h4 className="font-semibold text-gray-900 mb-2">
+              <h3 className="font-semibold text-gray-900 mb-2 text-base">
                 {language === 'en' ? 'Other ways to give' : 'Autres façons de donner'}
-              </h4>
+              </h3>
               <p className="text-sm text-gray-500 mb-4 leading-relaxed">
                 {language === 'en' 
                   ? 'Interested in corporate matching, endowments, or volunteering your time instead?'

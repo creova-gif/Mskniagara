@@ -6,6 +6,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '.
 import { useState } from 'react';
 import { RippleRings } from '../components/HeroAnimations';
 import { sanitizeSearchQuery, sanitizeUrl } from '../utils/security';
+import { usePageMeta } from '../hooks/usePageMeta';
 
 // Import logos
 const ywcaLogo = '/af7a99d39d035b273d4e3d0f598d3a6831ad42e6.png';
@@ -34,6 +35,12 @@ const wellandHeritageCouncilLogo = '/b988ec04fdec29b54dd9b6f3d4fa9715cff4d6cd.pn
 
 export function Community() {
   const { t, language } = useLanguage();
+  usePageMeta(
+    language === 'en' ? 'Community | MSK Niagara' : 'Communauté | MSK Niagara',
+    language === 'en'
+      ? 'Community organizations and health partners across the Niagara region working alongside MSK Niagara.'
+      : 'Organismes communautaires et partenaires de santé de la région de Niagara collaborant avec MSK Niagara.'
+  );
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
 

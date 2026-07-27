@@ -4,9 +4,10 @@ import { Search, ChevronDown, ChevronUp, HelpCircle, BookOpen, Users, Mail, Cale
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
 import { motion, AnimatePresence } from 'motion/react';
 import { sanitizeSearchQuery as sanitizeSearchInput, escapeRegex as escapeSpecialChars } from '../utils/security';
+import { usePageMeta } from '../hooks/usePageMeta';
 
 interface FAQItem {
-  id: number;
+  id: number | string;
   category: string;
   question: string;
   answer: string;
@@ -15,9 +16,15 @@ interface FAQItem {
 
 export function HelpCenter() {
   const { t, language } = useLanguage();
+  usePageMeta(
+    language === 'en' ? 'Help Center | MSK Niagara' : "Centre d'aide | MSK Niagara",
+    language === 'en'
+      ? 'Answers to common questions about the MSK Niagara research partnership and this website.'
+      : 'Réponses aux questions fréquentes sur le partenariat de recherche MSK Niagara et ce site web.'
+  );
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
-  const [openFAQs, setOpenFAQs] = useState<number[]>([]);
+  const [openFAQs, setOpenFAQs] = useState<(number | string)[]>([]);
 
   // FAQ data in both languages
   const faqData: FAQItem[] = language === 'en' ? [
@@ -209,7 +216,7 @@ export function HelpCenter() {
   }, [searchQuery, selectedCategory, faqData]);
 
   // Toggle FAQ open/close
-  const toggleFAQ = (id: number) => {
+  const toggleFAQ = (id: number | string) => {
     setOpenFAQs(prev => 
       prev.includes(id) ? prev.filter(faqId => faqId !== id) : [...prev, id]
     );

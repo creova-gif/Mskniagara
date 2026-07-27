@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card'
 import { Badge } from '../components/ui/badge';
 import { Button } from '../components/ui/button';
 import { HubBars } from '../components/HeroAnimations';
+import { usePageMeta } from '../hooks/usePageMeta';
 import { Building2, Users, ArrowRight, Target, Lightbulb, Heart, GraduationCap, TrendingUp, Globe, ExternalLink, Handshake, Award, Home, Briefcase, Shield, BookOpen, Activity, UserPlus, HeartPulse } from 'lucide-react';
 import { useState } from 'react';
 
@@ -26,6 +27,12 @@ const universityBuffaloLogo = '/1e02762e71863f48fceb1cc3277e8ecd07e53156.png';
 
 export function ResearchHubs() {
   const { t, language } = useLanguage();
+  usePageMeta(
+    language === 'en' ? 'Research Hubs | MSK Niagara' : 'Pôles de recherche | MSK Niagara',
+    language === 'en'
+      ? '3 research hubs across the Niagara region driving community-based participatory research within the MSK partnership.'
+      : '3 pôles de recherche à travers la région de Niagara menant une recherche participative communautaire au sein du partenariat MSK.'
+  );
   const [hoveredHub, setHoveredHub] = useState<number | null>(null);
   const [hoveredPartner, setHoveredPartner] = useState<number | null>(null);
 
@@ -34,7 +41,7 @@ export function ResearchHubs() {
       id: 'childhood',
       name: 'Childhood and Growing Up Hub',
       nameFr: 'Pôle Enfance et croissance',
-      image: 'https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&q=80&w=1200',
+      image: '/campus/childhood-hub-cover.jpg',
       description: 'We focus on talking to newcomer and racialized children to learn about their perspectives and experiences, particularly in relation to: 1) housing and home, especially how newcomer children think about home and experience their current housing (including children experiencing homelessness); 2) leisure/sport, which benefits from stable housing, and which may bring opportunities and challenges to newcomer children; 3) education, as newcomer children\'s experiences in school are often central to their feelings of inclusion and/or exclusion in their new communities, and schools can provide important programming to best support newcomer children; and 4) children\'s engagements with companion and other animals, as well as the outside world, and especially how these are affected by being uprooted. Children\'s voices are frequently unheard, especially in programming and policy-making, and yet they are participants in their families and communities, with their own viewpoints, interests, needs and challenges.',
       descriptionFr: 'Nous nous concentrons sur les conversations avec les enfants nouveaux arrivants et racialisés pour connaître leurs perspectives et expériences, particulièrement en ce qui concerne : 1) le logement et le foyer, surtout comment les enfants nouveaux arrivants pensent au foyer et vivent leur logement actuel (y compris les enfants en situation d\'itinérance); 2) les loisirs/sports, qui bénéficient d\'un logement stable et qui peuvent apporter des opportunités et des défis aux enfants nouveaux arrivants; 3) l\'éducation, car les expériences scolaires des enfants nouveaux arrivants sont souvent au cœur de leurs sentiments d\'inclusion et/ou d\'exclusion dans leurs nouvelles communautés, et les écoles peuvent fournir une programmation importante pour mieux soutenir les enfants nouveaux arrivants; et 4) les engagements des enfants avec les animaux de compagnie et autres, ainsi que le monde extérieur, et surtout comment ceux-ci sont affectés par le déracinement.',
       members: 10,
@@ -65,7 +72,7 @@ export function ResearchHubs() {
       id: 'health',
       name: 'Health Literacy Hub',
       nameFr: 'Pôle Littératie en santé',
-      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Bird%27s_eye_view_of_Brock_University%283920733844%29.jpg/1200px-Bird%27s_eye_view_of_Brock_University%283920733844%29.jpg',
+      image: '/campus/brock-university-birdseye.jpg',
       description: 'The project seeks to explore best practices for health literacy interventions and community-based perspectives to inform the development of locally relevant strategies that aim to improve the health literacy of diverse immigrant and refugee populations in the Niagara Region. Co-led by Dr. Joanne Crawford (Brock University) and Mariam Khayinza (TOES Niagara), the hub brings together healthcare providers, community organizations, and researchers.',
       descriptionFr: 'Le projet cherche à explorer les meilleures pratiques pour les interventions en littératie en santé et les perspectives communautaires pour éclairer le développement de stratégies localement pertinentes visant à améliorer la littératie en santé des diverses populations immigrantes et réfugiées dans la région de Niagara. Codirigé par Dre Joanne Crawford (Université Brock) et Mariam Khayinza (TOES Niagara), le pôle réunit des prestataires de soins de santé, des organismes communautaires et des chercheurs.',
       members: 20,
@@ -104,7 +111,7 @@ export function ResearchHubs() {
       id: 'identity',
       name: 'Identity, Connections and Belonging Hub',
       nameFr: 'Pôle Identité, connexions et appartenance',
-      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/St._Catharine%27s_bird%27s-eye_view_%283919957873%29.jpg/1200px-St._Catharine%27s_bird%27s-eye_view_%283919957873%29.jpg',
+      image: '/campus/st-catharines-birdseye.jpg',
       description: 'The Identity, Connections and Belonging Hub hosts three distinct projects which foster a sense of belonging amongst three populations: Afro-descendants, sexual and gender diverse young adult newcomers, and seasonal agricultural workers. Led by Dr. Jean Ntakirutimana, the hub includes 26 team members across three focused community projects.',
       descriptionFr: 'Le Pôle Identité, relations et appartenance héberge trois projets distincts visant à favoriser un sentiment d\'appartenance chez trois groupes de populations : les personnes afro-descendantes, les jeunes adultes nouveaux arrivants de diverses identités sexuelles et de genre, et les travailleurs agricoles saisonniers. Dirigé par Dr Jean Ntakirutimana, le pôle comprend 26 membres d\'équipe répartis sur trois projets communautaires ciblés.',
       members: 26,

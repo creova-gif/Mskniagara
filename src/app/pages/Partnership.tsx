@@ -5,6 +5,7 @@ import useEmblaCarousel from 'embla-carousel-react';
 import { useCallback, useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router';
 import { NetworkNodes } from '../components/HeroAnimations';
+import { usePageMeta } from '../hooks/usePageMeta';
 
 // Import logos
 const sshrcLogo = '/c9c77bb67634af21353fb8f536aed3347c90330c.png';
@@ -23,6 +24,12 @@ const HUB_COLORS = {
 
 export function Partnership() {
   const { t, language } = useLanguage();
+  usePageMeta(
+    language === 'en' ? 'Partnership | MSK Niagara' : 'Partenariat | MSK Niagara',
+    language === 'en'
+      ? 'Our academic & community network — how Brock University and Niagara community partners collaborate on the MSK research partnership.'
+      : "Notre réseau académique et communautaire — comment l'Université Brock et les partenaires communautaires du Niagara collaborent au partenariat de recherche MSK."
+  );
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'center', slidesToScroll: 1 });
   const [selectedIndex, setSelectedIndex] = useState(0);
   const introRef = useRef<HTMLDivElement>(null);

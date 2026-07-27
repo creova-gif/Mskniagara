@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import { useState } from 'react';
 import { FilmScan } from '../components/HeroAnimations';
+import { usePageMeta } from '../hooks/usePageMeta';
 
 /* ─── DATA ─────────────────────────────────────────── */
 
@@ -239,6 +240,12 @@ const tabs = [
 
 export function Media() {
   const { language } = useLanguage();
+  usePageMeta(
+    language === 'en' ? 'Media | MSK Niagara' : 'Médias | MSK Niagara',
+    language === 'en'
+      ? 'News, photos, and video coverage of MSK Niagara research partnership events.'
+      : 'Actualités, photos et vidéos des événements du partenariat de recherche MSK Niagara.'
+  );
   const [activeTab, setActiveTab] = useState<'photos' | 'videos' | 'reports'>('photos');
   const [categoryFilter, setCategoryFilter] = useState('all');
   const [lightboxPhoto, setLightboxPhoto] = useState<typeof photoGallery[0] | null>(null);
@@ -338,6 +345,7 @@ export function Media() {
       {/* ── PHOTO GALLERY ────────────────────────────── */}
       {activeTab === 'photos' && (
         <section className="py-12 bg-gray-50 min-h-[60vh]">
+          <h2 className="sr-only">{language === 'en' ? 'Photo Gallery' : 'Galerie de photos'}</h2>
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
             {/* Category filters */}
@@ -422,6 +430,7 @@ export function Media() {
       {/* ── VIDEO GALLERY ─────────────────────────────── */}
       {activeTab === 'videos' && (
         <section className="py-12 bg-gray-50 min-h-[60vh]">
+          <h2 className="sr-only">{language === 'en' ? 'Video Stories' : 'Témoignages vidéo'}</h2>
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
             <div className="mb-8">

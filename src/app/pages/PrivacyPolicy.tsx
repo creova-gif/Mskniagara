@@ -1,5 +1,6 @@
 import { useLanguage } from '../contexts/LanguageContext';
 import { Shield, Lock, Eye, FileText, Mail, AlertCircle, CheckCircle } from 'lucide-react';
+import { usePageMeta } from '../hooks/usePageMeta';
 
 /**
  * Privacy Policy Page
@@ -8,6 +9,12 @@ import { Shield, Lock, Eye, FileText, Mail, AlertCircle, CheckCircle } from 'luc
  */
 export function PrivacyPolicy() {
   const { language } = useLanguage();
+  usePageMeta(
+    language === 'en' ? 'Privacy Policy | MSK Niagara' : 'Politique de confidentialité | MSK Niagara',
+    language === 'en'
+      ? 'How MSK Niagara collects, uses, and protects information on this website.'
+      : 'Comment MSK Niagara recueille, utilise et protège les renseignements sur ce site web.'
+  );
 
   const lastUpdated = language === 'en' ? 'January 3, 2026' : '3 janvier 2026';
 
@@ -59,9 +66,9 @@ export function PrivacyPolicy() {
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
               <div className="flex items-center gap-2 mb-2">
                 <AlertCircle className="w-5 h-5 text-white" />
-                <h3 className="font-bold text-white">
+                <h2 className="font-bold text-white text-base">
                   {language === 'en' ? 'Last Updated' : 'Dernière mise à jour'}
-                </h3>
+                </h2>
               </div>
               <p className="text-white/80 text-sm">{lastUpdated}</p>
             </div>
@@ -69,9 +76,9 @@ export function PrivacyPolicy() {
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
               <div className="flex items-center gap-2 mb-2">
                 <FileText className="w-5 h-5 text-white" />
-                <h3 className="font-bold text-white">
+                <h2 className="font-bold text-white text-base">
                   {language === 'en' ? 'Applies To' : 'S\'applique à'}
-                </h3>
+                </h2>
               </div>
               <p className="text-white/80 text-sm">
                 {language === 'en' ? 'Website visitors & contacts' : 'Visiteurs du site & contacts'}
@@ -81,9 +88,9 @@ export function PrivacyPolicy() {
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
               <div className="flex items-center gap-2 mb-2">
                 <Mail className="w-5 h-5 text-white" />
-                <h3 className="font-bold text-white">
+                <h2 className="font-bold text-white text-base">
                   {language === 'en' ? 'Privacy Contact' : 'Contact confidentialité'}
-                </h3>
+                </h2>
               </div>
               <p className="text-white/80 text-sm">contact@msk-niagara.ca</p>
             </div>
@@ -91,10 +98,10 @@ export function PrivacyPolicy() {
 
           {/* Quick Summary */}
           <div className="bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-            <h3 className="font-bold text-white mb-3 flex items-center gap-2">
+            <h2 className="font-bold text-white mb-3 flex items-center gap-2 text-base">
               <Eye className="w-5 h-5" />
               {language === 'en' ? 'What This Policy Covers' : 'Ce que couvre cette politique'}
-            </h3>
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-white/90">
               <div className="flex items-start gap-2">
                 <CheckCircle className="w-4 h-4 flex-shrink-0 mt-0.5" />

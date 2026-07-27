@@ -5,6 +5,7 @@ import { Badge } from '../components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs';
 import { Building2, User, GraduationCap, Mail, Award, Target } from 'lucide-react';
 import { MemberDots } from '../components/HeroAnimations';
+import { usePageMeta } from '../hooks/usePageMeta';
 import { Avatar, AvatarFallback, AvatarImage } from '../components/ui/avatar';
 import { useState } from 'react';
 
@@ -28,6 +29,12 @@ const justinMafieImg = '/3e11b66e4ba98e2596d7a69e2b6f7b5655a0abe6.png';
 
 export function MemberBios() {
   const { language } = useLanguage();
+  usePageMeta(
+    language === 'en' ? 'Team Members | MSK Niagara' : "Membres de l'équipe | MSK Niagara",
+    language === 'en'
+      ? 'Meet the researchers, students, and community partners driving the MSK Niagara research partnership.'
+      : "Rencontrez les chercheurs, étudiants et partenaires communautaires qui animent le partenariat de recherche MSK Niagara."
+  );
   const [selectedHub, setSelectedHub] = useState<string>('All');
 
   // Hub translation mapping

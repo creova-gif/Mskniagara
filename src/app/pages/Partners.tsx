@@ -3,6 +3,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { ArrowUpRight, BookOpen, Users, Landmark, Send } from 'lucide-react';
 import { useState } from 'react';
 import { NetworkNodes } from '../components/HeroAnimations';
+import { usePageMeta } from '../hooks/usePageMeta';
 
 // Partner logos (shared with Partnership.tsx)
 const sshrcLogo = '/c9c77bb67634af21353fb8f536aed3347c90330c.png';
@@ -69,6 +70,12 @@ function Marker({ index, label }: { index: string; label: string }) {
 
 export function Partners() {
   const { language } = useLanguage();
+  usePageMeta(
+    language === 'en' ? 'Partner Network | MSK Niagara' : 'Réseau de partenaires | MSK Niagara',
+    language === 'en'
+      ? 'Community organizers, academic researchers, and institutional funders working as equals in the MSK Niagara partner network.'
+      : 'Organisateurs communautaires, chercheurs universitaires et bailleurs de fonds institutionnels collaborant à égalité au sein du réseau de partenaires MSK Niagara.'
+  );
   const en = language === 'en';
   const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
 

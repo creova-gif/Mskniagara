@@ -8,6 +8,7 @@ import {
   Copy, Check, Quote
 } from 'lucide-react';
 import { KnowledgeFlow } from '../components/HeroAnimations';
+import { usePageMeta } from '../hooks/usePageMeta';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../components/ui/select';
 import { useState, useCallback } from 'react';
 
@@ -147,6 +148,12 @@ function CiteButton({ pub, language }: { pub: Publication; language: string }) {
 
 export function KnowledgeDissemination() {
   const { t, language } = useLanguage();
+  usePageMeta(
+    language === 'en' ? 'Knowledge Dissemination | MSK Niagara' : 'Diffusion des savoirs | MSK Niagara',
+    language === 'en'
+      ? 'Publications, findings, and knowledge mobilization from the MSK Niagara research partnership.'
+      : 'Publications, résultats et mobilisation des connaissances du partenariat de recherche MSK Niagara.'
+  );
   const [filterType, setFilterType] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);

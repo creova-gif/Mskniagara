@@ -9,21 +9,24 @@ import { Breadcrumbs } from './components/Breadcrumbs';
 import { PageTransition } from './components/PageTransition';
 import { ScrollToTop } from './components/ScrollToTop';
 
-// Page Components
-import { Home } from './pages/Home';
-import { Partnership } from './pages/Partnership';
-import { ResearchHubs } from './pages/ResearchHubs';
-import { HubDetail } from './pages/HubDetail';
-import { MemberBios } from './pages/MemberBios';
-import { ResearchProjects } from './pages/ResearchProjects';
-import { KnowledgeDissemination } from './pages/KnowledgeDissemination';
-import { Community } from './pages/Community';
-import { Timeline } from './pages/Timeline';
-import { PrivacyPolicy } from './pages/PrivacyPolicy';
-import { HelpCenter } from './components/HelpCenter';
-import { Media } from './pages/Media';
-import { Partners } from './pages/Partners';
-import { Donate } from './pages/Donate';
+import { Suspense, lazy } from 'react';
+import { PageLoader } from './components/PageLoader';
+
+// Page Components (Lazy Loaded)
+const Home = lazy(() => import('./pages/Home').then(m => ({ default: m.Home })));
+const Partnership = lazy(() => import('./pages/Partnership').then(m => ({ default: m.Partnership })));
+const ResearchHubs = lazy(() => import('./pages/ResearchHubs').then(m => ({ default: m.ResearchHubs })));
+const HubDetail = lazy(() => import('./pages/HubDetail').then(m => ({ default: m.HubDetail })));
+const MemberBios = lazy(() => import('./pages/MemberBios').then(m => ({ default: m.MemberBios })));
+const ResearchProjects = lazy(() => import('./pages/ResearchProjects').then(m => ({ default: m.ResearchProjects })));
+const KnowledgeDissemination = lazy(() => import('./pages/KnowledgeDissemination').then(m => ({ default: m.KnowledgeDissemination })));
+const Community = lazy(() => import('./pages/Community').then(m => ({ default: m.Community })));
+const Timeline = lazy(() => import('./pages/Timeline').then(m => ({ default: m.Timeline })));
+const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy').then(m => ({ default: m.PrivacyPolicy })));
+const HelpCenter = lazy(() => import('./components/HelpCenter').then(m => ({ default: m.HelpCenter })));
+const Media = lazy(() => import('./pages/Media').then(m => ({ default: m.Media })));
+const Partners = lazy(() => import('./pages/Partners').then(m => ({ default: m.Partners })));
+const Donate = lazy(() => import('./pages/Donate').then(m => ({ default: m.Donate })));
 
 /**
  * App Content Component
@@ -46,23 +49,25 @@ function AppContent() {
       <Breadcrumbs />
       
       <PageTransition>
-        <main id="main-content" className="flex-1">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about/partnership" element={<Partnership />} />
-            <Route path="/about/hubs" element={<ResearchHubs />} />
-            <Route path="/about/hubs/:hubId" element={<HubDetail />} />
-            <Route path="/about/members" element={<MemberBios />} />
-            <Route path="/partners" element={<Partners />} />
-            <Route path="/research/projects" element={<ResearchProjects />} />
-            <Route path="/research/knowledge" element={<KnowledgeDissemination />} />
-            <Route path="/community" element={<Community />} />
-            <Route path="/timeline" element={<Timeline />} />
-            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="/help" element={<HelpCenter />} />
-            <Route path="/media" element={<Media />} />
-            <Route path="/donate" element={<Donate />} />
-          </Routes>
+        <main id="main-content" tabIndex={-1} className="flex-1 focus:outline-none">
+          <Suspense fallback={<PageLoader />}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about/partnership" element={<Partnership />} />
+              <Route path="/about/hubs" element={<ResearchHubs />} />
+              <Route path="/about/hubs/:hubId" element={<HubDetail />} />
+              <Route path="/about/members" element={<MemberBios />} />
+              <Route path="/partners" element={<Partners />} />
+              <Route path="/research/projects" element={<ResearchProjects />} />
+              <Route path="/research/knowledge" element={<KnowledgeDissemination />} />
+              <Route path="/community" element={<Community />} />
+              <Route path="/timeline" element={<Timeline />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/help" element={<HelpCenter />} />
+              <Route path="/media" element={<Media />} />
+              <Route path="/donate" element={<Donate />} />
+            </Routes>
+          </Suspense>
         </main>
       </PageTransition>
       

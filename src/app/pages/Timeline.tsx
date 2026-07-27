@@ -1,10 +1,11 @@
 import { useLanguage } from '../contexts/LanguageContext';
-import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
+import { Card, CardContent, CardHeader } from '../components/ui/card';
 import { Badge } from '../components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs';
 import { Calendar, MapPin, Users, Clock, Inbox, ExternalLink, Star, Download } from 'lucide-react';
 import { TimelineBeam } from '../components/HeroAnimations';
 import { sanitizeUrl } from '../utils/security';
+import { usePageMeta } from '../hooks/usePageMeta';
 
 const TODAY = new Date();
 TODAY.setHours(0, 0, 0, 0);
@@ -60,6 +61,12 @@ function downloadICS(filename: string, content: string) {
 
 export function Timeline() {
   const { t, language } = useLanguage();
+  usePageMeta(
+    language === 'en' ? 'Timeline & Events | MSK Niagara' : 'Chronologie et événements | MSK Niagara',
+    language === 'en'
+      ? "Key milestones, events, and symposiums in the MSK Niagara research partnership's history."
+      : "Jalons clés, événements et symposiums de l'histoire du partenariat de recherche MSK Niagara."
+  );
 
   const timelineEvents = [
     {
@@ -558,7 +565,7 @@ function EventCard({ event, isPast, language, t }: {
             <span className="text-gray-300">•</span>
             <span className="text-[#0A0A0A]/50 text-sm">{event.time}</span>
           </div>
-          <CardTitle className={`text-xl ${isPast ? 'text-gray-500' : 'text-[#0A0A0A]'}`}>{event.title}</CardTitle>
+          <h3 className={`text-xl leading-none ${isPast ? 'text-gray-500' : 'text-[#0A0A0A]'}`} data-slot="card-title">{event.title}</h3>
         </CardHeader>
         <CardContent className="space-y-4">
           <p className={isPast ? 'text-gray-400' : 'text-[#0A0A0A]/70'}>{event.description}</p>

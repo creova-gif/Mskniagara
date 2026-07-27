@@ -1,0 +1,1 @@
+import{r}from"./index-CpUxgomk.js";function c(o,t){r.useEffect(()=>{if(document.title=o,t){const e=document.querySelector('meta[name="description"]');e==null||e.setAttribute("content",t)}},[o,t])}export{c as u};

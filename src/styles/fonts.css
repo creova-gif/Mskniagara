@@ -3,15 +3,22 @@
  *
  * TYPOGRAPHY STRATEGY:
  * ─────────────────────────────────────────────
- * Heading font : Plus Jakarta Sans
- *   — Modern grotesque with warmth and authority
- *   — Used by premium SaaS products; signals quality
- *   — Weights: 600, 700, 800
+ * MSK Niagara is a Brock University community-research partnership, so this
+ * system is deliberately chosen to echo Brock's brand typography (Bliss +
+ * Circular) — but Bliss and Circular are both commercial/licensed fonts not
+ * available to this project, so we do NOT reference them by name. Doing so
+ * would silently fall back for every visitor except the rare one who happens
+ * to have those fonts installed locally, producing inconsistent rendering.
+ *
+ * Heading font : Cabin
+ *   — Freely-licensed humanist sans with warmth and rounded terminals,
+ *     the closest open match to Brock's "Bliss" heading typeface
+ *   — Weights: 400–700 (variable)
  *
  * Body font    : Inter
- *   — Gold standard for UI legibility
- *   — Used by Linear, Vercel, Stripe
- *   — Weights: 400, 500, 600
+ *   — Gold standard for UI legibility, closest open match to Brock's
+ *     "Circular" body/UI typeface
+ *   — Weights: 400, 500, 600, 700
  *
  * Both fonts are variable-weight and Google Fonts-hosted
  * for zero layout shift and fast loading.
@@ -20,8 +27,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 
 :root {
-  --font-heading: 'Bliss Light', 'Cabin', 'Plus Jakarta Sans', 'Trebuchet MS', system-ui, -apple-system, sans-serif;
-  --font-body:    'Circular', 'Inter', 'Trebuchet MS', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Cabin', 'Plus Jakarta Sans', 'Trebuchet MS', system-ui, -apple-system, sans-serif;
+  --font-body:    'Inter', 'Trebuchet MS', system-ui, -apple-system, sans-serif;
   --font-mono:    'IBM Plex Mono', ui-monospace, 'JetBrains Mono', 'Fira Code', monospace;
 }
 

@@ -4,11 +4,18 @@ import { Badge } from '../components/ui/badge';
 import { Button } from '../components/ui/button';
 import { useState } from 'react';
 import { DataGrid } from '../components/HeroAnimations';
+import { usePageMeta } from '../hooks/usePageMeta';
 import { ExternalLink, Users, Calendar, Mail, TrendingUp, Heart, Zap, GraduationCap, HandHeart, Sprout, Network, Activity, Target, Search, ArrowRight, CheckCircle2, Clock, MapPin, Filter, X } from 'lucide-react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../components/ui/select';
 
 export function ResearchProjects() {
   const { language } = useLanguage();
+  usePageMeta(
+    language === 'en' ? 'Projects | MSK Niagara' : 'Projets | MSK Niagara',
+    language === 'en'
+      ? 'Active research initiatives underway within the MSK Niagara partnership.'
+      : 'Initiatives de recherche actives menées dans le cadre du partenariat MSK Niagara.'
+  );
   const [filterHub, setFilterHub] = useState<string>('all');
   const [filterStatus, setFilterStatus] = useState<string>('all');
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);

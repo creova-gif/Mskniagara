@@ -30,10 +30,11 @@
 import { useLanguage } from '../contexts/LanguageContext';
 import { Link } from 'react-router';
 import { ArrowRight, Users, BookOpen, Calendar, ExternalLink, CheckCircle2, UserCheck, Code, Handshake, Database, Sparkles } from 'lucide-react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
+import { Card, CardContent, CardDescription, CardHeader } from '../components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '../components/ui/avatar';
 import { useEffect, useRef, useState } from 'react';
 import { EmberParticles } from '../components/HeroAnimations';
+import { usePageMeta } from '../hooks/usePageMeta';
 
 // Import co-director profile images
 const jeanNtakirutimanaImg = '/a4bced4acbd5814bb109a187b7f1325cde395ea7.png';
@@ -41,6 +42,14 @@ const livianaTossuttiImg = '/438f2f96ee4c30da348ebf5afdbb45ab22a5947b.png';
 
 export function Home() {
   const { language } = useLanguage();
+  usePageMeta(
+    language === 'en'
+      ? 'MSK Niagara | Mobilizing Subjugated Knowledges for a Just and Inclusive Niagara'
+      : 'MSK Niagara | Mobiliser les savoirs marginalisés pour un Niagara juste et inclusif',
+    language === 'en'
+      ? 'A transnational, university-community partnership at Brock University mobilizing knowledge for social justice in the Niagara region. Funded by SSHRC.'
+      : "Un partenariat transnational université-communauté à l'Université Brock qui mobilise les savoirs pour la justice sociale dans la région de Niagara. Financé par le CRSH."
+  );
   const workSectionRef = useRef<HTMLDivElement>(null);
   const [workVisible, setWorkVisible] = useState(false);
 
@@ -350,7 +359,7 @@ export function Home() {
               {/* Brock University aerial thumbnail */}
               <div className="hidden md:block relative w-48 h-32 rounded-xl overflow-hidden border-2 border-white/20 shadow-2xl flex-shrink-0 group">
                 <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Campus_bird%27s-eye_view%2C_Brock_University_%283920733004%29.jpg/600px-Campus_bird%27s-eye_view%2C_Brock_University_%283920733004%29.jpg"
+                  src="/campus/brock-campus-aerial-600.jpg"
                   alt="Bird's-eye aerial view of Brock University campus in St. Catharines, Ontario"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   loading="lazy"
@@ -423,7 +432,7 @@ export function Home() {
               {
                 number: '03',
                 color: '#7B5EA7',
-                image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Bird%27s_eye_view_of_Brock_University%283920733844%29.jpg/1200px-Bird%27s_eye_view_of_Brock_University%283920733844%29.jpg',
+                image: '/campus/brock-university-birdseye.jpg',
                 title: language === 'en' ? 'Identity, Connections & Belonging' : 'Identité, liens et appartenance',
                 desc: language === 'en'
                   ? 'Fostering belonging among Afro-descendants, LGBTQ+ newcomers, and seasonal farmworkers.'
@@ -883,9 +892,9 @@ export function Home() {
                 <span className="text-[10px] font-bold tracking-widest uppercase text-[#EF4444] mb-2 block">
                   {language === 'en' ? 'Niagara Region' : 'Région de Niagara'}
                 </span>
-                <h4 className="text-xl font-bold mb-2 font-heading" style={{ fontFamily: 'var(--font-heading)' }}>
+                <h3 className="text-xl font-bold mb-2 font-heading" style={{ fontFamily: 'var(--font-heading)' }}>
                   {language === 'en' ? 'Mobilizing Knowledge, Transforming Communities' : 'Mobiliser les savoirs, transformer les communautés'}
-                </h4>
+                </h3>
                 <p className="text-xs text-white/80 leading-relaxed">
                   {language === 'en'
                     ? 'A partnership bridging Brock University and community partners across Saint Catharines, Welland, and Niagara Falls.'
@@ -914,7 +923,7 @@ export function Home() {
                       {director.name.split(' ').map(n => n[0]).join('')}
                     </AvatarFallback>
                   </Avatar>
-                  <CardTitle className="text-2xl text-[#0A0A0A]">{director.name}</CardTitle>
+                  <h3 className="text-2xl text-[#0A0A0A] leading-none" data-slot="card-title">{director.name}</h3>
                   <CardDescription className="text-base text-[#8B0000] font-medium mt-2">
                     {language === 'en' ? director.titleEn : director.titleFr}
                   </CardDescription>
@@ -970,7 +979,7 @@ export function Home() {
                 descEn: 'Five active projects generating knowledge across housing, health, sport, and identity.',
                 descFr: 'Cinq projets actifs produisant des connaissances en logement, santé, sport et identité.',
                 delay: 100,
-                bgImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Campus_bird%27s-eye_view%2C_Brock_University_%283920733004%29.jpg/1200px-Campus_bird%27s-eye_view%2C_Brock_University_%283920733004%29.jpg'
+                bgImage: '/campus/brock-campus-aerial-1200.jpg'
               },
               {
                 to: '/community',
