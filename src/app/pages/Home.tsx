@@ -484,14 +484,14 @@ export function Home() {
             {/* Cell 3 — Top-right narrow tile (spans 3 cols) */}
             <div className="col-span-12 md:col-span-3 group relative overflow-hidden rounded-3xl cursor-pointer">
               <img
-                src="/community/symposium-participants-discussion.jpg"
-                alt={language === 'en' ? 'Symposium participants engaged in table discussion' : 'Participants du symposium en discussion de table'}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                src="/community/bilateral-conversation-yellow-glasses.jpg"
+                alt={language === 'en' ? 'Community participant Julie and researcher in engaged one-on-one conversation at MSK event' : 'La participante Julie et un chercheur en conversation individuelle à l\'événement MSK'}
+                className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#0A0A0A]/70" />
               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="bg-white/15 backdrop-blur-md rounded-2xl px-4 py-3 mx-4 text-center">
-                  <p className="text-white text-xs font-semibold">{language === 'en' ? 'Engaged participants' : 'Participants engagés'}</p>
+                  <p className="text-white text-xs font-semibold">{language === 'en' ? 'One-on-one dialogue' : 'Dialogue individuel'}</p>
                 </div>
               </div>
             </div>
@@ -499,8 +499,8 @@ export function Home() {
             {/* Cell 4 — Bottom-right wide (spans 4 cols) */}
             <div className="col-span-12 md:col-span-4 group relative overflow-hidden rounded-3xl cursor-pointer">
               <img
-                src="/community/researchers-engaging.jpg"
-                alt={language === 'en' ? 'Researchers in conversation at a community meeting' : 'Chercheurs en conversation lors d\'une réunion communautaire'}
+                src="/community/researcher-greeting-attendees.jpg"
+                alt={language === 'en' ? 'Researcher warmly greeting and connecting with community attendees post-session' : 'Chercheure accueillant chaleureusement les participants communautaires après la séance'}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/60 via-transparent to-transparent" />

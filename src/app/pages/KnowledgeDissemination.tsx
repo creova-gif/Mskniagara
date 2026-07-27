@@ -351,6 +351,48 @@ export function KnowledgeDissemination() {
         </div>
       </div>
 
+      {/* Knowledge in Action — editorial photo feature */}
+      <div className="bg-[#0A0A0A] py-0">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] overflow-hidden">
+
+            {/* Photo panel */}
+            <div className="relative h-72 lg:h-80 overflow-hidden group">
+              <img
+                src="/community/researcher-presenting-brocku.jpg"
+                alt="MSK researcher presenting research findings on anti-racism and inclusion to a diverse community audience at Brock University"
+                className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent lg:to-[#0A0A0A] to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/60 to-transparent lg:hidden" />
+              {/* Event badge */}
+              <div className="absolute top-5 left-5">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#8B0000] text-white text-[10px] font-bold uppercase tracking-wider shadow-lg">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#FFC956] animate-pulse" />
+                  {language === 'en' ? 'Research Presentation' : 'Présentation de recherche'}
+                </span>
+              </div>
+            </div>
+
+            {/* Quote panel */}
+            <div className="flex flex-col justify-center px-8 md:px-12 py-10 bg-[#0A0A0A]">
+              <div className="w-8 h-px bg-[#8B0000] mb-6" />
+              <blockquote className="text-white text-xl md:text-2xl font-semibold leading-snug mb-5" style={{ fontFamily: 'var(--font-heading)' }}>
+                {language === 'en'
+                  ? '"Knowledge becomes powerful when it leaves the lab and reaches the people it was always about."'
+                  : '"Le savoir devient puissant quand il quitte le laboratoire et rejoint les personnes dont il a toujours parlé."'}
+              </blockquote>
+              <p className="text-white/40 text-sm">
+                {language === 'en'
+                  ? 'MSK/MSM Niagara Research Partnership · Knowledge Translation Principle'
+                  : 'Partenariat de recherche MSK/MSM Niagara · Principe de transfert de connaissances'}
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
       {/* Content Section */}
       <main id="publications-grid" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 relative z-20">
 

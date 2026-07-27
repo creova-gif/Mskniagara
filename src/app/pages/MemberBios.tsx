@@ -751,24 +751,67 @@ export function MemberBios() {
               </p>
             </div>
 
-            {/* Right: stat cards */}
-            <div className="grid grid-cols-2 gap-4">
-              {[
-                { n: '56', label: language === 'en' ? 'Team Members' : 'Membres', sub: language === 'en' ? 'across 3 hubs' : 'dans 3 pôles' },
-                { n: '3', label: language === 'en' ? 'Research Hubs' : 'Pôles', sub: language === 'en' ? 'focused topics' : 'sujets ciblés' },
-                { n: '5+', label: language === 'en' ? 'Institutions' : 'Institutions', sub: language === 'en' ? 'collaborating' : 'collaborant' },
-                { n: '26', label: language === 'en' ? 'Community Partners' : 'Partenaires', sub: language === 'en' ? 'organizations' : 'organisations' },
-              ].map(s => (
-                <div key={s.n} className="rounded-2xl bg-white/5 border border-white/8 p-5 hover:bg-white/8 transition-colors">
-                  <div className="text-3xl font-extrabold text-white mb-1" style={{ fontFamily: 'var(--font-heading)' }}>{s.n}</div>
-                  <div className="text-sm font-semibold text-white/80">{s.label}</div>
-                  <div className="text-xs text-white/35 mt-0.5">{s.sub}</div>
+            {/* Right: photo mosaic with stat overlays */}
+            <div className="grid grid-cols-2 gap-3 relative">
+              {/* Photo 1 — discussion */}
+              <div className="relative overflow-hidden rounded-2xl h-44 group">
+                <img
+                  src="/community/bilateral-conversation-yellow-glasses.jpg"
+                  alt="Community participant Julie and researcher in discussion at MSK event"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                <div className="absolute bottom-3 left-3">
+                  <div className="text-2xl font-extrabold text-white leading-none" style={{ fontFamily: 'var(--font-heading)' }}>56</div>
+                  <div className="text-[10px] text-white/70 font-medium mt-0.5">{language === 'en' ? 'Team Members' : 'Membres'}</div>
                 </div>
-              ))}
+              </div>
+              {/* Photo 2 — presenter */}
+              <div className="relative overflow-hidden rounded-2xl h-44 group">
+                <img
+                  src="/community/researcher-presenting-brocku.jpg"
+                  alt="Researcher presenting research findings to a community audience at Brock University"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                <div className="absolute bottom-3 left-3">
+                  <div className="text-2xl font-extrabold text-white leading-none" style={{ fontFamily: 'var(--font-heading)' }}>3</div>
+                  <div className="text-[10px] text-white/70 font-medium mt-0.5">{language === 'en' ? 'Research Hubs' : 'Pôles'}</div>
+                </div>
+              </div>
+              {/* Photo 3 — networking */}
+              <div className="relative overflow-hidden rounded-2xl h-44 group">
+                <img
+                  src="/community/researcher-networking-postgathering.jpg"
+                  alt="Researcher engaging in post-event conversations with attendees"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                <div className="absolute bottom-3 left-3">
+                  <div className="text-2xl font-extrabold text-white leading-none" style={{ fontFamily: 'var(--font-heading)' }}>5+</div>
+                  <div className="text-[10px] text-white/70 font-medium mt-0.5">{language === 'en' ? 'Institutions' : 'Institutions'}</div>
+                </div>
+              </div>
+              {/* Photo 4 — greeting */}
+              <div className="relative overflow-hidden rounded-2xl h-44 group">
+                <img
+                  src="/community/researcher-greeting-attendees.jpg"
+                  alt="Researcher greeting and welcoming event attendees"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                <div className="absolute bottom-3 left-3">
+                  <div className="text-2xl font-extrabold text-white leading-none" style={{ fontFamily: 'var(--font-heading)' }}>26</div>
+                  <div className="text-[10px] text-white/70 font-medium mt-0.5">{language === 'en' ? 'Community Partners' : 'Partenaires'}</div>
+                </div>
+              </div>
+              {/* Crimson corner accent */}
+              <div className="absolute -bottom-3 -right-3 w-16 h-16 rounded-full bg-[#8B0000]/30 blur-xl pointer-events-none" />
             </div>
           </div>
         </div>
       </div>
+
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 -mt-16 pb-20 relative z-20">
 
