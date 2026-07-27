@@ -17,6 +17,8 @@ export function ResearchProjects() {
     {
       title: 'Childhood and Growing Up',
       titleFr: 'Enfance et croissance',
+      tldr: 'Studying the lived housing, education, and leisure experiences of newcomer and racialized children in Niagara.',
+      tldrFr: 'Étude des expériences vécues par les enfants nouveaux arrivants et racialisés à Niagara (logement, éducation, loisirs).',
       hub: 'Childhood and Growing Up Hub',
       hubFr: 'Pôle Enfance et croissance',
       hubShort: 'Childhood',
@@ -41,6 +43,8 @@ export function ResearchProjects() {
     {
       title: 'Identity & Belonging within Afro Descendants',
       titleFr: 'Identité et appartenance afro-descendants',
+      tldr: 'Exploring cultural identity, social belonging, and community connection among Afro-descendant populations in Niagara.',
+      tldrFr: 'Exploration de l\'identité culturelle et de l\'appartenance sociale des populations afro-descendantes à Niagara.',
       hub: 'Identity, Connections and Belonging Hub',
       hubFr: 'Pôle Identité, connexions et appartenance',
       hubShort: 'Identity & Belonging',
@@ -51,8 +55,8 @@ export function ResearchProjects() {
       gradient: 'from-[#6635B1] to-[#8B0000]',
       description: 'This project explores the experiences of identity and belonging among Afro-descendant communities in the Niagara region, examining how individuals navigate cultural identity, community connections, and social belonging in the Canadian context.',
       descriptionFr: 'Ce projet explore les expériences d\'identité et d\'appartenance parmi les communautés afro-descendantes dans la région de Niagara, examinant comment les individus naviguent l\'identité culturelle, les connexions communautaires et l\'appartenance sociale dans le contexte canadien.',
-      participants: 'Coming soon',
-      participantsFr: 'Prochainement',
+      participants: 'Recruiting community participants',
+      participantsFr: 'Recrutement de participants communautaires',
       timeline: '2024 - 2027',
       contact: 'Dr. Jean Ntakirutimana',
       contactEmail: 'jntakirutimana@brocku.ca',
@@ -65,6 +69,8 @@ export function ResearchProjects() {
     {
       title: 'Migrant Farmworkers in Community',
       titleFr: 'Travailleurs agricoles migrants',
+      tldr: 'Fostering dignity, community integration, and digital storytelling for seasonal agricultural workers in Niagara.',
+      tldrFr: 'Promotion de la dignité et de l\'intégration communautaire des travailleurs agricoles saisonniers à Niagara.',
       hub: 'Identity, Connections and Belonging Hub',
       hubFr: 'Pôle Identité, connexions et appartenance',
       hubShort: 'Identity & Belonging',
@@ -89,6 +95,8 @@ export function ResearchProjects() {
     {
       title: 'ICT Use & SGD Newcomers',
       titleFr: 'Utilisation TIC & nouveaux arrivants DSG',
+      tldr: 'Examining digital technology use and social support networks among sexual and gender diverse (SGD) newcomers.',
+      tldrFr: 'Examen de l\'utilisation des technologies numériques chez les nouveaux arrivants de diverses identités sexuelles et de genre (DSG).',
       hub: 'Identity, Connections and Belonging Hub',
       hubFr: 'Pôle Identité, connexions et appartenance',
       hubShort: 'Identity & Belonging',
@@ -99,8 +107,8 @@ export function ResearchProjects() {
       gradient: 'from-[#8B0000] to-[#A40000]',
       description: 'This project examines how sexual and gender diverse (SGD) newcomers in the Niagara region use information and communication technologies (ICT) to navigate settlement, build community connections, and maintain cultural and social ties while establishing their identities in a new context.',
       descriptionFr: 'Ce projet examine comment les nouveaux arrivants de diverses identités sexuelles et de genre (DSG) dans la région de Niagara utilisent les technologies de l\'information et de la communication (TIC) pour naviguer l\'établissement, construire des connexions communautaires et maintenir des liens culturels et sociaux tout en établissant leurs identités dans un nouveau contexte.',
-      participants: 'Coming soon',
-      participantsFr: 'Prochainement',
+      participants: 'Actively recruiting participants',
+      participantsFr: 'Recrutement actif de participants',
       timeline: '2024 - 2027',
       contact: 'Dr. Dane Marco Di Cesare',
       contactEmail: 'ddicesare@brocku.ca',
@@ -112,6 +120,8 @@ export function ResearchProjects() {
     {
       title: 'Health Literacy',
       titleFr: 'Littératie en santé',
+      tldr: 'Developing accessible health education resources and community health partnerships for newcomer populations.',
+      tldrFr: 'Développement de ressources d\'éducation à la santé accessibles et de partenariats pour les populations nouvelles arrivantes.',
       hub: 'Health Literacy Hub',
       hubFr: 'Pôle Littératie en santé',
       hubShort: 'Health Literacy',
@@ -122,8 +132,8 @@ export function ResearchProjects() {
       gradient: 'from-[#12647F] to-[#089EA5]',
       description: 'This project focuses on understanding and improving health literacy among diverse populations in the Niagara region, with emphasis on developing accessible health information resources and community-based health education strategies.',
       descriptionFr: 'Ce projet se concentre sur la compréhension et l\'amélioration de la littératie en santé parmi les populations diverses de la région de Niagara, en mettant l\'accent sur le développement de ressources d\'information sur la santé accessibles et de stratégies d\'éducation à la santé communautaire.',
-      participants: 'Coming soon',
-      participantsFr: 'Prochainement',
+      participants: 'Project design phase',
+      participantsFr: 'Phase de conception du projet',
       timeline: '2025 - 2028',
       contact: 'Dr. Joanne Crawford',
       contactEmail: 'jcrawford@brocku.ca',
@@ -479,9 +489,23 @@ export function ResearchProjects() {
                         {language === 'en' ? project.title : project.titleFr}
                       </h2>
                     </div>
+
+                    {/* TL;DR / Plain Language Summary (Cognitive Accessibility) */}
+                    {project.tldr && (
+                      <div className="bg-[#8B0000]/5 border-l-4 border-[#8B0000] p-4 rounded-r-2xl">
+                        <div className="flex items-center gap-2 mb-1">
+                          <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#8B0000] bg-[#8B0000]/10 px-2 py-0.5 rounded">
+                            TL;DR · {language === 'en' ? 'Plain Language Summary' : 'Résumé en langage simple'}
+                          </span>
+                        </div>
+                        <p className="text-sm font-semibold text-[#0A0A0A]/90 leading-snug">
+                          {language === 'en' ? project.tldr : project.tldrFr}
+                        </p>
+                      </div>
+                    )}
                     
-                    {/* Description */}
-                    <p className="text-lg text-[#0A0A0A]/80 leading-relaxed">
+                    {/* Full Academic Description */}
+                    <p className="text-base md:text-lg text-[#0A0A0A]/80 leading-relaxed">
                       {language === 'en' ? project.description : project.descriptionFr}
                     </p>
                     
@@ -540,21 +564,32 @@ export function ResearchProjects() {
                       </div>
                     </div>
                     
-                    {/* CTA Button */}
-                    {project.surveyLink && (
-                      <div className="pt-4">
+                    {/* Recruitment & Collaboration Action Buttons */}
+                    <div className="pt-4 flex flex-wrap gap-3">
+                      {project.surveyLink ? (
                         <Button
                           asChild
-                          className="bg-gradient-to-r from-[#8B0000] to-[#A40000] hover:shadow-xl text-white font-semibold px-8 py-6 rounded-xl transition-all duration-300 group/btn border-0"
+                          className="bg-gradient-to-r from-[#8B0000] to-[#A40000] hover:shadow-xl text-white font-bold px-8 py-6 rounded-xl transition-all duration-300 group/btn border-0"
                         >
                           <a href={sanitizeUrl(project.surveyLink)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3">
-                            <ExternalLink className="w-5 h-5" />
-                            <span>{language === 'en' ? 'Learn More & Get Involved' : 'En savoir plus et participer'}</span>
+                            <ExternalLink className="w-5 h-5 text-[#FFC956]" />
+                            <span>{language === 'en' ? 'Participate in Study / Share Story' : 'Participer à l\'étude / Partager votre histoire'}</span>
                             <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
                           </a>
                         </Button>
-                      </div>
-                    )}
+                      ) : (
+                        <Button
+                          asChild
+                          className="bg-[#8B0000] hover:bg-[#A40000] text-white font-bold px-8 py-6 rounded-xl transition-all duration-300 group/btn border-0"
+                        >
+                          <a href={`mailto:${project.contactEmail}?subject=Inquiry regarding ${encodeURIComponent(project.title)}`} className="inline-flex items-center gap-3">
+                            <Mail className="w-5 h-5 text-[#FFC956]" />
+                            <span>{language === 'en' ? `Get Involved · Email ${project.contact}` : `Participer · Contacter ${project.contact}`}</span>
+                            <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
+                          </a>
+                        </Button>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>

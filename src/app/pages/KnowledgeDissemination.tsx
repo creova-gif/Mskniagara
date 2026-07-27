@@ -516,24 +516,26 @@ export function KnowledgeDissemination() {
                     {language === 'en' ? pub.abstract : pub.abstractFr}
                   </p>
 
-                  {/* Action Buttons */}
-                  <div className="flex gap-3 flex-wrap">
+                  {/* Action Buttons — Contextual CTAs */}
+                  <div className="flex gap-2.5 flex-wrap">
                     <Button
                       disabled
-                      className="flex-1 bg-gray-300 text-gray-600 cursor-not-allowed font-semibold rounded-xl transition-all duration-300 border-0"
+                      className="flex-1 bg-gray-200 text-gray-600 cursor-not-allowed font-semibold rounded-xl transition-all duration-300 border-0 text-xs"
                       aria-label={language === 'en' ? 'Full text coming soon' : 'Texte complet prochainement'}
                     >
-                      <Eye className="w-4 h-4 mr-2" aria-hidden="true" />
-                      {language === 'en' ? 'Coming Soon' : 'Prochainement'}
+                      <Eye className="w-3.5 h-3.5 mr-1.5" aria-hidden="true" />
+                      {language === 'en' ? 'PDF (Soon)' : 'PDF (Bientôt)'}
                     </Button>
                     <CiteButton pub={pub} language={language} />
                     <Button
-                      disabled
+                      asChild
                       variant="outline"
-                      className="px-4 border-2 rounded-xl font-semibold bg-gray-100 text-gray-500 cursor-not-allowed border-gray-300"
-                      aria-label={language === 'en' ? 'Download (coming soon)' : 'Télécharger (prochainement)'}
+                      className="border-2 border-[#089EA5]/30 text-[#089EA5] hover:border-[#089EA5] hover:bg-[#089EA5] hover:text-white rounded-xl font-semibold text-xs transition-all duration-300 gap-1.5"
                     >
-                      <Download className="w-4 h-4" aria-hidden="true" />
+                      <a href={`mailto:jntakirutimana@brocku.ca?subject=Collaboration Inquiry: ${encodeURIComponent(pub.title)}`}>
+                        <Users className="w-3.5 h-3.5" />
+                        {language === 'en' ? 'Collaborate' : 'Collaborer'}
+                      </a>
                     </Button>
                   </div>
                 </div>

@@ -29,7 +29,7 @@
 
 import { useLanguage } from '../contexts/LanguageContext';
 import { Link } from 'react-router';
-import { ArrowRight, Users, BookOpen, Calendar, ExternalLink, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, Users, BookOpen, Calendar, ExternalLink, CheckCircle2, UserCheck, Code, Handshake, Database, Sparkles } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '../components/ui/avatar';
 import { useEffect, useRef, useState } from 'react';
@@ -119,20 +119,29 @@ export function Home() {
               : 'Un partenariat transnational université-communauté engagé à bâtir la justice sociale'}
           </p>
           
-          {/* CTA Buttons */}
-          <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up animate-delay-300">
+          {/* CTA Buttons — Participation-First Entry Points */}
+          <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up animate-delay-300">
             <Link 
-              to="/about/partnership"
-              className="group px-8 py-4 bg-[#0A0A0A] text-white rounded-full font-semibold hover:bg-[#1A1A1A] hover:shadow-2xl transform hover:scale-105 transition-all duration-300 inline-flex items-center justify-center gap-2"
+              to="/research/projects"
+              className="group px-8 py-4 bg-[#8B0000] text-white rounded-full font-bold shadow-xl hover:bg-[#A40000] hover:shadow-[0_8px_25px_rgba(139,0,0,0.5)] transform hover:scale-105 transition-all duration-300 inline-flex items-center justify-center gap-2 text-base"
             >
-              {language === 'en' ? 'Learn More' : 'En savoir plus'}
+              <UserCheck className="w-5 h-5 text-[#FFC956]" />
+              {language === 'en' ? 'Participate in Research' : 'Participer à la recherche'}
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link 
-              to="/research/projects"
-              className="px-8 py-4 bg-transparent border-2 border-white text-white rounded-full font-semibold hover:bg-white hover:text-[#8B0000] transform hover:scale-105 transition-all duration-300"
+              to="/partners"
+              className="px-8 py-4 bg-[#0A0A0A] border-2 border-[#8B0000]/60 text-white rounded-full font-semibold hover:bg-white hover:text-[#0A0A0A] hover:border-white transform hover:scale-105 transition-all duration-300 inline-flex items-center gap-2 text-base"
             >
-              {language === 'en' ? 'View Projects' : 'Voir les projets'}
+              <Handshake className="w-5 h-5 text-[#089EA5]" />
+              {language === 'en' ? 'Partner With Us' : 'Devenir partenaire'}
+            </Link>
+            <Link 
+              to="/research/knowledge"
+              className="px-6 py-4 bg-white/10 backdrop-blur-md border border-white/30 text-white rounded-full font-semibold hover:bg-white/20 transform hover:scale-105 transition-all duration-300 inline-flex items-center gap-2 text-sm"
+            >
+              <Database className="w-4 h-4 text-white/80" />
+              {language === 'en' ? 'Explore Open Science' : 'Sciences ouvertes'}
             </Link>
           </div>
         </div>
@@ -173,6 +182,82 @@ export function Home() {
                   : 'L\'Université Brock est située sur le territoire traditionnel des peuples Haudenosaunee et Anishinaabe, dont beaucoup continuent de vivre et de travailler ici aujourd\'hui. Ce territoire est couvert par les traités du Haut-Canada et se trouve sur le territoire protégé par l\'accord de wampum du plat à une cuillère. Nous reconnaissons la présence durable et les connaissances traditionnelles profondes, les lois et les ressources des peuples autochtones, et nous sommes reconnaissants d\'avoir l\'occasion de travailler sur ce territoire.'}
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── ROLE-BASED FAST-TRACK ENTRY POINTS (Participatory UX) ── */}
+      <section className="relative py-12 bg-gradient-to-b from-gray-900 to-[#0A0A0A] border-b border-white/10 text-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#8B0000]/30 border border-[#8B0000]/60 text-[#FFC956] text-xs font-bold uppercase tracking-wider mb-2">
+              <Sparkles className="w-3.5 h-3.5" />
+              {language === 'en' ? 'Interactive Virtual Lab Bench' : 'Banc de laboratoire virtuel'}
+            </span>
+            <h2 className="text-2xl md:text-3xl font-extrabold text-white" style={{ fontFamily: 'var(--font-heading)' }}>
+              {language === 'en' ? 'How Would You Like to Contribute?' : 'Comment souhaitez-vous contribuer?'}
+            </h2>
+            <p className="text-white/60 text-sm max-w-xl mx-auto mt-1">
+              {language === 'en' 
+                ? 'Select your pathway below to access tailored research resources, study opportunities, or partnership channels.'
+                : 'Sélectionnez votre parcours ci-dessous pour accéder aux ressources de recherche et opportunités de partenariat.'}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Card 1: Participant */}
+            <Link to="/research/projects" className="group bg-white/5 border border-white/10 hover:border-[#8B0000] hover:bg-white/10 p-6 rounded-2xl transition-all duration-300">
+              <div className="w-12 h-12 rounded-xl bg-[#8B0000]/20 border border-[#8B0000]/40 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <UserCheck className="w-6 h-6 text-[#FFC956]" />
+              </div>
+              <h3 className="text-lg font-bold text-white mb-2 group-hover:text-[#FFC956] transition-colors">
+                {language === 'en' ? 'I am a Community Member' : 'Je suis un membre de la communauté'}
+              </h3>
+              <p className="text-white/60 text-xs leading-relaxed mb-4">
+                {language === 'en'
+                  ? 'Participate in active research studies, share your story, or attend upcoming community-university symposiums.'
+                  : 'Participez à nos études de recherche actives, partagez votre histoire ou assistez à nos symposiums.'}
+              </p>
+              <span className="text-xs font-bold text-[#FFC956] inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                {language === 'en' ? 'View Active Studies' : 'Voir les études actives'} →
+              </span>
+            </Link>
+
+            {/* Card 2: Researcher */}
+            <Link to="/research/knowledge" className="group bg-white/5 border border-white/10 hover:border-[#089EA5] hover:bg-white/10 p-6 rounded-2xl transition-all duration-300">
+              <div className="w-12 h-12 rounded-xl bg-[#089EA5]/20 border border-[#089EA5]/40 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <Code className="w-6 h-6 text-[#089EA5]" />
+              </div>
+              <h3 className="text-lg font-bold text-white mb-2 group-hover:text-[#089EA5] transition-colors">
+                {language === 'en' ? 'I am a Scholar / Researcher' : 'Je suis un chercheur / universitaire'}
+              </h3>
+              <p className="text-white/60 text-xs leading-relaxed mb-4">
+                {language === 'en'
+                  ? 'Access open-access publications, generate APA/BibTeX citations, or explore our GitHub open science code.'
+                  : 'Accédez aux publications en libre accès, générez des citations APA/BibTeX ou explorez notre code GitHub.'}
+              </p>
+              <span className="text-xs font-bold text-[#089EA5] inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                {language === 'en' ? 'Explore Open Science' : 'Explorer la science ouverte'} →
+              </span>
+            </Link>
+
+            {/* Card 3: Partner / Funder */}
+            <Link to="/partners" className="group bg-white/5 border border-white/10 hover:border-[#6635B1] hover:bg-white/10 p-6 rounded-2xl transition-all duration-300">
+              <div className="w-12 h-12 rounded-xl bg-[#6635B1]/20 border border-[#6635B1]/40 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <Handshake className="w-6 h-6 text-[#B68DFF]" />
+              </div>
+              <h3 className="text-lg font-bold text-white mb-2 group-hover:text-[#B68DFF] transition-colors">
+                {language === 'en' ? 'I am an Organization / Funder' : 'Je suis une organisation / bailleur'}
+              </h3>
+              <p className="text-white/60 text-xs leading-relaxed mb-4">
+                {language === 'en'
+                  ? 'Collaborate on community initiatives, join the Implementation Council, or support SSHRC-funded programs.'
+                  : 'Collaborer à des initiatives communautaires, rejoindre le conseil de mise en œuvre ou soutenir nos programmes.'}
+              </p>
+              <span className="text-xs font-bold text-[#B68DFF] inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                {language === 'en' ? 'Become a Partner' : 'Devenir partenaire'} →
+              </span>
+            </Link>
           </div>
         </div>
       </section>
