@@ -346,7 +346,7 @@ export function Home() {
               {
                 number: '02',
                 color: '#C97B2E',
-                image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=600',
+                image: '/community/health-literacy-symposium.jpg',
                 title: language === 'en' ? 'Health Literacy' : 'Littératie en santé',
                 desc: language === 'en'
                   ? 'Promoting health literacy in immigrant and refugee populations across Niagara.'
@@ -407,6 +407,133 @@ export function Home() {
               </Link>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── COMMUNITY PHOTO GALLERY: "Voices from the Community" ── */}
+      <section className="py-20 bg-[#0A0A0A] overflow-hidden">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          {/* Section Header */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
+            <div>
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#8B0000]/30 border border-[#8B0000]/50 text-[#FFC956] text-xs font-bold uppercase tracking-wider mb-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#FFC956] animate-pulse" />
+                {language === 'en' ? 'MSK/MSM Symposium · June 19, 2026' : 'Symposium MSK/MSM · 19 juin 2026'}
+              </span>
+              <h2 className="text-3xl md:text-5xl font-extrabold text-white leading-tight" style={{ fontFamily: 'var(--font-heading)' }}>
+                {language === 'en' ? 'Voices from' : 'Voix de la'}
+                <span className="text-[#8B0000]"> {language === 'en' ? 'the Community' : 'communauté'}</span>
+              </h2>
+              <p className="text-white/50 text-sm mt-2 max-w-md">
+                {language === 'en'
+                  ? 'Real conversations. Real people. Real change. Photographs from our community-university partnership events.'
+                  : 'Des conversations vraies. Des gens réels. Un changement réel. Photos de nos événements de partenariat.'}
+              </p>
+            </div>
+            <Link
+              to="/timeline"
+              className="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 border border-white/20 text-white/70 hover:text-white hover:border-white/50 rounded-full text-sm font-semibold transition-all duration-200"
+            >
+              {language === 'en' ? 'View Symposium Details' : 'Voir le symposium'}
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+
+          {/* Creative Masonry Gallery Grid */}
+          <div className="grid grid-cols-12 grid-rows-2 gap-3 h-[520px] md:h-[600px]">
+
+            {/* Cell 1 — Large left tile (spans 5 cols × 2 rows) */}
+            <div className="col-span-12 md:col-span-5 row-span-2 group relative overflow-hidden rounded-3xl cursor-pointer">
+              <img
+                src="/community/community-voice-speaking.jpg"
+                alt={language === 'en' ? 'A community member speaking passionately at an MSK research session' : 'Un membre de la communauté s\'exprimant lors d\'une séance MSK'}
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/80 via-[#0A0A0A]/20 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                <span className="text-xs font-bold uppercase tracking-wider text-[#FFC956] mb-2 block">Community Voices</span>
+                <p className="text-white font-semibold text-base leading-snug">
+                  {language === 'en'
+                    ? '"Sharing lived experiences that shape policy and practice"'
+                    : '"Partager des expériences vécues qui façonnent les politiques"'}
+                </p>
+              </div>
+            </div>
+
+            {/* Cell 2 — Top-right wide tile (spans 4 cols) */}
+            <div className="col-span-12 md:col-span-4 group relative overflow-hidden rounded-3xl cursor-pointer">
+              <img
+                src="/community/health-literacy-symposium.jpg"
+                alt={language === 'en' ? 'Health Literacy Hub presentation at MSK Symposium June 2026' : 'Présentation du Pôle Littératie en santé au Symposium MSK juin 2026'}
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/70 via-transparent to-transparent" />
+              <div className="absolute top-4 left-4">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#8B0000] text-white text-[10px] font-bold uppercase tracking-wider shadow-lg">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#FFC956] animate-pulse" />
+                  {language === 'en' ? 'Health Literacy Hub' : 'Pôle Santé'}
+                </span>
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 p-4">
+                <p className="text-white font-semibold text-sm leading-snug opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  {language === 'en' ? 'Promoting Health Literacy — MSK Symposium 2026' : 'Promouvoir la littératie en santé — Symposium MSK 2026'}
+                </p>
+              </div>
+            </div>
+
+            {/* Cell 3 — Top-right narrow tile (spans 3 cols) */}
+            <div className="col-span-12 md:col-span-3 group relative overflow-hidden rounded-3xl cursor-pointer">
+              <img
+                src="/community/symposium-participants-discussion.jpg"
+                alt={language === 'en' ? 'Symposium participants engaged in table discussion' : 'Participants du symposium en discussion de table'}
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#0A0A0A]/70" />
+              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="bg-white/15 backdrop-blur-md rounded-2xl px-4 py-3 mx-4 text-center">
+                  <p className="text-white text-xs font-semibold">{language === 'en' ? 'Engaged participants' : 'Participants engagés'}</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Cell 4 — Bottom-right wide (spans 4 cols) */}
+            <div className="col-span-12 md:col-span-4 group relative overflow-hidden rounded-3xl cursor-pointer">
+              <img
+                src="/community/researchers-engaging.jpg"
+                alt={language === 'en' ? 'Researchers in conversation at a community meeting' : 'Chercheurs en conversation lors d\'une réunion communautaire'}
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/60 via-transparent to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                <p className="text-white text-sm font-semibold">
+                  {language === 'en' ? 'Building knowledge together' : 'Construire le savoir ensemble'}
+                </p>
+              </div>
+            </div>
+
+            {/* Cell 5 — Bottom-right narrow (spans 3 cols) */}
+            <div className="col-span-12 md:col-span-3 group relative overflow-hidden rounded-3xl cursor-pointer">
+              <img
+                src="/community/community-laughter-connection.jpg"
+                alt={language === 'en' ? 'Community members sharing a moment of laughter and connection' : 'Membres de la communauté partageant un moment de rire et de connexion'}
+                className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/60 to-transparent" />
+              <div className="absolute inset-0 flex items-end justify-start p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <span className="text-white text-xs font-semibold bg-[#8B0000]/80 backdrop-blur-sm px-3 py-1.5 rounded-full">
+                  {language === 'en' ? 'Real connection ✦' : 'Connexion vraie ✦'}
+                </span>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Caption */}
+          <p className="text-center text-white/30 text-xs mt-5">
+            {language === 'en'
+              ? 'Photography from MSK/MSM community-university partnership events, Niagara Region, 2024–2026'
+              : 'Photographies des événements du partenariat communautaire-universitaire MSK/MSM, région de Niagara, 2024–2026'}
+          </p>
         </div>
       </section>
 

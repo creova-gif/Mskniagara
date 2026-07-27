@@ -220,11 +220,26 @@ export function Timeline() {
               {/* Animated pulse border */}
               <div className="absolute inset-0 rounded-[calc(1.5rem-2px)] border-4 border-[#8B0000]/20 animate-pulse" aria-hidden="true" />
 
-              <div className="flex flex-col lg:flex-row items-start lg:items-center gap-6 p-7 md:p-8">
+              <div className="flex flex-col lg:flex-row items-stretch gap-0 overflow-hidden rounded-[calc(1.5rem-2px)]">
+                {/* Photo panel — real symposium image */}
+                <div className="relative lg:w-56 xl:w-64 flex-shrink-0 overflow-hidden">
+                  <img
+                    src="/community/health-literacy-symposium.jpg"
+                    alt="MSK/MSM Symposium June 19 2026 — Health Literacy Hub presentation"
+                    className="w-full h-40 lg:h-full object-cover object-top"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent to-white/60 hidden lg:block" />
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/40 lg:hidden" />
+                  <span className="absolute bottom-2 left-3 text-[10px] font-bold text-white/90 uppercase tracking-wider lg:hidden">
+                    MSK Symposium 2026
+                  </span>
+                </div>
+
+                <div className="flex flex-col lg:flex-row items-start lg:items-center gap-6 p-7 md:p-8 flex-1">
                 {/* Icon cluster */}
                 <div className="relative flex-shrink-0">
-                  <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#8B0000] to-[#A40000] flex items-center justify-center shadow-xl">
-                    <Star className="w-10 h-10 text-white fill-white" />
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#8B0000] to-[#A40000] flex items-center justify-center shadow-xl">
+                    <Star className="w-8 h-8 text-white fill-white" />
                   </div>
                   {/* Pulsing live dot */}
                   <span className="absolute -top-1 -right-1 flex h-4 w-4">
@@ -299,6 +314,7 @@ export function Timeline() {
                     <Download className="w-4 h-4" />
                     {language === 'en' ? 'Add to Calendar' : 'Ajouter au calendrier'}
                   </button>
+                </div>
                 </div>
               </div>
             </div>

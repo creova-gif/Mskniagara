@@ -253,6 +253,43 @@ export function ResearchProjects() {
         </div>
       </div>
 
+      {/* Research in Action — scrolling photo strip */}
+      <div className="relative overflow-hidden py-2 mb-0 bg-[#0A0A0A]">
+        <div className="flex items-center gap-3 px-4 sm:px-6 lg:px-8 pt-6 pb-3 mx-auto max-w-7xl">
+          <div className="w-4 h-px bg-white/30" />
+          <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/40">
+            {language === 'en' ? 'Research in Action · Niagara Region' : 'Recherche en action · Région de Niagara'}
+          </span>
+        </div>
+        <div className="flex gap-3 pb-6 px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl overflow-x-auto scroll-smooth snap-x snap-mandatory"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+          {[
+            { src: '/community/community-voice-speaking.jpg', caption: language === 'en' ? 'Community voice in research' : 'Voix communautaire dans la recherche', tag: language === 'en' ? 'Participatory' : 'Participatif' },
+            { src: '/community/health-literacy-symposium.jpg', caption: language === 'en' ? 'Health Literacy Hub — Symposium 2026' : 'Pôle Santé — Symposium 2026', tag: language === 'en' ? 'Health Literacy' : 'Santé' },
+            { src: '/community/symposium-participants-discussion.jpg', caption: language === 'en' ? 'Participants in table discussion' : 'Participants en discussion', tag: language === 'en' ? 'Community' : 'Communauté' },
+            { src: '/community/researchers-engaging.jpg', caption: language === 'en' ? 'Researchers and community connecting' : 'Chercheurs et communauté', tag: language === 'en' ? 'Engagement' : 'Engagement' },
+            { src: '/community/community-laughter-connection.jpg', caption: language === 'en' ? 'Real human connection at the core' : 'Connexion humaine au cœur', tag: language === 'en' ? 'Connection' : 'Connexion' },
+          ].map((photo, i) => (
+            <div key={i} className="group relative flex-shrink-0 w-56 h-40 snap-start overflow-hidden rounded-2xl cursor-pointer">
+              <img
+                src={photo.src}
+                alt={photo.caption}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+              <div className="absolute top-2 right-2">
+                <span className="px-2 py-0.5 rounded-full bg-white/15 backdrop-blur-sm text-white text-[9px] font-bold uppercase tracking-wide">
+                  {photo.tag}
+                </span>
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 p-3">
+                <p className="text-white/90 text-[11px] font-medium leading-snug">{photo.caption}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* Content Section */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 relative z-20">
         
