@@ -324,7 +324,7 @@ export function Home() {
       <section className="relative overflow-hidden h-[380px] md:h-[460px] flex items-end">
         {/* Niagara Falls aerial background */}
         <img
-          src="https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&q=85&w=1920"
+          src="/campus/childhood-hub-cover.jpg"
           alt="Aerial view of Niagara Falls and the surrounding Niagara Region, Ontario, Canada"
           className="absolute inset-0 w-full h-full object-cover object-center"
           loading="lazy"
@@ -410,7 +410,7 @@ export function Home() {
               {
                 number: '01',
                 color: '#089EA5',
-                image: 'https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&q=80&w=600',
+                image: '/campus/childhood-hub-summary.jpg',
                 title: language === 'en' ? 'Childhood & Growing Up' : 'Enfance et croissance',
                 desc: language === 'en'
                   ? 'Listening to newcomer children\'s experiences with housing, sport, education, and belonging.'
@@ -884,7 +884,7 @@ export function Home() {
               {/* Highlight border decoration */}
               <div className="absolute inset-0 border-2 border-[#8B0000]/30 rounded-2xl z-20 pointer-events-none m-2"></div>
               <img 
-                src="https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&q=80&w=800" 
+                src="/campus/childhood-hub-cover.jpg"
                 alt={language === 'en' ? 'Stunning Niagara Falls landscape representing the Niagara Region partnership' : 'Magnifique paysage des chutes du Niagara représentant le partenariat régional'}
                 className="w-full h-[500px] lg:h-[650px] object-cover transition-transform duration-700 group-hover/img:scale-105"
               />
@@ -968,7 +968,7 @@ export function Home() {
                 descEn: 'Three collaborative hubs advancing community health, youth development, and belonging in Niagara.',
                 descFr: 'Trois pôles collaboratifs pour la santé communautaire, le développement des jeunes et l\'appartenance.',
                 delay: 0,
-                bgImage: 'https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&q=80&w=600'
+                bgImage: '/campus/childhood-hub-cover.jpg'
               },
               {
                 to: '/research/projects',
@@ -990,7 +990,7 @@ export function Home() {
                 descEn: '26 partner organizations co-creating equitable programs across the Niagara region.',
                 descFr: '26 organisations partenaires co-créant des programmes équitables dans la région de Niagara.',
                 delay: 200,
-                bgImage: 'https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&q=80&w=600'
+                bgImage: '/campus/childhood-hub-cover.jpg'
               },
             ].map(({ to, num, Icon, titleEn, titleFr, descEn, descFr, delay, bgImage }) => (
               <Link

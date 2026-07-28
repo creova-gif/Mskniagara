@@ -217,7 +217,7 @@ export function Donate() {
             <Card className="border-0 shadow-lg bg-[#0A0A0A] text-white overflow-hidden">
               <div className="h-40 w-full overflow-hidden relative">
                 <img 
-                  src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=600" 
+                  src="/media/donate-community-support.jpg"
                   alt={language === 'en' ? 'Community connection and support' : 'Connexion communautaire et soutien'}
                   className="w-full h-full object-cover opacity-85"
                 />

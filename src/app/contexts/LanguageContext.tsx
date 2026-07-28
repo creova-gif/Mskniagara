@@ -15,7 +15,7 @@
  * @version 3.0
  */
 
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { secureStorage } from '../utils/security';
 
 // Language type: supports English (en) and French (fr)
@@ -175,6 +175,12 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
   });
   
   const [isTransitioning, setIsTransitioning] = useState(false);
+
+  // Keep the document's lang attribute in sync — required for screen readers
+  // to apply correct pronunciation rules (WCAG 3.1.1 Language of Page).
+  useEffect(() => {
+    document.documentElement.lang = language;
+  }, [language]);
 
   /**
    * Enhanced setLanguage with persistence and transition animation

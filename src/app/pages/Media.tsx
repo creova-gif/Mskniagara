@@ -24,7 +24,7 @@ const photoGallery = [
     category: 'workshop',
     year: '2025',
     aspect: 'tall',
-    thumbnail: 'https://images.unsplash.com/photo-1555069855-e580a9adbf43?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&q=80',
+    thumbnail: '/media/workshop-childhood-hub.jpg',
   },
   {
     id: 2,
@@ -39,7 +39,7 @@ const photoGallery = [
     category: 'roundtable',
     year: '2025',
     aspect: 'wide',
-    thumbnail: 'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&q=80',
+    thumbnail: '/media/health-literacy-roundtable.jpg',
   },
   {
     id: 3,
@@ -54,7 +54,7 @@ const photoGallery = [
     category: 'launch',
     year: '2024',
     aspect: 'square',
-    thumbnail: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&q=80',
+    thumbnail: '/media/partnership-launch-event.jpg',
   },
   {
     id: 4,
@@ -69,7 +69,7 @@ const photoGallery = [
     category: 'workshop',
     year: '2024',
     aspect: 'tall',
-    thumbnail: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&q=80',
+    thumbnail: '/media/identity-workshop.jpg',
   },
   {
     id: 5,
@@ -84,7 +84,7 @@ const photoGallery = [
     category: 'community',
     year: '2024',
     aspect: 'wide',
-    thumbnail: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&q=80',
+    thumbnail: '/media/migrant-farmworkers-support.jpg',
   },
   {
     id: 6,
@@ -99,7 +99,7 @@ const photoGallery = [
     category: 'forum',
     year: '2024',
     aspect: 'square',
-    thumbnail: 'https://images.unsplash.com/photo-1526976668912-1a811878dd37?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&q=80',
+    thumbnail: '/media/youth-recreation-forum.jpg',
   },
 ];
 
@@ -119,7 +119,7 @@ const videos = [
     views: 342,
     description: 'Maria shares how the MSK Partnership has strengthened health literacy programming for newcomer communities.',
     descriptionFr: 'Maria partage comment le partenariat MSK a renforcé la programmation en littératie en santé.',
-    thumbnail: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&q=80',
+    thumbnail: '/media/video-testimonial-bridges-niagara.jpg',
   },
   {
     id: 2,
@@ -136,7 +136,7 @@ const videos = [
     views: 567,
     description: 'Dr. Ntakirutimana discusses community-engaged research and identity formation among Afro-descendant populations.',
     descriptionFr: 'Dr Ntakirutimana discute de la recherche communautaire et de la formation identitaire.',
-    thumbnail: 'https://images.unsplash.com/photo-1556157382-97eda2d62296?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&q=80',
+    thumbnail: '/media/video-research-impact-ntakirutimana.jpg',
   },
   {
     id: 3,
@@ -153,7 +153,7 @@ const videos = [
     views: 423,
     description: 'Mariam highlights the collaborative approach to improving health information access for immigrant populations.',
     descriptionFr: 'Mariam souligne l\'approche collaborative pour améliorer l\'accès à l\'information sur la santé.',
-    thumbnail: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&q=80',
+    thumbnail: '/media/video-community-voice-toes.jpg',
   },
   {
     id: 4,
@@ -170,7 +170,7 @@ const videos = [
     views: 789,
     description: 'Young newcomers share their experiences with housing, education, and community belonging in Niagara.',
     descriptionFr: 'Les jeunes nouveaux arrivants partagent leurs expériences de logement, d\'éducation et d\'appartenance.',
-    thumbnail: 'https://images.unsplash.com/photo-1529390079861-591de354faf5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&q=80',
+    thumbnail: '/media/video-youth-perspectives.jpg',
   },
 ];
 
