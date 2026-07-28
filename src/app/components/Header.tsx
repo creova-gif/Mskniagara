@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router';
 import { useLanguage } from '../contexts/LanguageContext';
-import { ChevronDown, Menu, X, ArrowRight, Users, BookOpen, Building2, Lightbulb, Globe } from 'lucide-react';
+import { ChevronDown, Menu, X, ArrowRight, Users, BookOpen, Building2, Lightbulb, Globe, Handshake, Heart, Calendar, Camera } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 
 const dropdownItems = {
@@ -51,6 +51,44 @@ const dropdownItems = {
       desc: 'Publications & findings',
       descFr: 'Publications et résultats',
       icon: Lightbulb,
+    },
+  ],
+  engage: [
+    {
+      name: 'Partners',
+      nameEn: 'Partners',
+      nameFr: 'Partenaires',
+      href: '/partners',
+      desc: 'Our coalition of organizations',
+      descFr: 'Notre coalition d\'organisations',
+      icon: Handshake,
+    },
+    {
+      name: 'Community',
+      nameEn: 'Community',
+      nameFr: 'Communauté',
+      href: '/community',
+      desc: 'Health & community partners',
+      descFr: 'Partenaires communautaires et de santé',
+      icon: Heart,
+    },
+    {
+      name: 'Timeline',
+      nameEn: 'Timeline & Events',
+      nameFr: 'Chronologie et événements',
+      href: '/timeline',
+      desc: 'Milestones & upcoming events',
+      descFr: 'Jalons et événements à venir',
+      icon: Calendar,
+    },
+    {
+      name: 'Media',
+      nameEn: 'Media',
+      nameFr: 'Médias',
+      href: '/media',
+      desc: 'Photos, video & annual reports',
+      descFr: 'Photos, vidéos et rapports annuels',
+      icon: Camera,
     },
   ],
 };
@@ -105,79 +143,65 @@ export function Header() {
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-[68px] items-center justify-between">
 
-          {/* ── LOGO ── */}
+          {/* ── LOGO — circular seal, text ringed around an empty core ── */}
           <Link
             to="/"
-            className="flex items-center gap-3 group shrink-0 select-none"
+            className="relative shrink-0 select-none group"
             aria-label="MSK Niagara Research Partnership — Home"
           >
-            {/* Brand mark — circular "rising voices" mark */}
-            <div className="relative w-11 h-11 shrink-0">
-              <svg
-                className="absolute inset-0 w-full h-full transition-transform duration-500 ease-out group-hover:rotate-3"
-                viewBox="0 0 44 44"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                {/* circle field */}
-                <circle cx="22" cy="22" r="22" fill="#CC0000" />
-                {/* faint inner ring for craft */}
-                <circle cx="22" cy="22" r="17.5" stroke="white" strokeOpacity="0.14" strokeWidth="1" />
-                {/* source point — the community / the subjugated */}
-                <circle cx="22" cy="30.5" r="2.6" fill="white" />
-                {/* three ascending arcs — knowledge mobilized outward & up */}
-                <path
-                  d="M15 27 Q22 20.5 29 27"
-                  stroke="white" strokeWidth="2.4" strokeLinecap="round" fill="none"
-                  className="origin-center transition-opacity duration-300"
-                />
-                <path
-                  d="M11.5 24 Q22 13 32.5 24"
-                  stroke="white" strokeOpacity="0.72" strokeWidth="2.4" strokeLinecap="round" fill="none"
-                />
-                <path
-                  d="M8.5 21.5 Q22 7 35.5 21.5"
-                  stroke="white" strokeOpacity="0.42" strokeWidth="2.4" strokeLinecap="round" fill="none"
-                />
-              </svg>
-            </div>
+            <svg
+              className="w-14 h-14 transition-transform duration-700 ease-out group-hover:rotate-[360deg]"
+              viewBox="0 0 120 120"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <defs>
+                <path id="logoRingTop" d="M 12 60 A 48 48 0 0 1 108 60" />
+                <path id="logoRingBottom" d="M 12 60 A 48 48 0 0 0 108 60" />
+              </defs>
 
-            {/* Wordmark */}
-            <div className="hidden sm:flex flex-col justify-center leading-none">
-              {/* Primary name line */}
-              <div className="flex items-center gap-2">
-                <span
-                  className={`font-extrabold text-[20px] leading-none transition-colors duration-300 ${
-                    isDark ? 'text-white' : 'text-[#0A0A0A]'
-                  }`}
-                  style={{ fontFamily: 'var(--font-heading)', letterSpacing: '-0.045em' }}
+              {/* outer rim */}
+              <circle cx="60" cy="60" r="58" stroke="#CC0000" strokeWidth="1.5" />
+              {/* inner rim — everything past this is the empty core */}
+              <circle cx="60" cy="60" r="32" stroke="#CC0000" strokeOpacity="0.45" strokeWidth="1" />
+              {/* four cardinal ticks marking the hole, like a compass/seal */}
+              <circle cx="60" cy="24" r="1.6" fill="#CC0000" />
+              <circle cx="60" cy="96" r="1.6" fill="#CC0000" />
+              <circle cx="24" cy="60" r="1.6" fill="#CC0000" />
+              <circle cx="96" cy="60" r="1.6" fill="#CC0000" />
+
+              <text fill="#CC0000">
+                <textPath
+                  href="#logoRingTop"
+                  startOffset="50%"
+                  textAnchor="middle"
+                  style={{
+                    fontFamily: 'var(--font-heading)',
+                    fontWeight: 800,
+                    fontSize: '15px',
+                    letterSpacing: '0.05em',
+                  }}
                 >
-                  MSK
-                </span>
-                <span
-                  className={`w-px h-[18px] transition-colors duration-300 ${
-                    isDark ? 'bg-white/25' : 'bg-gray-300'
-                  }`}
-                />
-                <span
-                  className={`text-[13px] font-medium leading-none transition-colors duration-300 ${
-                    isDark ? 'text-white/75' : 'text-gray-600'
-                  }`}
-                  style={{ fontFamily: 'var(--font-heading)', letterSpacing: '-0.01em' }}
+                  MSK NIAGARA
+                </textPath>
+              </text>
+              <text fill="#CC0000" fillOpacity="0.75">
+                <textPath
+                  href="#logoRingBottom"
+                  startOffset="50%"
+                  textAnchor="middle"
+                  style={{
+                    fontFamily: 'var(--font-body)',
+                    fontWeight: 600,
+                    fontSize: '8px',
+                    letterSpacing: '0.22em',
+                  }}
                 >
-                  Niagara
-                </span>
-              </div>
-              {/* Sub-label */}
-              <span
-                className={`mt-[5px] text-[9px] font-semibold tracking-[0.24em] uppercase leading-none transition-colors duration-300 ${
-                  isDark ? 'text-white/40' : 'text-gray-400'
-                }`}
-              >
-                Research&nbsp;Partnership
-              </span>
-            </div>
+                  RESEARCH PARTNERSHIP
+                </textPath>
+              </text>
+            </svg>
           </Link>
 
           {/* ── DESKTOP NAV ── */}
@@ -238,8 +262,12 @@ export function Header() {
                   onMouseLeave={closeDropdown}
                 >
                   <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden animate-fade-in-down">
-                    <div className="p-2">
-                      {dropdownItems.about.map((item) => {
+                    <div className="h-[3px] bg-gradient-to-r from-[#CC0000] to-[#DA0C0C]" />
+                    <div className="px-4 pt-3 pb-1 text-[10px] font-bold tracking-[0.2em] uppercase text-gray-300" style={{ fontFamily: 'var(--font-mono)' }}>
+                      MSK // {language === 'en' ? 'About' : 'À propos'}
+                    </div>
+                    <div className="p-2 pt-1">
+                      {dropdownItems.about.map((item, i) => {
                         const Icon = item.icon;
                         return (
                           <Link
@@ -247,6 +275,9 @@ export function Header() {
                             to={item.href}
                             className="flex items-start gap-3 p-3 rounded-xl hover:bg-gray-50 group/item transition-all duration-150"
                           >
+                            <span className="mt-0.5 text-[10px] font-semibold text-gray-300 tabular-nums" style={{ fontFamily: 'var(--font-mono)' }}>
+                              0{i + 1}
+                            </span>
                             <div className="mt-0.5 w-8 h-8 rounded-lg bg-[#CC0000]/8 flex items-center justify-center shrink-0 group-hover/item:bg-[#CC0000]/15 transition-colors">
                               <Icon className="w-4 h-4 text-[#CC0000]" />
                             </div>
@@ -303,8 +334,12 @@ export function Header() {
                   onMouseLeave={closeDropdown}
                 >
                   <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden animate-fade-in-down">
-                    <div className="p-2">
-                      {dropdownItems.research.map((item) => {
+                    <div className="h-[3px] bg-gradient-to-r from-[#CC0000] to-[#DA0C0C]" />
+                    <div className="px-4 pt-3 pb-1 text-[10px] font-bold tracking-[0.2em] uppercase text-gray-300" style={{ fontFamily: 'var(--font-mono)' }}>
+                      MSK // {language === 'en' ? 'Research' : 'Recherche'}
+                    </div>
+                    <div className="p-2 pt-1">
+                      {dropdownItems.research.map((item, i) => {
                         const Icon = item.icon;
                         return (
                           <Link
@@ -312,6 +347,9 @@ export function Header() {
                             to={item.href}
                             className="flex items-start gap-3 p-3 rounded-xl hover:bg-gray-50 group/item transition-all duration-150"
                           >
+                            <span className="mt-0.5 text-[10px] font-semibold text-gray-300 tabular-nums" style={{ fontFamily: 'var(--font-mono)' }}>
+                              0{i + 1}
+                            </span>
                             <div className="mt-0.5 w-8 h-8 rounded-lg bg-[#CC0000]/8 flex items-center justify-center shrink-0 group-hover/item:bg-[#CC0000]/15 transition-colors">
                               <Icon className="w-4 h-4 text-[#CC0000]" />
                             </div>
@@ -332,18 +370,15 @@ export function Header() {
               )}
             </div>
 
-            {/* Single nav items */}
-            {[
-              { label: language === 'en' ? 'Partners' : 'Partenaires', href: '/partners' },
-              { label: t('nav.community'), href: '/community' },
-              { label: t('nav.timeline'), href: '/timeline' },
-              { label: language === 'en' ? 'Media' : 'Médias', href: '/media' },
-            ].map((item) => (
-              <Link
-                key={item.href}
-                to={item.href}
-                className={`relative px-3.5 py-2 text-sm font-medium rounded-md transition-all duration-200 ${
-                  isActive(item.href)
+            {/* Engage — dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => openDropdown('engage')}
+              onMouseLeave={closeDropdown}
+            >
+              <button
+                className={`relative inline-flex items-center gap-1 px-3.5 py-2 text-sm font-medium rounded-md transition-all duration-200 ${
+                  ['/partners', '/community', '/timeline', '/media'].some((p) => location.pathname.startsWith(p))
                     ? isDark
                       ? 'text-white'
                       : 'text-[#0A0A0A]'
@@ -352,12 +387,60 @@ export function Header() {
                     : 'text-gray-500 hover:text-[#0A0A0A] hover:bg-gray-100/70'
                 }`}
               >
-                {item.label}
-                {isActive(item.href) && (
+                {language === 'en' ? 'Engage' : 'Participer'}
+                <ChevronDown
+                  className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                    activeDropdown === 'engage' ? 'rotate-180' : ''
+                  }`}
+                />
+                {['/partners', '/community', '/timeline', '/media'].some((p) => location.pathname.startsWith(p)) && (
                   <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[#CC0000]" />
                 )}
-              </Link>
-            ))}
+              </button>
+
+              {/* Engage dropdown */}
+              {activeDropdown === 'engage' && (
+                <div
+                  className="absolute left-0 top-full pt-3 w-72"
+                  onMouseEnter={stayOpen}
+                  onMouseLeave={closeDropdown}
+                >
+                  <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden animate-fade-in-down">
+                    <div className="h-[3px] bg-gradient-to-r from-[#CC0000] to-[#DA0C0C]" />
+                    <div className="px-4 pt-3 pb-1 text-[10px] font-bold tracking-[0.2em] uppercase text-gray-300" style={{ fontFamily: 'var(--font-mono)' }}>
+                      MSK // {language === 'en' ? 'Engage' : 'Participer'}
+                    </div>
+                    <div className="p-2 pt-1">
+                      {dropdownItems.engage.map((item, i) => {
+                        const Icon = item.icon;
+                        return (
+                          <Link
+                            key={item.href}
+                            to={item.href}
+                            className="flex items-start gap-3 p-3 rounded-xl hover:bg-gray-50 group/item transition-all duration-150"
+                          >
+                            <span className="mt-0.5 text-[10px] font-semibold text-gray-300 tabular-nums" style={{ fontFamily: 'var(--font-mono)' }}>
+                              0{i + 1}
+                            </span>
+                            <div className="mt-0.5 w-8 h-8 rounded-lg bg-[#CC0000]/8 flex items-center justify-center shrink-0 group-hover/item:bg-[#CC0000]/15 transition-colors">
+                              <Icon className="w-4 h-4 text-[#CC0000]" />
+                            </div>
+                            <div>
+                              <div className="text-sm font-semibold text-[#0A0A0A] group-hover/item:text-[#CC0000] transition-colors">
+                                {language === 'en' ? item.nameEn : item.nameFr}
+                              </div>
+                              <div className="text-xs text-gray-400 mt-0.5">
+                                {language === 'en' ? item.desc : item.descFr}
+                              </div>
+                            </div>
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
 
           {/* ── RIGHT ACTIONS ── */}
@@ -386,18 +469,6 @@ export function Header() {
             >
               {language === 'en' ? 'Support Us' : 'Nous Soutenir'}
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-            </Link>
-
-            {/* CTA — Get Involved */}
-            <Link
-              to="/about/partnership"
-              className={`inline-flex items-center gap-1.5 px-4 py-2 text-sm font-semibold rounded-full border-2 transition-all duration-200 group ${
-                isDark 
-                  ? 'border-white/20 text-white hover:bg-white/10' 
-                  : 'border-gray-200 text-[#0A0A0A] hover:border-[#CC0000] hover:text-[#CC0000]'
-              }`}
-            >
-              {language === 'en' ? 'Get Involved' : 'Participer'}
             </Link>
           </div>
 
@@ -433,36 +504,58 @@ export function Header() {
             <div className={`rounded-2xl overflow-hidden border ${
               isDark ? 'bg-white/5 border-white/10' : 'bg-gray-50 border-gray-200'
             } p-2 mt-2 space-y-0.5`}>
-              {[
-                { label: t('nav.home'), href: '/' },
-                { label: t('nav.partnership'), href: '/about/partnership' },
-                { label: t('nav.hubs'), href: '/about/hubs' },
-                { label: t('nav.members'), href: '/about/members' },
-                { label: language === 'en' ? 'Partners' : 'Partenaires', href: '/partners' },
-                { label: t('nav.projects'), href: '/research/projects' },
-                { label: t('nav.knowledge'), href: '/research/knowledge' },
-                { label: t('nav.community'), href: '/community' },
-                { label: t('nav.timeline'), href: '/timeline' },
-                { label: language === 'en' ? 'Media' : 'Médias', href: '/media' },
-              ].map((item) => (
-                <Link
-                  key={item.href}
-                  to={item.href}
-                  className={`flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium transition-all duration-150 ${
-                    isActive(item.href)
-                      ? 'bg-[#CC0000] text-white'
-                      : isDark
-                      ? 'text-white/80 hover:bg-white/10 hover:text-white'
-                      : 'text-gray-700 hover:bg-white hover:text-[#0A0A0A]'
-                  }`}
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {item.label}
-                  {isActive(item.href) && <ArrowRight className="w-4 h-4 opacity-70" />}
-                </Link>
+              <Link
+                to="/"
+                className={`flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium transition-all duration-150 ${
+                  isActive('/')
+                    ? 'bg-[#CC0000] text-white'
+                    : isDark
+                    ? 'text-white/80 hover:bg-white/10 hover:text-white'
+                    : 'text-gray-700 hover:bg-white hover:text-[#0A0A0A]'
+                }`}
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {t('nav.home')}
+                {isActive('/') && <ArrowRight className="w-4 h-4 opacity-70" />}
+              </Link>
+
+              {(
+                [
+                  { label: language === 'en' ? 'About' : 'À propos', items: dropdownItems.about },
+                  { label: language === 'en' ? 'Research' : 'Recherche', items: dropdownItems.research },
+                  { label: language === 'en' ? 'Engage' : 'Participer', items: dropdownItems.engage },
+                ] as const
+              ).map((group) => (
+                <div key={group.label} className="pt-3 first:pt-0">
+                  <div
+                    className={`px-4 pb-1 text-[10px] font-bold tracking-[0.2em] uppercase ${
+                      isDark ? 'text-white/30' : 'text-gray-400'
+                    }`}
+                    style={{ fontFamily: 'var(--font-mono)' }}
+                  >
+                    {group.label}
+                  </div>
+                  {group.items.map((item) => (
+                    <Link
+                      key={item.href}
+                      to={item.href}
+                      className={`flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium transition-all duration-150 ${
+                        isActive(item.href)
+                          ? 'bg-[#CC0000] text-white'
+                          : isDark
+                          ? 'text-white/80 hover:bg-white/10 hover:text-white'
+                          : 'text-gray-700 hover:bg-white hover:text-[#0A0A0A]'
+                      }`}
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {language === 'en' ? item.nameEn : item.nameFr}
+                      {isActive(item.href) && <ArrowRight className="w-4 h-4 opacity-70" />}
+                    </Link>
+                  ))}
+                </div>
               ))}
 
-              <div className="pt-2 px-2 flex flex-col gap-2">
+              <div className="pt-3 px-2">
                 <Link
                   to="/donate"
                   className="flex items-center justify-center gap-2 w-full py-3 bg-gradient-to-r from-[#CC0000] to-[#DA0C0C] text-white text-sm font-semibold rounded-xl hover:shadow-lg transition-all"
@@ -470,15 +563,6 @@ export function Header() {
                 >
                   {language === 'en' ? 'Support Us' : 'Nous Soutenir'}
                   <ArrowRight className="w-4 h-4" />
-                </Link>
-                <Link
-                  to="/about/partnership"
-                  className={`flex items-center justify-center gap-2 w-full py-3 text-sm font-semibold rounded-xl transition-colors border-2 ${
-                    isDark ? 'border-white/20 text-white' : 'border-gray-200 text-[#0A0A0A]'
-                  }`}
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {language === 'en' ? 'Get Involved' : 'Participer'}
                 </Link>
               </div>
             </div>
