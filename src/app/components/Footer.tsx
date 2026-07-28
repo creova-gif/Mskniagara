@@ -16,7 +16,7 @@ export function Footer() {
   return (
     <footer className="bg-[#0A0A0A] text-white">
       {/* Top crimson rule */}
-      <div className="h-px bg-[#8B0000]" />
+      <div className="h-px bg-[#CC0000]" />
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
@@ -27,7 +27,7 @@ export function Footer() {
           <div className="col-span-12 md:col-span-5">
             {/* Logo mark */}
             <div className="flex items-center gap-3 mb-5">
-              <div className="w-9 h-9 bg-[#8B0000] rounded flex items-center justify-center flex-shrink-0">
+              <div className="w-9 h-9 bg-[#CC0000] rounded flex items-center justify-center flex-shrink-0">
                 <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5">
                   <rect x="4" y="16" width="4" height="4" fill="white" />
                   <rect x="10" y="10" width="4" height="10" fill="white" />
@@ -121,7 +121,7 @@ export function Footer() {
           {/* Land Acknowledgment */}
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <div className="w-3 h-px bg-[#8B0000]" />
+              <div className="w-3 h-px bg-[#CC0000]" />
               <span className="text-[10px] font-semibold tracking-[0.2em] uppercase text-white/30">
                 {language === 'en' ? 'Land Acknowledgment' : 'Reconnaissance territoriale'}
               </span>
@@ -136,7 +136,7 @@ export function Footer() {
           {/* Funding Acknowledgment */}
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <div className="w-3 h-px bg-[#8B0000]" />
+              <div className="w-3 h-px bg-[#CC0000]" />
               <span className="text-[10px] font-semibold tracking-[0.2em] uppercase text-white/30">
                 {language === 'en' ? 'Funding Acknowledgment' : 'Reconnaissance du financement'}
               </span>

@@ -68,7 +68,7 @@ function CiteButton({ pub, language }: { pub: Publication; language: string }) {
         variant="outline"
         size="sm"
         onClick={() => setOpen(o => !o)}
-        className="border-2 border-[#8B0000]/30 text-[#8B0000] hover:border-[#8B0000] hover:bg-[#8B0000] hover:text-white rounded-xl font-semibold transition-all duration-300 gap-2"
+        className="border-2 border-[#CC0000]/30 text-[#CC0000] hover:border-[#CC0000] hover:bg-[#CC0000] hover:text-white rounded-xl font-semibold transition-all duration-300 gap-2"
         aria-label={language === 'en' ? 'Cite this publication' : 'Citer cette publication'}
         aria-expanded={open}
       >
@@ -94,10 +94,10 @@ function CiteButton({ pub, language }: { pub: Publication; language: string }) {
           {/* APA */}
           <div>
             <div className="flex items-center justify-between mb-1.5">
-              <span className="text-xs font-bold text-[#8B0000] uppercase tracking-wider">APA 7th</span>
+              <span className="text-xs font-bold text-[#CC0000] uppercase tracking-wider">APA 7th</span>
               <button
                 onClick={() => copy(buildAPA(pub, language), 'apa')}
-                className="flex items-center gap-1 text-xs text-gray-500 hover:text-[#8B0000] font-semibold transition-colors"
+                className="flex items-center gap-1 text-xs text-gray-500 hover:text-[#CC0000] font-semibold transition-colors"
                 aria-label="Copy APA citation"
               >
                 {copied === 'apa' ? <Check className="w-3.5 h-3.5 text-green-600" /> : <Copy className="w-3.5 h-3.5" />}
@@ -112,10 +112,10 @@ function CiteButton({ pub, language }: { pub: Publication; language: string }) {
           {/* BibTeX */}
           <div>
             <div className="flex items-center justify-between mb-1.5">
-              <span className="text-xs font-bold text-[#8B0000] uppercase tracking-wider">BibTeX</span>
+              <span className="text-xs font-bold text-[#CC0000] uppercase tracking-wider">BibTeX</span>
               <button
                 onClick={() => copy(buildBibTeX(pub), 'bib')}
-                className="flex items-center gap-1 text-xs text-gray-500 hover:text-[#8B0000] font-semibold transition-colors"
+                className="flex items-center gap-1 text-xs text-gray-500 hover:text-[#CC0000] font-semibold transition-colors"
                 aria-label="Copy BibTeX citation"
               >
                 {copied === 'bib' ? <Check className="w-3.5 h-3.5 text-green-600" /> : <Copy className="w-3.5 h-3.5" />}
@@ -132,7 +132,7 @@ function CiteButton({ pub, language }: { pub: Publication; language: string }) {
               href={`https://doi.org/${pub.doi}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-xs text-[#8B0000] hover:underline font-semibold"
+              className="flex items-center gap-2 text-xs text-[#CC0000] hover:underline font-semibold"
             >
               <ExternalLink className="w-3.5 h-3.5" />
               DOI: {pub.doi}
@@ -174,8 +174,8 @@ export function KnowledgeDissemination() {
       abstract: 'A comprehensive overview of our community-engaged research methodology and its impact on creating inclusive spaces for newcomer and marginalized communities in Niagara.',
       abstractFr: 'Un aperçu complet de notre méthodologie de recherche communautaire et de son impact sur la création d\'espaces inclusifs pour les communautés nouvelles arrivantes et marginalisées à Niagara.',
       link: '#',
-      color: '#8B0000',
-      gradient: 'from-[#8B0000] to-[#A40000]',
+      color: '#CC0000',
+      gradient: 'from-[#CC0000] to-[#A40000]',
     },
     {
       title: 'Childhood Experiences of Newcomer Families in Niagara',
@@ -211,7 +211,7 @@ export function KnowledgeDissemination() {
       abstractFr: 'Présentation de conférence explorant l\'identité culturelle, les connexions communautaires et l\'appartenance sociale parmi les communautés afro-descendantes à Niagara.',
       link: '#',
       color: '#6635B1',
-      gradient: 'from-[#6635B1] to-[#8B0000]',
+      gradient: 'from-[#6635B1] to-[#CC0000]',
     },
     {
       title: 'Migrant Farmworkers: Voices from the Fields',
@@ -264,8 +264,8 @@ export function KnowledgeDissemination() {
       abstract: 'Practical guide and resources for conducting community-engaged research with newcomer and marginalized communities.',
       abstractFr: 'Guide pratique et ressources pour mener des recherches communautaires avec les communautés nouvelles arrivantes et marginalisées.',
       link: '#',
-      color: '#8B0000',
-      gradient: 'from-[#8B0000] to-[#6B0000]',
+      color: '#CC0000',
+      gradient: 'from-[#CC0000] to-[#6B0000]',
     },
   ];
 
@@ -298,7 +298,7 @@ export function KnowledgeDissemination() {
     { label: language === 'en' ? 'Publications' : 'Publications', value: '6', icon: BookOpen, color: '#089EA5' },
     { label: language === 'en' ? 'Research Areas' : 'Domaines de recherche', value: '3', icon: Tag, color: '#6635B1' },
     { label: language === 'en' ? 'Community Impact' : 'Impact communautaire', value: '24+', icon: Users, color: '#FFC956' },
-    { label: language === 'en' ? 'Resources Shared' : 'Ressources partagées', value: '15+', icon: Share2, color: '#8B0000' },
+    { label: language === 'en' ? 'Resources Shared' : 'Ressources partagées', value: '15+', icon: Share2, color: '#CC0000' },
   ];
 
   const activeFilters = filterType !== 'all' || searchQuery.trim() !== '';
@@ -306,12 +306,12 @@ export function KnowledgeDissemination() {
   return (
     <div className="min-h-screen bg-white relative overflow-hidden">
       {/* Skip to main content — accessibility */}
-      <a href="#publications-grid" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-[#8B0000] focus:text-white focus:rounded-lg focus:font-semibold">
+      <a href="#publications-grid" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-[#CC0000] focus:text-white focus:rounded-lg focus:font-semibold">
         {language === 'en' ? 'Skip to publications' : 'Aller aux publications'}
       </a>
 
       {/* Hero Section */}
-      <header className="relative bg-[#8B0000] overflow-hidden" role="banner">
+      <header className="relative bg-[#CC0000] overflow-hidden" role="banner">
         <div className="absolute inset-0 opacity-[0.06]"
           style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '32px 32px' }} />
         <KnowledgeFlow />
@@ -345,8 +345,8 @@ export function KnowledgeDissemination() {
           {stats.map((stat, index) => (
             <div key={index} role="listitem" className="bg-white rounded-2xl p-6 shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-[#8B0000]/10 flex items-center justify-center flex-shrink-0" aria-hidden="true">
-                  <stat.icon className="w-6 h-6 text-[#8B0000]" />
+                <div className="w-12 h-12 rounded-xl bg-[#CC0000]/10 flex items-center justify-center flex-shrink-0" aria-hidden="true">
+                  <stat.icon className="w-6 h-6 text-[#CC0000]" />
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-[#0A0A0A] mb-1">{stat.value}</div>
@@ -374,7 +374,7 @@ export function KnowledgeDissemination() {
               <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/60 to-transparent lg:hidden" />
               {/* Event badge */}
               <div className="absolute top-5 left-5">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#8B0000] text-white text-[10px] font-bold uppercase tracking-wider shadow-lg">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#CC0000] text-white text-[10px] font-bold uppercase tracking-wider shadow-lg">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#FFC956] animate-pulse" />
                   {language === 'en' ? 'Research Presentation' : 'Présentation de recherche'}
                 </span>
@@ -383,7 +383,7 @@ export function KnowledgeDissemination() {
 
             {/* Quote panel */}
             <div className="flex flex-col justify-center px-8 md:px-12 py-10 bg-[#0A0A0A]">
-              <div className="w-8 h-px bg-[#8B0000] mb-6" />
+              <div className="w-8 h-px bg-[#CC0000] mb-6" />
               <blockquote className="text-white text-xl md:text-2xl font-semibold leading-snug mb-5" style={{ fontFamily: 'var(--font-heading)' }}>
                 {language === 'en'
                   ? '"Knowledge becomes powerful when it leaves the lab and reaches the people it was always about."'
@@ -407,7 +407,7 @@ export function KnowledgeDissemination() {
         <section aria-label={language === 'en' ? 'Search and filter publications' : 'Rechercher et filtrer les publications'} className="mb-16">
           <div className="bg-gradient-to-br from-white to-gray-50 rounded-3xl shadow-xl border-2 border-gray-100 p-8 md:p-10">
             <div className="flex items-center gap-4 mb-8">
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#8B0000] to-[#A40000] flex items-center justify-center shadow-lg" aria-hidden="true">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#CC0000] to-[#A40000] flex items-center justify-center shadow-lg" aria-hidden="true">
                 <Filter className="w-7 h-7 text-white" />
               </div>
               <div className="flex-1">
@@ -423,7 +423,7 @@ export function KnowledgeDissemination() {
               {activeFilters && (
                 <button
                   onClick={() => { setFilterType('all'); setSearchQuery(''); }}
-                  className="flex items-center gap-2 px-5 py-3 rounded-xl font-semibold bg-white border-2 border-[#8B0000]/20 text-[#8B0000] hover:border-[#8B0000] hover:bg-[#8B0000] hover:text-white transition-all duration-300 shadow-md hover:shadow-lg"
+                  className="flex items-center gap-2 px-5 py-3 rounded-xl font-semibold bg-white border-2 border-[#CC0000]/20 text-[#CC0000] hover:border-[#CC0000] hover:bg-[#CC0000] hover:text-white transition-all duration-300 shadow-md hover:shadow-lg"
                   aria-label={language === 'en' ? 'Clear all filters' : 'Effacer tous les filtres'}
                 >
                   <X className="w-4 h-4" />
@@ -437,7 +437,7 @@ export function KnowledgeDissemination() {
               <div>
                 <label htmlFor="pub-search" className="block text-xs font-bold text-[#0A0A0A]/50 uppercase tracking-wider mb-3">
                   <span className="flex items-center gap-2">
-                    <Search className="w-4 h-4 text-[#8B0000]" />
+                    <Search className="w-4 h-4 text-[#CC0000]" />
                     {language === 'en' ? 'Search by Title or Author' : 'Rechercher par titre ou auteur'}
                   </span>
                 </label>
@@ -449,7 +449,7 @@ export function KnowledgeDissemination() {
                     value={searchQuery}
                     onChange={e => setSearchQuery(e.target.value)}
                     placeholder={language === 'en' ? 'e.g. health literacy, Ntakirutimana...' : 'p. ex. littératie en santé, Ntakirutimana...'}
-                    className="w-full h-14 pl-12 pr-4 text-base font-medium border-2 border-gray-200 hover:border-[#8B0000]/50 focus:border-[#8B0000] focus:outline-none bg-white rounded-xl shadow-sm transition-all duration-300"
+                    className="w-full h-14 pl-12 pr-4 text-base font-medium border-2 border-gray-200 hover:border-[#CC0000]/50 focus:border-[#CC0000] focus:outline-none bg-white rounded-xl shadow-sm transition-all duration-300"
                     aria-label={language === 'en' ? 'Search publications' : 'Rechercher des publications'}
                   />
                 </div>
@@ -459,12 +459,12 @@ export function KnowledgeDissemination() {
               <div>
                 <label className="block text-xs font-bold text-[#0A0A0A]/50 uppercase tracking-wider mb-3">
                   <span className="flex items-center gap-2">
-                    <Tag className="w-4 h-4 text-[#8B0000]" />
+                    <Tag className="w-4 h-4 text-[#CC0000]" />
                     {language === 'en' ? 'Resource Type' : 'Type de ressource'}
                   </span>
                 </label>
                 <Select value={filterType} onValueChange={setFilterType}>
-                  <SelectTrigger className="w-full h-14 text-base font-semibold border-2 border-gray-200 hover:border-[#8B0000]/50 focus:border-[#8B0000] bg-white rounded-xl shadow-sm transition-all duration-300">
+                  <SelectTrigger className="w-full h-14 text-base font-semibold border-2 border-gray-200 hover:border-[#CC0000]/50 focus:border-[#CC0000] bg-white rounded-xl shadow-sm transition-all duration-300">
                     <SelectValue placeholder={language === 'en' ? 'Select a type...' : 'Sélectionner un type...'} />
                   </SelectTrigger>
                   <SelectContent className="bg-white border-2 border-gray-200 rounded-xl shadow-2xl">
@@ -473,9 +473,9 @@ export function KnowledgeDissemination() {
                       { value: 'article', label: language === 'en' ? 'Articles' : 'Articles', icon: FileText, color: '#089EA5' },
                       { value: 'report', label: language === 'en' ? 'Reports' : 'Rapports', icon: BookOpen, color: '#6635B1' },
                       { value: 'presentation', label: language === 'en' ? 'Presentations' : 'Présentations', icon: Presentation, color: '#FFC956' },
-                      { value: 'video', label: language === 'en' ? 'Videos' : 'Vidéos', icon: Video, color: '#8B0000' },
+                      { value: 'video', label: language === 'en' ? 'Videos' : 'Vidéos', icon: Video, color: '#CC0000' },
                       { value: 'policy', label: language === 'en' ? 'Policy Briefs' : 'Notes politiques', icon: FileText, color: '#12647F' },
-                      { value: 'toolkit', label: language === 'en' ? 'Toolkits' : 'Boîtes à outils', icon: Lightbulb, color: '#8B0000' },
+                      { value: 'toolkit', label: language === 'en' ? 'Toolkits' : 'Boîtes à outils', icon: Lightbulb, color: '#CC0000' },
                     ].map(({ value, label, icon: Icon, color }) => (
                       <SelectItem key={value} value={value} className="text-base font-semibold py-3 cursor-pointer hover:bg-gray-50">
                         <span className="flex items-center gap-3">
@@ -539,7 +539,7 @@ export function KnowledgeDissemination() {
 
                   {/* Title */}
                   <h3 className={`text-2xl font-bold text-[#0A0A0A] mb-4 leading-tight transition-colors duration-300 ${
-                    hoveredCard === index ? 'text-[#8B0000]' : ''
+                    hoveredCard === index ? 'text-[#CC0000]' : ''
                   }`}>
                     {language === 'en' ? pub.title : pub.titleFr}
                   </h3>
@@ -596,7 +596,7 @@ export function KnowledgeDissemination() {
         {/* No Results State */}
         {filteredPublications.length === 0 && (
           <div className="text-center py-24 bg-gray-50 rounded-3xl" role="status" aria-live="polite">
-            <div className="w-32 h-32 rounded-full bg-gradient-to-br from-[#8B0000] to-[#A40000] flex items-center justify-center mx-auto mb-8 shadow-xl" aria-hidden="true">
+            <div className="w-32 h-32 rounded-full bg-gradient-to-br from-[#CC0000] to-[#A40000] flex items-center justify-center mx-auto mb-8 shadow-xl" aria-hidden="true">
               <Search className="w-16 h-16 text-white" />
             </div>
             <h3 className="text-3xl font-bold text-[#0A0A0A] mb-3">
@@ -607,7 +607,7 @@ export function KnowledgeDissemination() {
             </p>
             <Button
               onClick={() => { setFilterType('all'); setSearchQuery(''); }}
-              className="bg-[#8B0000] hover:bg-[#A40000] text-white font-semibold px-8 py-6 rounded-xl"
+              className="bg-[#CC0000] hover:bg-[#A40000] text-white font-semibold px-8 py-6 rounded-xl"
             >
               {language === 'en' ? 'Show All Resources' : 'Afficher toutes les ressources'}
             </Button>
@@ -616,9 +616,9 @@ export function KnowledgeDissemination() {
 
         {/* Call to Action Section */}
         <div className="mt-24 mb-16 relative">
-          <div className="absolute inset-0 bg-gradient-to-r from-[#8B0000] via-[#A40000] to-[#8B0000] rounded-[3rem] blur-3xl opacity-20" aria-hidden="true" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#CC0000] via-[#A40000] to-[#CC0000] rounded-[3rem] blur-3xl opacity-20" aria-hidden="true" />
 
-          <div className="relative bg-gradient-to-br from-[#8B0000] via-[#A40000] to-[#6B0000] rounded-[3rem] p-12 md:p-16 lg:p-20 overflow-hidden shadow-2xl">
+          <div className="relative bg-gradient-to-br from-[#CC0000] via-[#A40000] to-[#6B0000] rounded-[3rem] p-12 md:p-16 lg:p-20 overflow-hidden shadow-2xl">
             <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full -mr-48 -mt-48" aria-hidden="true" />
             <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/10 rounded-full -ml-48 -mb-48" aria-hidden="true" />
 
@@ -648,7 +648,7 @@ export function KnowledgeDissemination() {
                 {/* Email Signup Form */}
                 <div className="max-w-2xl mx-auto mb-8">
                   <div className="relative group">
-                    <div className="absolute -inset-1 bg-gradient-to-r from-white/40 via-[#8B0000]/40 to-white/40 rounded-2xl blur-lg opacity-60 group-hover:opacity-100 transition-all duration-500" aria-hidden="true" />
+                    <div className="absolute -inset-1 bg-gradient-to-r from-white/40 via-[#CC0000]/40 to-white/40 rounded-2xl blur-lg opacity-60 group-hover:opacity-100 transition-all duration-500" aria-hidden="true" />
                     <div className="relative flex flex-col sm:flex-row gap-3 mb-4 bg-white/10 backdrop-blur-md p-2 rounded-2xl border border-white/30 shadow-2xl">
                       <div className="flex-1 relative">
                         <div className="absolute left-4 top-1/2 -translate-y-1/2 text-white/70" aria-hidden="true">
@@ -663,7 +663,7 @@ export function KnowledgeDissemination() {
                           aria-label={language === 'en' ? 'Your email address' : 'Votre adresse courriel'}
                         />
                       </div>
-                      <Button className="relative bg-gradient-to-r from-white via-gray-100 to-white text-[#8B0000] hover:from-gray-100 hover:via-white hover:to-gray-100 font-bold px-8 py-4 rounded-xl text-base shadow-2xl transition-all duration-300 hover:scale-105 whitespace-nowrap">
+                      <Button className="relative bg-gradient-to-r from-white via-gray-100 to-white text-[#CC0000] hover:from-gray-100 hover:via-white hover:to-gray-100 font-bold px-8 py-4 rounded-xl text-base shadow-2xl transition-all duration-300 hover:scale-105 whitespace-nowrap">
                         {language === 'en' ? 'Subscribe Now' : 'S\'abonner'}
                         <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />

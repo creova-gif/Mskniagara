@@ -121,7 +121,7 @@ export function Header() {
                 aria-hidden="true"
               >
                 {/* circle field */}
-                <circle cx="22" cy="22" r="22" fill="#8B0000" />
+                <circle cx="22" cy="22" r="22" fill="#CC0000" />
                 {/* faint inner ring for craft */}
                 <circle cx="22" cy="22" r="17.5" stroke="white" strokeOpacity="0.14" strokeWidth="1" />
                 {/* source point — the community / the subjugated */}
@@ -198,7 +198,7 @@ export function Header() {
             >
               {t('nav.home')}
               {isActive('/') && (
-                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[#8B0000]" />
+                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[#CC0000]" />
               )}
             </Link>
 
@@ -226,7 +226,7 @@ export function Header() {
                   }`}
                 />
                 {location.pathname.startsWith('/about') && (
-                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[#8B0000]" />
+                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[#CC0000]" />
                 )}
               </button>
 
@@ -247,11 +247,11 @@ export function Header() {
                             to={item.href}
                             className="flex items-start gap-3 p-3 rounded-xl hover:bg-gray-50 group/item transition-all duration-150"
                           >
-                            <div className="mt-0.5 w-8 h-8 rounded-lg bg-[#8B0000]/8 flex items-center justify-center shrink-0 group-hover/item:bg-[#8B0000]/15 transition-colors">
-                              <Icon className="w-4 h-4 text-[#8B0000]" />
+                            <div className="mt-0.5 w-8 h-8 rounded-lg bg-[#CC0000]/8 flex items-center justify-center shrink-0 group-hover/item:bg-[#CC0000]/15 transition-colors">
+                              <Icon className="w-4 h-4 text-[#CC0000]" />
                             </div>
                             <div>
-                              <div className="text-sm font-semibold text-[#0A0A0A] group-hover/item:text-[#8B0000] transition-colors">
+                              <div className="text-sm font-semibold text-[#0A0A0A] group-hover/item:text-[#CC0000] transition-colors">
                                 {language === 'en' ? item.nameEn : item.nameFr}
                               </div>
                               <div className="text-xs text-gray-400 mt-0.5">
@@ -291,7 +291,7 @@ export function Header() {
                   }`}
                 />
                 {location.pathname.startsWith('/research') && (
-                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[#8B0000]" />
+                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[#CC0000]" />
                 )}
               </button>
 
@@ -312,11 +312,11 @@ export function Header() {
                             to={item.href}
                             className="flex items-start gap-3 p-3 rounded-xl hover:bg-gray-50 group/item transition-all duration-150"
                           >
-                            <div className="mt-0.5 w-8 h-8 rounded-lg bg-[#8B0000]/8 flex items-center justify-center shrink-0 group-hover/item:bg-[#8B0000]/15 transition-colors">
-                              <Icon className="w-4 h-4 text-[#8B0000]" />
+                            <div className="mt-0.5 w-8 h-8 rounded-lg bg-[#CC0000]/8 flex items-center justify-center shrink-0 group-hover/item:bg-[#CC0000]/15 transition-colors">
+                              <Icon className="w-4 h-4 text-[#CC0000]" />
                             </div>
                             <div>
-                              <div className="text-sm font-semibold text-[#0A0A0A] group-hover/item:text-[#8B0000] transition-colors">
+                              <div className="text-sm font-semibold text-[#0A0A0A] group-hover/item:text-[#CC0000] transition-colors">
                                 {language === 'en' ? item.nameEn : item.nameFr}
                               </div>
                               <div className="text-xs text-gray-400 mt-0.5">
@@ -354,7 +354,7 @@ export function Header() {
               >
                 {item.label}
                 {isActive(item.href) && (
-                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[#8B0000]" />
+                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[#CC0000]" />
                 )}
               </Link>
             ))}
@@ -382,7 +382,7 @@ export function Header() {
             {/* CTA — Support Us */}
             <Link
               to="/donate"
-              className="inline-flex items-center gap-1.5 px-4 py-2 bg-gradient-to-r from-[#8B0000] to-[#A31515] text-white text-sm font-semibold rounded-full hover:shadow-[0_4px_16px_rgba(139,0,0,0.4)] hover:-translate-y-px transition-all duration-300 group"
+              className="inline-flex items-center gap-1.5 px-4 py-2 bg-gradient-to-r from-[#CC0000] to-[#DA0C0C] text-white text-sm font-semibold rounded-full hover:shadow-[0_4px_16px_rgba(204,0,0,0.4)] hover:-translate-y-px transition-all duration-300 group"
             >
               {language === 'en' ? 'Support Us' : 'Nous Soutenir'}
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
@@ -394,7 +394,7 @@ export function Header() {
               className={`inline-flex items-center gap-1.5 px-4 py-2 text-sm font-semibold rounded-full border-2 transition-all duration-200 group ${
                 isDark 
                   ? 'border-white/20 text-white hover:bg-white/10' 
-                  : 'border-gray-200 text-[#0A0A0A] hover:border-[#8B0000] hover:text-[#8B0000]'
+                  : 'border-gray-200 text-[#0A0A0A] hover:border-[#CC0000] hover:text-[#CC0000]'
               }`}
             >
               {language === 'en' ? 'Get Involved' : 'Participer'}
@@ -450,7 +450,7 @@ export function Header() {
                   to={item.href}
                   className={`flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium transition-all duration-150 ${
                     isActive(item.href)
-                      ? 'bg-[#8B0000] text-white'
+                      ? 'bg-[#CC0000] text-white'
                       : isDark
                       ? 'text-white/80 hover:bg-white/10 hover:text-white'
                       : 'text-gray-700 hover:bg-white hover:text-[#0A0A0A]'
@@ -465,7 +465,7 @@ export function Header() {
               <div className="pt-2 px-2 flex flex-col gap-2">
                 <Link
                   to="/donate"
-                  className="flex items-center justify-center gap-2 w-full py-3 bg-gradient-to-r from-[#8B0000] to-[#A31515] text-white text-sm font-semibold rounded-xl hover:shadow-lg transition-all"
+                  className="flex items-center justify-center gap-2 w-full py-3 bg-gradient-to-r from-[#CC0000] to-[#DA0C0C] text-white text-sm font-semibold rounded-xl hover:shadow-lg transition-all"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {language === 'en' ? 'Support Us' : 'Nous Soutenir'}

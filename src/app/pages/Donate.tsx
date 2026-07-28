@@ -56,12 +56,12 @@ export function Donate() {
     <div className="min-h-screen bg-gray-50 pb-20">
       {/* Premium Hero Section */}
       <div className="relative bg-[#0A0A0A] text-white overflow-hidden py-24 lg:py-32">
-        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#8B0000] via-transparent to-transparent" />
+        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#CC0000] via-transparent to-transparent" />
         <TimelineBeam />
         
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 mb-8 backdrop-blur-md">
-            <Heart className="w-4 h-4 text-[#8B0000] fill-[#8B0000]" />
+            <Heart className="w-4 h-4 text-[#CC0000] fill-[#CC0000]" />
             <span className="text-xs font-bold tracking-widest uppercase text-white">
               {language === 'en' ? 'Support Our Work' : 'Soutenez notre travail'}
             </span>
@@ -85,13 +85,13 @@ export function Donate() {
           
           {/* Donation Form */}
           <div className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
-            <div className="h-2 bg-[#8B0000]" />
+            <div className="h-2 bg-[#CC0000]" />
             <form onSubmit={handleSubmit} className="p-6 md:p-10 space-y-10">
               
               {/* Step 1: Fund Designation */}
               <section>
                 <h2 className="text-xl font-semibold text-[#0A0A0A] mb-4 flex items-center gap-3" style={{ fontFamily: 'var(--font-heading)' }}>
-                  <span className="w-8 h-8 rounded-full bg-[#8B0000]/10 text-[#8B0000] flex items-center justify-center text-sm font-bold">1</span>
+                  <span className="w-8 h-8 rounded-full bg-[#CC0000]/10 text-[#CC0000] flex items-center justify-center text-sm font-bold">1</span>
                   {language === 'en' ? 'Select a Fund' : 'Sélectionnez un fonds'}
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -103,7 +103,7 @@ export function Donate() {
                   ].map(f => (
                     <label key={f.id} className={`
                       relative p-4 rounded-xl border-2 cursor-pointer transition-all duration-200
-                      ${fund === f.id ? 'border-[#8B0000] bg-[#8B0000]/5' : 'border-gray-100 hover:border-gray-200'}
+                      ${fund === f.id ? 'border-[#CC0000] bg-[#CC0000]/5' : 'border-gray-100 hover:border-gray-200'}
                     `}>
                       <input 
                         type="radio" 
@@ -113,7 +113,7 @@ export function Donate() {
                         onChange={() => setFund(f.id)}
                         className="sr-only" 
                       />
-                      <span className={`block font-medium ${fund === f.id ? 'text-[#8B0000]' : 'text-gray-700'}`}>
+                      <span className={`block font-medium ${fund === f.id ? 'text-[#CC0000]' : 'text-gray-700'}`}>
                         {f.label}
                       </span>
                     </label>
@@ -124,7 +124,7 @@ export function Donate() {
               {/* Step 2: Amount */}
               <section>
                 <h2 className="text-xl font-semibold text-[#0A0A0A] mb-4 flex items-center gap-3" style={{ fontFamily: 'var(--font-heading)' }}>
-                  <span className="w-8 h-8 rounded-full bg-[#8B0000]/10 text-[#8B0000] flex items-center justify-center text-sm font-bold">2</span>
+                  <span className="w-8 h-8 rounded-full bg-[#CC0000]/10 text-[#CC0000] flex items-center justify-center text-sm font-bold">2</span>
                   {language === 'en' ? 'Choose Amount' : 'Choisissez le montant'}
                 </h2>
                 <div className="grid grid-cols-3 sm:grid-cols-5 gap-3 mb-4">
@@ -135,7 +135,7 @@ export function Donate() {
                       onClick={() => setAmount(val)}
                       className={`py-4 rounded-xl border-2 font-bold text-lg transition-all ${
                         amount === val 
-                          ? 'border-[#8B0000] bg-[#8B0000] text-white shadow-md transform scale-[1.02]' 
+                          ? 'border-[#CC0000] bg-[#CC0000] text-white shadow-md transform scale-[1.02]' 
                           : 'border-gray-200 text-gray-700 hover:border-gray-300 bg-white'
                       }`}
                     >
@@ -147,7 +147,7 @@ export function Donate() {
                     onClick={() => setAmount('custom')}
                     className={`py-4 rounded-xl border-2 font-semibold text-sm transition-all ${
                       amount === 'custom'
-                        ? 'border-[#8B0000] bg-[#8B0000]/10 text-[#8B0000]'
+                        ? 'border-[#CC0000] bg-[#CC0000]/10 text-[#CC0000]'
                         : 'border-gray-200 text-gray-600 hover:border-gray-300 bg-white'
                     }`}
                   >
@@ -165,7 +165,7 @@ export function Donate() {
                       required
                       value={customAmount}
                       onChange={(e) => setCustomAmount(e.target.value)}
-                      className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-[#8B0000] focus:ring-4 focus:ring-[#8B0000]/20 focus:outline-none text-lg font-bold"
+                      className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-[#CC0000] focus:ring-4 focus:ring-[#CC0000]/20 focus:outline-none text-lg font-bold"
                     />
                   </div>
                 )}
@@ -174,15 +174,15 @@ export function Donate() {
               {/* Step 3: Payment Mockup */}
               <section>
                 <h2 className="text-xl font-semibold text-[#0A0A0A] mb-4 flex items-center gap-3" style={{ fontFamily: 'var(--font-heading)' }}>
-                  <span className="w-8 h-8 rounded-full bg-[#8B0000]/10 text-[#8B0000] flex items-center justify-center text-sm font-bold">3</span>
+                  <span className="w-8 h-8 rounded-full bg-[#CC0000]/10 text-[#CC0000] flex items-center justify-center text-sm font-bold">3</span>
                   {language === 'en' ? 'Your Details' : 'Vos coordonnées'}
                 </h2>
                 <div className="space-y-4">
                   <div className="grid grid-cols-2 gap-4">
-                    <input type="text" placeholder={language === 'en' ? 'First Name' : 'Prénom'} required className="w-full p-4 rounded-xl border border-gray-200 focus:border-[#8B0000] focus:ring-1 focus:ring-[#8B0000] outline-none transition-all" />
-                    <input type="text" placeholder={language === 'en' ? 'Last Name' : 'Nom de famille'} required className="w-full p-4 rounded-xl border border-gray-200 focus:border-[#8B0000] focus:ring-1 focus:ring-[#8B0000] outline-none transition-all" />
+                    <input type="text" placeholder={language === 'en' ? 'First Name' : 'Prénom'} required className="w-full p-4 rounded-xl border border-gray-200 focus:border-[#CC0000] focus:ring-1 focus:ring-[#CC0000] outline-none transition-all" />
+                    <input type="text" placeholder={language === 'en' ? 'Last Name' : 'Nom de famille'} required className="w-full p-4 rounded-xl border border-gray-200 focus:border-[#CC0000] focus:ring-1 focus:ring-[#CC0000] outline-none transition-all" />
                   </div>
-                  <input type="email" placeholder={language === 'en' ? 'Email Address' : 'Adresse courriel'} required className="w-full p-4 rounded-xl border border-gray-200 focus:border-[#8B0000] focus:ring-1 focus:ring-[#8B0000] outline-none transition-all" />
+                  <input type="email" placeholder={language === 'en' ? 'Email Address' : 'Adresse courriel'} required className="w-full p-4 rounded-xl border border-gray-200 focus:border-[#CC0000] focus:ring-1 focus:ring-[#CC0000] outline-none transition-all" />
                   
                   <div className="bg-gray-50 p-4 rounded-xl border border-gray-200 mt-6">
                     <div className="flex items-center gap-2 mb-4 text-gray-500 text-sm">
@@ -198,7 +198,7 @@ export function Donate() {
 
               <button 
                 type="submit"
-                className="w-full py-5 bg-[#8B0000] text-white rounded-xl font-bold text-lg hover:bg-[#A31515] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2 group"
+                className="w-full py-5 bg-[#CC0000] text-white rounded-xl font-bold text-lg hover:bg-[#DA0C0C] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2 group"
               >
                 {language === 'en' ? `Donate $${finalAmount || '0'}` : `Faire un don de ${finalAmount || '0'}$`}
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -224,7 +224,7 @@ export function Donate() {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/40 to-transparent"></div>
               </div>
               <CardHeader className="pt-4">
-                <ShieldCheck className="w-8 h-8 text-[#8B0000] mb-2" />
+                <ShieldCheck className="w-8 h-8 text-[#CC0000] mb-2" />
                 <h3 className="text-xl leading-none" data-slot="card-title" style={{ fontFamily: 'var(--font-heading)' }}>
                   {language === 'en' ? 'Why Support Us?' : 'Pourquoi nous soutenir ?'}
                 </h3>
@@ -237,15 +237,15 @@ export function Donate() {
                 </p>
                 <ul className="space-y-2 mt-4 border-t border-white/10 pt-4">
                   <li className="flex gap-2">
-                    <CheckCircle2 className="w-5 h-5 text-[#8B0000] shrink-0" />
+                    <CheckCircle2 className="w-5 h-5 text-[#CC0000] shrink-0" />
                     <span>{language === 'en' ? '100% transparent funding' : 'Financement 100% transparent'}</span>
                   </li>
                   <li className="flex gap-2">
-                    <CheckCircle2 className="w-5 h-5 text-[#8B0000] shrink-0" />
+                    <CheckCircle2 className="w-5 h-5 text-[#CC0000] shrink-0" />
                     <span>{language === 'en' ? 'Direct support to community partners' : 'Soutien direct aux partenaires communautaires'}</span>
                   </li>
                   <li className="flex gap-2">
-                    <CheckCircle2 className="w-5 h-5 text-[#8B0000] shrink-0" />
+                    <CheckCircle2 className="w-5 h-5 text-[#CC0000] shrink-0" />
                     <span>{language === 'en' ? 'SSHRC matched initiatives' : 'Initiatives jumelées au CRSH'}</span>
                   </li>
                 </ul>
@@ -261,7 +261,7 @@ export function Donate() {
                   ? 'Interested in corporate matching, endowments, or volunteering your time instead?'
                   : 'Vous êtes intéressé par les dons d\'entreprise, les fondations ou le bénévolat ?'}
               </p>
-              <a href="mailto:contact@msk-niagara.ca" className="text-[#8B0000] text-sm font-semibold hover:underline flex items-center gap-1">
+              <a href="mailto:contact@msk-niagara.ca" className="text-[#CC0000] text-sm font-semibold hover:underline flex items-center gap-1">
                 Contact our partnership office <ArrowRight className="w-3 h-3" />
               </a>
             </div>

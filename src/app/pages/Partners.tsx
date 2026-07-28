@@ -31,7 +31,7 @@ const COLUMNS = [
   {
     key: 'academic',
     code: 'A',
-    color: '#8B0000',
+    color: '#CC0000',
     glow: '#E2515E',
     icon: BookOpen,
     titleEn: 'Academic Partners',
@@ -119,7 +119,7 @@ export function Partners() {
   return (
     <div className="min-h-screen bg-[#0E0E11] text-[#ECECEE]">
       {/* ── MASTHEAD HERO ── */}
-      <header className="relative overflow-hidden bg-[#8B0000]">
+      <header className="relative overflow-hidden bg-[#CC0000]">
         <div
           className="absolute inset-0 opacity-[0.06] pointer-events-none"
           style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '32px 32px' }}
@@ -307,7 +307,7 @@ export function Partners() {
             className="absolute inset-0 opacity-[0.05] pointer-events-none"
             style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '28px 28px' }}
           />
-          <div className="absolute -top-24 -right-24 w-72 h-72 bg-[#8B0000]/35 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -top-24 -right-24 w-72 h-72 bg-[#CC0000]/35 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute -bottom-24 -left-24 w-72 h-72 bg-[#089EA5]/15 rounded-full blur-3xl pointer-events-none" />
 
           <div className="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
@@ -322,7 +322,7 @@ export function Partners() {
               </p>
               <div className="flex items-center gap-4">
                 <div className="flex -space-x-2.5">
-                  <div className="w-9 h-9 rounded-full bg-[#8B0000] border-2 border-[#141418] flex items-center justify-center"><BookOpen className="w-4 h-4 text-white" /></div>
+                  <div className="w-9 h-9 rounded-full bg-[#CC0000] border-2 border-[#141418] flex items-center justify-center"><BookOpen className="w-4 h-4 text-white" /></div>
                   <div className="w-9 h-9 rounded-full bg-[#089EA5] border-2 border-[#141418] flex items-center justify-center"><Users className="w-4 h-4 text-white" /></div>
                   <div className="w-9 h-9 rounded-full bg-[#C97B2E] border-2 border-[#141418] flex items-center justify-center"><Landmark className="w-4 h-4 text-white" /></div>
                 </div>
@@ -377,7 +377,7 @@ export function Partners() {
                   <button
                     type="submit"
                     disabled={formStatus === 'submitting'}
-                    className="w-full bg-[#8B0000] hover:bg-[#A31515] text-white font-semibold py-3.5 px-6 rounded-lg flex items-center justify-center gap-2 transition-all shadow-lg disabled:opacity-70"
+                    className="w-full bg-[#CC0000] hover:bg-[#DA0C0C] text-white font-semibold py-3.5 px-6 rounded-lg flex items-center justify-center gap-2 transition-all shadow-lg disabled:opacity-70"
                   >
                     {formStatus === 'submitting' ? (
                       <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />

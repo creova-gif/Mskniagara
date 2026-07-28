@@ -198,7 +198,7 @@ export function ChatWidget() {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={() => setIsOpen(true)}
-            className={`fixed ${isMobile ? 'bottom-4 right-4 w-14 h-14' : 'bottom-6 right-6 w-16 h-16'} z-50 bg-gradient-to-br from-[#8B0000] to-[#6B0000] rounded-full shadow-2xl flex items-center justify-center text-white hover:shadow-[0_0_30px_rgba(139,0,0,0.5)] transition-all duration-300 group`}
+            className={`fixed ${isMobile ? 'bottom-4 right-4 w-14 h-14' : 'bottom-6 right-6 w-16 h-16'} z-50 bg-gradient-to-br from-[#CC0000] to-[#6B0000] rounded-full shadow-2xl flex items-center justify-center text-white hover:shadow-[0_0_30px_rgba(204,0,0,0.5)] transition-all duration-300 group`}
             aria-label={language === 'en' ? 'Open chat' : 'Ouvrir le chat'}
           >
             <MessageCircle className="w-7 h-7 group-hover:scale-110 transition-transform" />
@@ -220,10 +220,10 @@ export function ChatWidget() {
             }}
             exit={{ opacity: 0, y: 100, scale: 0.8 }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-            className={`fixed ${isMobile ? 'bottom-4 right-4 left-4' : 'bottom-6 right-6 w-full max-w-md'} z-50 bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden border-2 border-[#8B0000]/20`}
+            className={`fixed ${isMobile ? 'bottom-4 right-4 left-4' : 'bottom-6 right-6 w-full max-w-md'} z-50 bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden border-2 border-[#CC0000]/20`}
           >
             {/* Header */}
-            <div className="relative bg-gradient-to-br from-[#8B0000] via-[#A40000] to-[#6B0000] text-white px-6 py-5 flex items-center justify-between overflow-hidden">
+            <div className="relative bg-gradient-to-br from-[#CC0000] via-[#A40000] to-[#6B0000] text-white px-6 py-5 flex items-center justify-between overflow-hidden">
               {/* Animated background pattern */}
               <div className="absolute inset-0 opacity-10">
                 <div className="absolute top-0 left-0 w-32 h-32 bg-white rounded-full blur-3xl animate-pulse" style={{ animationDuration: '3s' }}></div>
@@ -314,7 +314,7 @@ export function ChatWidget() {
                       <div
                         className={`max-w-[80%] rounded-2xl px-4 py-3 ${
                           message.sender === 'user'
-                            ? 'bg-[#8B0000] text-white rounded-br-none'
+                            ? 'bg-[#CC0000] text-white rounded-br-none'
                             : 'bg-white text-gray-800 shadow-md rounded-bl-none border border-gray-200'
                         }`}
                       >
@@ -359,7 +359,7 @@ export function ChatWidget() {
                         <button
                           key={index}
                           onClick={() => handleQuickAction(action.action)}
-                          className="text-xs px-3 py-1.5 bg-gray-100 hover:bg-[#8B0000]/10 hover:text-[#8B0000] rounded-full transition-colors border border-gray-300 hover:border-[#8B0000]/30"
+                          className="text-xs px-3 py-1.5 bg-gray-100 hover:bg-[#CC0000]/10 hover:text-[#CC0000] rounded-full transition-colors border border-gray-300 hover:border-[#CC0000]/30"
                         >
                           {action.text}
                         </button>
@@ -378,12 +378,12 @@ export function ChatWidget() {
                       onChange={(e) => setInputValue(e.target.value)}
                       onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
                       placeholder={language === 'en' ? 'Type your message...' : 'Tapez votre message...'}
-                      className="flex-1 px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-[#8B0000] focus:ring-2 focus:ring-[#8B0000]/20 transition-all"
+                      className="flex-1 px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-[#CC0000] focus:ring-2 focus:ring-[#CC0000]/20 transition-all"
                     />
                     <button
                       onClick={handleSendMessage}
                       disabled={!inputValue.trim()}
-                      className="px-6 py-3 bg-gradient-to-r from-[#8B0000] to-[#6B0000] text-white rounded-xl hover:from-[#A40000] hover:to-[#8B0000] disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 flex items-center gap-2 font-semibold shadow-lg hover:shadow-xl"
+                      className="px-6 py-3 bg-gradient-to-r from-[#CC0000] to-[#6B0000] text-white rounded-xl hover:from-[#A40000] hover:to-[#CC0000] disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 flex items-center gap-2 font-semibold shadow-lg hover:shadow-xl"
                       aria-label={language === 'en' ? 'Send message' : 'Envoyer le message'}
                     >
                       <Send className="w-5 h-5" />

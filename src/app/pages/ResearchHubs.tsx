@@ -50,7 +50,7 @@ export function ResearchHubs() {
       leader: 'Dr. Rebecca Raby',
       leaderFr: 'Dre Rebecca Raby',
       color: '#089EA5',
-      gradient: 'from-[#8B0000] to-[#A40000]',
+      gradient: 'from-[#CC0000] to-[#A40000]',
       icon: Heart,
       universities: [
         { name: 'Brock University', logo: brockLogo },
@@ -81,7 +81,7 @@ export function ResearchHubs() {
       leader: 'Dr. Joanne Crawford & Mariam Khayinza',
       leaderFr: 'Dre Joanne Crawford et Mariam Khayinza',
       color: '#12647F',
-      gradient: 'from-[#8B0000] to-[#A40000]',
+      gradient: 'from-[#CC0000] to-[#A40000]',
       icon: Lightbulb,
       universities: [
         { name: 'Brock University', logo: brockLogo },
@@ -120,7 +120,7 @@ export function ResearchHubs() {
       leader: 'Dr. Jean Ntakirutimana',
       leaderFr: 'Dr Jean Ntakirutimana',
       color: '#6635B1',
-      gradient: 'from-[#8B0000] to-[#A40000]',
+      gradient: 'from-[#CC0000] to-[#A40000]',
       icon: GraduationCap,
       universities: [
         { name: 'Brock University', logo: brockLogo },
@@ -143,17 +143,17 @@ export function ResearchHubs() {
   // Helper function to get category icon and color
   const getCategoryStyle = (category: string) => {
     const styles: { [key: string]: { icon: any; gradient: string; color: string } } = {
-      'Housing & Support': { icon: Home, gradient: 'from-[#8B0000] to-[#A40000]', color: '#8B0000' },
+      'Housing & Support': { icon: Home, gradient: 'from-[#CC0000] to-[#A40000]', color: '#CC0000' },
       'Settlement Services': { icon: Users, gradient: 'from-[#089EA5] to-[#12647F]', color: '#089EA5' },
-      'Employment Support': { icon: Briefcase, gradient: 'from-[#6635B1] to-[#8B0000]', color: '#6635B1' },
+      'Employment Support': { icon: Briefcase, gradient: 'from-[#6635B1] to-[#CC0000]', color: '#6635B1' },
       'Labor Rights': { icon: Shield, gradient: 'from-[#FFC956] to-[#FF9A3C]', color: '#FFC956' },
       'Community Education': { icon: BookOpen, gradient: 'from-[#12647F] to-[#089EA5]', color: '#12647F' },
-      'Cultural Integration': { icon: Globe, gradient: 'from-[#6635B1] to-[#8B0000]', color: '#6635B1' },
+      'Cultural Integration': { icon: Globe, gradient: 'from-[#6635B1] to-[#CC0000]', color: '#6635B1' },
       'Healthcare Access': { icon: Activity, gradient: 'from-[#089EA5] to-[#12647F]', color: '#089EA5' },
-      'Recreation & Wellness': { icon: Heart, gradient: 'from-[#8B0000] to-[#A40000]', color: '#8B0000' },
+      'Recreation & Wellness': { icon: Heart, gradient: 'from-[#CC0000] to-[#A40000]', color: '#CC0000' },
       'Education': { icon: GraduationCap, gradient: 'from-[#FFC956] to-[#FF9A3C]', color: '#FFC956' },
       'Public Health': { icon: HeartPulse, gradient: 'from-[#089EA5] to-[#12647F]', color: '#089EA5' },
-      'Newcomer Support': { icon: UserPlus, gradient: 'from-[#6635B1] to-[#8B0000]', color: '#6635B1' },
+      'Newcomer Support': { icon: UserPlus, gradient: 'from-[#6635B1] to-[#CC0000]', color: '#6635B1' },
       'Employment Services': { icon: Briefcase, gradient: 'from-[#12647F] to-[#089EA5]', color: '#12647F' },
     };
     return styles[category] || { icon: Building2, gradient: 'from-gray-400 to-gray-600', color: '#666666' };
@@ -179,7 +179,7 @@ export function ResearchHubs() {
       label: language === 'en' ? 'Research Hubs' : 'Pôles de recherche',
       value: '3',
       icon: Target,
-      color: '#8B0000'
+      color: '#CC0000'
     },
     {
       label: language === 'en' ? 'Team Members' : 'Membres d\'équipe',
@@ -204,7 +204,7 @@ export function ResearchHubs() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <div className="relative bg-[#8B0000] overflow-hidden">
+      <div className="relative bg-[#CC0000] overflow-hidden">
         {/* Dot-grid brand motif */}
         <div className="absolute inset-0 opacity-[0.06]"
           style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '32px 32px' }} />
@@ -240,8 +240,8 @@ export function ResearchHubs() {
           {stats.map((stat, index) => (
             <div key={index} className="bg-white rounded-2xl p-6 shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-[#8B0000]/10 flex items-center justify-center flex-shrink-0">
-                  <stat.icon className="w-6 h-6 text-[#8B0000]" />
+                <div className="w-12 h-12 rounded-xl bg-[#CC0000]/10 flex items-center justify-center flex-shrink-0">
+                  <stat.icon className="w-6 h-6 text-[#CC0000]" />
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-[#0A0A0A] mb-1">{stat.value}</div>
@@ -259,7 +259,7 @@ export function ResearchHubs() {
         {/* Research Hubs Section */}
         <section className="mb-24">
           <div className="flex items-center gap-3 mb-12">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#8B0000] to-[#A40000] flex items-center justify-center shadow-lg">
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#CC0000] to-[#A40000] flex items-center justify-center shadow-lg">
               <Target className="w-6 h-6 text-white" />
             </div>
             <div>
@@ -319,7 +319,7 @@ export function ResearchHubs() {
 
                       {/* Title */}
                       <h3 className={`text-2xl font-bold text-[#0A0A0A] mb-4 leading-tight transition-colors duration-300 ${
-                        hoveredHub === index ? 'text-[#8B0000]' : ''
+                        hoveredHub === index ? 'text-[#CC0000]' : ''
                       }`}>
                         {language === 'en' ? hub.name : hub.nameFr}
                       </h3>
@@ -341,9 +341,9 @@ export function ResearchHubs() {
                         <Badge 
                           className="font-semibold text-xs px-3 py-1 border-2"
                           style={{ 
-                            borderColor: '#8B0000',
-                            backgroundColor: '#8B000015',
-                            color: '#8B0000'
+                            borderColor: '#CC0000',
+                            backgroundColor: '#CC000015',
+                            color: '#CC0000'
                           }}
                         >
                           <Users className="w-3 h-3 inline mr-1" />
@@ -352,9 +352,9 @@ export function ResearchHubs() {
                         <Badge 
                           className="font-semibold text-xs px-3 py-1 border-2"
                           style={{ 
-                            borderColor: '#8B0000',
-                            backgroundColor: '#8B000015',
-                            color: '#8B0000'
+                            borderColor: '#CC0000',
+                            backgroundColor: '#CC000015',
+                            color: '#CC0000'
                           }}
                         >
                           {hub.projects} {language === 'en' ? (hub.projects === 1 ? 'Project' : 'Projects') : (hub.projects === 1 ? 'Projet' : 'Projets')}
@@ -368,7 +368,7 @@ export function ResearchHubs() {
 
                       {/* View Details Button */}
                       <Button
-                        className="w-full bg-gradient-to-r from-[#8B0000] to-[#A40000] hover:shadow-xl text-white font-semibold rounded-xl transition-all duration-300 group/btn border-0 mt-auto"
+                        className="w-full bg-gradient-to-r from-[#CC0000] to-[#A40000] hover:shadow-xl text-white font-semibold rounded-xl transition-all duration-300 group/btn border-0 mt-auto"
                       >
                         {language === 'en' ? 'View Hub Details' : 'Voir les détails du pôle'}
                         <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
@@ -385,7 +385,7 @@ export function ResearchHubs() {
         {/* Community Partners Section */}
         <section className="mb-24">
           <div className="flex items-center gap-3 mb-12">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#8B0000] to-[#6B0000] flex items-center justify-center shadow-lg">
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#CC0000] to-[#6B0000] flex items-center justify-center shadow-lg">
               <Handshake className="w-6 h-6 text-white" />
             </div>
             <div>
@@ -400,7 +400,7 @@ export function ResearchHubs() {
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-[#8B0000] via-[#8B0000] to-[#6B0000] rounded-3xl p-8 md:p-12 border-2 border-[#8B0000]/20 shadow-2xl overflow-hidden relative">
+          <div className="bg-gradient-to-br from-[#CC0000] via-[#CC0000] to-[#6B0000] rounded-3xl p-8 md:p-12 border-2 border-[#CC0000]/20 shadow-2xl overflow-hidden relative">
             {/* Background decorative elements */}
             <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
             <div className="absolute bottom-0 left-0 w-96 h-96 bg-black/10 rounded-full blur-3xl"></div>
@@ -495,7 +495,7 @@ export function ResearchHubs() {
                 <Link to="/community">
                   <Button
                     size="lg"
-                    className="gap-3 bg-white text-[#8B0000] hover:bg-gray-50 shadow-2xl hover:shadow-white/20 transition-all duration-300 hover:scale-105 text-lg px-10 py-7 rounded-2xl font-bold group"
+                    className="gap-3 bg-white text-[#CC0000] hover:bg-gray-50 shadow-2xl hover:shadow-white/20 transition-all duration-300 hover:scale-105 text-lg px-10 py-7 rounded-2xl font-bold group"
                   >
                     <Building2 className="w-6 h-6 group-hover:rotate-12 transition-transform" />
                     {language === 'en' ? 'Explore All Community Partners' : 'Découvrir tous les partenaires'}
@@ -515,9 +515,9 @@ export function ResearchHubs() {
         {/* Call to Action */}
         <div className="relative">
           {/* Background Blur Effect */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#8B0000] via-[#A40000] to-[#8B0000] rounded-[3rem] blur-3xl opacity-20"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#CC0000] via-[#A40000] to-[#CC0000] rounded-[3rem] blur-3xl opacity-20"></div>
           
-          <div className="relative bg-gradient-to-br from-[#8B0000] via-[#A40000] to-[#6B0000] rounded-[3rem] p-12 md:p-16 lg:p-20 overflow-hidden shadow-2xl">
+          <div className="relative bg-gradient-to-br from-[#CC0000] via-[#A40000] to-[#6B0000] rounded-[3rem] p-12 md:p-16 lg:p-20 overflow-hidden shadow-2xl">
             {/* Decorative Elements */}
             <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full -mr-48 -mt-48"></div>
             <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/10 rounded-full -ml-48 -mb-48"></div>
@@ -544,7 +544,7 @@ export function ResearchHubs() {
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="mailto:contact@msk-niagara.ca">
-                  <Button className="bg-white text-[#8B0000] hover:bg-gray-100 font-bold px-10 py-7 rounded-xl text-lg shadow-xl transition-all duration-300 hover:scale-105">
+                  <Button className="bg-white text-[#CC0000] hover:bg-gray-100 font-bold px-10 py-7 rounded-xl text-lg shadow-xl transition-all duration-300 hover:scale-105">
                     {language === 'en' ? 'Contact Us' : 'Nous contacter'}
                   </Button>
                 </a>

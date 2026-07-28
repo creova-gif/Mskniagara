@@ -9,7 +9,7 @@
  * - Context-aware responses with detailed information
  * - Quick reply suggestions
  * - Smart pattern matching for better understanding
- * - Professional black, white, and dark red color scheme (#8B0000)
+ * - Professional black, white, and dark red color scheme (#CC0000)
  * - Enhanced natural language processing
  * - Detailed responses with actionable information
  * 
@@ -88,7 +88,7 @@ export function Chatbot() {
       en: {
         greeting: "Hello! 👋 I'm MSK Chat, your intelligent assistant for our research partnership.\n\nI'm here to help you discover:\n✓ Our 3 Research Hubs\n✓ 56 Team Members\n✓ 22 Community Partners\n✓ Ongoing Research Projects\n✓ Ways to Get Involved\n✓ Connect with Hub Leaders\n\nWhat interests you most?",
         
-        mission: "🎯 OUR MISSION:\n\nMobilizing Subjugated Knowledges for a Just and Inclusive Niagara is a SSHRC-funded transnational university-community partnership.\n\n📋 OUR GOALS:\n• Give voice to African descendant and foreign-born persons\n• Develop culturally responsive community services\n• Conduct multilingual research (English, French, Spanish)\n• Train student and community researchers\n• Foster social justice in Niagara\n\n🎨 BRANDING:\n• Black (#0A0A0A) - Authority & Clarity\n• White (#FFFFFF) - Accessibility & Truth\n• Dark Red (#8B0000) - Cultural Depth & Social Justice\n\n💡 We mobilize marginalized voices to create lasting change!",
+        mission: "🎯 OUR MISSION:\n\nMobilizing Subjugated Knowledges for a Just and Inclusive Niagara is a SSHRC-funded transnational university-community partnership.\n\n📋 OUR GOALS:\n• Give voice to African descendant and foreign-born persons\n• Develop culturally responsive community services\n• Conduct multilingual research (English, French, Spanish)\n• Train student and community researchers\n• Foster social justice in Niagara\n\n🎨 BRANDING:\n• Black (#0A0A0A) - Authority & Clarity\n• White (#FFFFFF) - Accessibility & Truth\n• Dark Red (#CC0000) - Cultural Depth & Social Justice\n\n💡 We mobilize marginalized voices to create lasting change!",
         
         hubs: "🔬 OUR 3 RESEARCH HUBS:\n\n1️⃣ CHILDHOOD & GROWING UP HUB\n   Focus: Newcomer & racialized children's experiences\n   Areas: Housing, education, sport/recreation\n   Projects: 🔹 1 Project\n   Team Members: 👥 45 members\n   Hub Leader: Dr. Rebecca Raby (Brock University)\n   📧 Contact Hub Leader: Type 'contact childhood hub'\n\n2️⃣ HEALTH LITERACY HUB\n   Focus: Immigrant & refugee health literacy\n   Approach: Community-based health education\n   Projects: 🔹 1 Project\n   Team Members: 👥 20 members\n   Co-Leaders: Dr. Joanne Crawford (Brock) & Mariam Khayinza (TOES)\n   📧 Contact Hub Leaders: Type 'contact health hub'\n\n3️⃣ IDENTITY, CONNECTIONS & BELONGING HUB\n   Focus: Afro-descendants, LGBTQ+ newcomers, migrant farmworkers\n   Goal: Foster belonging and community integration\n   Projects: 🔹 3 Projects\n   Team Members: 👥 26 members\n   Hub Leader: Dr. Jean Ntakirutimana\n   📧 Contact Hub Leader: Type 'contact identity hub'\n\n💡 Total: 56 team members across all hubs!\n💡 Each hub uses participatory research methods!",
         
@@ -139,7 +139,7 @@ export function Chatbot() {
       fr: {
         greeting: "Bonjour! 👋 Je suis MSK Chat, votre assistant intelligent pour notre partenariat de recherche.\n\nJe peux vous aider à découvrir:\n✓ Nos 3 pôles de recherche\n✓ 56 membres de l'équipe\n✓ 22 partenaires communautaires\n✓ Projets de recherche en cours\n✓ Façons de participer\n✓ Contacter les chefs de pôle\n\nQu'est-ce qui vous intéresse le plus?",
         
-        mission: "🎯 NOTRE MISSION:\n\nMobiliser les savoirs marginalisés pour un Niagara juste et inclusif est un partenariat transnational université-communauté financé par le CRSH.\n\n📋 NOS OBJECTIFS:\n• Donner la voix aux personnes d'ascendance africaine et nées à l'étranger\n• Développer des services communautaires culturellement adaptés\n• Mener des recherches multilingues (anglais, français, espagnol)\n• Former des chercheur·euse·s étudiant·e·s et communautaires\n• Favoriser la justice sociale à Niagara\n\n🎨 MARQUE:\n• Noir (#0A0A0A) - Autorité & Clarté\n• Blanc (#FFFFFF) - Accessibilité & Vérité\n• Rouge foncé (#8B0000) - Profondeur culturelle & Justice sociale\n\n💡 Nous mobilisons les voix marginalisées pour créer un changement durable!",
+        mission: "🎯 NOTRE MISSION:\n\nMobiliser les savoirs marginalisés pour un Niagara juste et inclusif est un partenariat transnational université-communauté financé par le CRSH.\n\n📋 NOS OBJECTIFS:\n• Donner la voix aux personnes d'ascendance africaine et nées à l'étranger\n• Développer des services communautaires culturellement adaptés\n• Mener des recherches multilingues (anglais, français, espagnol)\n• Former des chercheur·euse·s étudiant·e·s et communautaires\n• Favoriser la justice sociale à Niagara\n\n🎨 MARQUE:\n• Noir (#0A0A0A) - Autorité & Clarté\n• Blanc (#FFFFFF) - Accessibilité & Vérité\n• Rouge foncé (#CC0000) - Profondeur culturelle & Justice sociale\n\n💡 Nous mobilisons les voix marginalisées pour créer un changement durable!",
         
         hubs: "🔬 NOS 3 PÔLES DE RECHERCHE:\n\n1️⃣ PÔLE ENFANCE ET CROISSANCE\n   Focus: Expériences des enfants nouveaux arrivants et racialisés\n   Domaines: Logement, éducation, sport/loisirs\n   Projets: 🔹 1 Projet\n   Membres d'équipe: 👥 45 membres\n   Chef de pôle: Dr. Rebecca Raby (Université Brock)\n   📧 Contacter le chef de pôle: Tapez 'contact childhood hub'\n\n2️⃣ PÔLE LITTÉRATIE EN SANTÉ\n   Focus: Littératie en santé des immigrant·e·s et réfugié·e·s\n   Approche: Éducation communautaire en santé\n   Projets: 🔹 1 Projet\n   Membres d'équipe: 👥 20 membres\n   Co-Chefs: Dr. Joanne Crawford (Brock) & Mariam Khayinza (TOES)\n   📧 Contacter les co-chefs: Tapez 'contact health hub'\n\n3️⃣ PÔLE IDENTITÉ, CONNEXIONS ET APPARTENANCE\n   Focus: Afro-descendants, nouveaux arrivants LGBTQ+, travailleurs agricoles migrants\n   Objectif: Favoriser l'appartenance et l'intégration\n   Projets: 🔹 3 Projets\n   Membres d'équipe: 👥 26 membres\n   Chef de pôle: Dr. Jean Ntakirutimana\n   📧 Contacter le chef de pôle: Tapez 'contact identity hub'\n\n💡 Total: 56 membres d'équipe sur tous les pôles!\n💡 Chaque pôle utilise des méthodes de recherche participative!",
         
@@ -369,22 +369,22 @@ export function Chatbot() {
         onClick={() => setIsOpen(!isOpen)}
         className={`fixed bottom-6 right-6 z-50 p-4 rounded-full shadow-2xl transition-all duration-300 border-2 ${ 
           isOpen 
-            ? 'bg-[#8B0000] text-white border-[#8B0000] rotate-0' 
-            : 'bg-[#8B0000] text-white border-[#8B0000] hover:bg-[#A40000] hover:border-[#A40000] hover:scale-110 hover:shadow-[0_0_30px_rgba(139,0,0,0.5)]'
+            ? 'bg-[#CC0000] text-white border-[#CC0000] rotate-0' 
+            : 'bg-[#CC0000] text-white border-[#CC0000] hover:bg-[#A40000] hover:border-[#A40000] hover:scale-110 hover:shadow-[0_0_30px_rgba(204,0,0,0.5)]'
         }`}
         aria-label="Toggle MSK Chat"
       >
         {isOpen ? <X className="w-6 h-6" /> : <MessageCircle className="w-6 h-6" />}
         {!isOpen && (
-          <div className="absolute -top-1 -right-1 w-3 h-3 bg-white rounded-full border-2 border-[#8B0000] animate-pulse"></div>
+          <div className="absolute -top-1 -right-1 w-3 h-3 bg-white rounded-full border-2 border-[#CC0000] animate-pulse"></div>
         )}
       </button>
 
       {/* Chat Window - Enhanced Design */}
       {isOpen && (
-        <div className="fixed bottom-24 right-6 z-50 w-96 max-w-[calc(100vw-3rem)] h-[600px] max-h-[calc(100vh-8rem)] bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden border-2 border-[#8B0000]/20">
+        <div className="fixed bottom-24 right-6 z-50 w-96 max-w-[calc(100vw-3rem)] h-[600px] max-h-[calc(100vh-8rem)] bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden border-2 border-[#CC0000]/20">
           {/* Header - Dark Red Gradient */}
-          <div className="bg-gradient-to-r from-[#8B0000] to-[#6B0000] text-white p-4 flex items-center gap-3 shadow-lg">
+          <div className="bg-gradient-to-r from-[#CC0000] to-[#6B0000] text-white p-4 flex items-center gap-3 shadow-lg">
             <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm border border-white/30">
               <MessageCircle className="w-5 h-5" />
             </div>
@@ -409,7 +409,7 @@ export function Chatbot() {
                 {/* Avatar */}
                 <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center shadow-md ${ 
                   message.sender === 'bot' 
-                    ? 'bg-gradient-to-br from-[#8B0000] to-[#6B0000] text-white' 
+                    ? 'bg-gradient-to-br from-[#CC0000] to-[#6B0000] text-white' 
                     : 'bg-gradient-to-br from-[#0A0A0A] to-[#1A1A1A] text-white'
                 }`}>
                   {message.sender === 'bot' ? (
@@ -423,8 +423,8 @@ export function Chatbot() {
                 <div
                   className={`max-w-[75%] rounded-2xl px-4 py-3 shadow-md ${ 
                     message.sender === 'bot'
-                      ? 'bg-white text-[#0A0A0A] border border-[#8B0000]/10'
-                      : 'bg-gradient-to-br from-[#8B0000] to-[#6B0000] text-white'
+                      ? 'bg-white text-[#0A0A0A] border border-[#CC0000]/10'
+                      : 'bg-gradient-to-br from-[#CC0000] to-[#6B0000] text-white'
                   }`}
                 >
                   <p className={`text-sm whitespace-pre-wrap break-words leading-relaxed ${message.sender === 'user' ? 'text-white' : ''}`}>{message.text}</p>
@@ -440,14 +440,14 @@ export function Chatbot() {
             {/* Typing Indicator */}
             {isTyping && (
               <div className="flex gap-2 animate-fade-in">
-                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-[#8B0000] to-[#6B0000] text-white flex items-center justify-center shadow-md">
+                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-[#CC0000] to-[#6B0000] text-white flex items-center justify-center shadow-md">
                   <Bot className="w-4 h-4" />
                 </div>
-                <div className="bg-white rounded-2xl px-4 py-3 shadow-md border border-[#8B0000]/10">
+                <div className="bg-white rounded-2xl px-4 py-3 shadow-md border border-[#CC0000]/10">
                   <div className="flex gap-1">
-                    <div className="w-2 h-2 bg-[#8B0000] rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
-                    <div className="w-2 h-2 bg-[#8B0000] rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
-                    <div className="w-2 h-2 bg-[#8B0000] rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+                    <div className="w-2 h-2 bg-[#CC0000] rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+                    <div className="w-2 h-2 bg-[#CC0000] rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
+                    <div className="w-2 h-2 bg-[#CC0000] rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
                   </div>
                 </div>
               </div>
@@ -467,7 +467,7 @@ export function Chatbot() {
                   <button
                     key={index}
                     onClick={() => handleQuickReply(reply.action)}
-                    className="px-3 py-1.5 bg-[#8B0000]/10 text-[#8B0000] rounded-full text-xs font-medium hover:bg-[#8B0000]/20 hover:scale-105 transition-all border border-[#8B0000]/20"
+                    className="px-3 py-1.5 bg-[#CC0000]/10 text-[#CC0000] rounded-full text-xs font-medium hover:bg-[#CC0000]/20 hover:scale-105 transition-all border border-[#CC0000]/20"
                   >
                     {language === 'en' ? reply.text : reply.textFr}
                   </button>
@@ -477,7 +477,7 @@ export function Chatbot() {
           )}
 
           {/* Input - Enhanced Design */}
-          <div className="p-4 bg-white border-t-2 border-[#8B0000]/10">
+          <div className="p-4 bg-white border-t-2 border-[#CC0000]/10">
             <div className="flex gap-2">
               <input
                 ref={inputRef}
@@ -486,12 +486,12 @@ export function Chatbot() {
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyPress={handleKeyPress}
                 placeholder={language === 'en' ? 'Ask me anything...' : 'Posez-moi une question...'}
-                className="flex-1 px-4 py-2.5 border-2 border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-[#8B0000] focus:border-[#8B0000] text-sm transition-all"
+                className="flex-1 px-4 py-2.5 border-2 border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-[#CC0000] focus:border-[#CC0000] text-sm transition-all"
               />
               <button
                 onClick={() => handleSendMessage()}
                 disabled={!inputValue.trim()}
-                className="p-2.5 bg-gradient-to-br from-[#8B0000] to-[#6B0000] text-white rounded-full hover:from-[#A40000] hover:to-[#8B0000] transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-md hover:shadow-lg disabled:hover:shadow-md transform hover:scale-105 disabled:hover:scale-100"
+                className="p-2.5 bg-gradient-to-br from-[#CC0000] to-[#6B0000] text-white rounded-full hover:from-[#A40000] hover:to-[#CC0000] transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-md hover:shadow-lg disabled:hover:shadow-md transform hover:scale-105 disabled:hover:scale-100"
                 aria-label="Send message"
               >
                 <Send className="w-5 h-5" />

@@ -77,9 +77,9 @@ export class ErrorBoundary extends Component<Props, State> {
       // Default error UI
       return (
         <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center px-4">
-          <div className="max-w-2xl w-full bg-white rounded-2xl shadow-2xl p-8 md:p-12 text-center border-t-4 border-[#8B0000]">
+          <div className="max-w-2xl w-full bg-white rounded-2xl shadow-2xl p-8 md:p-12 text-center border-t-4 border-[#CC0000]">
             <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-red-100 mb-6">
-              <AlertTriangle className="w-10 h-10 text-[#8B0000]" />
+              <AlertTriangle className="w-10 h-10 text-[#CC0000]" />
             </div>
             
             <h1 className="text-3xl md:text-4xl font-bold text-[#0A0A0A] mb-4">
@@ -112,7 +112,7 @@ export class ErrorBoundary extends Component<Props, State> {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 onClick={this.handleReset}
-                className="gap-2 bg-[#8B0000] hover:bg-[#7A0000] text-white px-8 py-6 text-lg"
+                className="gap-2 bg-[#CC0000] hover:bg-[#800000] text-white px-8 py-6 text-lg"
               >
                 <RefreshCw className="w-5 h-5" />
                 Try Again

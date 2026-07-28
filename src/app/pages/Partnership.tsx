@@ -120,7 +120,7 @@ export function Partnership() {
     <div className="min-h-screen bg-white">
 
       {/* ── HERO ── */}
-      <div className="relative overflow-hidden bg-[#8B0000]">
+      <div className="relative overflow-hidden bg-[#CC0000]">
         <div className="absolute inset-0 opacity-[0.06]"
           style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '32px 32px' }} />
         {/* Network nodes animation — partnership connections */}
@@ -155,7 +155,7 @@ export function Partnership() {
               <h2 className="text-3xl font-extrabold text-[#0A0A0A]" style={{ fontFamily: 'var(--font-heading)' }}>
                 {language === 'en' ? 'Our Partners' : 'Nos partenaires'}
               </h2>
-              <a href="/community" className="text-sm font-semibold text-[#8B0000] hover:underline flex items-center gap-1">
+              <a href="/community" className="text-sm font-semibold text-[#CC0000] hover:underline flex items-center gap-1">
                 {language === 'en' ? 'All partners' : 'Tous les partenaires'}
                 <ArrowRight className="w-3.5 h-3.5" />
               </a>
@@ -166,13 +166,13 @@ export function Partnership() {
                   {partners.map((partner, index) => (
                     <div key={index} className="flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_33.333%] min-w-0 px-3">
                       <a href={sanitizeUrl(partner.url)} target="_blank" rel="noopener noreferrer" className="block group h-full">
-                        <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:border-[#8B0000]/30 hover:shadow-lg transition-all duration-300 h-full flex flex-col items-center justify-center min-h-[220px] gap-4">
+                        <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:border-[#CC0000]/30 hover:shadow-lg transition-all duration-300 h-full flex flex-col items-center justify-center min-h-[220px] gap-4">
                           <div className="h-20 flex items-center justify-center">
                             <img src={partner.logo} alt={language === 'en' ? partner.name : partner.nameFr}
                               className="max-h-16 max-w-[160px] object-contain opacity-80 group-hover:opacity-100 transition-opacity" />
                           </div>
                           <div className="text-center">
-                            <p className="text-sm font-semibold text-[#0A0A0A] group-hover:text-[#8B0000] transition-colors leading-snug">
+                            <p className="text-sm font-semibold text-[#0A0A0A] group-hover:text-[#CC0000] transition-colors leading-snug">
                               {language === 'en' ? partner.name : partner.nameFr}
                             </p>
                             <p className="text-[11px] text-gray-400 mt-1 tracking-wide uppercase font-medium">
@@ -186,18 +186,18 @@ export function Partnership() {
                 </div>
               </div>
               <button onClick={scrollPrev} aria-label="Previous"
-                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-3 w-9 h-9 rounded-full bg-white shadow-md border border-gray-200 hover:border-[#8B0000] hover:bg-[#8B0000] hover:text-white transition-all flex items-center justify-center z-10">
+                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-3 w-9 h-9 rounded-full bg-white shadow-md border border-gray-200 hover:border-[#CC0000] hover:bg-[#CC0000] hover:text-white transition-all flex items-center justify-center z-10">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
               </button>
               <button onClick={scrollNext} aria-label="Next"
-                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-3 w-9 h-9 rounded-full bg-white shadow-md border border-gray-200 hover:border-[#8B0000] hover:bg-[#8B0000] hover:text-white transition-all flex items-center justify-center z-10">
+                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-3 w-9 h-9 rounded-full bg-white shadow-md border border-gray-200 hover:border-[#CC0000] hover:bg-[#CC0000] hover:text-white transition-all flex items-center justify-center z-10">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
               </button>
             </div>
             <div className="flex justify-center gap-2 mt-6">
               {partners.map((_, index) => (
                 <button key={index} onClick={() => emblaApi?.scrollTo(index)} aria-label={`Go to partner ${index + 1}`}
-                  className={`h-1.5 rounded-full transition-all duration-300 ${index === selectedIndex ? 'bg-[#8B0000] w-6' : 'bg-[#8B0000]/20 w-1.5 hover:bg-[#8B0000]/40'}`} />
+                  className={`h-1.5 rounded-full transition-all duration-300 ${index === selectedIndex ? 'bg-[#CC0000] w-6' : 'bg-[#CC0000]/20 w-1.5 hover:bg-[#CC0000]/40'}`} />
               ))}
             </div>
           </div>
@@ -211,8 +211,8 @@ export function Partnership() {
             <div className="bg-[#0A0A0A] p-10 md:p-14 flex flex-col justify-between" style={fadeUp(introVisible, 0)}>
               <div>
                 <div className="flex items-center gap-2 mb-8">
-                  <div className="w-5 h-px bg-[#8B0000]" />
-                  <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#8B0000]">
+                  <div className="w-5 h-px bg-[#CC0000]" />
+                  <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#CC0000]">
                     {language === 'en' ? 'About MSK Niagara' : 'À propos de MSK Niagara'}
                   </span>
                 </div>
@@ -240,16 +240,16 @@ export function Partnership() {
             {/* Right: numbered goals */}
             <div className="bg-white p-10 md:p-14" style={fadeUp(introVisible, 100)}>
               <div className="flex items-center gap-2 mb-8">
-                <div className="w-5 h-px bg-[#8B0000]" />
-                <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#8B0000]">
+                <div className="w-5 h-px bg-[#CC0000]" />
+                <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#CC0000]">
                   {language === 'en' ? 'Through our research, we will' : 'Grâce à notre recherche, nous allons'}
                 </span>
               </div>
               <div className="space-y-0 divide-y divide-gray-100">
                 {goals.map((goal, i) => (
                   <div key={i} className="py-5 flex gap-5 group" style={fadeUp(introVisible, 150 + i * 80)}>
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full border border-[#8B0000]/20 flex items-center justify-center group-hover:bg-[#8B0000] group-hover:border-[#8B0000] transition-all duration-300">
-                      <span className="text-[11px] font-black text-[#8B0000] group-hover:text-white transition-colors">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full border border-[#CC0000]/20 flex items-center justify-center group-hover:bg-[#CC0000] group-hover:border-[#CC0000] transition-all duration-300">
+                      <span className="text-[11px] font-black text-[#CC0000] group-hover:text-white transition-colors">
                         {String(i + 1).padStart(2, '0')}
                       </span>
                     </div>
@@ -265,8 +265,8 @@ export function Partnership() {
         <section ref={hubsRef} className="mb-24">
           <div className="mb-10" style={fadeUp(hubsVisible, 0)}>
             <div className="flex items-center gap-2 mb-3">
-              <div className="w-5 h-px bg-[#8B0000]" />
-              <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#8B0000]">
+              <div className="w-5 h-px bg-[#CC0000]" />
+              <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#CC0000]">
                 {language === 'en' ? 'Research Hubs' : 'Pôles de recherche'}
               </span>
             </div>
@@ -292,7 +292,7 @@ export function Partnership() {
                   <div className="w-2 h-2 rounded-full opacity-40" style={{ backgroundColor: color }} />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-xl font-bold text-[#0A0A0A] mb-3 leading-snug group-hover:text-[#8B0000] transition-colors duration-300"
+                  <h3 className="text-xl font-bold text-[#0A0A0A] mb-3 leading-snug group-hover:text-[#CC0000] transition-colors duration-300"
                     style={{ fontFamily: 'var(--font-heading)' }}>
                     {language === 'en' ? titleEn : titleFr}
                   </h3>
@@ -300,7 +300,7 @@ export function Partnership() {
                     {language === 'en' ? descEn : descFr}
                   </p>
                 </div>
-                <div className="flex items-center gap-1.5 text-xs font-bold tracking-widest uppercase text-gray-300 group-hover:text-[#8B0000] transition-colors duration-300">
+                <div className="flex items-center gap-1.5 text-xs font-bold tracking-widest uppercase text-gray-300 group-hover:text-[#CC0000] transition-colors duration-300">
                   {language === 'en' ? 'Explore Hub' : 'Explorer'}
                   <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-300" />
                 </div>
@@ -313,7 +313,7 @@ export function Partnership() {
         <section ref={govRef} className="mb-8">
           <div className="rounded-3xl overflow-hidden border border-gray-100 shadow-lg">
             {/* Header bar */}
-            <div className="bg-[#8B0000] px-10 py-8 flex items-center gap-4" style={fadeUp(govVisible, 0)}>
+            <div className="bg-[#CC0000] px-10 py-8 flex items-center gap-4" style={fadeUp(govVisible, 0)}>
               <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
                 <Shield className="w-5 h-5 text-white" />
               </div>
@@ -337,7 +337,7 @@ export function Partnership() {
                   { n: '2', label: language === 'en' ? 'Student Representatives' : 'Représentants étudiants' },
                 ].map((s, i) => (
                   <div key={i} className="bg-white px-8 py-6 flex flex-col">
-                    <div className="w-4 h-0.5 bg-[#8B0000] mb-3 rounded-full" />
+                    <div className="w-4 h-0.5 bg-[#CC0000] mb-3 rounded-full" />
                     <div className="text-4xl font-extrabold text-[#0A0A0A] leading-none mb-1"
                       style={{ fontFamily: 'var(--font-heading)' }}>{s.n}</div>
                     <div className="text-[11px] font-semibold tracking-wide uppercase text-gray-400">{s.label}</div>
@@ -349,7 +349,7 @@ export function Partnership() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-gray-100" style={fadeUp(govVisible, 200)}>
                 <div className="bg-white p-10">
                   <div className="flex items-center gap-2 mb-4">
-                    <Users className="w-4 h-4 text-[#8B0000]" />
+                    <Users className="w-4 h-4 text-[#CC0000]" />
                     <h3 className="text-base font-bold text-[#0A0A0A]">
                       {language === 'en' ? 'Implementation Council (IC)' : 'Conseil de mise en œuvre (CM)'}
                     </h3>
@@ -362,7 +362,7 @@ export function Partnership() {
                 </div>
                 <div className="bg-white p-10">
                   <div className="flex items-center gap-2 mb-4">
-                    <Users className="w-4 h-4 text-[#8B0000]" />
+                    <Users className="w-4 h-4 text-[#CC0000]" />
                     <h3 className="text-base font-bold text-[#0A0A0A]">
                       {language === 'en' ? 'Hub Leaders & Co-Leaders' : 'Responsables et co-responsables des pôles'}
                     </h3>
@@ -384,7 +384,7 @@ export function Partnership() {
                     : 'Nous vous invitons à en apprendre davantage sur le travail unique et passionnant qui se déroule dans nos pôles. Bien que nos activités soient axées sur Niagara, nous espérons que tous les petits et moyens centres pourront s\'en inspirer.'}
                 </p>
                 <Link to="/about/hubs"
-                  className="flex-shrink-0 inline-flex items-center gap-2 px-5 py-2.5 bg-[#8B0000] text-white text-sm font-semibold rounded-xl hover:bg-[#A31515] transition-colors">
+                  className="flex-shrink-0 inline-flex items-center gap-2 px-5 py-2.5 bg-[#CC0000] text-white text-sm font-semibold rounded-xl hover:bg-[#DA0C0C] transition-colors">
                   {language === 'en' ? 'Explore Hubs' : 'Explorer les pôles'}
                   <ArrowRight className="w-4 h-4" />
                 </Link>

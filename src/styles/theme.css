@@ -42,18 +42,20 @@
 
     /* ─────────────────────────────────────────
        COLOR TOKENS — BRAND CRIMSON
+       Scale anchored on Brock University's official
+       red (#CC0000) at the 700 / primary position.
     ───────────────────────────────────────── */
-    --color-crimson-950:  #3B0000;
-    --color-crimson-900:  #5C0000;
-    --color-crimson-800:  #7A0000;
-    --color-crimson-700:  #8B0000;     /* Primary brand */
-    --color-crimson-600:  #A31515;
-    --color-crimson-500:  #B91C1C;
-    --color-crimson-400:  #DC2626;
-    --color-crimson-300:  #EF4444;
-    --color-crimson-200:  #FCA5A5;
-    --color-crimson-100:  #FEE2E2;
-    --color-crimson-50:   #FFF5F5;
+    --color-crimson-950:  #260000;
+    --color-crimson-900:  #4D0000;
+    --color-crimson-800:  #800000;
+    --color-crimson-700:  #CC0000;     /* Primary brand — Brock red */
+    --color-crimson-600:  #DA0C0C;
+    --color-crimson-500:  #ED1D1D;
+    --color-crimson-400:  #E94949;
+    --color-crimson-300:  #E87D7D;
+    --color-crimson-200:  #EAB8B8;
+    --color-crimson-100:  #F1DFDF;
+    --color-crimson-50:   #F9F5F5;
 
     /* ─────────────────────────────────────────
        COLOR TOKENS — FUNCTIONAL
@@ -123,8 +125,8 @@
     --shadow-lg:   0 10px 15px -3px rgba(0,0,0,0.07), 0 4px 6px -4px rgba(0,0,0,0.04);
     --shadow-xl:   0 20px 25px -5px rgba(0,0,0,0.08), 0 8px 10px -6px rgba(0,0,0,0.04);
     --shadow-2xl:  0 25px 50px -12px rgba(0,0,0,0.15);
-    --shadow-brand: 0 4px 14px 0 rgba(139,0,0,0.25);
-    --shadow-brand-lg: 0 8px 28px 0 rgba(139,0,0,0.30);
+    --shadow-brand: 0 4px 14px 0 rgba(204,0,0,0.25);
+    --shadow-brand-lg: 0 8px 28px 0 rgba(204,0,0,0.30);
 
     /* ─────────────────────────────────────────
        TYPOGRAPHY SCALE
@@ -464,8 +466,8 @@
 }
 
 @keyframes pulse-brand {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(139,0,0,0); }
-  50%       { box-shadow: 0 0 0 8px rgba(139,0,0,0.12); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(204,0,0,0); }
+  50%       { box-shadow: 0 0 0 8px rgba(204,0,0,0.12); }
 }
 
 /* ── HERO-SPECIFIC KEYFRAMES ── */
@@ -682,7 +684,7 @@
 
   .focus-seamless:focus {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(139,0,0,0.18);
+    box-shadow: 0 0 0 3px rgba(204,0,0,0.18);
   }
 
   /* ── SURFACE LAYERS ── */
@@ -733,7 +735,7 @@
   }
 
   .glow-brand:hover {
-    box-shadow: 0 12px 40px 0 rgba(139,0,0,0.35);
+    box-shadow: 0 12px 40px 0 rgba(204,0,0,0.35);
   }
 
   /* ── SCROLLBAR HIDE ── */
@@ -752,18 +754,18 @@
   .btn-press:active { transform: scale(0.97); }
 
   /* ── HEADING ON DARK BACKGROUNDS ── */
-  .bg-\\[#8B0000\\] h1,
-  .bg-\\[#8B0000\\] h2,
-  .bg-\\[#8B0000\\] h3,
-  .bg-\\[#8B0000\\] h4,
-  .bg-\\[#8B0000\\] h5,
-  .bg-\\[#8B0000\\] h6,
-  [class*="bg-[#8B0000]"] h1,
-  [class*="bg-[#8B0000]"] h2,
-  [class*="bg-[#8B0000]"] h3,
-  [class*="bg-[#8B0000]"] h4,
-  [class*="bg-[#8B0000]"] h5,
-  [class*="bg-[#8B0000]"] h6 {
+  .bg-\\[#CC0000\\] h1,
+  .bg-\\[#CC0000\\] h2,
+  .bg-\\[#CC0000\\] h3,
+  .bg-\\[#CC0000\\] h4,
+  .bg-\\[#CC0000\\] h5,
+  .bg-\\[#CC0000\\] h6,
+  [class*="bg-[#CC0000]"] h1,
+  [class*="bg-[#CC0000]"] h2,
+  [class*="bg-[#CC0000]"] h3,
+  [class*="bg-[#CC0000]"] h4,
+  [class*="bg-[#CC0000]"] h5,
+  [class*="bg-[#CC0000]"] h6 {
     color: #FFFFFF !important;
   }
 
@@ -804,7 +806,7 @@
   textarea:focus,
   select:focus {
     border-color: var(--color-crimson-600) !important;
-    box-shadow: 0 0 0 3px rgba(139,0,0,0.12);
+    box-shadow: 0 0 0 3px rgba(204,0,0,0.12);
     outline: none;
   }
 

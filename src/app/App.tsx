@@ -40,7 +40,7 @@ function AppContent() {
       {/* Skip to main content — WCAG 2.1 AA accessibility */}
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-[#8B0000] focus:text-white focus:rounded-lg focus:font-semibold focus:shadow-lg"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-[#CC0000] focus:text-white focus:rounded-lg focus:font-semibold focus:shadow-lg"
       >
         Skip to main content
       </a>

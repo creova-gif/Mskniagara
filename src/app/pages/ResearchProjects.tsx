@@ -59,7 +59,7 @@ export function ResearchProjects() {
       status: 'active',
       IconComponent: HandHeart,
       color: '#6635B1',
-      gradient: 'from-[#6635B1] to-[#8B0000]',
+      gradient: 'from-[#6635B1] to-[#CC0000]',
       description: 'This project explores the experiences of identity and belonging among Afro-descendant communities in the Niagara region, examining how individuals navigate cultural identity, community connections, and social belonging in the Canadian context.',
       descriptionFr: 'Ce projet explore les expériences d\'identité et d\'appartenance parmi les communautés afro-descendantes dans la région de Niagara, examinant comment les individus naviguent l\'identité culturelle, les connexions communautaires et l\'appartenance sociale dans le contexte canadien.',
       participants: 'Recruiting community participants',
@@ -110,8 +110,8 @@ export function ResearchProjects() {
       hubShortFr: 'Identité',
       status: 'recruiting',
       IconComponent: Network,
-      color: '#8B0000',
-      gradient: 'from-[#8B0000] to-[#A40000]',
+      color: '#CC0000',
+      gradient: 'from-[#CC0000] to-[#A40000]',
       description: 'This project examines how sexual and gender diverse (SGD) newcomers in the Niagara region use information and communication technologies (ICT) to navigate settlement, build community connections, and maintain cultural and social ties while establishing their identities in a new context.',
       descriptionFr: 'Ce projet examine comment les nouveaux arrivants de diverses identités sexuelles et de genre (DSG) dans la région de Niagara utilisent les technologies de l\'information et de la communication (TIC) pour naviguer l\'établissement, construire des connexions communautaires et maintenir des liens culturels et sociaux tout en établissant leurs identités dans un nouveau contexte.',
       participants: 'Actively recruiting participants',
@@ -195,14 +195,14 @@ export function ResearchProjects() {
       label: language === 'en' ? 'Community Partners' : 'Partenaires', 
       value: '24',
       icon: HandHeart,
-      color: '#8B0000'
+      color: '#CC0000'
     },
   ];
 
   return (
     <div className="min-h-screen bg-white relative overflow-hidden">
       {/* Hero Section */}
-      <div className="relative overflow-hidden bg-[#8B0000]">
+      <div className="relative overflow-hidden bg-[#CC0000]">
         {/* Dot-grid brand motif */}
         <div className="absolute inset-0 opacity-[0.06]"
           style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '32px 32px' }}
@@ -247,8 +247,8 @@ export function ResearchProjects() {
           {stats.map((stat, index) => (
             <div key={index} className="bg-white rounded-2xl p-6 shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-[#8B0000]/10 flex items-center justify-center flex-shrink-0">
-                  <stat.icon className="w-6 h-6 text-[#8B0000]" />
+                <div className="w-12 h-12 rounded-xl bg-[#CC0000]/10 flex items-center justify-center flex-shrink-0">
+                  <stat.icon className="w-6 h-6 text-[#CC0000]" />
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-[#0A0A0A] mb-1">{stat.value}</div>
@@ -304,7 +304,7 @@ export function ResearchProjects() {
         <div className="mb-16">
           <div className="bg-gradient-to-br from-white to-gray-50 rounded-3xl shadow-xl border-2 border-gray-100 p-8 md:p-10">
             <div className="flex items-center gap-4 mb-8">
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#8B0000] to-[#A40000] flex items-center justify-center shadow-lg">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#CC0000] to-[#A40000] flex items-center justify-center shadow-lg">
                 <Filter className="w-7 h-7 text-white" />
               </div>
               <div className="flex-1">
@@ -323,7 +323,7 @@ export function ResearchProjects() {
                     setFilterHub('all');
                     setFilterStatus('all');
                   }}
-                  className="flex items-center gap-2 px-5 py-3 rounded-xl font-semibold bg-white border-2 border-[#8B0000]/20 text-[#8B0000] hover:border-[#8B0000] hover:bg-[#8B0000] hover:text-white transition-all duration-300 shadow-md hover:shadow-lg"
+                  className="flex items-center gap-2 px-5 py-3 rounded-xl font-semibold bg-white border-2 border-[#CC0000]/20 text-[#CC0000] hover:border-[#CC0000] hover:bg-[#CC0000] hover:text-white transition-all duration-300 shadow-md hover:shadow-lg"
                 >
                   <X className="w-4 h-4" />
                   <span className="hidden sm:inline">{language === 'en' ? 'Clear' : 'Effacer'}</span>
@@ -337,12 +337,12 @@ export function ResearchProjects() {
               <div>
                 <label className="block text-xs font-bold text-[#0A0A0A]/50 uppercase tracking-wider mb-3">
                   <span className="flex items-center gap-2">
-                    <Target className="w-4 h-4 text-[#8B0000]" />
+                    <Target className="w-4 h-4 text-[#CC0000]" />
                     {language === 'en' ? 'Research Hub' : 'Pôle de recherche'}
                   </span>
                 </label>
                 <Select value={filterHub} onValueChange={setFilterHub}>
-                  <SelectTrigger className="w-full h-14 text-base font-semibold border-2 border-gray-200 hover:border-[#8B0000]/50 focus:border-[#8B0000] bg-white rounded-xl shadow-sm transition-all duration-300">
+                  <SelectTrigger className="w-full h-14 text-base font-semibold border-2 border-gray-200 hover:border-[#CC0000]/50 focus:border-[#CC0000] bg-white rounded-xl shadow-sm transition-all duration-300">
                     <SelectValue placeholder={language === 'en' ? 'Select a hub...' : 'Sélectionner un pôle...'} />
                   </SelectTrigger>
                   <SelectContent className="bg-white border-2 border-gray-200 rounded-xl shadow-2xl">
@@ -381,12 +381,12 @@ export function ResearchProjects() {
               <div>
                 <label className="block text-xs font-bold text-[#0A0A0A]/50 uppercase tracking-wider mb-3">
                   <span className="flex items-center gap-2">
-                    <Activity className="w-4 h-4 text-[#8B0000]" />
+                    <Activity className="w-4 h-4 text-[#CC0000]" />
                     {language === 'en' ? 'Project Status' : 'Statut du projet'}
                   </span>
                 </label>
                 <Select value={filterStatus} onValueChange={setFilterStatus}>
-                  <SelectTrigger className="w-full h-14 text-base font-semibold border-2 border-gray-200 hover:border-[#8B0000]/50 focus:border-[#8B0000] bg-white rounded-xl shadow-sm transition-all duration-300">
+                  <SelectTrigger className="w-full h-14 text-base font-semibold border-2 border-gray-200 hover:border-[#CC0000]/50 focus:border-[#CC0000] bg-white rounded-xl shadow-sm transition-all duration-300">
                     <SelectValue placeholder={language === 'en' ? 'Select a status...' : 'Sélectionner un statut...'} />
                   </SelectTrigger>
                   <SelectContent className="bg-white border-2 border-gray-200 rounded-xl shadow-2xl">
@@ -430,27 +430,27 @@ export function ResearchProjects() {
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {filterHub !== 'all' && (
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#8B0000]/10 border-2 border-[#8B0000]/30 text-[#8B0000] font-semibold">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#CC0000]/10 border-2 border-[#CC0000]/30 text-[#CC0000] font-semibold">
                       <Target className="w-4 h-4" />
                       <span className="text-sm">
                         {filterHub === 'Childhood and Growing Up Hub' ? (language === 'en' ? 'Childhood & Growing Up' : 'Enfance et croissance') :
                          filterHub === 'Identity, Connections and Belonging Hub' ? (language === 'en' ? 'Identity & Belonging' : 'Identité et appartenance') :
                          filterHub === 'Health Literacy Hub' ? (language === 'en' ? 'Health Literacy' : 'Littératie en santé') : ''}
                       </span>
-                      <button onClick={() => setFilterHub('all')} className="hover:bg-[#8B0000] hover:text-white rounded-full p-0.5 transition-colors">
+                      <button onClick={() => setFilterHub('all')} className="hover:bg-[#CC0000] hover:text-white rounded-full p-0.5 transition-colors">
                         <X className="w-3.5 h-3.5" />
                       </button>
                     </div>
                   )}
                   {filterStatus !== 'all' && (
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#8B0000]/10 border-2 border-[#8B0000]/30 text-[#8B0000] font-semibold">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#CC0000]/10 border-2 border-[#CC0000]/30 text-[#CC0000] font-semibold">
                       <Activity className="w-4 h-4" />
                       <span className="text-sm">
                         {filterStatus === 'active' ? (language === 'en' ? 'Active' : 'Actif') :
                          filterStatus === 'recruiting' ? (language === 'en' ? 'Recruiting' : 'Recrutement') :
                          filterStatus === 'planning' ? (language === 'en' ? 'Planning' : 'Planification') : ''}
                       </span>
-                      <button onClick={() => setFilterStatus('all')} className="hover:bg-[#8B0000] hover:text-white rounded-full p-0.5 transition-colors">
+                      <button onClick={() => setFilterStatus('all')} className="hover:bg-[#CC0000] hover:text-white rounded-full p-0.5 transition-colors">
                         <X className="w-3.5 h-3.5" />
                       </button>
                     </div>
@@ -476,7 +476,7 @@ export function ResearchProjects() {
             >
               {/* Gradient Border Effect */}
               {hoveredProject === index && (
-                <div className="absolute inset-0 bg-gradient-to-r from-[#8B0000] to-[#A40000] opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-[#CC0000] to-[#A40000] opacity-100 transition-opacity duration-500"></div>
               )}
               <div className="absolute inset-[2px] bg-white rounded-3xl"></div>
               
@@ -528,7 +528,7 @@ export function ResearchProjects() {
                     {/* Title */}
                     <div>
                       <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold text-[#0A0A0A] leading-tight transition-colors duration-300 ${
-                        hoveredProject === index ? 'text-[#8B0000]' : ''
+                        hoveredProject === index ? 'text-[#CC0000]' : ''
                       }`}>
                         {language === 'en' ? project.title : project.titleFr}
                       </h2>
@@ -536,9 +536,9 @@ export function ResearchProjects() {
 
                     {/* TL;DR / Plain Language Summary (Cognitive Accessibility) */}
                     {project.tldr && (
-                      <div className="bg-[#8B0000]/5 border-l-4 border-[#8B0000] p-4 rounded-r-2xl">
+                      <div className="bg-[#CC0000]/5 border-l-4 border-[#CC0000] p-4 rounded-r-2xl">
                         <div className="flex items-center gap-2 mb-1">
-                          <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#8B0000] bg-[#8B0000]/10 px-2 py-0.5 rounded">
+                          <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#CC0000] bg-[#CC0000]/10 px-2 py-0.5 rounded">
                             TL;DR · {language === 'en' ? 'Plain Language Summary' : 'Résumé en langage simple'}
                           </span>
                         </div>
@@ -562,7 +562,7 @@ export function ResearchProjects() {
                         {(language === 'en' ? project.keyFocus : project.keyFocusFr).map((focus, i) => (
                           <div 
                             key={i} 
-                            className="px-4 py-2 rounded-full text-sm font-medium border-2 border-[#8B0000]/30 bg-[#8B0000]/10 text-[#8B0000] transition-all duration-300 hover:scale-105"
+                            className="px-4 py-2 rounded-full text-sm font-medium border-2 border-[#CC0000]/30 bg-[#CC0000]/10 text-[#CC0000] transition-all duration-300 hover:scale-105"
                           >
                             {focus}
                           </div>
@@ -576,8 +576,8 @@ export function ResearchProjects() {
                         hoveredProject === index ? 'bg-gray-100' : 'bg-gray-50'
                       }`}>
                         <div className="flex items-start gap-4">
-                          <div className="w-12 h-12 rounded-xl bg-[#8B0000]/10 flex items-center justify-center flex-shrink-0">
-                            <Users className="w-6 h-6 text-[#8B0000]" />
+                          <div className="w-12 h-12 rounded-xl bg-[#CC0000]/10 flex items-center justify-center flex-shrink-0">
+                            <Users className="w-6 h-6 text-[#CC0000]" />
                           </div>
                           <div className="flex-1 min-w-0">
                             <p className="text-xs font-bold text-[#0A0A0A]/50 uppercase tracking-wider mb-1">
@@ -590,12 +590,12 @@ export function ResearchProjects() {
                         </div>
                       </div>
                       
-                      <div className={`p-5 rounded-2xl transition-all duration-300 cursor-pointer hover:ring-2 hover:ring-[#8B0000] ${
+                      <div className={`p-5 rounded-2xl transition-all duration-300 cursor-pointer hover:ring-2 hover:ring-[#CC0000] ${
                         hoveredProject === index ? 'bg-gray-100' : 'bg-gray-50'
                       }`} onClick={() => window.location.href = `mailto:${project.contactEmail}`}>
                         <div className="flex items-start gap-4">
-                          <div className="w-12 h-12 rounded-xl bg-[#8B0000]/10 flex items-center justify-center flex-shrink-0">
-                            <Mail className="w-6 h-6 text-[#8B0000]" />
+                          <div className="w-12 h-12 rounded-xl bg-[#CC0000]/10 flex items-center justify-center flex-shrink-0">
+                            <Mail className="w-6 h-6 text-[#CC0000]" />
                           </div>
                           <div className="flex-1 min-w-0">
                             <p className="text-xs font-bold text-[#0A0A0A]/50 uppercase tracking-wider mb-1">
@@ -613,7 +613,7 @@ export function ResearchProjects() {
                       {project.surveyLink ? (
                         <Button
                           asChild
-                          className="bg-gradient-to-r from-[#8B0000] to-[#A40000] hover:shadow-xl text-white font-bold px-8 py-6 rounded-xl transition-all duration-300 group/btn border-0"
+                          className="bg-gradient-to-r from-[#CC0000] to-[#A40000] hover:shadow-xl text-white font-bold px-8 py-6 rounded-xl transition-all duration-300 group/btn border-0"
                         >
                           <a href={sanitizeUrl(project.surveyLink)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3">
                             <ExternalLink className="w-5 h-5 text-[#FFC956]" />
@@ -624,7 +624,7 @@ export function ResearchProjects() {
                       ) : (
                         <Button
                           asChild
-                          className="bg-[#8B0000] hover:bg-[#A40000] text-white font-bold px-8 py-6 rounded-xl transition-all duration-300 group/btn border-0"
+                          className="bg-[#CC0000] hover:bg-[#A40000] text-white font-bold px-8 py-6 rounded-xl transition-all duration-300 group/btn border-0"
                         >
                           <a href={`mailto:${project.contactEmail}?subject=Inquiry regarding ${encodeURIComponent(project.title)}`} className="inline-flex items-center gap-3">
                             <Mail className="w-5 h-5 text-[#FFC956]" />
@@ -644,7 +644,7 @@ export function ResearchProjects() {
         {/* No Results State */}
         {filteredProjects.length === 0 && (
           <div className="text-center py-24 bg-gray-50 rounded-3xl">
-            <div className="w-32 h-32 rounded-full bg-gradient-to-br from-[#8B0000] to-[#A40000] flex items-center justify-center mx-auto mb-8 shadow-xl">
+            <div className="w-32 h-32 rounded-full bg-gradient-to-br from-[#CC0000] to-[#A40000] flex items-center justify-center mx-auto mb-8 shadow-xl">
               <Search className="w-16 h-16 text-white" />
             </div>
             <h3 className="text-3xl font-bold text-[#0A0A0A] mb-3">
@@ -658,7 +658,7 @@ export function ResearchProjects() {
                 setFilterHub('all');
                 setFilterStatus('all');
               }}
-              className="bg-[#8B0000] hover:bg-[#A40000] text-white font-semibold px-8 py-6 rounded-xl"
+              className="bg-[#CC0000] hover:bg-[#A40000] text-white font-semibold px-8 py-6 rounded-xl"
             >
               {language === 'en' ? 'Clear All Filters' : 'Effacer tous les filtres'}
             </Button>
@@ -668,9 +668,9 @@ export function ResearchProjects() {
         {/* Call to Action Section */}
         <div className="mt-24 mb-16 relative">
           {/* Background Blur Effect */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#8B0000] via-[#A40000] to-[#8B0000] rounded-[3rem] blur-3xl opacity-20"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#CC0000] via-[#A40000] to-[#CC0000] rounded-[3rem] blur-3xl opacity-20"></div>
           
-          <div className="relative bg-gradient-to-br from-[#8B0000] via-[#A40000] to-[#6B0000] rounded-[3rem] p-12 md:p-16 lg:p-20 overflow-hidden shadow-2xl">
+          <div className="relative bg-gradient-to-br from-[#CC0000] via-[#A40000] to-[#6B0000] rounded-[3rem] p-12 md:p-16 lg:p-20 overflow-hidden shadow-2xl">
             {/* Decorative Elements */}
             <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full -mr-48 -mt-48"></div>
             <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/10 rounded-full -ml-48 -mb-48"></div>
@@ -705,7 +705,7 @@ export function ResearchProjects() {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button className="bg-white text-[#8B0000] hover:bg-gray-100 font-bold px-10 py-7 rounded-xl text-lg shadow-xl transition-all duration-300 hover:scale-105">
+                <Button className="bg-white text-[#CC0000] hover:bg-gray-100 font-bold px-10 py-7 rounded-xl text-lg shadow-xl transition-all duration-300 hover:scale-105">
                   {language === 'en' ? 'Get Involved' : 'Participez'}
                 </Button>
                 <Button variant="outline" className="border-2 border-white text-white hover:bg-white/10 font-bold px-10 py-7 rounded-xl text-lg backdrop-blur-sm transition-all duration-300 hover:scale-105">

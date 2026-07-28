@@ -730,7 +730,7 @@ export function MemberBios() {
         {/* Cascading member dots — representing the team */}
         <MemberDots />
         {/* Crimson accent gradient — right side */}
-        <div className="absolute right-0 top-0 bottom-0 w-1/3 bg-gradient-to-l from-[#8B0000]/20 to-transparent pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-1/3 bg-gradient-to-l from-[#CC0000]/20 to-transparent pointer-events-none" />
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -738,7 +738,7 @@ export function MemberBios() {
             {/* Left: text */}
             <div>
               <div className="flex items-center gap-2 mb-6">
-                <div className="w-8 h-px bg-[#8B0000]" />
+                <div className="w-8 h-px bg-[#CC0000]" />
                 <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-white/40">
                   {language === 'en' ? 'Our People' : 'Notre équipe'}
                 </span>
@@ -746,9 +746,9 @@ export function MemberBios() {
               <h1 className="text-4xl md:text-6xl font-extrabold text-white leading-[1.05] tracking-tight mb-6"
                 style={{ fontFamily: 'var(--font-heading)' }}>
                 {language === 'en' ? (
-                  <>The People<br /><span className="text-[#8B0000]">Behind</span><br />the Research</>
+                  <>The People<br /><span className="text-[#CC0000]">Behind</span><br />the Research</>
                 ) : (
-                  <>L'équipe<br /><span className="text-[#8B0000]">derrière</span><br />la recherche</>
+                  <>L'équipe<br /><span className="text-[#CC0000]">derrière</span><br />la recherche</>
                 )}
               </h1>
               <p className="text-lg text-white/60 leading-relaxed max-w-lg">
@@ -813,7 +813,7 @@ export function MemberBios() {
                 </div>
               </div>
               {/* Crimson corner accent */}
-              <div className="absolute -bottom-3 -right-3 w-16 h-16 rounded-full bg-[#8B0000]/30 blur-xl pointer-events-none" />
+              <div className="absolute -bottom-3 -right-3 w-16 h-16 rounded-full bg-[#CC0000]/30 blur-xl pointer-events-none" />
             </div>
           </div>
         </div>
@@ -825,12 +825,12 @@ export function MemberBios() {
         {/* Tabs by Hub */}
         <Tabs value={selectedHub} onValueChange={setSelectedHub} className="w-full">
           <div className="flex justify-center mb-8 overflow-x-auto scrollbar-hide px-4">
-            <TabsList className="h-auto bg-white/95 sm:bg-white shadow-lg border-2 border-[#8B0000]/20 rounded-xl p-2 inline-flex gap-2 min-w-min transition-all backdrop-blur-sm">
+            <TabsList className="h-auto bg-white/95 sm:bg-white shadow-lg border-2 border-[#CC0000]/20 rounded-xl p-2 inline-flex gap-2 min-w-min transition-all backdrop-blur-sm">
               {hubs.map((hub) => (
                 <TabsTrigger 
                   key={hub} 
                   value={hub}
-                  className="data-[state=active]:bg-[#8B0000] data-[state=active]:text-white data-[state=inactive]:text-[#0A0A0A] data-[state=inactive]:hover:bg-gray-100 transition-all rounded-lg px-4 sm:px-6 py-3 font-medium text-sm sm:text-base whitespace-nowrap"
+                  className="data-[state=active]:bg-[#CC0000] data-[state=active]:text-white data-[state=inactive]:text-[#0A0A0A] data-[state=inactive]:hover:bg-gray-100 transition-all rounded-lg px-4 sm:px-6 py-3 font-medium text-sm sm:text-base whitespace-nowrap"
                 >
                   {getHubLabel(hub)}
                 </TabsTrigger>
@@ -851,15 +851,15 @@ export function MemberBios() {
                     <Card 
                       key={index} 
                       className={`hover:shadow-xl transition-all duration-300 border-l-4 ${
-                        member.isHubLeader ? 'border-[#8B0000] bg-gradient-to-br from-[#8B0000]/5 to-white' : 'border-[#8B0000]/60'
+                        member.isHubLeader ? 'border-[#CC0000] bg-gradient-to-br from-[#CC0000]/5 to-white' : 'border-[#CC0000]/60'
                       } animate-fade-in-up`}
                       style={{ animationDelay: `${index * 100}ms` }}
                     >
                       <CardContent className="p-4 sm:p-6">
                         <div className="flex items-start gap-3 sm:gap-4 mb-4">
-                          <Avatar className="w-14 h-14 sm:w-16 sm:h-16 border-2 border-[#8B0000]/20 flex-shrink-0">
+                          <Avatar className="w-14 h-14 sm:w-16 sm:h-16 border-2 border-[#CC0000]/20 flex-shrink-0">
                             {member.image && <AvatarImage src={member.image} alt={member.name} />}
-                            <AvatarFallback className="text-base sm:text-lg bg-[#8B0000] text-white font-semibold">
+                            <AvatarFallback className="text-base sm:text-lg bg-[#CC0000] text-white font-semibold">
                               {member.name.split(' ').map(n => n[0]).slice(0, 2).join('')}
                             </AvatarFallback>
                           </Avatar>
@@ -882,7 +882,7 @@ export function MemberBios() {
                               
                               {/* Project Leader Badge */}
                               {member.isProjectLeader && member.projectLeaderTitle && (
-                                <Badge className="bg-[#8B0000] text-white text-xs">
+                                <Badge className="bg-[#CC0000] text-white text-xs">
                                   <Target className="w-3 h-3 mr-1" />
                                   {language === 'en' ? member.projectLeaderTitle : member.projectLeaderTitleFr}
                                 </Badge>
@@ -906,7 +906,7 @@ export function MemberBios() {
                         {(member.isHubLeader || member.isCoDirector) && member.email && (
                           <a
                             href={`mailto:${sanitizeEmail(member.email)}`}
-                            className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 bg-gradient-to-r from-[#8B0000] to-[#6B0000] text-white hover:from-[#A40000] hover:to-[#8B0000] rounded-lg transition-all duration-300 shadow-md hover:shadow-lg font-medium text-sm sm:text-base"
+                            className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 bg-gradient-to-r from-[#CC0000] to-[#6B0000] text-white hover:from-[#A40000] hover:to-[#CC0000] rounded-lg transition-all duration-300 shadow-md hover:shadow-lg font-medium text-sm sm:text-base"
                           >
                             <Mail className="w-4 h-4" />
                             <span>{language === 'en' ? 'Contact' : 'Contacter'}</span>
@@ -982,21 +982,21 @@ export function MemberBios() {
             {groupedMembers.community.length > 0 && (
               <div className="mb-12">
                 <h2 className="text-xl sm:text-2xl font-semibold text-[#0A0A0A] mb-6 flex items-center gap-2">
-                  <Building2 className="w-6 h-6 sm:w-7 sm:h-7 text-[#8B0000]/80 flex-shrink-0" />
+                  <Building2 className="w-6 h-6 sm:w-7 sm:h-7 text-[#CC0000]/80 flex-shrink-0" />
                   <span>{language === 'en' ? 'Community Partners' : 'Partenaires communautaires'}</span>
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {groupedMembers.community.map((member, index) => (
                     <Card 
                       key={index} 
-                      className="hover:shadow-xl transition-all duration-300 border-l-4 border-[#8B0000]/80 animate-fade-in-up"
+                      className="hover:shadow-xl transition-all duration-300 border-l-4 border-[#CC0000]/80 animate-fade-in-up"
                       style={{ animationDelay: `${index * 100}ms` }}
                     >
                       <CardContent className="p-4 sm:p-6">
                         <div className="flex items-start gap-3 sm:gap-4 mb-4">
-                          <Avatar className="w-14 h-14 sm:w-16 sm:h-16 border-2 border-[#8B0000]/20 flex-shrink-0">
+                          <Avatar className="w-14 h-14 sm:w-16 sm:h-16 border-2 border-[#CC0000]/20 flex-shrink-0">
                             {member.image && <AvatarImage src={member.image} alt={member.name} />}
-                            <AvatarFallback className="text-base sm:text-lg bg-[#8B0000]/80 text-white font-semibold">
+                            <AvatarFallback className="text-base sm:text-lg bg-[#CC0000]/80 text-white font-semibold">
                               {member.name.split(' ').map(n => n[0]).slice(0, 2).join('')}
                             </AvatarFallback>
                           </Avatar>
@@ -1035,7 +1035,7 @@ export function MemberBios() {
                         {member.isHubLeader && member.email && (
                           <a
                             href={`mailto:${sanitizeEmail(member.email)}`}
-                            className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 bg-gradient-to-r from-[#8B0000] to-[#6B0000] text-white hover:from-[#A40000] hover:to-[#8B0000] rounded-lg transition-all duration-300 shadow-md hover:shadow-lg font-medium text-sm sm:text-base"
+                            className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 bg-gradient-to-r from-[#CC0000] to-[#6B0000] text-white hover:from-[#A40000] hover:to-[#CC0000] rounded-lg transition-all duration-300 shadow-md hover:shadow-lg font-medium text-sm sm:text-base"
                           >
                             <Mail className="w-4 h-4" />
                             <span>{language === 'en' ? 'Contact' : 'Contacter'}</span>

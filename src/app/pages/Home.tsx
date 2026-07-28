@@ -21,7 +21,7 @@
  * - External links to SSHRC and community pages
  * - Accessible with semantic HTML and ARIA labels
  * 
- * Color Scheme: Black, White & Dark Red (#8B0000)
+ * Color Scheme: Black, White & Dark Red (#CC0000)
  * 
  * @author MSK Development Team
  * @version 2.0
@@ -107,7 +107,7 @@ export function Home() {
         </video>
 
         {/* Dark red overlay for readability */}
-        <div className="absolute inset-0 bg-[#8B0000]/80 mix-blend-multiply"></div>
+        <div className="absolute inset-0 bg-[#CC0000]/80 mix-blend-multiply"></div>
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/40"></div>
 
         {/* Black accent line at top */}
@@ -132,7 +132,7 @@ export function Home() {
           <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up animate-delay-300">
             <Link 
               to="/research/projects"
-              className="group px-8 py-4 bg-[#8B0000] text-white rounded-full font-bold shadow-xl hover:bg-[#A40000] hover:shadow-[0_8px_25px_rgba(139,0,0,0.5)] transform hover:scale-105 transition-all duration-300 inline-flex items-center justify-center gap-2 text-base"
+              className="group px-8 py-4 bg-[#CC0000] text-white rounded-full font-bold shadow-xl hover:bg-[#A40000] hover:shadow-[0_8px_25px_rgba(204,0,0,0.5)] transform hover:scale-105 transition-all duration-300 inline-flex items-center justify-center gap-2 text-base"
             >
               <UserCheck className="w-5 h-5 text-[#FFC956]" />
               {language === 'en' ? 'Participate in Research' : 'Participer à la recherche'}
@@ -140,7 +140,7 @@ export function Home() {
             </Link>
             <Link 
               to="/partners"
-              className="px-8 py-4 bg-[#0A0A0A] border-2 border-[#8B0000]/60 text-white rounded-full font-semibold hover:bg-white hover:text-[#0A0A0A] hover:border-white transform hover:scale-105 transition-all duration-300 inline-flex items-center gap-2 text-base"
+              className="px-8 py-4 bg-[#0A0A0A] border-2 border-[#CC0000]/60 text-white rounded-full font-semibold hover:bg-white hover:text-[#0A0A0A] hover:border-white transform hover:scale-105 transition-all duration-300 inline-flex items-center gap-2 text-base"
             >
               <Handshake className="w-5 h-5 text-[#089EA5]" />
               {language === 'en' ? 'Partner With Us' : 'Devenir partenaire'}
@@ -173,16 +173,16 @@ export function Home() {
         <div className="absolute inset-0 opacity-[0.035]"
           style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '24px 24px' }}
         />
-        <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-transparent via-[#8B0000] to-transparent" />
+        <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-transparent via-[#CC0000] to-transparent" />
         <div className="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-start gap-6">
             <div className="shrink-0 mt-1">
-              <div className="w-8 h-8 rounded-lg bg-[#8B0000]/20 border border-[#8B0000]/30 flex items-center justify-center">
-                <div className="w-2.5 h-2.5 rounded-full bg-[#8B0000]" />
+              <div className="w-8 h-8 rounded-lg bg-[#CC0000]/20 border border-[#CC0000]/30 flex items-center justify-center">
+                <div className="w-2.5 h-2.5 rounded-full bg-[#CC0000]" />
               </div>
             </div>
             <div>
-              <h2 className="text-xs font-bold tracking-[0.2em] uppercase text-[#8B0000] mb-3">
+              <h2 className="text-xs font-bold tracking-[0.2em] uppercase text-[#CC0000] mb-3">
                 {language === 'en' ? 'Land Acknowledgment' : 'Reconnaissance territoriale'}
               </h2>
               <p className="text-white/55 leading-relaxed text-base max-w-3xl">
@@ -199,7 +199,7 @@ export function Home() {
       <section className="relative py-12 bg-gradient-to-b from-gray-900 to-[#0A0A0A] border-b border-white/10 text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
-            <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#8B0000]/30 border border-[#8B0000]/60 text-[#FFC956] text-xs font-bold uppercase tracking-wider mb-2">
+            <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#CC0000]/30 border border-[#CC0000]/60 text-[#FFC956] text-xs font-bold uppercase tracking-wider mb-2">
               <Sparkles className="w-3.5 h-3.5" />
               {language === 'en' ? 'Interactive Virtual Lab Bench' : 'Banc de laboratoire virtuel'}
             </span>
@@ -215,8 +215,8 @@ export function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Card 1: Participant */}
-            <Link to="/research/projects" className="group bg-white/5 border border-white/10 hover:border-[#8B0000] hover:bg-white/10 p-6 rounded-2xl transition-all duration-300">
-              <div className="w-12 h-12 rounded-xl bg-[#8B0000]/20 border border-[#8B0000]/40 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <Link to="/research/projects" className="group bg-white/5 border border-white/10 hover:border-[#CC0000] hover:bg-white/10 p-6 rounded-2xl transition-all duration-300">
+              <div className="w-12 h-12 rounded-xl bg-[#CC0000]/20 border border-[#CC0000]/40 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                 <UserCheck className="w-6 h-6 text-[#FFC956]" />
               </div>
               <h3 className="text-lg font-bold text-white mb-2 group-hover:text-[#FFC956] transition-colors">
@@ -278,8 +278,8 @@ export function Home() {
             {/* Mission text */}
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <div className="w-6 h-px bg-[#8B0000]" />
-                <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#8B0000]">
+                <div className="w-6 h-px bg-[#CC0000]" />
+                <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#CC0000]">
                   {language === 'en' ? 'Our Mission' : 'Notre mission'}
                 </span>
               </div>
@@ -305,7 +305,7 @@ export function Home() {
                 { n: '5+', label: language === 'en' ? 'Active Projects' : 'Projets actifs' },
               ].map((s, i) => (
                 <div key={s.n} className={`bg-white px-6 py-7 flex flex-col ${i === 0 ? 'rounded-tl-2xl' : ''} ${i === 1 ? 'rounded-tr-2xl' : ''} ${i === 2 ? 'rounded-bl-2xl' : ''} ${i === 3 ? 'rounded-br-2xl' : ''}`}>
-                  <div className="w-5 h-0.5 bg-[#8B0000] mb-3 rounded-full" />
+                  <div className="w-5 h-0.5 bg-[#CC0000] mb-3 rounded-full" />
                   <div className="text-4xl font-extrabold text-[#0A0A0A] leading-none mb-2"
                     style={{ fontFamily: 'var(--font-heading)' }}>
                     {s.n}
@@ -339,7 +339,7 @@ export function Home() {
             {/* Left: geo identity */}
             <div>
               <div className="flex items-center gap-2 mb-3">
-                <div className="w-6 h-px bg-[#8B0000]" />
+                <div className="w-6 h-px bg-[#CC0000]" />
                 <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/40">
                   {language === 'en' ? 'Rooted in Niagara' : 'Ancré dans Niagara'}
                 </span>
@@ -376,7 +376,7 @@ export function Home() {
                   <div className="text-xl font-extrabold text-white leading-none" style={{ fontFamily: 'var(--font-heading)' }}>475K+</div>
                   <div className="text-[9px] text-white/50 mt-0.5 font-medium uppercase tracking-wider">{language === 'en' ? 'Residents' : 'Résidents'}</div>
                 </div>
-                <div className="bg-[#8B0000]/70 backdrop-blur-md border border-[#8B0000]/50 rounded-lg px-4 py-2 text-center">
+                <div className="bg-[#CC0000]/70 backdrop-blur-md border border-[#CC0000]/50 rounded-lg px-4 py-2 text-center">
                   <div className="text-xl font-extrabold text-white leading-none" style={{ fontFamily: 'var(--font-heading)' }}>26+</div>
                   <div className="text-[9px] text-white/70 mt-0.5 font-medium uppercase tracking-wider">{language === 'en' ? 'Nationalities' : 'Nationalités'}</div>
                 </div>
@@ -399,7 +399,7 @@ export function Home() {
               </p>
             </div>
             <Link to="/about/hubs"
-              className="hidden sm:flex items-center gap-1.5 text-sm font-semibold text-[#8B0000] hover:text-[#A31515] transition-colors">
+              className="hidden sm:flex items-center gap-1.5 text-sm font-semibold text-[#CC0000] hover:text-[#DA0C0C] transition-colors">
               {language === 'en' ? 'Explore all hubs' : 'Explorer tous les pôles'}
               <ArrowRight className="w-4 h-4" />
             </Link>
@@ -465,7 +465,7 @@ export function Home() {
                     <h3 className="font-bold text-[#0A0A0A] text-lg leading-snug" style={{ fontFamily: 'var(--font-heading)' }}>
                       {hub.title}
                     </h3>
-                    <ArrowRight className="w-4 h-4 text-gray-300 group-hover:text-[#8B0000] group-hover:translate-x-0.5 transition-all mt-1 flex-shrink-0" />
+                    <ArrowRight className="w-4 h-4 text-gray-300 group-hover:text-[#CC0000] group-hover:translate-x-0.5 transition-all mt-1 flex-shrink-0" />
                   </div>
                   <div>
                     <p className="text-gray-500 text-sm leading-relaxed mb-4">{hub.desc}</p>
@@ -491,13 +491,13 @@ export function Home() {
           {/* Section Header */}
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
             <div>
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#8B0000]/30 border border-[#8B0000]/50 text-[#FFC956] text-xs font-bold uppercase tracking-wider mb-3">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#CC0000]/30 border border-[#CC0000]/50 text-[#FFC956] text-xs font-bold uppercase tracking-wider mb-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#FFC956] animate-pulse" />
                 {language === 'en' ? 'MSK/MSM Symposium · June 19, 2026' : 'Symposium MSK/MSM · 19 juin 2026'}
               </span>
               <h2 className="text-3xl md:text-5xl font-extrabold text-white leading-tight" style={{ fontFamily: 'var(--font-heading)' }}>
                 {language === 'en' ? 'Voices from' : 'Voix de la'}
-                <span className="text-[#8B0000]"> {language === 'en' ? 'the Community' : 'communauté'}</span>
+                <span className="text-[#CC0000]"> {language === 'en' ? 'the Community' : 'communauté'}</span>
               </h2>
               <p className="text-white/50 text-sm mt-2 max-w-md">
                 {language === 'en'
@@ -544,7 +544,7 @@ export function Home() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/70 via-transparent to-transparent" />
               <div className="absolute top-4 left-4">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#8B0000] text-white text-[10px] font-bold uppercase tracking-wider shadow-lg">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#CC0000] text-white text-[10px] font-bold uppercase tracking-wider shadow-lg">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#FFC956] animate-pulse" />
                   {language === 'en' ? 'Health Literacy Hub' : 'Pôle Santé'}
                 </span>
@@ -595,7 +595,7 @@ export function Home() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/60 to-transparent" />
               <div className="absolute inset-0 flex items-end justify-start p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <span className="text-white text-xs font-semibold bg-[#8B0000]/80 backdrop-blur-sm px-3 py-1.5 rounded-full">
+                <span className="text-white text-xs font-semibold bg-[#CC0000]/80 backdrop-blur-sm px-3 py-1.5 rounded-full">
                   {language === 'en' ? 'Real connection ✦' : 'Connexion vraie ✦'}
                 </span>
               </div>
@@ -618,8 +618,8 @@ export function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-12 items-start">
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <div className="w-6 h-px bg-[#8B0000]" />
-                <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#8B0000]">
+                <div className="w-6 h-px bg-[#CC0000]" />
+                <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#CC0000]">
                   {language === 'en' ? 'What We Do' : 'Ce que nous faisons'}
                 </span>
               </div>
@@ -640,8 +640,8 @@ export function Home() {
                 { n: '03', text: 'Contribuer à la recherche par des publications et la diffusion des connaissances.' },
                 { n: '04', text: 'Offrir de la formation et du mentorat aux chercheurs étudiants et communautaires.' },
               ]).map(goal => (
-                <div key={goal.n} className="flex gap-4 p-4 rounded-xl bg-gray-50 border border-gray-100 hover:border-[#8B0000]/20 transition-colors">
-                  <span className="text-xl font-black text-[#8B0000]/20 leading-none shrink-0" style={{ fontFamily: 'var(--font-heading)' }}>
+                <div key={goal.n} className="flex gap-4 p-4 rounded-xl bg-gray-50 border border-gray-100 hover:border-[#CC0000]/20 transition-colors">
+                  <span className="text-xl font-black text-[#CC0000]/20 leading-none shrink-0" style={{ fontFamily: 'var(--font-heading)' }}>
                     {goal.n}
                   </span>
                   <p className="text-sm text-gray-600 leading-relaxed">{goal.text}</p>
@@ -662,48 +662,48 @@ export function Home() {
               {language === 'en' ? (
                 <>
                   <p className="text-lg text-[#0A0A0A]/90 leading-relaxed mb-6 animate-fade-in-up animate-delay-100">
-                    <strong className="text-[#8B0000] text-xl">Mobilizing Subjugated Knowledges for a Just and Inclusive Niagara</strong> is a transnational, university-community partnership funded by the{' '}
+                    <strong className="text-[#CC0000] text-xl">Mobilizing Subjugated Knowledges for a Just and Inclusive Niagara</strong> is a transnational, university-community partnership funded by the{' '}
                     <a 
                       href="https://www.sshrc-crsh.gc.ca/" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-[#8B0000] hover:text-[#A40000] underline inline-flex items-center gap-1 font-semibold transition-colors"
+                      className="text-[#CC0000] hover:text-[#A40000] underline inline-flex items-center gap-1 font-semibold transition-colors"
                     >
                       Social Sciences and Humanities Research Council
                       <ExternalLink className="w-4 h-4" />
                     </a>
                     . Our interdisciplinary team of faculty, students and{' '}
-                    <Link to="/community" className="text-[#8B0000] hover:text-[#A40000] underline font-semibold transition-colors">
+                    <Link to="/community" className="text-[#CC0000] hover:text-[#A40000] underline font-semibold transition-colors">
                       community organizations
                     </Link>
                     {' '}is committed to fostering a more just and inclusive Niagara. Our work is informed by the principles of social justice and a desire to mobilize voices that have been marginalized from the dominant knowledge structures that maintain and enhance power in society.
                   </p>
 
                   <p className="text-lg text-[#0A0A0A]/90 leading-relaxed mb-8 animate-fade-in-up animate-delay-200">
-                    Through community-based participatory research and knowledge mobilization conducted in <strong className="text-[#8B0000]">English, French and Spanish</strong>, we will:
+                    Through community-based participatory research and knowledge mobilization conducted in <strong className="text-[#CC0000]">English, French and Spanish</strong>, we will:
                   </p>
 
                   <div className="space-y-4 mb-12">
-                    <div className="flex gap-4 p-4 bg-[#8B0000]/5 rounded-xl animate-slide-in-left animate-delay-100 hover:shadow-md transition-shadow">
-                      <CheckCircle2 className="w-7 h-7 text-[#8B0000] flex-shrink-0 mt-1" />
+                    <div className="flex gap-4 p-4 bg-[#CC0000]/5 rounded-xl animate-slide-in-left animate-delay-100 hover:shadow-md transition-shadow">
+                      <CheckCircle2 className="w-7 h-7 text-[#CC0000] flex-shrink-0 mt-1" />
                       <p className="text-[#0A0A0A]/90 leading-relaxed">
                         Provide a forum for African descendant and foreign-born persons in the Regional Municipality of Niagara to share their experiences, knowledge and accomplishments with the non-profit, academic, government and para-public sectors;
                       </p>
                     </div>
-                    <div className="flex gap-4 p-4 bg-[#8B0000]/5 rounded-xl animate-slide-in-left animate-delay-200 hover:shadow-md transition-shadow">
-                      <CheckCircle2 className="w-7 h-7 text-[#8B0000] flex-shrink-0 mt-1" />
+                    <div className="flex gap-4 p-4 bg-[#CC0000]/5 rounded-xl animate-slide-in-left animate-delay-200 hover:shadow-md transition-shadow">
+                      <CheckCircle2 className="w-7 h-7 text-[#CC0000] flex-shrink-0 mt-1" />
                       <p className="text-[#0A0A0A]/90 leading-relaxed">
                         Provide community organizations with insights and tools to develop culturally responsive services;
                       </p>
                     </div>
-                    <div className="flex gap-4 p-4 bg-[#8B0000]/5 rounded-xl animate-slide-in-left animate-delay-300 hover:shadow-md transition-shadow">
-                      <CheckCircle2 className="w-7 h-7 text-[#8B0000] flex-shrink-0 mt-1" />
+                    <div className="flex gap-4 p-4 bg-[#CC0000]/5 rounded-xl animate-slide-in-left animate-delay-300 hover:shadow-md transition-shadow">
+                      <CheckCircle2 className="w-7 h-7 text-[#CC0000] flex-shrink-0 mt-1" />
                       <p className="text-[#0A0A0A]/90 leading-relaxed">
                         Contribute to scholarship;
                       </p>
                     </div>
-                    <div className="flex gap-4 p-4 bg-[#8B0000]/5 rounded-xl animate-slide-in-left animate-delay-400 hover:shadow-md transition-shadow">
-                      <CheckCircle2 className="w-7 h-7 text-[#8B0000] flex-shrink-0 mt-1" />
+                    <div className="flex gap-4 p-4 bg-[#CC0000]/5 rounded-xl animate-slide-in-left animate-delay-400 hover:shadow-md transition-shadow">
+                      <CheckCircle2 className="w-7 h-7 text-[#CC0000] flex-shrink-0 mt-1" />
                       <p className="text-[#0A0A0A]/90 leading-relaxed">
                         Provide training and mentoring for student and community-based researchers.
                       </p>
@@ -716,9 +716,9 @@ export function Home() {
                   </p>
 
                   <div className="space-y-4 mb-8">
-                    <div className="p-5 bg-[#8B0000]/5 rounded-lg border-l-4 border-[#8B0000] animate-fade-in-up animate-delay-100">
+                    <div className="p-5 bg-[#CC0000]/5 rounded-lg border-l-4 border-[#CC0000] animate-fade-in-up animate-delay-100">
                       <h3 className="text-xl font-semibold text-[#0A0A0A] mb-2">
-                        <Link to="/about/hubs/childhood" className="hover:text-[#8B0000] transition-colors">
+                        <Link to="/about/hubs/childhood" className="hover:text-[#CC0000] transition-colors">
                           Childhood and Growing Up Hub
                         </Link>
                       </h3>
@@ -727,9 +727,9 @@ export function Home() {
                       </p>
                     </div>
 
-                    <div className="p-5 bg-[#8B0000]/5 rounded-lg border-l-4 border-[#8B0000] animate-fade-in-up animate-delay-200">
+                    <div className="p-5 bg-[#CC0000]/5 rounded-lg border-l-4 border-[#CC0000] animate-fade-in-up animate-delay-200">
                       <h3 className="text-xl font-semibold text-[#0A0A0A] mb-2">
-                        <Link to="/about/hubs/health" className="hover:text-[#8B0000] transition-colors">
+                        <Link to="/about/hubs/health" className="hover:text-[#CC0000] transition-colors">
                           Health Literacy Hub
                         </Link>
                       </h3>
@@ -738,9 +738,9 @@ export function Home() {
                       </p>
                     </div>
 
-                    <div className="p-5 bg-[#8B0000]/5 rounded-lg border-l-4 border-[#8B0000] animate-fade-in-up animate-delay-300">
+                    <div className="p-5 bg-[#CC0000]/5 rounded-lg border-l-4 border-[#CC0000] animate-fade-in-up animate-delay-300">
                       <h3 className="text-xl font-semibold text-[#0A0A0A] mb-2">
-                        <Link to="/about/hubs/identity" className="hover:text-[#8B0000] transition-colors">
+                        <Link to="/about/hubs/identity" className="hover:text-[#CC0000] transition-colors">
                           Identity, Connections and Belonging Hub
                         </Link>
                       </h3>
@@ -758,7 +758,7 @@ export function Home() {
                     The IC comprises 10 members: the 2 Co-Directors, 6 Hub representatives (2 from each Hub: 1 community organization representative + 1 faculty member) and 2 at-large student representatives. Hub and student representatives are chosen by Hub members, based on the principle of annual rotating membership so that all interested participants may serve if they wish.
                   </p>
 
-                  <div className="p-6 bg-[#8B0000]/5 rounded-lg my-12 border border-[#8B0000]/20 animate-fade-in-up animate-delay-300">
+                  <div className="p-6 bg-[#CC0000]/5 rounded-lg my-12 border border-[#CC0000]/20 animate-fade-in-up animate-delay-300">
                     <p className="text-lg text-[#0A0A0A] leading-relaxed mb-4">
                       <strong>We invite you to learn more about the unique and exciting work unfolding in our Hubs.</strong>
                     </p>
@@ -770,48 +770,48 @@ export function Home() {
               ) : (
                 <>
                   <p className="text-lg text-[#0A0A0A]/90 leading-relaxed mb-6 animate-fade-in-up">
-                    <strong className="text-[#8B0000] text-xl">Mobiliser les savoirs marginalisés pour un Niagara juste et inclusif</strong> est un partenariat transnational université-communauté financé par le{' '}
+                    <strong className="text-[#CC0000] text-xl">Mobiliser les savoirs marginalisés pour un Niagara juste et inclusif</strong> est un partenariat transnational université-communauté financé par le{' '}
                     <a 
                       href="https://www.sshrc-crsh.gc.ca/" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-[#8B0000] hover:text-[#A40000] underline inline-flex items-center gap-1 font-semibold transition-colors"
+                      className="text-[#CC0000] hover:text-[#A40000] underline inline-flex items-center gap-1 font-semibold transition-colors"
                     >
                       Conseil de recherches en sciences humaines (CRSH)
                       <ExternalLink className="w-4 h-4" />
                     </a>
                     . Notre équipe interdisciplinaire, composée de professeur.e.s, d'étudiant.e.s et{' '}
-                    <Link to="/community" className="text-[#8B0000] hover:text-[#A40000] underline font-semibold transition-colors">
+                    <Link to="/community" className="text-[#CC0000] hover:text-[#A40000] underline font-semibold transition-colors">
                       d'organismes communautaires
                     </Link>
                     , s'engage à bâtir un Niagara plus juste et inclusif. Nos travaux s'inspirent des principes de justice sociale et du désir de donner la parole aux personnes marginalisées par les structures de savoir dominantes qui maintiennent et renforcent leur pouvoir dans la société.
                   </p>
 
                   <p className="text-lg text-[#0A0A0A]/90 leading-relaxed mb-8 animate-fade-in-up animate-delay-100">
-                    Par le biais de recherches participatives communautaires et de la mobilisation des connaissances menées en <strong className="text-[#8B0000]">anglais, en français et en espagnol</strong>, nous visons à :
+                    Par le biais de recherches participatives communautaires et de la mobilisation des connaissances menées en <strong className="text-[#CC0000]">anglais, en français et en espagnol</strong>, nous visons à :
                   </p>
 
                   <div className="space-y-4 mb-12">
-                    <div className="flex gap-4 p-4 bg-[#8B0000]/5 rounded-xl animate-slide-in-left animate-delay-100 hover:shadow-md transition-shadow">
-                      <CheckCircle2 className="w-7 h-7 text-[#8B0000] flex-shrink-0 mt-1" />
+                    <div className="flex gap-4 p-4 bg-[#CC0000]/5 rounded-xl animate-slide-in-left animate-delay-100 hover:shadow-md transition-shadow">
+                      <CheckCircle2 className="w-7 h-7 text-[#CC0000] flex-shrink-0 mt-1" />
                       <p className="text-[#0A0A0A]/90 leading-relaxed">
                         Offrir aux personnes d'ascendance africaine et aux personnes nées à l'étranger résidant dans la municipalité régionale de Niagara, une tribune pour partager leurs expériences, leurs connaissances et leurs réalisations, avec les secteurs sans but lucratif, avec le milieu académique, ainsi qu'avec les secteurs gouvernementaux et parapublics;
                       </p>
                     </div>
-                    <div className="flex gap-4 p-4 bg-[#8B0000]/5 rounded-xl animate-slide-in-left animate-delay-200 hover:shadow-md transition-shadow">
-                      <CheckCircle2 className="w-7 h-7 text-[#8B0000] flex-shrink-0 mt-1" />
+                    <div className="flex gap-4 p-4 bg-[#CC0000]/5 rounded-xl animate-slide-in-left animate-delay-200 hover:shadow-md transition-shadow">
+                      <CheckCircle2 className="w-7 h-7 text-[#CC0000] flex-shrink-0 mt-1" />
                       <p className="text-[#0A0A0A]/90 leading-relaxed">
                         Fournir aux organismes communautaires des perspectives et des outils pour développer des services adaptés à différentes réalités culturelles;
                       </p>
                     </div>
-                    <div className="flex gap-4 p-4 bg-[#8B0000]/5 rounded-xl animate-slide-in-left animate-delay-300 hover:shadow-md transition-shadow">
-                      <CheckCircle2 className="w-7 h-7 text-[#8B0000] flex-shrink-0 mt-1" />
+                    <div className="flex gap-4 p-4 bg-[#CC0000]/5 rounded-xl animate-slide-in-left animate-delay-300 hover:shadow-md transition-shadow">
+                      <CheckCircle2 className="w-7 h-7 text-[#CC0000] flex-shrink-0 mt-1" />
                       <p className="text-[#0A0A0A]/90 leading-relaxed">
                         Contribuer à la recherche;
                       </p>
                     </div>
-                    <div className="flex gap-4 p-4 bg-[#8B0000]/5 rounded-xl animate-slide-in-left animate-delay-400 hover:shadow-md transition-shadow">
-                      <CheckCircle2 className="w-7 h-7 text-[#8B0000] flex-shrink-0 mt-1" />
+                    <div className="flex gap-4 p-4 bg-[#CC0000]/5 rounded-xl animate-slide-in-left animate-delay-400 hover:shadow-md transition-shadow">
+                      <CheckCircle2 className="w-7 h-7 text-[#CC0000] flex-shrink-0 mt-1" />
                       <p className="text-[#0A0A0A]/90 leading-relaxed">
                         Offrir de la formation et du mentorat aux étudiant.e.s et aux chercheur.e.s communautaires.
                       </p>
@@ -824,9 +824,9 @@ export function Home() {
                   </p>
 
                   <div className="space-y-4 mb-8">
-                    <div className="p-5 bg-[#8B0000]/5 rounded-lg border-l-4 border-[#8B0000] animate-fade-in-up animate-delay-100">
+                    <div className="p-5 bg-[#CC0000]/5 rounded-lg border-l-4 border-[#CC0000] animate-fade-in-up animate-delay-100">
                       <h3 className="text-xl font-semibold text-[#0A0A0A] mb-2">
-                        <Link to="/about/hubs/childhood" className="hover:text-[#8B0000] transition-colors">
+                        <Link to="/about/hubs/childhood" className="hover:text-[#CC0000] transition-colors">
                           Pôle Enfance et développement
                         </Link>
                       </h3>
@@ -835,9 +835,9 @@ export function Home() {
                       </p>
                     </div>
 
-                    <div className="p-5 bg-[#8B0000]/5 rounded-lg border-l-4 border-[#8B0000] animate-fade-in-up animate-delay-200">
+                    <div className="p-5 bg-[#CC0000]/5 rounded-lg border-l-4 border-[#CC0000] animate-fade-in-up animate-delay-200">
                       <h3 className="text-xl font-semibold text-[#0A0A0A] mb-2">
-                        <Link to="/about/hubs/health" className="hover:text-[#8B0000] transition-colors">
+                        <Link to="/about/hubs/health" className="hover:text-[#CC0000] transition-colors">
                           Pôle Littératie en santé
                         </Link>
                       </h3>
@@ -846,9 +846,9 @@ export function Home() {
                       </p>
                     </div>
 
-                    <div className="p-5 bg-[#8B0000]/5 rounded-lg border-l-4 border-[#8B0000] animate-fade-in-up animate-delay-300">
+                    <div className="p-5 bg-[#CC0000]/5 rounded-lg border-l-4 border-[#CC0000] animate-fade-in-up animate-delay-300">
                       <h3 className="text-xl font-semibold text-[#0A0A0A] mb-2">
-                        <Link to="/about/hubs/identity" className="hover:text-[#8B0000] transition-colors">
+                        <Link to="/about/hubs/identity" className="hover:text-[#CC0000] transition-colors">
                           Pôle Identité, relations et appartenance
                         </Link>
                       </h3>
@@ -866,7 +866,7 @@ export function Home() {
                     Le CM est composé de dix membres : les deux membres de la codirection, six représentant.e.s des pôles (deux par pôle : 1 représentant.e d'un organisme communautaire + 1 membre du corps professoral) et 2 représentant.e.s étudiant.e.s. Les représentant.e.s des pôles et les représentant.e.s étudiant.e.s sont choisi.e.s par les membres des pôles, selon le principe d'une rotation annuelle des membres, permettant ainsi à toute personne intéressée de s'impliquer.
                   </p>
 
-                  <div className="p-6 bg-[#8B0000]/5 rounded-lg my-12 border border-[#8B0000]/20 animate-fade-in-up animate-delay-300">
+                  <div className="p-6 bg-[#CC0000]/5 rounded-lg my-12 border border-[#CC0000]/20 animate-fade-in-up animate-delay-300">
                     <p className="text-lg text-[#0A0A0A] leading-relaxed mb-4">
                       <strong>Nous vous invitons à découvrir le travail unique et stimulant qui se déroule au sein de nos Pôles.</strong>
                     </p>
@@ -880,9 +880,9 @@ export function Home() {
 
             {/* Right side: Beautiful visual anchor of Niagara Falls */}
             <div className="relative lg:sticky lg:top-24 rounded-3xl overflow-hidden shadow-2xl border-4 border-white transform hover:scale-[1.01] transition-transform duration-500 group/img w-full flex-shrink-0 mt-8 lg:mt-0">
-              <div className="absolute inset-0 bg-[#8B0000]/10 mix-blend-multiply z-10"></div>
+              <div className="absolute inset-0 bg-[#CC0000]/10 mix-blend-multiply z-10"></div>
               {/* Highlight border decoration */}
-              <div className="absolute inset-0 border-2 border-[#8B0000]/30 rounded-2xl z-20 pointer-events-none m-2"></div>
+              <div className="absolute inset-0 border-2 border-[#CC0000]/30 rounded-2xl z-20 pointer-events-none m-2"></div>
               <img 
                 src="/campus/childhood-hub-cover.jpg"
                 alt={language === 'en' ? 'Stunning Niagara Falls landscape representing the Niagara Region partnership' : 'Magnifique paysage des chutes du Niagara représentant le partenariat régional'}
@@ -908,7 +908,7 @@ export function Home() {
       </section>
 
       {/* Co-Directors Section */}
-      <section className="py-16 bg-[#8B0000]">
+      <section className="py-16 bg-[#CC0000]">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl text-white mb-8 text-center">
             {language === 'en' ? 'Co-Directors' : 'La Codirection'}
@@ -917,14 +917,14 @@ export function Home() {
             {coDirectors.map((director, index) => (
               <Card key={index} className="hover:shadow-lg transition-shadow bg-white">
                 <CardHeader className="text-center pb-4">
-                  <Avatar className="mx-auto mb-4 w-24 h-24 rounded-full bg-[#8B0000]">
+                  <Avatar className="mx-auto mb-4 w-24 h-24 rounded-full bg-[#CC0000]">
                     <AvatarImage src={director.image} alt={`${director.name}'s profile`} />
                     <AvatarFallback className="text-white text-3xl font-semibold">
                       {director.name.split(' ').map(n => n[0]).join('')}
                     </AvatarFallback>
                   </Avatar>
                   <h3 className="text-2xl text-[#0A0A0A] leading-none" data-slot="card-title">{director.name}</h3>
-                  <CardDescription className="text-base text-[#8B0000] font-medium mt-2">
+                  <CardDescription className="text-base text-[#CC0000] font-medium mt-2">
                     {language === 'en' ? director.titleEn : director.titleFr}
                   </CardDescription>
                 </CardHeader>
@@ -945,8 +945,8 @@ export function Home() {
               transition: 'opacity 0.6s ease, transform 0.6s ease',
             }}>
             <div className="flex items-center gap-2 mb-3">
-              <div className="w-6 h-px bg-[#8B0000]" />
-              <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#8B0000]">
+              <div className="w-6 h-px bg-[#CC0000]" />
+              <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#CC0000]">
                 {language === 'en' ? 'Explore' : 'Explorer'}
               </span>
             </div>
@@ -1013,18 +1013,18 @@ export function Home() {
                   className="absolute top-5 right-7 text-8xl font-black select-none pointer-events-none"
                   style={{
                     fontFamily: 'var(--font-heading)',
-                    color: 'rgba(139,0,0,0.08)',
+                    color: 'rgba(204,0,0,0.08)',
                     transition: 'color 0.4s ease',
                   }}
-                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(139,0,0,0.18)'; }}
-                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(139,0,0,0.08)'; }}
+                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(204,0,0,0.18)'; }}
+                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(204,0,0,0.08)'; }}
                 >
                   {num}
                 </span>
 
                 {/* Icon */}
-                <div className="w-12 h-12 rounded-xl bg-[#8B0000]/15 flex items-center justify-center group-hover:bg-[#8B0000]/30 transition-colors duration-500">
-                  <Icon className="w-6 h-6 text-[#8B0000]" />
+                <div className="w-12 h-12 rounded-xl bg-[#CC0000]/15 flex items-center justify-center group-hover:bg-[#CC0000]/30 transition-colors duration-500">
+                  <Icon className="w-6 h-6 text-[#CC0000]" />
                 </div>
 
                 {/* Text */}
@@ -1039,7 +1039,7 @@ export function Home() {
                 </div>
 
                 {/* CTA */}
-                <div className="flex items-center gap-2 text-white/20 group-hover:text-[#8B0000] transition-colors duration-400">
+                <div className="flex items-center gap-2 text-white/20 group-hover:text-[#CC0000] transition-colors duration-400">
                   <span className="text-[10px] font-bold tracking-[0.18em] uppercase">
                     {language === 'en' ? 'Explore' : 'Explorer'}
                   </span>
@@ -1047,10 +1047,10 @@ export function Home() {
                 </div>
 
                 {/* Animated bottom rule */}
-                <div className="absolute bottom-0 left-0 h-[2px] bg-[#8B0000] w-0 group-hover:w-full transition-all duration-500 ease-out" />
+                <div className="absolute bottom-0 left-0 h-[2px] bg-[#CC0000] w-0 group-hover:w-full transition-all duration-500 ease-out" />
 
                 {/* Side glow on hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#8B0000]/0 to-[#8B0000]/0 group-hover:from-[#8B0000]/5 group-hover:to-transparent transition-all duration-500 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-br from-[#CC0000]/0 to-[#CC0000]/0 group-hover:from-[#CC0000]/5 group-hover:to-transparent transition-all duration-500 pointer-events-none" />
               </Link>
             ))}
           </div>
@@ -1058,7 +1058,7 @@ export function Home() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 bg-[#8B0000] text-white">
+      <section className="py-16 bg-[#CC0000] text-white">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl mb-4 font-semibold text-white">
             {language === 'en' ? 'Join Our Partnership' : 'Rejoignez notre partenariat'}
@@ -1071,7 +1071,7 @@ export function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/about/hubs"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#8B0000] rounded-lg hover:bg-gray-100 transition-colors font-medium"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#CC0000] rounded-lg hover:bg-gray-100 transition-colors font-medium"
             >
               {language === 'en' ? 'Learn More' : 'En savoir plus'}
               <ArrowRight className="w-5 h-5" />
