@@ -25,7 +25,7 @@ const hurakhshHazheerImg = '/8f7b09ad0b8e30a6839a80d97e0218dfb9caa307.png';
 const karlieJamesImg = '/53448f4597ea1cd9b385b1192463b44d74010653.png';
 const sizakeleKhumaloImg = '/22a096132d6ac4000788bf0201ddc4a108337a5f.png';
 const marieMouradikianImg = '/1c1233b21a7769b6a0108d918be03553c31d4429.png';
-const justinMafieImg = '/3e11b66e4ba98e2596d7a69e2b6f7b5655a0abe6.png';
+const justinMafieImg = '/team/justin-mafie.jpg';
 
 export function MemberBios() {
   const { language } = useLanguage();
