@@ -1,0 +1,19 @@
+{
+  "name": "msk-niagara-studio",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "sanity dev",
+    "build": "sanity build",
+    "deploy": "sanity deploy",
+    "start": "sanity start"
+  },
+  "dependencies": {
+    "sanity": "^6.9.1",
+    "@sanity/vision": "^6.9.1",
+    "react": "^19.2.2",
+    "react-dom": "^19.2.2",
+    "styled-components": "^6.5.1"
+  }
+}

@@ -14,6 +14,10 @@ id_rsa
 node_modules/
 npm-debug.log
 
+# Sanity Studio
+studio/dist/
+.sanity/
+
 # Python
 __pycache__/
 venv/

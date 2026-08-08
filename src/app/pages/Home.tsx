@@ -32,13 +32,12 @@ import { Link } from 'react-router';
 import { ArrowRight, Users, BookOpen, Calendar, ExternalLink, CheckCircle2, UserCheck, Code, Handshake, Database, Sparkles } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader } from '../components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '../components/ui/avatar';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { EmberParticles } from '../components/HeroAnimations';
 import { usePageMeta } from '../hooks/usePageMeta';
-
-// Import co-director profile images
-const jeanNtakirutimanaImg = '/a4bced4acbd5814bb109a187b7f1325cde395ea7.png';
-const livianaTossuttiImg = '/438f2f96ee4c30da348ebf5afdbb45ab22a5947b.png';
+import { useSanityQuery } from '../../lib/sanity/useSanityQuery';
+import { coDirectorsQuery, type TeamMember } from '../../lib/sanity/queries/teamMember';
+import { urlForImage } from '../../lib/sanity/image';
 
 export function Home() {
   const { language } = useLanguage();
@@ -64,24 +63,18 @@ export function Home() {
     return () => observer.disconnect();
   }, []);
 
-  /**
-   * Co-Directors Data
-   * Leadership profiles displayed on the home page
-   */
-  const coDirectors = [
-    {
-      name: 'Dr. Livianna Tossutti',
-      titleEn: 'Professor and Co-Director, Brock University',
-      titleFr: 'Professeure et Codirectrice, Université Brock',
-      image: livianaTossuttiImg,
-    },
-    {
-      name: 'Dr. Jean Ntakirutimana',
-      titleEn: 'Professor and Co-Director, Brock University',
-      titleFr: 'Professeur et Codirecteur, Université Brock',
-      image: jeanNtakirutimanaImg,
-    },
-  ];
+  // Co-Directors: leadership profiles displayed on the home page
+  const { data: rawCoDirectors } = useSanityQuery<TeamMember[]>(coDirectorsQuery);
+  const coDirectors = useMemo(
+    () =>
+      (rawCoDirectors ?? []).map((m) => ({
+        name: m.name,
+        titleEn: m.role?.en ?? '',
+        titleFr: m.role?.fr ?? '',
+        image: urlForImage(m.image)?.width(200).height(200).url(),
+      })),
+    [rawCoDirectors]
+  );
 
   return (
     <div>

@@ -5,8 +5,13 @@ import { Badge } from '../components/ui/badge';
 import { Button } from '../components/ui/button';
 import { HubBars } from '../components/HeroAnimations';
 import { usePageMeta } from '../hooks/usePageMeta';
-import { Building2, Users, ArrowRight, Target, Lightbulb, Heart, GraduationCap, TrendingUp, Globe, ExternalLink, Handshake, Award, Home, Briefcase, Shield, BookOpen, Activity, UserPlus, HeartPulse } from 'lucide-react';
-import { useState } from 'react';
+import { Building2, Users, ArrowRight, Target, Lightbulb, Heart, GraduationCap, TrendingUp, Globe, ExternalLink, Handshake, Award, Home, Briefcase, Shield, BookOpen, Activity, UserPlus, HeartPulse, type LucideIcon } from 'lucide-react';
+import { useMemo, useState } from 'react';
+import { useSanityQuery } from '../../lib/sanity/useSanityQuery';
+import { researchHubsQuery, type ResearchHub } from '../../lib/sanity/queries/researchHub';
+import { urlForImage } from '../../lib/sanity/image';
+
+const HUB_ICONS: Record<string, LucideIcon> = { Users, BookOpen, Target, Heart, Lightbulb, GraduationCap, HeartPulse, Building2 };
 
 // Import logos
 const uoftOiseLogo = '/7b98ee478f466c3dd71a0410d27d1cae36bc7b2a.png';
@@ -36,109 +41,26 @@ export function ResearchHubs() {
   const [hoveredHub, setHoveredHub] = useState<number | null>(null);
   const [hoveredPartner, setHoveredPartner] = useState<number | null>(null);
 
-  const hubs = [
-    {
-      id: 'childhood',
-      name: 'Childhood and Growing Up Hub',
-      nameFr: 'Pôle Enfance et croissance',
-      image: '/campus/childhood-hub-cover.jpg',
-      description: 'We focus on talking to newcomer and racialized children to learn about their perspectives and experiences, particularly in relation to: 1) housing and home, especially how newcomer children think about home and experience their current housing (including children experiencing homelessness); 2) leisure/sport, which benefits from stable housing, and which may bring opportunities and challenges to newcomer children; 3) education, as newcomer children\'s experiences in school are often central to their feelings of inclusion and/or exclusion in their new communities, and schools can provide important programming to best support newcomer children; and 4) children\'s engagements with companion and other animals, as well as the outside world, and especially how these are affected by being uprooted. Children\'s voices are frequently unheard, especially in programming and policy-making, and yet they are participants in their families and communities, with their own viewpoints, interests, needs and challenges.',
-      descriptionFr: 'Nous nous concentrons sur les conversations avec les enfants nouveaux arrivants et racialisés pour connaître leurs perspectives et expériences, particulièrement en ce qui concerne : 1) le logement et le foyer, surtout comment les enfants nouveaux arrivants pensent au foyer et vivent leur logement actuel (y compris les enfants en situation d\'itinérance); 2) les loisirs/sports, qui bénéficient d\'un logement stable et qui peuvent apporter des opportunités et des défis aux enfants nouveaux arrivants; 3) l\'éducation, car les expériences scolaires des enfants nouveaux arrivants sont souvent au cœur de leurs sentiments d\'inclusion et/ou d\'exclusion dans leurs nouvelles communautés, et les écoles peuvent fournir une programmation importante pour mieux soutenir les enfants nouveaux arrivants; et 4) les engagements des enfants avec les animaux de compagnie et autres, ainsi que le monde extérieur, et surtout comment ceux-ci sont affectés par le déracinement.',
-      members: 10,
-      documenta: 10,
-      projects: 1,
-      leader: 'Dr. Rebecca Raby',
-      leaderFr: 'Dre Rebecca Raby',
-      color: '#089EA5',
-      gradient: 'from-[#CC0000] to-[#A40000]',
-      icon: Heart,
-      universities: [
-        { name: 'Brock University', logo: brockLogo },
-        { name: 'University of Toronto (OISE)', logo: uoftOiseLogo }
-      ],
-      topics: ['Housing & Home', 'Leisure & Sport', 'Education & Inclusion', 'Children\'s Voices', 'Newcomer Experiences'],
-      topicsFr: ['Logement et foyer', 'Loisirs et sport', 'Éducation et inclusion', 'Voix des enfants', 'Expériences des nouveaux arrivants'],
-      partners: [
-        {
-          name: 'YWCA Niagara Region',
-          description: 'The YWCA provides services to homeless women and their families and has been operating since 1915. They currently provide shelter beds, transitional housing, skills development and addictions recovery support across the Niagara Region.',
-          descriptionFr: 'La YWCA offre des services aux femmes sans-abri et à leurs familles et fonctionne depuis 1915. Ils fournissent actuellement des lits d\'hébergement, des logements transitoires, du développement de compétences et un soutien en rétablissement des dépendances dans toute la région du Niagara.',
-          link: 'https://www.ywcaniagararegion.ca/',
-          logo: ywcaLogo
-        }
-      ],
-    },
-    {
-      id: 'health',
-      name: 'Health Literacy Hub',
-      nameFr: 'Pôle Littératie en santé',
-      image: '/campus/brock-university-birdseye.jpg',
-      description: 'The project seeks to explore best practices for health literacy interventions and community-based perspectives to inform the development of locally relevant strategies that aim to improve the health literacy of diverse immigrant and refugee populations in the Niagara Region. Co-led by Dr. Joanne Crawford (Brock University) and Mariam Khayinza (TOES Niagara), the hub brings together healthcare providers, community organizations, and researchers.',
-      descriptionFr: 'Le projet cherche à explorer les meilleures pratiques pour les interventions en littératie en santé et les perspectives communautaires pour éclairer le développement de stratégies localement pertinentes visant à améliorer la littératie en santé des diverses populations immigrantes et réfugiées dans la région de Niagara. Codirigé par Dre Joanne Crawford (Université Brock) et Mariam Khayinza (TOES Niagara), le pôle réunit des prestataires de soins de santé, des organismes communautaires et des chercheurs.',
-      members: 20,
-      documented: 20,
-      projects: 3,
-      leader: 'Dr. Joanne Crawford & Mariam Khayinza',
-      leaderFr: 'Dre Joanne Crawford et Mariam Khayinza',
-      color: '#12647F',
-      gradient: 'from-[#CC0000] to-[#A40000]',
-      icon: Lightbulb,
-      universities: [
-        { name: 'Brock University', logo: brockLogo },
-        { name: 'York University', logo: uoftOiseLogo },
-        { name: 'University at Buffalo', logo: universityBuffaloLogo }
-      ],
-      topics: ['Health Literacy Best Practices', 'Community Resources', 'Community Partnerships', 'Health Equity'],
-      topicsFr: ['Meilleures pratiques en littératie en santé', 'Ressources communautaires', 'Partenariats communautaires', 'Équité en santé'],
-      partners: [
-        {
-          name: 'Bridges Niagara',
-          description: 'Bridges Niagara provides settlement and integration services for newcomers to the Niagara Region.',
-          descriptionFr: 'Bridges Niagara fournit des services d\'établissement et d\'intégration pour les nouveaux arrivants dans la région de Niagara.',
-          link: 'https://www.bridgesniagara.ca/',
-          logo: bridgesNiagaraLogo
-        },
-        {
-          name: 'TOES Niagara',
-          description: 'TOES Niagara supports employment and social participation for immigrants and refugees.',
-          descriptionFr: 'TOES Niagara soutient l\'emploi et la participation sociale des immigrants et réfugiés.',
-          link: 'https://www.toesniagara.ca/',
-          logo: toesNiagaraLogo
-        }
-      ],
-    },
-    {
-      id: 'identity',
-      name: 'Identity, Connections and Belonging Hub',
-      nameFr: 'Pôle Identité, connexions et appartenance',
-      image: '/campus/st-catharines-birdseye.jpg',
-      description: 'The Identity, Connections and Belonging Hub hosts three distinct projects which foster a sense of belonging amongst three populations: Afro-descendants, sexual and gender diverse young adult newcomers, and seasonal agricultural workers. Led by Dr. Jean Ntakirutimana, the hub includes 26 team members across three focused community projects.',
-      descriptionFr: 'Le Pôle Identité, relations et appartenance héberge trois projets distincts visant à favoriser un sentiment d\'appartenance chez trois groupes de populations : les personnes afro-descendantes, les jeunes adultes nouveaux arrivants de diverses identités sexuelles et de genre, et les travailleurs agricoles saisonniers. Dirigé par Dr Jean Ntakirutimana, le pôle comprend 26 membres d\'équipe répartis sur trois projets communautaires ciblés.',
-      members: 26,
-      documented: 26,
-      projects: 3,
-      leader: 'Dr. Jean Ntakirutimana',
-      leaderFr: 'Dr Jean Ntakirutimana',
-      color: '#6635B1',
-      gradient: 'from-[#CC0000] to-[#A40000]',
-      icon: GraduationCap,
-      universities: [
-        { name: 'Brock University', logo: brockLogo },
-        { name: 'University of Toronto', logo: uoftOiseLogo }
-      ],
-      topics: ['Afro-Descendant Identity', 'LGBTQ+ Newcomers', 'Migrant Farmworkers', 'Community Belonging'],
-      topicsFr: ['Identité afro-descendante', 'Nouveaux arrivants LGBTQ+', 'Travailleurs agricoles migrants', 'Appartenance communautaire'],
-      partners: [
-        {
-          name: 'Migrant Farm Workers Project',
-          description: 'Supporting seasonal agricultural workers through St. Alban\'s Anglican Church.',
-          descriptionFr: 'Soutenir les travailleurs agricoles saisonniers par l\'Église anglicane St. Alban.',
-          link: '#',
-          logo: migrantFarmworkersLogo
-        }
-      ],
-    },
-  ];
+  const { data: rawHubs } = useSanityQuery<ResearchHub[]>(researchHubsQuery);
+  const hubs = useMemo(
+    () =>
+      (rawHubs ?? []).map((hub) => ({
+        id: hub.slug,
+        name: hub.name.en,
+        nameFr: hub.name.fr,
+        image: urlForImage(hub.coverImage)?.width(800).height(500).url(),
+        description: hub.description.en,
+        descriptionFr: hub.description.fr,
+        members: hub.memberCount ?? 0,
+        projects: hub.projectCount ?? 0,
+        leader: hub.leaders?.join(' & ') ?? '',
+        leaderFr: hub.leaders?.join(' et ') ?? '',
+        color: hub.color ?? '#CC0000',
+        gradient: 'from-[#CC0000] to-[#A40000]',
+        icon: (hub.icon && HUB_ICONS[hub.icon]) || Building2,
+      })),
+    [rawHubs]
+  );
 
   // Helper function to get category icon and color
   const getCategoryStyle = (category: string) => {

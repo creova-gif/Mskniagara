@@ -6,6 +6,9 @@ import { Calendar, MapPin, Users, Clock, Inbox, ExternalLink, Star, Download } f
 import { TimelineBeam } from '../components/HeroAnimations';
 import { sanitizeUrl } from '../utils/security';
 import { usePageMeta } from '../hooks/usePageMeta';
+import { useMemo } from 'react';
+import { useSanityQuery } from '../../lib/sanity/useSanityQuery';
+import { timelineEventsQuery, type TimelineEvent } from '../../lib/sanity/queries/timelineEvent';
 
 const TODAY = new Date();
 TODAY.setHours(0, 0, 0, 0);
@@ -145,44 +148,29 @@ export function Timeline() {
     },
   ];
 
-  const allEvents = [
-    {
-      dateValue: new Date('2026-06-19'),
-      date: language === 'en' ? 'June 19, 2026' : '19 juin 2026',
-      time: '9:00 AM – 1:00 PM',
-      title: language === 'en' ? 'Community-University Symposium' : 'Symposium communautaire-universitaire',
-      description: language === 'en'
-        ? 'The MSK/MSM team will present their preliminary findings on five research projects focused on improving public and institutional awareness about the issues, needs and identities of Afro-descendant and immigrant and refugee populations in Niagara. The symposium will begin with morning refreshments at 9am and conclude at about 1pm, followed by a light lunch. We are grateful to the Social Justice Research Institute at Brock University for its generous support of this event.'
-        : 'L\'équipe MSK/MSM présentera les résultats préliminaires sur les cinq projets de recherche visant à sensibiliser le public et les institutions aux enjeux des populations afro-descendantes, immigrantes et réfugiées du Niagara. Le symposium commencera par des rafraîchissements à 9 h et se terminera vers 13 h, suivi d\'un déjeuner léger. Nous remercions l\'Institut de recherche sur la justice sociale (SJRI) de l\'Université Brock pour son généreux soutien.',
-      location: language === 'en' ? 'Community Room, Civic Square, Welland, ON' : 'Salle communautaire, Civic Square, Welland, ON',
-      locationUrl: 'https://maps.app.goo.gl/nEzwTCaAiYCJ43Kn9',
-      registration: language === 'en' ? 'Open (RSVP by May 29)' : 'Ouverte (RSVP avant le 29 mai)',
-      registrationUrl: 'https://doodle.com/sign-up-sheet/participate/070efb40-abeb-4fb8-8d7e-7fba14025436/select',
-      isFeatured: true,
-    },
-    {
-      dateValue: new Date('2026-02-20'),
-      date: language === 'en' ? 'February 20, 2026' : '20 février 2026',
-      time: '1:00 PM – 3:00 PM',
-      title: language === 'en' ? 'Community Partner Forum' : 'Forum des partenaires communautaires',
-      description: language === 'en'
-        ? 'Quarterly forum for community partners to share updates, discuss challenges, and collaborate on solutions.'
-        : 'Forum trimestriel pour les partenaires communautaires pour partager des mises à jour, discuter des défis et collaborer sur des solutions.',
-      location: language === 'en' ? 'Virtual' : 'Virtuel',
-      registration: language === 'en' ? 'Closed' : 'Fermée',
-    },
-    {
-      dateValue: new Date('2026-03-10'),
-      date: language === 'en' ? 'March 10, 2026' : '10 mars 2026',
-      time: '10:00 AM – 12:00 PM',
-      title: language === 'en' ? 'Knowledge Translation Workshop' : 'Atelier de transfert de connaissances',
-      description: language === 'en'
-        ? 'Workshop on effective strategies for translating research findings into practical applications and public communications.'
-        : 'Atelier sur les stratégies efficaces pour traduire les résultats de recherche en applications pratiques et communications publiques.',
-      location: language === 'en' ? 'McMaster University, Hamilton, ON' : 'Université McMaster, Hamilton, ON',
-      registration: language === 'en' ? 'Closed' : 'Fermée',
-    },
-  ];
+  const { data: rawEvents } = useSanityQuery<TimelineEvent[]>(timelineEventsQuery);
+  const allEvents = useMemo(
+    () =>
+      (rawEvents ?? []).map((e) => {
+        // Parse as local calendar date, not UTC midnight — otherwise timezones
+        // behind UTC display the previous day.
+        const [y, m, d] = e.dateValue.split('-').map(Number);
+        const dateValue = new Date(y, m - 1, d);
+        return {
+          dateValue,
+          date: dateValue.toLocaleDateString(language === 'en' ? 'en-CA' : 'fr-CA', { year: 'numeric', month: 'long', day: 'numeric' }),
+          time: e.time ?? '',
+          title: language === 'en' ? e.title.en : e.title.fr,
+          description: language === 'en' ? e.description?.en ?? '' : e.description?.fr ?? '',
+          location: language === 'en' ? e.location?.en ?? '' : e.location?.fr ?? '',
+          locationUrl: e.locationUrl,
+          registration: language === 'en' ? e.registration?.en ?? '' : e.registration?.fr ?? '',
+          registrationUrl: e.registrationUrl,
+          isFeatured: e.isFeatured,
+        };
+      }),
+    [rawEvents, language]
+  );
 
   const upcomingEvents = allEvents.filter(e => !isEventPast(e.dateValue));
   const pastEvents = allEvents.filter(e => isEventPast(e.dateValue));

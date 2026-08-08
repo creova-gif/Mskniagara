@@ -2,19 +2,13 @@ import { sanitizeUrl } from '../utils/security';
 import { useLanguage } from '../contexts/LanguageContext';
 import { ArrowRight, ExternalLink, Users, Shield } from 'lucide-react';
 import useEmblaCarousel from 'embla-carousel-react';
-import { useCallback, useEffect, useState, useRef } from 'react';
+import { useCallback, useEffect, useMemo, useState, useRef } from 'react';
 import { Link } from 'react-router';
 import { NetworkNodes } from '../components/HeroAnimations';
 import { usePageMeta } from '../hooks/usePageMeta';
-
-// Import logos
-const sshrcLogo = '/c9c77bb67634af21353fb8f536aed3347c90330c.png';
-const brockLogo = '/6a2d35fb10f25faa07b97ffff38a76f184734ae4.png';
-const uoftOiseLogo = '/7b98ee478f466c3dd71a0410d27d1cae36bc7b2a.png';
-const brockESRCLogo = '/4825dd65e7c70d72bc4874a4e49e5ed0e76764db.png';
-const niagaraRegionLogo = '/b80316cbb5ce9244931d871f5cd787d687cfdafb.png';
-const yorkUniversityLogo = '/c04bb3e0b2c20a914be2fc34dabdbd667e3f6fd3.png';
-const universityAtBuffaloLogo = '/1e02762e71863f48fceb1cc3277e8ecd07e53156.png';
+import { useSanityQuery } from '../../lib/sanity/useSanityQuery';
+import { partnershipFundersQuery, type CommunityPartner } from '../../lib/sanity/queries/communityPartner';
+import { urlForImage } from '../../lib/sanity/image';
 
 const HUB_COLORS = {
   childhood: '#089EA5',
@@ -52,14 +46,25 @@ export function Partnership() {
     return () => { c1?.(); c2?.(); c3?.(); };
   }, []);
 
-  const partners = [
-    { name: 'University of Toronto – OISE', nameFr: 'Université de Toronto – OISE', type: 'Academic Partner', typeFr: 'Partenaire académique', url: 'https://www.oise.utoronto.ca/', logo: uoftOiseLogo },
-    { name: 'Brock University – ESRC', nameFr: 'Université Brock – CERS', type: 'Academic Partner', typeFr: 'Partenaire académique', url: 'https://www.brocku.ca/esrc/', logo: brockESRCLogo },
-    { name: 'Social Justice Research Institute', nameFr: 'Institut de recherche sur la justice sociale', type: 'Academic Partner', typeFr: 'Partenaire académique', url: 'https://www.brocku.ca/social-justice-research-institute/', logo: brockLogo },
-    { name: 'Niagara Region', nameFr: 'Région de Niagara', type: 'Community Partner', typeFr: 'Partenaire communautaire', url: 'https://www.niagararegion.ca/', logo: niagaraRegionLogo },
-    { name: 'York University', nameFr: 'Université York', type: 'Academic Partner', typeFr: 'Partenaire académique', url: 'https://www.yorku.ca/', logo: yorkUniversityLogo },
-    { name: 'University at Buffalo', nameFr: 'Université de Buffalo', type: 'Academic Partner', typeFr: 'Partenaire académique', url: 'https://www.buffalo.edu/', logo: universityAtBuffaloLogo },
-  ];
+  const { data: rawFunderPartners } = useSanityQuery<CommunityPartner[]>(partnershipFundersQuery);
+  const partners = useMemo(
+    () =>
+      (rawFunderPartners ?? [])
+        .filter((p) => p.category !== 'funder')
+        .map((p) => ({
+          name: p.name.en,
+          nameFr: p.name.fr,
+          type: p.category === 'research' ? 'Academic Partner' : 'Community Partner',
+          typeFr: p.category === 'research' ? 'Partenaire académique' : 'Partenaire communautaire',
+          url: p.website ?? '#',
+          logo: urlForImage(p.logo)?.width(240).url() ?? '',
+        })),
+    [rawFunderPartners]
+  );
+  const sshrcLogo = useMemo(
+    () => urlForImage((rawFunderPartners ?? []).find((p) => p.category === 'funder')?.logo)?.width(200).url(),
+    [rawFunderPartners]
+  );
 
   const goals = language === 'en' ? [
     'Provide a forum for African descendant and foreign-born persons in the Regional Municipality of Niagara to share their experiences, knowledge and accomplishments with non-profit, academic, government and para-public sectors.',

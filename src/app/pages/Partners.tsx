@@ -1,18 +1,12 @@
 import { sanitizeUrl } from '../utils/security';
 import { useLanguage } from '../contexts/LanguageContext';
 import { ArrowUpRight, BookOpen, Users, Landmark, Send } from 'lucide-react';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { NetworkNodes } from '../components/HeroAnimations';
 import { usePageMeta } from '../hooks/usePageMeta';
-
-// Partner logos (shared with Partnership.tsx)
-const sshrcLogo = '/c9c77bb67634af21353fb8f536aed3347c90330c.png';
-const brockLogo = '/6a2d35fb10f25faa07b97ffff38a76f184734ae4.png';
-const uoftOiseLogo = '/7b98ee478f466c3dd71a0410d27d1cae36bc7b2a.png';
-const brockESRCLogo = '/4825dd65e7c70d72bc4874a4e49e5ed0e76764db.png';
-const niagaraRegionLogo = '/b80316cbb5ce9244931d871f5cd787d687cfdafb.png';
-const yorkUniversityLogo = '/c04bb3e0b2c20a914be2fc34dabdbd667e3f6fd3.png';
-const universityAtBuffaloLogo = '/1e02762e71863f48fceb1cc3277e8ecd07e53156.png';
+import { useSanityQuery } from '../../lib/sanity/useSanityQuery';
+import { partnersNetworkQuery, type CommunityPartner } from '../../lib/sanity/queries/communityPartner';
+import { urlForImage } from '../../lib/sanity/image';
 
 const MONO = 'var(--font-mono)';
 
@@ -79,23 +73,27 @@ export function Partners() {
   const en = language === 'en';
   const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
 
-  const partnersData: Record<string, Partner[]> = {
-    community: [
-      { name: 'Niagara Region', url: 'https://www.niagararegion.ca/', logo: niagaraRegionLogo },
-      { name: 'Black Community Organization', url: '#', logo: null },
-      { name: 'Migrant Worker Support Center', url: '#', logo: null },
-    ],
-    academic: [
-      { name: 'Brock University – ESRC', url: 'https://www.brocku.ca/esrc/', logo: brockESRCLogo },
-      { name: 'University of Toronto – OISE', url: 'https://www.oise.utoronto.ca/', logo: uoftOiseLogo },
-      { name: 'Social Justice Research Institute', url: 'https://www.brocku.ca/social-justice-research-institute/', logo: brockLogo },
-      { name: 'York University', url: 'https://www.yorku.ca/', logo: yorkUniversityLogo },
-      { name: 'University at Buffalo', url: 'https://www.buffalo.edu/', logo: universityAtBuffaloLogo },
-    ],
-    funding: [
-      { name: 'Social Sciences and Humanities Research Council (SSHRC)', url: 'https://www.sshrc-crsh.gc.ca/', logo: sshrcLogo },
-    ],
-  };
+  const { data: rawPartners } = useSanityQuery<CommunityPartner[]>(partnersNetworkQuery);
+  const partnersData: Record<string, Partner[]> = useMemo(() => {
+    const buckets: Record<string, Partner[]> = { community: [], academic: [], funding: [] };
+    for (const p of rawPartners ?? []) {
+      const entry: Partner = {
+        name: en ? p.name.en : p.name.fr,
+        url: p.website ?? '#',
+        logo: urlForImage(p.logo)?.width(240).url() ?? null,
+      };
+      if (p.category === 'funder') buckets.funding.push(entry);
+      else if (p.category === 'research') buckets.academic.push(entry);
+      else buckets.community.push(entry);
+    }
+    // Two placeholder "coming soon" rows — intentionally not real content,
+    // kept here rather than in Sanity so they're easy to remove once filled in.
+    buckets.community.push(
+      { name: en ? 'Black Community Organization' : 'Organisation communautaire noire', url: '#', logo: null },
+      { name: en ? 'Migrant Worker Support Center' : 'Centre de soutien aux travailleurs migrants', url: '#', logo: null }
+    );
+    return buckets;
+  }, [rawPartners, en]);
 
   const totalOrgs = COLUMNS.reduce((n, c) => n + partnersData[c.key].length, 0);
   const academicCount = partnersData.academic.length;

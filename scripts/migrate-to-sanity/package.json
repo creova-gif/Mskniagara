@@ -1,0 +1,9 @@
+{
+  "name": "migrate-to-sanity",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@sanity/client": "^7.26.2",
+    "dotenv": "^16.4.5"
+  }
+}

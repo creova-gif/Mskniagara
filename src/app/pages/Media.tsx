@@ -4,222 +4,14 @@ import {
   Play, Eye, Image as ImageIcon, ChevronRight, ExternalLink,
   Mic, BookOpen, ArrowRight, Users, BarChart3
 } from 'lucide-react';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { FilmScan } from '../components/HeroAnimations';
 import { usePageMeta } from '../hooks/usePageMeta';
+import { useSanityQuery } from '../../lib/sanity/useSanityQuery';
+import { mediaPhotosQuery, mediaVideosQuery, annualReportsQuery, type MediaPhoto, type MediaVideo, type AnnualReport } from '../../lib/sanity/queries/media';
+import { urlForImage } from '../../lib/sanity/image';
 
 /* ─── DATA ─────────────────────────────────────────── */
-
-const photoGallery = [
-  {
-    id: 1,
-    title: 'Community Consultation Workshop',
-    titleFr: 'Atelier de consultation communautaire',
-    date: 'Feb 15, 2025',
-    dateFr: '15 fév 2025',
-    location: 'Brock University',
-    hub: 'Childhood & Growing Up Hub',
-    hubFr: 'Pôle Enfance et croissance',
-    images: 3,
-    category: 'workshop',
-    year: '2025',
-    aspect: 'tall',
-    thumbnail: '/media/workshop-childhood-hub.jpg',
-  },
-  {
-    id: 2,
-    title: 'Health Literacy Roundtable',
-    titleFr: 'Table ronde littératie en santé',
-    date: 'Jan 22, 2025',
-    dateFr: '22 jan 2025',
-    location: 'QUEST Community Health',
-    hub: 'Health Literacy Hub',
-    hubFr: 'Pôle Littératie en santé',
-    images: 5,
-    category: 'roundtable',
-    year: '2025',
-    aspect: 'wide',
-    thumbnail: '/media/health-literacy-roundtable.jpg',
-  },
-  {
-    id: 3,
-    title: 'Partnership Launch Event',
-    titleFr: 'Événement de lancement',
-    date: 'Oct 10, 2024',
-    dateFr: '10 oct 2024',
-    location: 'Brock University, St. Catharines',
-    hub: 'All Hubs',
-    hubFr: 'Tous les pôles',
-    images: 8,
-    category: 'launch',
-    year: '2024',
-    aspect: 'square',
-    thumbnail: '/media/partnership-launch-event.jpg',
-  },
-  {
-    id: 4,
-    title: 'Afro-Descendant Identity Workshop',
-    titleFr: 'Atelier identité afro-descendante',
-    date: 'Dec 5, 2024',
-    dateFr: '5 déc 2024',
-    location: 'Community Centre, Niagara Falls',
-    hub: 'Identity, Connections & Belonging',
-    hubFr: 'Pôle Identité et appartenance',
-    images: 6,
-    category: 'workshop',
-    year: '2024',
-    aspect: 'tall',
-    thumbnail: '/media/identity-workshop.jpg',
-  },
-  {
-    id: 5,
-    title: 'Migrant Farmworkers Support',
-    titleFr: 'Soutien aux travailleurs migrants',
-    date: 'Aug 18, 2024',
-    dateFr: '18 août 2024',
-    location: 'St. Alban\'s Anglican Church',
-    hub: 'Identity, Connections & Belonging',
-    hubFr: 'Pôle Identité et appartenance',
-    images: 4,
-    category: 'community',
-    year: '2024',
-    aspect: 'wide',
-    thumbnail: '/media/migrant-farmworkers-support.jpg',
-  },
-  {
-    id: 6,
-    title: 'Youth Recreation & Inclusion Forum',
-    titleFr: 'Forum récréation et inclusion des jeunes',
-    date: 'Nov 12, 2024',
-    dateFr: '12 nov 2024',
-    location: 'YWCA Niagara Region',
-    hub: 'Childhood & Growing Up Hub',
-    hubFr: 'Pôle Enfance et croissance',
-    images: 7,
-    category: 'forum',
-    year: '2024',
-    aspect: 'square',
-    thumbnail: '/media/youth-recreation-forum.jpg',
-  },
-];
-
-const videos = [
-  {
-    id: 1,
-    title: 'Community Partner Testimonial — Bridges Niagara',
-    titleFr: 'Témoignage partenaire communautaire — Bridges Niagara',
-    speaker: 'Maria Santos',
-    role: 'Executive Director, Bridges Niagara',
-    roleFr: 'Directrice exécutive, Bridges Niagara',
-    hub: 'Health Literacy Hub',
-    hubFr: 'Pôle Littératie en santé',
-    duration: '4:32',
-    date: 'Feb 2025',
-    dateFr: 'Fév 2025',
-    views: 342,
-    description: 'Maria shares how the MSK Partnership has strengthened health literacy programming for newcomer communities.',
-    descriptionFr: 'Maria partage comment le partenariat MSK a renforcé la programmation en littératie en santé.',
-    thumbnail: '/media/video-testimonial-bridges-niagara.jpg',
-  },
-  {
-    id: 2,
-    title: 'Research Impact — Dr. Jean Ntakirutimana',
-    titleFr: 'Impact de la recherche — Dr Jean Ntakirutimana',
-    speaker: 'Dr. Jean Ntakirutimana',
-    role: 'Co-Director, MSK Partnership',
-    roleFr: 'Codirecteur, Partenariat MSK',
-    hub: 'Identity, Connections & Belonging',
-    hubFr: 'Pôle Identité et appartenance',
-    duration: '6:15',
-    date: 'Jan 2025',
-    dateFr: 'Jan 2025',
-    views: 567,
-    description: 'Dr. Ntakirutimana discusses community-engaged research and identity formation among Afro-descendant populations.',
-    descriptionFr: 'Dr Ntakirutimana discute de la recherche communautaire et de la formation identitaire.',
-    thumbnail: '/media/video-research-impact-ntakirutimana.jpg',
-  },
-  {
-    id: 3,
-    title: 'Community Voice — TOES Niagara',
-    titleFr: 'Voix communautaire — TOES Niagara',
-    speaker: 'Mariam Khayinza',
-    role: 'Community Co-Leader, TOES Niagara',
-    roleFr: 'Co-responsable communautaire, TOES Niagara',
-    hub: 'Health Literacy Hub',
-    hubFr: 'Pôle Littératie en santé',
-    duration: '5:48',
-    date: 'Dec 2024',
-    dateFr: 'Déc 2024',
-    views: 423,
-    description: 'Mariam highlights the collaborative approach to improving health information access for immigrant populations.',
-    descriptionFr: 'Mariam souligne l\'approche collaborative pour améliorer l\'accès à l\'information sur la santé.',
-    thumbnail: '/media/video-community-voice-toes.jpg',
-  },
-  {
-    id: 4,
-    title: 'Youth Perspectives — Newcomer Students',
-    titleFr: 'Perspectives des jeunes — Étudiants nouveaux arrivants',
-    speaker: 'Student Focus Group',
-    role: 'Newcomer Youth Participants',
-    roleFr: 'Participants jeunes nouveaux arrivants',
-    hub: 'Childhood & Growing Up Hub',
-    hubFr: 'Pôle Enfance et croissance',
-    duration: '7:22',
-    date: 'Nov 2024',
-    dateFr: 'Nov 2024',
-    views: 789,
-    description: 'Young newcomers share their experiences with housing, education, and community belonging in Niagara.',
-    descriptionFr: 'Les jeunes nouveaux arrivants partagent leurs expériences de logement, d\'éducation et d\'appartenance.',
-    thumbnail: '/media/video-youth-perspectives.jpg',
-  },
-];
-
-const annualReports = [
-  {
-    id: 1,
-    year: '2024–2025',
-    title: 'Annual Impact Report',
-    titleFr: 'Rapport d\'impact annuel',
-    subtitle: 'Second Year of Partnership',
-    subtitleFr: 'Deuxième année du partenariat',
-    description: 'Comprehensive overview of research activities, community partnerships, knowledge mobilization, and measurable impact across all three research hubs in the Niagara region.',
-    descriptionFr: 'Aperçu complet des activités de recherche, partenariats communautaires et impact mesurable dans les trois pôles de recherche.',
-    pages: 48,
-    fileSize: '8.2 MB',
-    publishDate: 'March 2025',
-    publishDateFr: 'Mars 2025',
-    stats: [
-      { value: '26', label: 'Community Partners', labelFr: 'Partenaires communautaires' },
-      { value: '65', label: 'Team Members', labelFr: 'Membres d\'équipe' },
-      { value: '12', label: 'Active Projects', labelFr: 'Projets actifs' },
-      { value: '150+', label: 'Events Hosted', labelFr: 'Événements organisés' },
-    ],
-    downloadUrl: '#',
-    color: '#CC0000',
-  },
-  {
-    id: 2,
-    year: '2023–2024',
-    title: 'Inaugural Year Report',
-    titleFr: 'Rapport de la première année',
-    subtitle: 'Launch & Foundation',
-    subtitleFr: 'Lancement et fondation',
-    description: 'Launch year achievements, partnership formation, research hub establishment, and community engagement initiatives that set the foundation for a just and inclusive Niagara.',
-    descriptionFr: 'Réalisations de l\'année de lancement, formation de partenariats et établissement des pôles de recherche.',
-    pages: 36,
-    fileSize: '6.5 MB',
-    publishDate: 'October 2024',
-    publishDateFr: 'Octobre 2024',
-    stats: [
-      { value: '18', label: 'Founding Partners', labelFr: 'Partenaires fondateurs' },
-      { value: '3', label: 'Hubs Launched', labelFr: 'Pôles lancés' },
-      { value: '40+', label: 'Team Members', labelFr: 'Membres d\'équipe' },
-      { value: 'SSHRC', label: 'Grant Awarded', labelFr: 'Subvention octroyée' },
-    ],
-    downloadUrl: '#',
-    color: '#0A0A0A',
-  },
-];
 
 const categories = [
   { key: 'all', en: 'All Events', fr: 'Tous les événements' },
@@ -248,6 +40,73 @@ export function Media() {
   );
   const [activeTab, setActiveTab] = useState<'photos' | 'videos' | 'reports'>('photos');
   const [categoryFilter, setCategoryFilter] = useState('all');
+
+  const { data: rawPhotos } = useSanityQuery<MediaPhoto[]>(mediaPhotosQuery);
+  const photoGallery = useMemo(
+    () =>
+      (rawPhotos ?? []).map((p) => ({
+        id: p._id,
+        title: p.title.en,
+        titleFr: p.title.fr,
+        date: p.date?.en ?? '',
+        dateFr: p.date?.fr ?? '',
+        location: p.location ?? '',
+        hub: p.hub?.name.en ?? '',
+        hubFr: p.hub?.name.fr ?? '',
+        images: p.imageCount ?? 0,
+        category: p.category ?? '',
+        year: p.year ?? '',
+        aspect: p.aspect ?? 'square',
+        thumbnail: urlForImage(p.thumbnail)?.width(800).url() ?? '',
+      })),
+    [rawPhotos]
+  );
+
+  const { data: rawVideos } = useSanityQuery<MediaVideo[]>(mediaVideosQuery);
+  const videos = useMemo(
+    () =>
+      (rawVideos ?? []).map((v) => ({
+        id: v._id,
+        title: v.title.en,
+        titleFr: v.title.fr,
+        speaker: v.speaker ?? '',
+        role: v.role?.en ?? '',
+        roleFr: v.role?.fr ?? '',
+        hub: v.hub?.name.en ?? '',
+        hubFr: v.hub?.name.fr ?? '',
+        duration: v.duration ?? '',
+        date: v.date?.en ?? '',
+        dateFr: v.date?.fr ?? '',
+        views: v.views ?? 0,
+        description: v.description?.en ?? '',
+        descriptionFr: v.description?.fr ?? '',
+        thumbnail: urlForImage(v.thumbnail)?.width(800).url() ?? '',
+      })),
+    [rawVideos]
+  );
+
+  const { data: rawReports } = useSanityQuery<AnnualReport[]>(annualReportsQuery);
+  const annualReports = useMemo(
+    () =>
+      (rawReports ?? []).map((r) => ({
+        id: r._id,
+        year: r.year,
+        title: r.title.en,
+        titleFr: r.title.fr,
+        subtitle: r.subtitle?.en ?? '',
+        subtitleFr: r.subtitle?.fr ?? '',
+        description: r.description?.en ?? '',
+        descriptionFr: r.description?.fr ?? '',
+        pages: r.pages ?? 0,
+        publishDate: r.publishDate?.en ?? '',
+        publishDateFr: r.publishDate?.fr ?? '',
+        stats: (r.stats ?? []).map((s) => ({ value: s.value, label: s.label.en, labelFr: s.label.fr })),
+        downloadUrl: r.file?.asset?.url ?? '#',
+        color: '#CC0000',
+      })),
+    [rawReports]
+  );
+
   const [lightboxPhoto, setLightboxPhoto] = useState<typeof photoGallery[0] | null>(null);
   const [lightboxVideo, setLightboxVideo] = useState<typeof videos[0] | null>(null);
 
@@ -299,9 +158,9 @@ export function Media() {
             <div className="mt-10 flex flex-wrap gap-8"
               style={{ animation: 'fade-in-up 0.6s cubic-bezier(0.16,1,0.3,1) 0.5s both' }}>
               {[
-                { n: '6+', label: l('Photo Events', 'Événements photo') },
-                { n: '4', label: l('Video Stories', 'Témoignages vidéo') },
-                { n: '2', label: l('Annual Reports', 'Rapports annuels') },
+                { n: String(photoGallery.length), label: l('Photo Events', 'Événements photo') },
+                { n: String(videos.length), label: l('Video Stories', 'Témoignages vidéo') },
+                { n: String(annualReports.length), label: l('Annual Reports', 'Rapports annuels') },
               ].map(stat => (
                 <div key={stat.n}>
                   <div className="text-3xl font-bold text-white">{stat.n}</div>
@@ -650,10 +509,6 @@ export function Media() {
                           <span className="flex items-center gap-1.5">
                             <BookOpen className="w-3.5 h-3.5" />
                             {report.pages} {l('pages', 'pages')}
-                          </span>
-                          <span className="flex items-center gap-1.5">
-                            <FileText className="w-3.5 h-3.5" />
-                            {report.fileSize}
                           </span>
                           <span className="flex items-center gap-1.5">
                             <Calendar className="w-3.5 h-3.5" />
