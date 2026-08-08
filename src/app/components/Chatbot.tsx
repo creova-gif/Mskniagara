@@ -428,8 +428,8 @@ export function Chatbot() {
                   }`}
                 >
                   <p className={`text-sm whitespace-pre-wrap break-words leading-relaxed ${message.sender === 'user' ? 'text-white' : ''}`}>{message.text}</p>
-                  <p className={`text-xs mt-1 ${ 
-                    message.sender === 'bot' ? 'text-gray-400' : 'text-white/70'
+                  <p className={`text-xs mt-1 ${
+                    message.sender === 'bot' ? 'text-gray-500' : 'text-white/90'
                   }`}>
                     {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                   </p>
@@ -497,7 +497,7 @@ export function Chatbot() {
                 <Send className="w-5 h-5" />
               </button>
             </div>
-            <p className="text-xs text-gray-400 mt-2 text-center">
+            <p className="text-xs text-gray-500 mt-2 text-center">
               {language === 'en' ? 'Powered by MSK AI • Bilingual Support' : 'Propulsé par MSK IA • Support bilingue'}
             </p>
           </div>

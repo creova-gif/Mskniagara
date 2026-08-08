@@ -151,7 +151,7 @@ export function Media() {
             <div className="inline-flex items-center gap-2 mb-6"
               style={{ animation: 'fade-in-up 0.5s cubic-bezier(0.16,1,0.3,1) 0.1s both' }}>
               <div className="w-8 h-px bg-white/40" />
-              <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-white/60">
+              <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-white/90">
                 {l('MSK Niagara', 'MSK Niagara')}
               </span>
             </div>
@@ -162,7 +162,7 @@ export function Media() {
               <span className="text-white/70">{l('Documentation', 'Documentation')}</span>
             </h1>
 
-            <p className="text-lg md:text-xl text-white/75 leading-relaxed max-w-xl"
+            <p className="text-lg md:text-xl text-white/90 leading-relaxed max-w-xl"
               style={{ animation: 'fade-in-up 0.6s cubic-bezier(0.16,1,0.3,1) 0.38s both' }}>
               {l(
                 'Community events, researcher voices, and annual impact — documented and shared.',
@@ -180,7 +180,7 @@ export function Media() {
               ].map(stat => (
                 <div key={stat.label}>
                   <div className="text-3xl font-bold text-white">{stat.n}</div>
-                  <div className="text-sm text-white/50 mt-0.5">{stat.label}</div>
+                  <div className="text-sm text-white/90 mt-0.5">{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -202,7 +202,7 @@ export function Media() {
                   className={`relative flex items-center gap-2 px-6 py-4 text-sm font-semibold transition-all duration-200 ${
                     active
                       ? 'text-[#CC0000]'
-                      : 'text-gray-400 hover:text-gray-700'
+                      : 'text-gray-500 hover:text-gray-700'
                   }`}
                 >
                   <Icon className="w-4 h-4" />
@@ -293,7 +293,7 @@ export function Media() {
             </div>
 
             {filtered.length === 0 && (
-              <div className="text-center py-20 text-gray-400">
+              <div className="text-center py-20 text-gray-500">
                 <Camera className="w-12 h-12 mx-auto mb-3 opacity-30" />
                 <p>{l('No events match this filter.', 'Aucun événement ne correspond à ce filtre.')}</p>
               </div>
@@ -433,11 +433,11 @@ export function Media() {
                 <h2 className="text-4xl md:text-5xl font-extrabold text-[#0A0A0A] leading-tight" style={{ fontFamily: 'var(--font-heading)' }}>
                   {l('Annual Reports', 'Rapports annuels')}
                 </h2>
-                <p className="text-gray-400 mt-2 text-sm max-w-md">
+                <p className="text-gray-500 mt-2 text-sm max-w-md">
                   {l('Comprehensive documentation of our research impact and community progress.', 'Documentation complète de notre impact de recherche et progrès communautaire.')}
                 </p>
               </div>
-              <div className="hidden md:flex items-center gap-1.5 text-xs font-semibold text-gray-300 tracking-widest uppercase">
+              <div className="hidden md:flex items-center gap-1.5 text-xs font-semibold text-gray-500 tracking-widest uppercase">
                 <BarChart3 className="w-4 h-4" />
                 {annualReports.length} {l('Reports', 'Rapports')}
               </div>
@@ -471,7 +471,7 @@ export function Media() {
 
                       {/* Top: badges */}
                       <div className="relative z-10 flex flex-wrap gap-2">
-                        <span className="text-[10px] font-bold tracking-[0.15em] uppercase px-2.5 py-1 rounded-full bg-white/15 text-white/70">
+                        <span className="text-[10px] font-bold tracking-[0.15em] uppercase px-2.5 py-1 rounded-full bg-white/15 text-white/90">
                           {report.year}
                         </span>
                         {i === 0 && (
@@ -487,7 +487,7 @@ export function Media() {
                           style={{ fontFamily: 'var(--font-heading)' }}>
                           {language === 'en' ? report.title : report.titleFr}
                         </h3>
-                        <p className="text-sm text-white/50">
+                        <p className="text-sm text-white/90">
                           {language === 'en' ? report.subtitle : report.subtitleFr}
                         </p>
                       </div>
@@ -511,7 +511,7 @@ export function Media() {
                               >
                                 {stat.value}
                               </div>
-                              <div className="text-[10px] text-gray-400 font-medium tracking-wide uppercase">
+                              <div className="text-[10px] text-gray-500 font-medium tracking-wide uppercase">
                                 {language === 'en' ? stat.label : stat.labelFr}
                               </div>
                             </div>
@@ -521,7 +521,7 @@ export function Media() {
 
                       {/* Bottom: meta + actions */}
                       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-4 border-t border-gray-100">
-                        <div className="flex flex-wrap gap-4 text-xs text-gray-400">
+                        <div className="flex flex-wrap gap-4 text-xs text-gray-500">
                           <span className="flex items-center gap-1.5">
                             <BookOpen className="w-3.5 h-3.5" />
                             {report.pages} {l('pages', 'pages')}
@@ -561,13 +561,13 @@ export function Media() {
             <div className="mt-10 rounded-2xl bg-[#0A0A0A] overflow-hidden">
               <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] items-center gap-6 px-10 py-8">
                 <div>
-                  <p className="text-xs font-bold tracking-[0.2em] uppercase text-white/30 mb-2">
+                  <p className="text-xs font-bold tracking-[0.2em] uppercase text-white/50 mb-2">
                     {l('Stay Informed', 'Rester informé')}
                   </p>
                   <h3 className="text-xl font-extrabold text-white mb-1" style={{ fontFamily: 'var(--font-heading)' }}>
                     {l('Want to stay informed?', 'Vous souhaitez rester informé(e) ?')}
                   </h3>
-                  <p className="text-white/40 text-sm">
+                  <p className="text-white/50 text-sm">
                     {l('Follow our research progress and receive updates on new publications.', 'Suivez nos progrès et recevez des mises à jour sur les nouvelles publications.')}
                   </p>
                 </div>
@@ -612,7 +612,7 @@ export function Media() {
                   <h3 className="text-lg font-bold text-[#0A0A0A] mt-0.5" style={{ fontFamily: 'var(--font-heading)' }}>
                     {language === 'en' ? lightboxPhoto.title : lightboxPhoto.titleFr}
                   </h3>
-                  <div className="flex items-center gap-4 text-sm text-gray-400 mt-1">
+                  <div className="flex items-center gap-4 text-sm text-gray-500 mt-1">
                     <span className="flex items-center gap-1"><Calendar className="w-3.5 h-3.5" />{language === 'en' ? lightboxPhoto.date : lightboxPhoto.dateFr}</span>
                     <span className="flex items-center gap-1"><MapPin className="w-3.5 h-3.5" />{lightboxPhoto.location}</span>
                     <span className="flex items-center gap-1"><ImageIcon className="w-3.5 h-3.5" />{lightboxPhoto.images} {l('photos', 'photos')}</span>

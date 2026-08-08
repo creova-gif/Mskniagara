@@ -263,7 +263,7 @@ export function Header() {
                 >
                   <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden animate-fade-in-down">
                     <div className="h-[3px] bg-gradient-to-r from-[#CC0000] to-[#DA0C0C]" />
-                    <div className="px-4 pt-3 pb-1 text-[10px] font-bold tracking-[0.2em] uppercase text-gray-300" style={{ fontFamily: 'var(--font-mono)' }}>
+                    <div className="px-4 pt-3 pb-1 text-[10px] font-bold tracking-[0.2em] uppercase text-gray-500" style={{ fontFamily: 'var(--font-mono)' }}>
                       MSK // {language === 'en' ? 'About' : 'À propos'}
                     </div>
                     <div className="p-2 pt-1">
@@ -275,7 +275,7 @@ export function Header() {
                             to={item.href}
                             className="flex items-start gap-3 p-3 rounded-xl hover:bg-gray-50 group/item transition-all duration-150"
                           >
-                            <span className="mt-0.5 text-[10px] font-semibold text-gray-300 tabular-nums" style={{ fontFamily: 'var(--font-mono)' }}>
+                            <span className="mt-0.5 text-[10px] font-semibold text-gray-500 tabular-nums" style={{ fontFamily: 'var(--font-mono)' }}>
                               0{i + 1}
                             </span>
                             <div className="mt-0.5 w-8 h-8 rounded-lg bg-[#CC0000]/8 flex items-center justify-center shrink-0 group-hover/item:bg-[#CC0000]/15 transition-colors">
@@ -285,7 +285,7 @@ export function Header() {
                               <div className="text-sm font-semibold text-[#0A0A0A] group-hover/item:text-[#CC0000] transition-colors">
                                 {language === 'en' ? item.nameEn : item.nameFr}
                               </div>
-                              <div className="text-xs text-gray-400 mt-0.5">
+                              <div className="text-xs text-gray-500 mt-0.5">
                                 {language === 'en' ? item.desc : item.descFr}
                               </div>
                             </div>
@@ -335,7 +335,7 @@ export function Header() {
                 >
                   <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden animate-fade-in-down">
                     <div className="h-[3px] bg-gradient-to-r from-[#CC0000] to-[#DA0C0C]" />
-                    <div className="px-4 pt-3 pb-1 text-[10px] font-bold tracking-[0.2em] uppercase text-gray-300" style={{ fontFamily: 'var(--font-mono)' }}>
+                    <div className="px-4 pt-3 pb-1 text-[10px] font-bold tracking-[0.2em] uppercase text-gray-500" style={{ fontFamily: 'var(--font-mono)' }}>
                       MSK // {language === 'en' ? 'Research' : 'Recherche'}
                     </div>
                     <div className="p-2 pt-1">
@@ -347,7 +347,7 @@ export function Header() {
                             to={item.href}
                             className="flex items-start gap-3 p-3 rounded-xl hover:bg-gray-50 group/item transition-all duration-150"
                           >
-                            <span className="mt-0.5 text-[10px] font-semibold text-gray-300 tabular-nums" style={{ fontFamily: 'var(--font-mono)' }}>
+                            <span className="mt-0.5 text-[10px] font-semibold text-gray-500 tabular-nums" style={{ fontFamily: 'var(--font-mono)' }}>
                               0{i + 1}
                             </span>
                             <div className="mt-0.5 w-8 h-8 rounded-lg bg-[#CC0000]/8 flex items-center justify-center shrink-0 group-hover/item:bg-[#CC0000]/15 transition-colors">
@@ -357,7 +357,7 @@ export function Header() {
                               <div className="text-sm font-semibold text-[#0A0A0A] group-hover/item:text-[#CC0000] transition-colors">
                                 {language === 'en' ? item.nameEn : item.nameFr}
                               </div>
-                              <div className="text-xs text-gray-400 mt-0.5">
+                              <div className="text-xs text-gray-500 mt-0.5">
                                 {language === 'en' ? item.desc : item.descFr}
                               </div>
                             </div>
@@ -407,7 +407,7 @@ export function Header() {
                 >
                   <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden animate-fade-in-down">
                     <div className="h-[3px] bg-gradient-to-r from-[#CC0000] to-[#DA0C0C]" />
-                    <div className="px-4 pt-3 pb-1 text-[10px] font-bold tracking-[0.2em] uppercase text-gray-300" style={{ fontFamily: 'var(--font-mono)' }}>
+                    <div className="px-4 pt-3 pb-1 text-[10px] font-bold tracking-[0.2em] uppercase text-gray-500" style={{ fontFamily: 'var(--font-mono)' }}>
                       MSK // {language === 'en' ? 'Engage' : 'Participer'}
                     </div>
                     <div className="p-2 pt-1">
@@ -419,7 +419,7 @@ export function Header() {
                             to={item.href}
                             className="flex items-start gap-3 p-3 rounded-xl hover:bg-gray-50 group/item transition-all duration-150"
                           >
-                            <span className="mt-0.5 text-[10px] font-semibold text-gray-300 tabular-nums" style={{ fontFamily: 'var(--font-mono)' }}>
+                            <span className="mt-0.5 text-[10px] font-semibold text-gray-500 tabular-nums" style={{ fontFamily: 'var(--font-mono)' }}>
                               0{i + 1}
                             </span>
                             <div className="mt-0.5 w-8 h-8 rounded-lg bg-[#CC0000]/8 flex items-center justify-center shrink-0 group-hover/item:bg-[#CC0000]/15 transition-colors">
@@ -429,7 +429,7 @@ export function Header() {
                               <div className="text-sm font-semibold text-[#0A0A0A] group-hover/item:text-[#CC0000] transition-colors">
                                 {language === 'en' ? item.nameEn : item.nameFr}
                               </div>
-                              <div className="text-xs text-gray-400 mt-0.5">
+                              <div className="text-xs text-gray-500 mt-0.5">
                                 {language === 'en' ? item.desc : item.descFr}
                               </div>
                             </div>
@@ -451,7 +451,7 @@ export function Header() {
               className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold tracking-widest uppercase transition-all duration-200 ${
                 isDark
                   ? 'text-white/60 hover:text-white hover:bg-white/10'
-                  : 'text-gray-400 hover:text-gray-700 hover:bg-gray-100'
+                  : 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'
               }`}
               aria-label="Toggle language"
             >
@@ -529,7 +529,7 @@ export function Header() {
                 <div key={group.label} className="pt-3 first:pt-0">
                   <div
                     className={`px-4 pb-1 text-[10px] font-bold tracking-[0.2em] uppercase ${
-                      isDark ? 'text-white/30' : 'text-gray-400'
+                      isDark ? 'text-white/50' : 'text-gray-500'
                     }`}
                     style={{ fontFamily: 'var(--font-mono)' }}
                   >

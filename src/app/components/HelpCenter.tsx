@@ -252,7 +252,7 @@ export function HelpCenter() {
           className="mb-8"
         >
           <div className="relative max-w-2xl mx-auto">
-            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 w-5 h-5" />
             <input
               type="text"
               aria-label={language === 'en' ? 'Search for answers' : 'Rechercher des réponses'}
@@ -396,7 +396,7 @@ export function HelpCenter() {
                     {openFAQs.includes(faq.id) ? (
                       <ChevronUp className="w-5 h-5 sm:w-6 sm:h-6 text-[#CC0000]" />
                     ) : (
-                      <ChevronDown className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400" />
+                      <ChevronDown className="w-5 h-5 sm:w-6 sm:h-6 text-gray-500" />
                     )}
                   </div>
                 </button>
@@ -427,7 +427,7 @@ export function HelpCenter() {
               className="text-center py-16"
             >
               <div className="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <Search className="w-10 h-10 text-gray-400" />
+                <Search className="w-10 h-10 text-gray-500" />
               </div>
               <p className="text-xl text-gray-600">
                 {language === 'en' 

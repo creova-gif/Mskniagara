@@ -136,13 +136,13 @@ export function Partnership() {
           <div className="max-w-3xl">
             <div className="flex items-center gap-2 mb-6" style={{ animation: 'fade-in-up 0.5s cubic-bezier(0.16,1,0.3,1) 0.1s both' }}>
               <div className="w-8 h-px bg-white/40" />
-              <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-white/60">MSK Niagara</span>
+              <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-white/90">MSK Niagara</span>
             </div>
             <h1 className="text-4xl md:text-6xl lg:text-7xl text-white font-extrabold mb-6 tracking-tight leading-[1.05]"
               style={{ fontFamily: 'var(--font-heading)', animation: 'fade-in-up 0.65s cubic-bezier(0.16,1,0.3,1) 0.2s both' }}>
               {t('nav.partnership')}
             </h1>
-            <p className="text-lg md:text-xl text-white/70 max-w-2xl leading-relaxed"
+            <p className="text-lg md:text-xl text-white/90 max-w-2xl leading-relaxed"
               style={{ animation: 'fade-in-up 0.6s cubic-bezier(0.16,1,0.3,1) 0.35s both' }}>
               {language === 'en'
                 ? 'Academic institutions, community organizations, and funding partners — united to advance knowledge for a just Niagara.'
@@ -180,7 +180,7 @@ export function Partnership() {
                             <p className="text-sm font-semibold text-[#0A0A0A] group-hover:text-[#CC0000] transition-colors leading-snug">
                               {language === 'en' ? partner.name : partner.nameFr}
                             </p>
-                            <p className="text-[11px] text-gray-400 mt-1 tracking-wide uppercase font-medium">
+                            <p className="text-[11px] text-gray-500 mt-1 tracking-wide uppercase font-medium">
                               {language === 'en' ? partner.type : partner.typeFr}
                             </p>
                           </div>
@@ -235,7 +235,7 @@ export function Partnership() {
               </div>
               <div className="mt-10 pt-8 border-t border-white/10">
                 <a href="https://www.sshrc-crsh.gc.ca/" target="_blank" rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-xs text-white/30 hover:text-white/60 transition-colors">
+                  className="inline-flex items-center gap-2 text-xs text-white/50 hover:text-white/70 transition-colors">
                   <img src={sshrcLogo} alt="SSHRC" className="h-5 opacity-40 hover:opacity-70 transition-opacity invert" />
                   <ExternalLink className="w-3 h-3" />
                 </a>
@@ -305,7 +305,7 @@ export function Partnership() {
                     {language === 'en' ? descEn : descFr}
                   </p>
                 </div>
-                <div className="flex items-center gap-1.5 text-xs font-bold tracking-widest uppercase text-gray-300 group-hover:text-[#CC0000] transition-colors duration-300">
+                <div className="flex items-center gap-1.5 text-xs font-bold tracking-widest uppercase text-gray-500 group-hover:text-[#CC0000] transition-colors duration-300">
                   {language === 'en' ? 'Explore Hub' : 'Explorer'}
                   <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-300" />
                 </div>
@@ -323,7 +323,7 @@ export function Partnership() {
                 <Shield className="w-5 h-5 text-white" />
               </div>
               <div>
-                <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/50 mb-0.5">
+                <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/90 mb-0.5">
                   {language === 'en' ? 'Structure' : 'Structure'}
                 </p>
                 <h2 className="text-2xl font-extrabold text-white leading-none" style={{ fontFamily: 'var(--font-heading)' }}>
@@ -345,7 +345,7 @@ export function Partnership() {
                     <div className="w-4 h-0.5 bg-[#CC0000] mb-3 rounded-full" />
                     <div className="text-4xl font-extrabold text-[#0A0A0A] leading-none mb-1"
                       style={{ fontFamily: 'var(--font-heading)' }}>{s.n}</div>
-                    <div className="text-[11px] font-semibold tracking-wide uppercase text-gray-400">{s.label}</div>
+                    <div className="text-[11px] font-semibold tracking-wide uppercase text-gray-500">{s.label}</div>
                   </div>
                 ))}
               </div>

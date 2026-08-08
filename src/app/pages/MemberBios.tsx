@@ -144,7 +144,7 @@ export function MemberBios() {
             <div>
               <div className="flex items-center gap-2 mb-6">
                 <div className="w-8 h-px bg-[#CC0000]" />
-                <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-white/40">
+                <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-white/50">
                   {language === 'en' ? 'Our People' : 'Notre équipe'}
                 </span>
               </div>

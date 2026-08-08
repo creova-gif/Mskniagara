@@ -188,8 +188,8 @@ export function Timeline() {
           <div className="text-center">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/15 mb-8"
               style={{ animation: 'fade-in-down 0.5s cubic-bezier(0.16,1,0.3,1) 0.15s both' }}>
-              <Calendar className="w-3.5 h-3.5 text-white/70" />
-              <span className="text-xs text-white/70 font-semibold tracking-[0.12em] uppercase">
+              <Calendar className="w-3.5 h-3.5 text-white/90" />
+              <span className="text-xs text-white/90 font-semibold tracking-[0.12em] uppercase">
                 {language === 'en' ? 'Timeline & Events' : 'Chronologie et événements'}
               </span>
             </div>
@@ -197,7 +197,7 @@ export function Timeline() {
               style={{ fontFamily: 'var(--font-heading)', animation: 'fade-in-up 0.7s cubic-bezier(0.16,1,0.3,1) 0.25s both' }}>
               {t('nav.timeline')}
             </h1>
-            <p className="text-base md:text-lg text-white/60 max-w-2xl mx-auto leading-relaxed"
+            <p className="text-base md:text-lg text-white/90 max-w-2xl mx-auto leading-relaxed"
               style={{ animation: 'fade-in-up 0.6s cubic-bezier(0.16,1,0.3,1) 0.4s both' }}>
               {language === 'en'
                 ? 'Explore the history of our partnership and discover upcoming events and opportunities for engagement.'
@@ -393,7 +393,7 @@ export function Timeline() {
                                     {event.date}
                                   </span>
                                   <span className={`text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded ${
-                                    isFeatured ? 'text-[#CC0000]' : isPast ? 'text-gray-400' : 'text-amber-600'
+                                    isFeatured ? 'text-[#CC0000]' : isPast ? 'text-gray-500' : 'text-amber-600'
                                   }`}>
                                     {isFeatured ? (language === 'en' ? 'Featured' : 'Vedette') : isPast ? t('timeline.past') : t('common.upcoming')}
                                   </span>
@@ -405,7 +405,7 @@ export function Timeline() {
                                 {event.title}
                               </h3>
                               <p className="text-sm text-gray-500 leading-relaxed mb-3">{event.description}</p>
-                              <div className="flex items-center gap-2 text-xs text-gray-400 mb-2">
+                              <div className="flex items-center gap-2 text-xs text-gray-500 mb-2">
                                 <Users className="w-3.5 h-3.5 shrink-0" />
                                 <span>{event.participants}</span>
                               </div>
@@ -448,7 +448,7 @@ export function Timeline() {
                       <p className="text-base font-semibold text-gray-500 mb-1">
                         {language === 'en' ? 'No upcoming events at this time' : 'Aucun événement à venir pour l\'instant'}
                       </p>
-                      <p className="text-sm text-gray-400 max-w-sm">
+                      <p className="text-sm text-gray-500 max-w-sm">
                         {language === 'en'
                           ? 'Check back soon — new events and opportunities will be announced here as they are scheduled.'
                           : 'Revenez bientôt — de nouveaux événements et opportunités seront annoncés ici au fur et à mesure de leur planification.'}
@@ -467,8 +467,8 @@ export function Timeline() {
                 {pastEvents.length > 0 && (
                   <div>
                     <div className="flex items-center gap-2 mb-5">
-                      <Clock className="w-4 h-4 text-gray-400" />
-                      <h2 className="text-sm font-bold tracking-[0.12em] uppercase text-gray-400">
+                      <Clock className="w-4 h-4 text-gray-500" />
+                      <h2 className="text-sm font-bold tracking-[0.12em] uppercase text-gray-500">
                         {language === 'en' ? 'Recently Held' : 'Récemment tenus'}
                       </h2>
                     </div>
@@ -547,7 +547,7 @@ function EventCard({ event, isPast, language, t }: {
                 {language === 'en' ? 'Upcoming' : 'À venir'}
               </span>
             )}
-            <span className={`font-semibold text-sm ${isPast ? 'text-gray-400' : 'text-[#CC0000]'}`}>
+            <span className={`font-semibold text-sm ${isPast ? 'text-gray-500' : 'text-[#CC0000]'}`}>
               {event.date}
             </span>
             <span className="text-gray-300">•</span>
@@ -556,7 +556,7 @@ function EventCard({ event, isPast, language, t }: {
           <h3 className={`text-xl leading-none ${isPast ? 'text-gray-500' : 'text-[#0A0A0A]'}`} data-slot="card-title">{event.title}</h3>
         </CardHeader>
         <CardContent className="space-y-4">
-          <p className={isPast ? 'text-gray-400' : 'text-[#0A0A0A]/70'}>{event.description}</p>
+          <p className={isPast ? 'text-gray-500' : 'text-[#0A0A0A]/70'}>{event.description}</p>
 
           <div className="flex items-center gap-2 text-[#0A0A0A]/60">
             <MapPin className="w-4 h-4 shrink-0" />

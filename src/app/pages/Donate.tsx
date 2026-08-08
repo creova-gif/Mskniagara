@@ -190,7 +190,7 @@ export function Donate() {
                       <Lock className="w-4 h-4" />
                       {language === 'en' ? 'Secure Payment processing' : 'Traitement des paiements sécurisé'}
                     </div>
-                    <div className="h-12 bg-white border border-gray-200 rounded-lg flex items-center justify-center text-gray-400 text-sm italic">
+                    <div className="h-12 bg-white border border-gray-200 rounded-lg flex items-center justify-center text-gray-500 text-sm italic">
                       [ Stripe / Payment Gateway Mockup ]
                     </div>
                   </div>
@@ -205,7 +205,7 @@ export function Donate() {
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
 
-              <p className="text-center text-xs text-gray-400 mt-4">
+              <p className="text-center text-xs text-gray-500 mt-4">
                 {language === 'en' 
                   ? 'MSK Niagara is supported by Brock University. Charitable tax receipts will be issued for eligible donations.'
                   : 'MSK Niagara est soutenu par l\'Université Brock. Des reçus fiscaux pour dons de bienfaisance seront émis pour les dons admissibles.'}

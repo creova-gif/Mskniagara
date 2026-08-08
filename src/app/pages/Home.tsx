@@ -303,7 +303,7 @@ export function Home() {
                     style={{ fontFamily: 'var(--font-heading)' }}>
                     {s.n}
                   </div>
-                  <div className="text-[11px] font-semibold tracking-[0.12em] uppercase text-gray-400 leading-snug">
+                  <div className="text-[11px] font-semibold tracking-[0.12em] uppercase text-gray-500 leading-snug">
                     {s.label}
                   </div>
                 </div>
@@ -333,7 +333,7 @@ export function Home() {
             <div>
               <div className="flex items-center gap-2 mb-3">
                 <div className="w-6 h-px bg-[#CC0000]" />
-                <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/40">
+                <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/50">
                   {language === 'en' ? 'Rooted in Niagara' : 'Ancré dans Niagara'}
                 </span>
               </div>
@@ -371,7 +371,7 @@ export function Home() {
                 </div>
                 <div className="bg-[#CC0000]/70 backdrop-blur-md border border-[#CC0000]/50 rounded-lg px-4 py-2 text-center">
                   <div className="text-xl font-extrabold text-white leading-none" style={{ fontFamily: 'var(--font-heading)' }}>26+</div>
-                  <div className="text-[9px] text-white/70 mt-0.5 font-medium uppercase tracking-wider">{language === 'en' ? 'Nationalities' : 'Nationalités'}</div>
+                  <div className="text-[9px] text-white/90 mt-0.5 font-medium uppercase tracking-wider">{language === 'en' ? 'Nationalities' : 'Nationalités'}</div>
                 </div>
               </div>
             </div>
@@ -597,7 +597,7 @@ export function Home() {
           </div>
 
           {/* Caption */}
-          <p className="text-center text-white/30 text-xs mt-5">
+          <p className="text-center text-white/50 text-xs mt-5">
             {language === 'en'
               ? 'Photography from MSK/MSM community-university partnership events, Niagara Region, 2024–2026'
               : 'Photographies des événements du partenariat communautaire-universitaire MSK/MSM, région de Niagara, 2024–2026'}
@@ -1026,7 +1026,7 @@ export function Home() {
                     style={{ fontFamily: 'var(--font-heading)' }}>
                     {language === 'en' ? titleEn : titleFr}
                   </h3>
-                  <p className="text-white/40 text-sm leading-relaxed group-hover:text-white/60 transition-colors duration-300">
+                  <p className="text-white/60 text-sm leading-relaxed group-hover:text-white/80 transition-colors duration-300">
                     {language === 'en' ? descEn : descFr}
                   </p>
                 </div>

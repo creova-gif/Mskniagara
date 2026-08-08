@@ -35,23 +35,23 @@ export function Footer() {
                 </svg>
               </div>
               <div>
-                <div className="text-[11px] font-semibold tracking-[0.18em] uppercase text-white/40 leading-none mb-0.5">
+                <div className="text-[11px] font-semibold tracking-[0.18em] uppercase text-white/60 leading-none mb-0.5">
                   MSK · Niagara
                 </div>
-                <div className="text-[11px] font-semibold tracking-[0.12em] uppercase text-white/25 leading-none">
+                <div className="text-[11px] font-semibold tracking-[0.12em] uppercase text-white/50 leading-none">
                   Research Partnership
                 </div>
               </div>
             </div>
 
-            <p className="text-sm text-white/45 leading-relaxed max-w-xs mb-8">
+            <p className="text-sm text-white/60 leading-relaxed max-w-xs mb-8">
               {language === 'en'
                 ? 'A transnational, university-community partnership committed to fostering social justice through collaborative research.'
                 : 'Un partenariat transnational université-communauté engagé à bâtir la justice sociale par la recherche collaborative.'}
             </p>
 
             {/* Contact block */}
-            <div className="space-y-2 text-xs text-white/35">
+            <div className="space-y-2 text-xs text-white/50">
               <div>Brock University — 1812 Sir Isaac Brock Way, St. Catharines ON L2S 3A1</div>
               <div className="flex items-center gap-4">
                 <a href="mailto:contact@msk-niagara.ca"
@@ -72,7 +72,7 @@ export function Footer() {
 
           {/* About links */}
           <div className="col-span-6 md:col-span-3">
-            <div className="text-[10px] font-semibold tracking-[0.2em] uppercase text-white/30 mb-5">
+            <div className="text-[10px] font-semibold tracking-[0.2em] uppercase text-white/60 mb-5">
               {t('nav.about')}
             </div>
             <ul className="space-y-3">
@@ -94,7 +94,7 @@ export function Footer() {
 
           {/* Research links */}
           <div className="col-span-6 md:col-span-3">
-            <div className="text-[10px] font-semibold tracking-[0.2em] uppercase text-white/30 mb-5">
+            <div className="text-[10px] font-semibold tracking-[0.2em] uppercase text-white/60 mb-5">
               {t('nav.research')}
             </div>
             <ul className="space-y-3">
@@ -122,11 +122,11 @@ export function Footer() {
           <div>
             <div className="flex items-center gap-2 mb-3">
               <div className="w-3 h-px bg-[#CC0000]" />
-              <span className="text-[10px] font-semibold tracking-[0.2em] uppercase text-white/30">
+              <span className="text-[10px] font-semibold tracking-[0.2em] uppercase text-white/60">
                 {language === 'en' ? 'Land Acknowledgment' : 'Reconnaissance territoriale'}
               </span>
             </div>
-            <p className="text-xs text-white/35 leading-relaxed">
+            <p className="text-xs text-white/60 leading-relaxed">
               {language === 'en'
                 ? 'Brock University is situated on the traditional territory of the Haudenosaunee and Anishinaabe peoples, many of whom continue to live and work here today. This territory is covered by the Upper Canada Treaties and is within the land protected by the Dish with One Spoon Wampum Agreement. We acknowledge the enduring presence and deep traditional knowledge, laws, and resources of Indigenous peoples, and are grateful to have the opportunity to work in this territory.'
                 : "L'Université Brock est située sur le territoire traditionnel des peuples Haudenosaunee et Anishinaabe, dont beaucoup continuent de vivre et de travailler ici aujourd'hui. Ce territoire est couvert par les traités du Haut-Canada et se trouve sur le territoire protégé par l'accord de wampum du plat à une cuillère. Nous reconnaissons la présence durable et les connaissances traditionnelles profondes, les lois et les ressources des peuples autochtones, et nous sommes reconnaissants d'avoir l'occasion de travailler sur ce territoire."}
@@ -137,11 +137,11 @@ export function Footer() {
           <div>
             <div className="flex items-center gap-2 mb-3">
               <div className="w-3 h-px bg-[#CC0000]" />
-              <span className="text-[10px] font-semibold tracking-[0.2em] uppercase text-white/30">
+              <span className="text-[10px] font-semibold tracking-[0.2em] uppercase text-white/60">
                 {language === 'en' ? 'Funding Acknowledgment' : 'Reconnaissance du financement'}
               </span>
             </div>
-            <p className="text-xs text-white/35 leading-relaxed mb-5">
+            <p className="text-xs text-white/60 leading-relaxed mb-5">
               {language === 'en'
                 ? 'Funded by the SSHRC Partnership Grant, the John R. Evans Leaders Fund of the Canada Foundation for Innovation (CFI), the Social Justice Research Institute (SJRI), and supported by Brock University.'
                 : 'Financé par la subvention de partenariat du CRSH, le Fonds des leaders John-R.-Evans de la FCI, l\'IRJS, et soutenu par l\'Université Brock.'}
@@ -157,7 +157,7 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 py-6">
-          <div className="flex items-center gap-6 text-xs text-white/25">
+          <div className="flex items-center gap-6 text-xs text-white/50">
             <span>&copy; {currentYear} MSK Research Partnership</span>
             <span className="hidden sm:inline text-white/15">·</span>
             <Link to="/privacy-policy"
@@ -168,7 +168,7 @@ export function Footer() {
 
           <button
             onClick={scrollToTop}
-            className="flex items-center gap-1.5 text-xs text-white/25 hover:text-white/70 transition-colors group"
+            className="flex items-center gap-1.5 text-xs text-white/50 hover:text-white/70 transition-colors group"
             aria-label="Back to top"
           >
             <span>{language === 'en' ? 'Back to top' : 'Retour en haut'}</span>

@@ -93,7 +93,7 @@ export function Community() {
               style={{ fontFamily: 'var(--font-heading)', animation: 'fade-in-up 0.7s cubic-bezier(0.16,1,0.3,1) 0.2s both' }}>
               {language === 'en' ? 'Community' : 'Communauté'}
             </h1>
-            <p className="text-lg sm:text-xl text-white/75 max-w-3xl mx-auto leading-relaxed px-4"
+            <p className="text-lg sm:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed px-4"
               style={{ animation: 'fade-in-up 0.6s cubic-bezier(0.16,1,0.3,1) 0.35s both' }}>
               {language === 'en'
                 ? 'Working together with community service organizations dedicated to supporting newcomers, youth, diverse communities, and families across Niagara.'
@@ -146,7 +146,7 @@ export function Community() {
                   </span>
                 </label>
                 <div className="relative">
-                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
                   <input
                     id="community-search"
                     type="text"
@@ -284,7 +284,7 @@ export function Community() {
 
                   {/* Location */}
                   {org.location && (
-                    <div className="flex items-center gap-1.5 mb-3 text-gray-400">
+                    <div className="flex items-center gap-1.5 mb-3 text-gray-500">
                       <MapPin className="w-3.5 h-3.5 flex-shrink-0" />
                       <span className="text-xs font-medium">{org.location}</span>
                     </div>
@@ -341,7 +341,7 @@ export function Community() {
         ) : (
           <div className="text-center py-20">
             <div className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gray-100 mb-6">
-              <Search className="w-12 h-12 text-gray-400" />
+              <Search className="w-12 h-12 text-gray-500" />
             </div>
             <h3 className="text-2xl text-[#0A0A0A] mb-3">
               {language === 'en' ? 'No organizations found' : 'Aucune organisation trouvée'}

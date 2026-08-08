@@ -58,7 +58,7 @@ export function Breadcrumbs() {
             
             return (
               <li key={to} className="flex items-center gap-2">
-                <ChevronRight className="w-4 h-4 text-gray-400" />
+                <ChevronRight className="w-4 h-4 text-gray-500" />
                 {isLast ? (
                   <span className="font-medium text-[#CC0000]">
                     {getBreadcrumbName(value)}

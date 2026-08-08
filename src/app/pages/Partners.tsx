@@ -130,11 +130,11 @@ export function Partners() {
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-12 pb-36 md:pt-16 md:pb-44">
           {/* dispatch top bar */}
           <div className="flex items-start justify-between gap-4 border-b border-white/15 pb-5 mb-12">
-            <div className="text-white/85 text-xs sm:text-sm font-semibold tracking-[0.22em]" style={{ fontFamily: MONO }}>
+            <div className="text-white/90 text-xs sm:text-sm font-semibold tracking-[0.22em]" style={{ fontFamily: MONO }}>
               MSK <span className="text-white/40">//</span> {en ? 'PARTNER NETWORK' : 'RÉSEAU DE PARTENAIRES'}
             </div>
-            <div className="text-right text-[10px] leading-relaxed text-white/55 tracking-[0.18em]" style={{ fontFamily: MONO }}>
-              <span className="inline-flex items-center gap-1.5 text-white/80">
+            <div className="text-right text-[10px] leading-relaxed text-white/90 tracking-[0.18em]" style={{ fontFamily: MONO }}>
+              <span className="inline-flex items-center gap-1.5 text-white/90">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#19C3CB] animate-pulse" />
                 {en ? 'LIVE COALITION' : 'COALITION ACTIVE'}
               </span>
@@ -143,7 +143,7 @@ export function Partners() {
             </div>
           </div>
 
-          <span className="inline-flex items-center gap-2 text-white/65 text-[11px] font-semibold tracking-[0.28em] uppercase mb-6" style={{ fontFamily: MONO }}>
+          <span className="inline-flex items-center gap-2 text-white/90 text-[11px] font-semibold tracking-[0.28em] uppercase mb-6" style={{ fontFamily: MONO }}>
             <span className="w-6 h-px bg-white/40" />
             {en ? 'Our Network' : 'Notre Réseau'}
           </span>
@@ -153,7 +153,7 @@ export function Partners() {
           >
             {en ? 'United for Justice and Inclusion' : 'Unis pour la justice et l’inclusion'}
           </h1>
-          <p className="text-lg md:text-xl text-white/80 max-w-2xl leading-relaxed">
+          <p className="text-lg md:text-xl text-white/90 max-w-2xl leading-relaxed">
             {en
               ? 'Community organizers, academic researchers, and institutional funders working as equals — a circle of care for the Niagara region.'
               : 'Organisateurs communautaires, chercheurs et bailleurs de fonds, à parts égales — un cercle de bienveillance pour la région de Niagara.'}

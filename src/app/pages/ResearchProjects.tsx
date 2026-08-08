@@ -146,7 +146,7 @@ export function ResearchProjects() {
               style={{ fontFamily: 'var(--font-heading)', animation: 'fade-in-up 0.7s cubic-bezier(0.16,1,0.3,1) 0.2s both' }}>
               {language === 'en' ? 'Research Projects' : 'Projets de recherche'}
             </h1>
-            <p className="text-lg md:text-xl text-white/75 max-w-3xl mx-auto leading-relaxed"
+            <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed"
               style={{ animation: 'fade-in-up 0.6s cubic-bezier(0.16,1,0.3,1) 0.38s both' }}>
               {language === 'en'
                 ? 'Explore our community-engaged research projects addressing critical issues facing newcomer and marginalized communities in the Niagara region.'
@@ -179,7 +179,7 @@ export function ResearchProjects() {
       <div className="relative overflow-hidden py-2 mb-0 bg-[#0A0A0A]">
         <div className="flex items-center gap-3 px-4 sm:px-6 lg:px-8 pt-6 pb-3 mx-auto max-w-7xl">
           <div className="w-4 h-px bg-white/30" />
-          <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/40">
+          <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/50">
             {language === 'en' ? 'Research in Action · Niagara Region' : 'Recherche en action · Région de Niagara'}
           </span>
         </div>

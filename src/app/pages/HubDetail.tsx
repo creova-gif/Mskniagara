@@ -116,7 +116,7 @@ export function HubDetail() {
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-24 pb-28">
           <Link
             to="/about/hubs"
-            className="inline-flex items-center gap-2 text-white/60 hover:text-white mb-10 transition-colors text-sm"
+            className="inline-flex items-center gap-2 text-white/90 hover:text-white mb-10 transition-colors text-sm"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             {language === 'en' ? 'Back to Research Hubs' : 'Retour aux pôles de recherche'}
@@ -130,7 +130,7 @@ export function HubDetail() {
             <div>
               <div className="flex items-center gap-2 mb-2">
                 <div className="w-3 h-px bg-white/40" />
-                <span className="text-[10px] font-semibold tracking-[0.2em] uppercase text-white/50">
+                <span className="text-[10px] font-semibold tracking-[0.2em] uppercase text-white/90">
                   {language === 'en' ? 'Research Hub' : 'Pôle de recherche'}
                 </span>
               </div>
@@ -138,13 +138,13 @@ export function HubDetail() {
                 style={{ fontFamily: 'var(--font-heading)' }}>
                 {language === 'en' ? currentHub.nameEn : currentHub.nameFr}
               </h1>
-              <p className="text-sm text-white/50 mt-2 font-medium">
+              <p className="text-sm text-white/90 mt-2 font-medium">
                 {hubMembers.length} {language === 'en' ? 'Team Members' : 'Membres de l\'équipe'}
               </p>
             </div>
           </div>
 
-          <p className="text-base md:text-lg leading-relaxed max-w-3xl text-white/70 break-words">
+          <p className="text-base md:text-lg leading-relaxed max-w-3xl text-white/90 break-words">
             {language === 'en' ? currentHub.descriptionEn : currentHub.descriptionFr}
           </p>
         </div>

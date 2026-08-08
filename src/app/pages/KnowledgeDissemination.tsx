@@ -44,10 +44,14 @@ function buildAPA(pub: Publication, lang: string): string {
   return `${authors} (${pub.year}). ${title}. MSK/MSM Niagara Research Partnership.${doi}`;
 }
 
-function buildBibTeX(pub: Publication): string {
+function buildBibTeX(pub: Publication, lang: string): string {
+  // BibTeX key stays derived from the English author name regardless of
+  // display language — accented characters in a citation key break LaTeX.
   const key = pub.authors.split(' ')[0].toLowerCase().replace(/[^a-z]/g, '') + pub.year;
+  const title = lang === 'en' ? pub.title : pub.titleFr;
+  const authors = lang === 'en' ? pub.authors : pub.authorsFr;
   const doi = pub.doi ? `  doi       = {${pub.doi}},\n` : '';
-  return `@misc{${key},\n  author    = {${pub.authors}},\n  title     = {${pub.title}},\n  year      = {${pub.year}},\n${doi}  howpublished = {MSK/MSM Niagara Research Partnership}\n}`;
+  return `@misc{${key},\n  author    = {${authors}},\n  title     = {${title}},\n  year      = {${pub.year}},\n${doi}  howpublished = {MSK/MSM Niagara Research Partnership}\n}`;
 }
 
 // ─── CiteButton ─────────────────────────────────────────────────────────────
@@ -87,7 +91,7 @@ function CiteButton({ pub, language }: { pub: Publication; language: string }) {
             <span className="text-xs font-bold uppercase tracking-wider text-[#0A0A0A]/50">
               {language === 'en' ? 'Citation Formats' : 'Formats de citation'}
             </span>
-            <button onClick={() => setOpen(false)} aria-label="Close" className="text-gray-400 hover:text-gray-600">
+            <button onClick={() => setOpen(false)} aria-label="Close" className="text-gray-500 hover:text-gray-600">
               <X className="w-4 h-4" />
             </button>
           </div>
@@ -115,7 +119,7 @@ function CiteButton({ pub, language }: { pub: Publication; language: string }) {
             <div className="flex items-center justify-between mb-1.5">
               <span className="text-xs font-bold text-[#CC0000] uppercase tracking-wider">BibTeX</span>
               <button
-                onClick={() => copy(buildBibTeX(pub), 'bib')}
+                onClick={() => copy(buildBibTeX(pub, language), 'bib')}
                 className="flex items-center gap-1 text-xs text-gray-500 hover:text-[#CC0000] font-semibold transition-colors"
                 aria-label="Copy BibTeX citation"
               >
@@ -124,7 +128,7 @@ function CiteButton({ pub, language }: { pub: Publication; language: string }) {
               </button>
             </div>
             <pre className="text-xs text-gray-600 bg-gray-50 rounded-xl p-3 overflow-x-auto leading-relaxed">
-              {buildBibTeX(pub)}
+              {buildBibTeX(pub, language)}
             </pre>
           </div>
 
@@ -235,8 +239,8 @@ export function KnowledgeDissemination() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 pt-20 md:pt-24 pb-28 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/15 mb-8"
             style={{ animation: 'fade-in-down 0.5s cubic-bezier(0.16,1,0.3,1) 0.1s both' }}>
-            <BookOpen className="w-3.5 h-3.5 text-white/70" />
-            <span className="text-xs text-white/70 font-semibold tracking-[0.12em] uppercase">
+            <BookOpen className="w-3.5 h-3.5 text-white/90" />
+            <span className="text-xs text-white/90 font-semibold tracking-[0.12em] uppercase">
               {language === 'en' ? 'Research Outputs & Resources' : 'Productions et ressources de recherche'}
             </span>
           </div>
@@ -244,7 +248,7 @@ export function KnowledgeDissemination() {
             style={{ fontFamily: 'var(--font-heading)', animation: 'fade-in-up 0.7s cubic-bezier(0.16,1,0.3,1) 0.2s both' }}>
             {t('nav.knowledge')}
           </h1>
-          <p className="text-base md:text-lg text-white/60 max-w-2xl mx-auto leading-relaxed"
+          <p className="text-base md:text-lg text-white/90 max-w-2xl mx-auto leading-relaxed"
             style={{ animation: 'fade-in-up 0.6s cubic-bezier(0.16,1,0.3,1) 0.38s both' }}>
             {language === 'en'
               ? 'Explore our research publications, presentations, videos, and community resources. All outputs include citation export (APA & BibTeX).'
@@ -303,7 +307,7 @@ export function KnowledgeDissemination() {
                   ? '"Knowledge becomes powerful when it leaves the lab and reaches the people it was always about."'
                   : '"Le savoir devient puissant quand il quitte le laboratoire et rejoint les personnes dont il a toujours parlé."'}
               </blockquote>
-              <p className="text-white/40 text-sm">
+              <p className="text-white/50 text-sm">
                 {language === 'en'
                   ? 'MSK/MSM Niagara Research Partnership · Knowledge Translation Principle'
                   : 'Partenariat de recherche MSK/MSM Niagara · Principe de transfert de connaissances'}
@@ -356,7 +360,7 @@ export function KnowledgeDissemination() {
                   </span>
                 </label>
                 <div className="relative">
-                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" aria-hidden="true" />
+                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500 pointer-events-none" aria-hidden="true" />
                   <input
                     id="pub-search"
                     type="search"
@@ -574,7 +578,7 @@ export function KnowledgeDissemination() {
                     <div className="absolute -inset-1 bg-gradient-to-r from-white/40 via-[#CC0000]/40 to-white/40 rounded-2xl blur-lg opacity-60 group-hover:opacity-100 transition-all duration-500" aria-hidden="true" />
                     <div className="relative flex flex-col sm:flex-row gap-3 mb-4 bg-white/10 backdrop-blur-md p-2 rounded-2xl border border-white/30 shadow-2xl">
                       <div className="flex-1 relative">
-                        <div className="absolute left-4 top-1/2 -translate-y-1/2 text-white/70" aria-hidden="true">
+                        <div className="absolute left-4 top-1/2 -translate-y-1/2 text-white/90" aria-hidden="true">
                           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                           </svg>
@@ -594,7 +598,7 @@ export function KnowledgeDissemination() {
                       </Button>
                     </div>
                   </div>
-                  <p className="text-white/70 text-sm text-center">
+                  <p className="text-white/90 text-sm text-center">
                     {language === 'en' ? '🔒 We respect your privacy. Unsubscribe anytime.' : '🔒 Nous respectons votre vie privée. Désabonnez-vous à tout moment.'}
                   </p>
                 </div>
@@ -604,15 +608,15 @@ export function KnowledgeDissemination() {
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
                     <div className="space-y-1">
                       <div className="text-3xl font-bold text-white">56</div>
-                      <div className="text-white/70 text-sm">{language === 'en' ? 'Team Members' : 'Membres de l\'équipe'}</div>
+                      <div className="text-white/90 text-sm">{language === 'en' ? 'Team Members' : 'Membres de l\'équipe'}</div>
                     </div>
                     <div className="space-y-1">
                       <div className="text-3xl font-bold text-white">12+</div>
-                      <div className="text-white/70 text-sm">{language === 'en' ? 'Community Partners' : 'Partenaires communautaires'}</div>
+                      <div className="text-white/90 text-sm">{language === 'en' ? 'Community Partners' : 'Partenaires communautaires'}</div>
                     </div>
                     <div className="space-y-1">
                       <div className="text-3xl font-bold text-white">3</div>
-                      <div className="text-white/70 text-sm">{language === 'en' ? 'Research Hubs' : 'Pôles de recherche'}</div>
+                      <div className="text-white/90 text-sm">{language === 'en' ? 'Research Hubs' : 'Pôles de recherche'}</div>
                     </div>
                   </div>
                 </div>

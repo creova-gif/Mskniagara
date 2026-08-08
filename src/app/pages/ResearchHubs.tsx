@@ -139,8 +139,8 @@ export function ResearchHubs() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 pt-20 md:pt-24 pb-28 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/15 mb-8"
             style={{ animation: 'fade-in-down 0.5s cubic-bezier(0.16,1,0.3,1) 0.1s both' }}>
-            <Users className="w-3.5 h-3.5 text-white/70" />
-            <span className="text-xs text-white/70 font-semibold tracking-[0.12em] uppercase">
+            <Users className="w-3.5 h-3.5 text-white/90" />
+            <span className="text-xs text-white/90 font-semibold tracking-[0.12em] uppercase">
               {language === 'en' ? 'Research Hubs' : 'Pôles de recherche'}
             </span>
           </div>
@@ -148,7 +148,7 @@ export function ResearchHubs() {
             style={{ fontFamily: 'var(--font-heading)', animation: 'fade-in-up 0.7s cubic-bezier(0.16,1,0.3,1) 0.2s both' }}>
             {t('nav.hubs')}
           </h1>
-          <p className="text-base md:text-lg text-white/60 max-w-2xl mx-auto leading-relaxed"
+          <p className="text-base md:text-lg text-white/90 max-w-2xl mx-auto leading-relaxed"
             style={{ animation: 'fade-in-up 0.6s cubic-bezier(0.16,1,0.3,1) 0.38s both' }}>
             {language === 'en'
               ? 'Our research is organized into collaborative hubs, each focusing on specific aspects of community health, youth development, and social well-being.'
@@ -338,7 +338,7 @@ export function ResearchHubs() {
                     <h3 className="text-3xl md:text-4xl text-white mb-2">
                       {language === 'en' ? 'Community Partnerships' : 'Partenariats communautaires'}
                     </h3>
-                    <p className="text-white/70 text-lg">
+                    <p className="text-white/90 text-lg">
                       {language === 'en' 
                         ? 'Building bridges between research and community action'
                         : 'Construire des ponts entre la recherche et l\'action communautaire'}
@@ -424,7 +424,7 @@ export function ResearchHubs() {
                     <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
                   </Button>
                 </Link>
-                <p className="text-white/70 text-sm mt-4">
+                <p className="text-white/90 text-sm mt-4">
                   {language === 'en' 
                     ? 'Visit our Community page to learn more about each organization'
                     : 'Visitez notre page Communauté pour en savoir plus sur chaque organisation'}

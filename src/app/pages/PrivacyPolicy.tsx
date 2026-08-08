@@ -70,7 +70,7 @@ export function PrivacyPolicy() {
                   {language === 'en' ? 'Last Updated' : 'Dernière mise à jour'}
                 </h2>
               </div>
-              <p className="text-white/80 text-sm">{lastUpdated}</p>
+              <p className="text-white/90 text-sm">{lastUpdated}</p>
             </div>
             
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
@@ -80,7 +80,7 @@ export function PrivacyPolicy() {
                   {language === 'en' ? 'Applies To' : 'S\'applique à'}
                 </h2>
               </div>
-              <p className="text-white/80 text-sm">
+              <p className="text-white/90 text-sm">
                 {language === 'en' ? 'Website visitors & contacts' : 'Visiteurs du site & contacts'}
               </p>
             </div>
@@ -92,7 +92,7 @@ export function PrivacyPolicy() {
                   {language === 'en' ? 'Privacy Contact' : 'Contact confidentialité'}
                 </h2>
               </div>
-              <p className="text-white/80 text-sm">contact@msk-niagara.ca</p>
+              <p className="text-white/90 text-sm">contact@msk-niagara.ca</p>
             </div>
           </div>
 
