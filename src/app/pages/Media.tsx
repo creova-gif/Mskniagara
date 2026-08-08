@@ -4,7 +4,7 @@ import {
   Play, Eye, Image as ImageIcon, ChevronRight, ExternalLink,
   Mic, BookOpen, ArrowRight, Users, BarChart3
 } from 'lucide-react';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { FilmScan } from '../components/HeroAnimations';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useSanityQuery } from '../../lib/sanity/useSanityQuery';
@@ -109,6 +109,22 @@ export function Media() {
 
   const [lightboxPhoto, setLightboxPhoto] = useState<typeof photoGallery[0] | null>(null);
   const [lightboxVideo, setLightboxVideo] = useState<typeof videos[0] | null>(null);
+  const lightboxCloseRef = useRef<HTMLButtonElement>(null);
+
+  // Lightboxes are custom-built (not the shared Dialog primitive) so they need
+  // their own Escape-to-close and initial-focus handling for keyboard/screen-reader users.
+  useEffect(() => {
+    if (!lightboxPhoto && !lightboxVideo) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setLightboxPhoto(null);
+        setLightboxVideo(null);
+      }
+    };
+    document.addEventListener('keydown', onKeyDown);
+    lightboxCloseRef.current?.focus();
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [lightboxPhoto, lightboxVideo]);
 
   const filtered = photoGallery.filter(
     p => categoryFilter === 'all' || p.category === categoryFilter
@@ -162,7 +178,7 @@ export function Media() {
                 { n: String(videos.length), label: l('Video Stories', 'Témoignages vidéo') },
                 { n: String(annualReports.length), label: l('Annual Reports', 'Rapports annuels') },
               ].map(stat => (
-                <div key={stat.n}>
+                <div key={stat.label}>
                   <div className="text-3xl font-bold text-white">{stat.n}</div>
                   <div className="text-sm text-white/50 mt-0.5">{stat.label}</div>
                 </div>
@@ -578,6 +594,9 @@ export function Media() {
           <div
             className="relative max-w-4xl w-full rounded-2xl overflow-hidden shadow-2xl"
             onClick={e => e.stopPropagation()}
+            role="dialog"
+            aria-modal="true"
+            aria-label={language === 'en' ? lightboxPhoto.title : lightboxPhoto.titleFr}
           >
             <img
               src={lightboxPhoto.thumbnail}
@@ -600,7 +619,9 @@ export function Media() {
                   </div>
                 </div>
                 <button
+                  ref={lightboxCloseRef}
                   onClick={() => setLightboxPhoto(null)}
+                  aria-label={language === 'en' ? 'Close' : 'Fermer'}
                   className="shrink-0 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-500 transition-colors text-lg leading-none"
                 >
                   ×
@@ -620,6 +641,9 @@ export function Media() {
           <div
             className="relative max-w-3xl w-full rounded-2xl overflow-hidden shadow-2xl"
             onClick={e => e.stopPropagation()}
+            role="dialog"
+            aria-modal="true"
+            aria-label={language === 'en' ? lightboxVideo.title : lightboxVideo.titleFr}
           >
             {/* Placeholder player */}
             <div className="relative bg-gray-900 aspect-video flex items-center justify-center">
@@ -645,7 +669,9 @@ export function Media() {
                   <p className="text-sm text-gray-600">{language === 'en' ? lightboxVideo.description : lightboxVideo.descriptionFr}</p>
                 </div>
                 <button
+                  ref={lightboxCloseRef}
                   onClick={() => setLightboxVideo(null)}
+                  aria-label={language === 'en' ? 'Close' : 'Fermer'}
                   className="shrink-0 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-500 transition-colors text-lg leading-none"
                 >
                   ×

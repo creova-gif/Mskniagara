@@ -163,6 +163,7 @@ export function Donate() {
                       min="5"
                       placeholder="0.00"
                       required
+                      aria-label={language === 'en' ? 'Custom donation amount' : 'Montant de don personnalisé'}
                       value={customAmount}
                       onChange={(e) => setCustomAmount(e.target.value)}
                       className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-[#CC0000] focus:ring-4 focus:ring-[#CC0000]/20 focus:outline-none text-lg font-bold"
@@ -179,10 +180,10 @@ export function Donate() {
                 </h2>
                 <div className="space-y-4">
                   <div className="grid grid-cols-2 gap-4">
-                    <input type="text" placeholder={language === 'en' ? 'First Name' : 'Prénom'} required className="w-full p-4 rounded-xl border border-gray-200 focus:border-[#CC0000] focus:ring-1 focus:ring-[#CC0000] outline-none transition-all" />
-                    <input type="text" placeholder={language === 'en' ? 'Last Name' : 'Nom de famille'} required className="w-full p-4 rounded-xl border border-gray-200 focus:border-[#CC0000] focus:ring-1 focus:ring-[#CC0000] outline-none transition-all" />
+                    <input type="text" aria-label={language === 'en' ? 'First Name' : 'Prénom'} placeholder={language === 'en' ? 'First Name' : 'Prénom'} required className="w-full p-4 rounded-xl border border-gray-200 focus:border-[#CC0000] focus:ring-1 focus:ring-[#CC0000] outline-none transition-all" />
+                    <input type="text" aria-label={language === 'en' ? 'Last Name' : 'Nom de famille'} placeholder={language === 'en' ? 'Last Name' : 'Nom de famille'} required className="w-full p-4 rounded-xl border border-gray-200 focus:border-[#CC0000] focus:ring-1 focus:ring-[#CC0000] outline-none transition-all" />
                   </div>
-                  <input type="email" placeholder={language === 'en' ? 'Email Address' : 'Adresse courriel'} required className="w-full p-4 rounded-xl border border-gray-200 focus:border-[#CC0000] focus:ring-1 focus:ring-[#CC0000] outline-none transition-all" />
+                  <input type="email" aria-label={language === 'en' ? 'Email Address' : 'Adresse courriel'} placeholder={language === 'en' ? 'Email Address' : 'Adresse courriel'} required className="w-full p-4 rounded-xl border border-gray-200 focus:border-[#CC0000] focus:ring-1 focus:ring-[#CC0000] outline-none transition-all" />
                   
                   <div className="bg-gray-50 p-4 rounded-xl border border-gray-200 mt-6">
                     <div className="flex items-center gap-2 mb-4 text-gray-500 text-sm">

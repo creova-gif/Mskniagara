@@ -378,7 +378,10 @@ export function KnowledgeDissemination() {
                   </span>
                 </label>
                 <Select value={filterType} onValueChange={setFilterType}>
-                  <SelectTrigger className="w-full h-14 text-base font-semibold border-2 border-gray-200 hover:border-[#CC0000]/50 focus:border-[#CC0000] bg-white rounded-xl shadow-sm transition-all duration-300">
+                  <SelectTrigger
+                    aria-label={language === 'en' ? 'Resource Type' : 'Type de ressource'}
+                    className="w-full h-14 text-base font-semibold border-2 border-gray-200 hover:border-[#CC0000]/50 focus:border-[#CC0000] bg-white rounded-xl shadow-sm transition-all duration-300"
+                  >
                     <SelectValue placeholder={language === 'en' ? 'Select a type...' : 'Sélectionner un type...'} />
                   </SelectTrigger>
                   <SelectContent className="bg-white border-2 border-gray-200 rounded-xl shadow-2xl">

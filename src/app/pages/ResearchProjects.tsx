@@ -1,4 +1,4 @@
-import { sanitizeUrl } from '../utils/security';
+import { sanitizeEmail, sanitizeUrl } from '../utils/security';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Badge } from '../components/ui/badge';
 import { Button } from '../components/ui/button';
@@ -257,7 +257,10 @@ export function ResearchProjects() {
                   </span>
                 </label>
                 <Select value={filterHub} onValueChange={setFilterHub}>
-                  <SelectTrigger className="w-full h-14 text-base font-semibold border-2 border-gray-200 hover:border-[#CC0000]/50 focus:border-[#CC0000] bg-white rounded-xl shadow-sm transition-all duration-300">
+                  <SelectTrigger
+                    aria-label={language === 'en' ? 'Research Hub' : 'Pôle de recherche'}
+                    className="w-full h-14 text-base font-semibold border-2 border-gray-200 hover:border-[#CC0000]/50 focus:border-[#CC0000] bg-white rounded-xl shadow-sm transition-all duration-300"
+                  >
                     <SelectValue placeholder={language === 'en' ? 'Select a hub...' : 'Sélectionner un pôle...'} />
                   </SelectTrigger>
                   <SelectContent className="bg-white border-2 border-gray-200 rounded-xl shadow-2xl">
@@ -301,7 +304,10 @@ export function ResearchProjects() {
                   </span>
                 </label>
                 <Select value={filterStatus} onValueChange={setFilterStatus}>
-                  <SelectTrigger className="w-full h-14 text-base font-semibold border-2 border-gray-200 hover:border-[#CC0000]/50 focus:border-[#CC0000] bg-white rounded-xl shadow-sm transition-all duration-300">
+                  <SelectTrigger
+                    aria-label={language === 'en' ? 'Project Status' : 'Statut du projet'}
+                    className="w-full h-14 text-base font-semibold border-2 border-gray-200 hover:border-[#CC0000]/50 focus:border-[#CC0000] bg-white rounded-xl shadow-sm transition-all duration-300"
+                  >
                     <SelectValue placeholder={language === 'en' ? 'Select a status...' : 'Sélectionner un statut...'} />
                   </SelectTrigger>
                   <SelectContent className="bg-white border-2 border-gray-200 rounded-xl shadow-2xl">
@@ -508,7 +514,7 @@ export function ResearchProjects() {
                       
                       <div className={`p-5 rounded-2xl transition-all duration-300 cursor-pointer hover:ring-2 hover:ring-[#CC0000] ${
                         hoveredProject === index ? 'bg-gray-100' : 'bg-gray-50'
-                      }`} onClick={() => window.location.href = `mailto:${project.contactEmail}`}>
+                      }`} onClick={() => window.location.href = `mailto:${sanitizeEmail(project.contactEmail)}`}>
                         <div className="flex items-start gap-4">
                           <div className="w-12 h-12 rounded-xl bg-[#CC0000]/10 flex items-center justify-center flex-shrink-0">
                             <Mail className="w-6 h-6 text-[#CC0000]" />
@@ -542,7 +548,7 @@ export function ResearchProjects() {
                           asChild
                           className="bg-[#CC0000] hover:bg-[#A40000] text-white font-bold px-8 py-6 rounded-xl transition-all duration-300 group/btn border-0"
                         >
-                          <a href={`mailto:${project.contactEmail}?subject=Inquiry regarding ${encodeURIComponent(project.title)}`} className="inline-flex items-center gap-3">
+                          <a href={`mailto:${sanitizeEmail(project.contactEmail)}?subject=Inquiry regarding ${encodeURIComponent(project.title)}`} className="inline-flex items-center gap-3">
                             <Mail className="w-5 h-5 text-[#FFC956]" />
                             <span>{language === 'en' ? `Get Involved · Email ${project.contact}` : `Participer · Contacter ${project.contact}`}</span>
                             <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />

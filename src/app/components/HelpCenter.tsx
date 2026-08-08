@@ -255,6 +255,7 @@ export function HelpCenter() {
             <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
             <input
               type="text"
+              aria-label={language === 'en' ? 'Search for answers' : 'Rechercher des réponses'}
               placeholder={language === 'en' ? 'Search for answers...' : 'Rechercher des réponses...'}
               value={searchQuery}
               onChange={(e) => setSearchQuery(sanitizeSearchInput(e.target.value))}
@@ -314,7 +315,10 @@ export function HelpCenter() {
                 </span>
               </label>
               <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-                <SelectTrigger className="w-full h-14 text-base font-semibold border-2 border-gray-200 hover:border-[#CC0000]/50 focus:border-[#CC0000] bg-white rounded-xl shadow-sm transition-all duration-300">
+                <SelectTrigger
+                  aria-label={language === 'en' ? 'Topic Category' : 'Catégorie de sujet'}
+                  className="w-full h-14 text-base font-semibold border-2 border-gray-200 hover:border-[#CC0000]/50 focus:border-[#CC0000] bg-white rounded-xl shadow-sm transition-all duration-300"
+                >
                   <SelectValue placeholder={language === 'en' ? 'Select a topic...' : 'Sélectionner un sujet...'} />
                 </SelectTrigger>
                 <SelectContent className="bg-white border-2 border-gray-200 rounded-xl shadow-2xl">

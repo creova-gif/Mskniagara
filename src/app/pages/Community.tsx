@@ -5,7 +5,7 @@ import { ExternalLink, Mail, MapPin, Heart, Users, Building2, Search, Filter, X,
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../components/ui/select';
 import { useMemo, useState } from 'react';
 import { RippleRings } from '../components/HeroAnimations';
-import { sanitizeSearchQuery, sanitizeUrl } from '../utils/security';
+import { sanitizeEmail, sanitizeSearchQuery, sanitizeUrl } from '../utils/security';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useSanityQuery } from '../../lib/sanity/useSanityQuery';
 import { communityPartnersQuery, type CommunityPartner } from '../../lib/sanity/queries/communityPartner';
@@ -139,7 +139,7 @@ export function Community() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
               {/* Search */}
               <div>
-                <label className="block text-xs font-bold text-[#0A0A0A]/50 uppercase tracking-wider mb-3">
+                <label htmlFor="community-search" className="block text-xs font-bold text-[#0A0A0A]/50 uppercase tracking-wider mb-3">
                   <span className="flex items-center gap-2">
                     <Search className="w-4 h-4 text-[#CC0000]" />
                     {language === 'en' ? 'Search Organizations' : 'Rechercher des organisations'}
@@ -148,6 +148,7 @@ export function Community() {
                 <div className="relative">
                   <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                   <input
+                    id="community-search"
                     type="text"
                     placeholder={language === 'en' ? 'Enter organization name...' : 'Entrez le nom de l\'organisation...'}
                     value={searchTerm}
@@ -175,7 +176,10 @@ export function Community() {
                   </span>
                 </label>
                 <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-                  <SelectTrigger className="w-full h-14 text-base font-semibold border-2 border-gray-200 hover:border-[#CC0000]/50 focus:border-[#CC0000] bg-white rounded-xl shadow-sm transition-all duration-300">
+                  <SelectTrigger
+                    aria-label={language === 'en' ? 'Category' : 'Catégorie'}
+                    className="w-full h-14 text-base font-semibold border-2 border-gray-200 hover:border-[#CC0000]/50 focus:border-[#CC0000] bg-white rounded-xl shadow-sm transition-all duration-300"
+                  >
                     <SelectValue placeholder={language === 'en' ? 'Select category...' : 'Sélectionner la catégorie...'} />
                   </SelectTrigger>
                   <SelectContent className="bg-white border-2 border-gray-200 rounded-xl shadow-2xl">
@@ -324,7 +328,7 @@ export function Community() {
                       variant="outline"
                       size="lg"
                       className="flex-1 gap-2 hover:bg-gray-50 text-sm md:text-base"
-                      onClick={() => (window.location.href = `mailto:${org.contact}`)}
+                      onClick={() => (window.location.href = `mailto:${sanitizeEmail(org.contact)}`)}
                     >
                       <Mail className="w-4 h-4 flex-shrink-0" />
                       <span className="truncate">{language === 'en' ? 'Contact' : 'Contacter'}</span>
