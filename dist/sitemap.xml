@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemap.org/schemas/sitemap/0.9">
+  <url><loc>https://msk-niagara.ca/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://msk-niagara.ca/about/partnership</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://msk-niagara.ca/about/hubs</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://msk-niagara.ca/about/hubs/childhood</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://msk-niagara.ca/about/hubs/health</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://msk-niagara.ca/about/hubs/identity</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://msk-niagara.ca/about/members</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://msk-niagara.ca/partners</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://msk-niagara.ca/research/projects</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://msk-niagara.ca/research/knowledge</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://msk-niagara.ca/community</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://msk-niagara.ca/timeline</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://msk-niagara.ca/media</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://msk-niagara.ca/donate</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://msk-niagara.ca/help</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://msk-niagara.ca/privacy-policy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+</urlset>

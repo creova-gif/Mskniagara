@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /studio
+
+Sitemap: https://msk-niagara.ca/sitemap.xml
