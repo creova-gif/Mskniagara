@@ -162,6 +162,7 @@ export function KnowledgeDissemination() {
   const [filterType, setFilterType] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  const [isSubscribed, setIsSubscribed] = useState(false);
 
   const { data: rawPublications } = useSanityQuery<SanityPublication[]>(publicationsQuery);
   const publications: Publication[] = useMemo(
@@ -574,33 +575,48 @@ export function KnowledgeDissemination() {
 
                 {/* Email Signup Form */}
                 <div className="max-w-2xl mx-auto mb-8">
-                  <div className="relative group">
-                    <div className="absolute -inset-1 bg-gradient-to-r from-white/40 via-[#CC0000]/40 to-white/40 rounded-2xl blur-lg opacity-60 group-hover:opacity-100 transition-all duration-500" aria-hidden="true" />
-                    <div className="relative flex flex-col sm:flex-row gap-3 mb-4 bg-white/10 backdrop-blur-md p-2 rounded-2xl border border-white/30 shadow-2xl">
-                      <div className="flex-1 relative">
-                        <div className="absolute left-4 top-1/2 -translate-y-1/2 text-white/90" aria-hidden="true">
-                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                          </svg>
-                        </div>
-                        <input
-                          type="email"
-                          placeholder={language === 'en' ? 'your.email@example.com' : 'votre.courriel@exemple.com'}
-                          className="w-full pl-12 pr-6 py-4 rounded-xl bg-white/10 backdrop-blur-sm border-2 border-transparent text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/70 focus:border-white/60 focus:bg-white/20 transition-all duration-300 font-medium text-base"
-                          aria-label={language === 'en' ? 'Your email address' : 'Votre adresse courriel'}
-                        />
+                  {isSubscribed ? (
+                    <div className="bg-green-500/10 backdrop-blur-md border border-green-500/30 p-6 rounded-2xl flex items-center justify-center gap-4 text-white">
+                      <div className="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center">
+                        <Check className="w-6 h-6 text-green-400" />
                       </div>
-                      <Button className="relative bg-gradient-to-r from-white via-gray-100 to-white text-[#CC0000] hover:from-gray-100 hover:via-white hover:to-gray-100 font-bold px-8 py-4 rounded-xl text-base shadow-2xl transition-all duration-300 hover:scale-105 whitespace-nowrap">
-                        {language === 'en' ? 'Subscribe Now' : 'S\'abonner'}
-                        <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                        </svg>
-                      </Button>
+                      <div className="text-left">
+                        <h3 className="font-bold text-lg">{language === 'en' ? 'Successfully Subscribed!' : 'Abonnement réussi !'}</h3>
+                        <p className="text-white/80 text-sm">{language === 'en' ? 'Thank you for joining our research community.' : 'Merci d\'avoir rejoint notre communauté de recherche.'}</p>
+                      </div>
                     </div>
-                  </div>
-                  <p className="text-white/90 text-sm text-center">
-                    {language === 'en' ? '🔒 We respect your privacy. Unsubscribe anytime.' : '🔒 Nous respectons votre vie privée. Désabonnez-vous à tout moment.'}
-                  </p>
+                  ) : (
+                    <>
+                      <div className="relative group">
+                        <div className="absolute -inset-1 bg-gradient-to-r from-white/40 via-[#CC0000]/40 to-white/40 rounded-2xl blur-lg opacity-60 group-hover:opacity-100 transition-all duration-500" aria-hidden="true" />
+                        <form onSubmit={(e) => { e.preventDefault(); setIsSubscribed(true); }} className="relative flex flex-col sm:flex-row gap-3 mb-4 bg-white/10 backdrop-blur-md p-2 rounded-2xl border border-white/30 shadow-2xl">
+                          <div className="flex-1 relative">
+                            <div className="absolute left-4 top-1/2 -translate-y-1/2 text-white/90" aria-hidden="true">
+                              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                              </svg>
+                            </div>
+                            <input
+                              type="email"
+                              required
+                              placeholder={language === 'en' ? 'your.email@example.com' : 'votre.courriel@exemple.com'}
+                              className="w-full pl-12 pr-6 py-4 rounded-xl bg-white/10 backdrop-blur-sm border-2 border-transparent text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/70 focus:border-white/60 focus:bg-white/20 transition-all duration-300 font-medium text-base"
+                              aria-label={language === 'en' ? 'Your email address' : 'Votre adresse courriel'}
+                            />
+                          </div>
+                          <Button type="submit" className="relative bg-gradient-to-r from-white via-gray-100 to-white text-[#CC0000] hover:from-gray-100 hover:via-white hover:to-gray-100 font-bold px-8 py-4 rounded-xl text-base shadow-2xl transition-all duration-300 hover:scale-105 whitespace-nowrap">
+                            {language === 'en' ? 'Subscribe Now' : 'S\'abonner'}
+                            <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                            </svg>
+                          </Button>
+                        </form>
+                      </div>
+                      <p className="text-white/90 text-sm text-center">
+                        {language === 'en' ? '🔒 We respect your privacy. Unsubscribe anytime.' : '🔒 Nous respectons votre vie privée. Désabonnez-vous à tout moment.'}
+                      </p>
+                    </>
+                  )}
                 </div>
 
                 {/* Stats Footer */}
