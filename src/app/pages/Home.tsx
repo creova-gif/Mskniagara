@@ -37,6 +37,7 @@ import { EmberParticles } from '../components/HeroAnimations';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useSanityQuery } from '../../lib/sanity/useSanityQuery';
 import { coDirectorsQuery, type TeamMember } from '../../lib/sanity/queries/teamMember';
+import { siteStatsQuery, type SiteStats } from '../../lib/sanity/queries/siteStats';
 import { urlForImage } from '../../lib/sanity/image';
 
 export function Home() {
@@ -75,6 +76,8 @@ export function Home() {
       })),
     [rawCoDirectors]
   );
+
+  const { data: siteStats } = useSanityQuery<SiteStats>(siteStatsQuery);
 
   return (
     <div>
@@ -292,12 +295,12 @@ export function Home() {
             {/* Impact numbers — 2×2 grid */}
             <div className="grid grid-cols-2 gap-px bg-gray-100 rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
               {[
-                { n: '65', label: language === 'en' ? 'Team Members' : 'Membres' },
-                { n: '26', label: language === 'en' ? 'Community Partners' : 'Partenaires communautaires' },
-                { n: '3', label: language === 'en' ? 'Research Hubs' : 'Pôles de recherche' },
-                { n: '5+', label: language === 'en' ? 'Active Projects' : 'Projets actifs' },
+                { n: String(siteStats?.teamMembers ?? ''), label: language === 'en' ? 'Team Members' : 'Membres' },
+                { n: String(siteStats?.communityPartners ?? ''), label: language === 'en' ? 'Community Partners' : 'Partenaires communautaires' },
+                { n: String(siteStats?.researchHubs ?? ''), label: language === 'en' ? 'Research Hubs' : 'Pôles de recherche' },
+                { n: siteStats ? `${siteStats.researchProjects}+` : '', label: language === 'en' ? 'Active Projects' : 'Projets actifs' },
               ].map((s, i) => (
-                <div key={s.n} className={`bg-white px-6 py-7 flex flex-col ${i === 0 ? 'rounded-tl-2xl' : ''} ${i === 1 ? 'rounded-tr-2xl' : ''} ${i === 2 ? 'rounded-bl-2xl' : ''} ${i === 3 ? 'rounded-br-2xl' : ''}`}>
+                <div key={s.label} className={`bg-white px-6 py-7 flex flex-col ${i === 0 ? 'rounded-tl-2xl' : ''} ${i === 1 ? 'rounded-tr-2xl' : ''} ${i === 2 ? 'rounded-bl-2xl' : ''} ${i === 3 ? 'rounded-br-2xl' : ''}`}>
                   <div className="w-5 h-0.5 bg-[#CC0000] mb-3 rounded-full" />
                   <div className="text-4xl font-extrabold text-[#0A0A0A] leading-none mb-2"
                     style={{ fontFamily: 'var(--font-heading)' }}>

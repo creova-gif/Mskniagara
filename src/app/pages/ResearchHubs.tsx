@@ -9,6 +9,7 @@ import { Building2, Users, ArrowRight, Target, Lightbulb, Heart, GraduationCap, 
 import { useMemo, useState } from 'react';
 import { useSanityQuery } from '../../lib/sanity/useSanityQuery';
 import { researchHubsQuery, type ResearchHub } from '../../lib/sanity/queries/researchHub';
+import { siteStatsQuery, type SiteStats } from '../../lib/sanity/queries/siteStats';
 import { urlForImage } from '../../lib/sanity/image';
 
 const HUB_ICONS: Record<string, LucideIcon> = { Users, BookOpen, Target, Heart, Lightbulb, GraduationCap, HeartPulse, Building2 };
@@ -42,6 +43,7 @@ export function ResearchHubs() {
   const [hoveredPartner, setHoveredPartner] = useState<number | null>(null);
 
   const { data: rawHubs } = useSanityQuery<ResearchHub[]>(researchHubsQuery);
+  const { data: siteStats } = useSanityQuery<SiteStats>(siteStatsQuery);
   const hubs = useMemo(
     () =>
       (rawHubs ?? []).map((hub) => ({
@@ -99,25 +101,25 @@ export function ResearchHubs() {
   const stats = [
     {
       label: language === 'en' ? 'Research Hubs' : 'Pôles de recherche',
-      value: '3',
+      value: String(siteStats?.researchHubs ?? 3),
       icon: Target,
       color: '#CC0000'
     },
     {
       label: language === 'en' ? 'Team Members' : 'Membres d\'équipe',
-      value: '56',
+      value: String(siteStats?.teamMembers ?? ''),
       icon: Users,
       color: '#089EA5'
     },
     {
       label: language === 'en' ? 'Active Projects' : 'Projets actifs',
-      value: '5',
+      value: String(siteStats?.researchProjects ?? ''),
       icon: TrendingUp,
       color: '#6635B1'
     },
     {
       label: language === 'en' ? 'Partner Organizations' : 'Organisations partenaires',
-      value: '12+',
+      value: String(siteStats?.communityPartners ?? ''),
       icon: Handshake,
       color: '#FFC956'
     },

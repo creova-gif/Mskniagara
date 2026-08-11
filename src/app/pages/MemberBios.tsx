@@ -11,6 +11,7 @@ import { useMemo, useState } from 'react';
 import { PageLoader } from '../components/PageLoader';
 import { useSanityQuery } from '../../lib/sanity/useSanityQuery';
 import { teamMembersQuery, type TeamMember } from '../../lib/sanity/queries/teamMember';
+import { siteStatsQuery, type SiteStats } from '../../lib/sanity/queries/siteStats';
 import { urlForImage } from '../../lib/sanity/image';
 
 export function MemberBios() {
@@ -47,6 +48,7 @@ export function MemberBios() {
   };
 
   const { data: rawMembers, loading } = useSanityQuery<TeamMember[]>(teamMembersQuery);
+  const { data: siteStats } = useSanityQuery<SiteStats>(siteStatsQuery);
 
   // Transform Sanity's nested {en,fr} shape into the flat legacy shape
   // (roleEn/roleFr-style pairs) this component's render logic already
@@ -174,7 +176,7 @@ export function MemberBios() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                 <div className="absolute bottom-3 left-3">
-                  <div className="text-2xl font-extrabold text-white leading-none" style={{ fontFamily: 'var(--font-heading)' }}>56</div>
+                  <div className="text-2xl font-extrabold text-white leading-none" style={{ fontFamily: 'var(--font-heading)' }}>{siteStats?.teamMembers ?? members.length}</div>
                   <div className="text-[10px] text-white/70 font-medium mt-0.5">{language === 'en' ? 'Team Members' : 'Membres'}</div>
                 </div>
               </div>
@@ -187,7 +189,7 @@ export function MemberBios() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                 <div className="absolute bottom-3 left-3">
-                  <div className="text-2xl font-extrabold text-white leading-none" style={{ fontFamily: 'var(--font-heading)' }}>3</div>
+                  <div className="text-2xl font-extrabold text-white leading-none" style={{ fontFamily: 'var(--font-heading)' }}>{siteStats?.researchHubs ?? 3}</div>
                   <div className="text-[10px] text-white/70 font-medium mt-0.5">{language === 'en' ? 'Research Hubs' : 'Pôles'}</div>
                 </div>
               </div>
@@ -200,7 +202,7 @@ export function MemberBios() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                 <div className="absolute bottom-3 left-3">
-                  <div className="text-2xl font-extrabold text-white leading-none" style={{ fontFamily: 'var(--font-heading)' }}>5+</div>
+                  <div className="text-2xl font-extrabold text-white leading-none" style={{ fontFamily: 'var(--font-heading)' }}>{siteStats ? `${siteStats.institutions}+` : ''}</div>
                   <div className="text-[10px] text-white/70 font-medium mt-0.5">{language === 'en' ? 'Institutions' : 'Institutions'}</div>
                 </div>
               </div>
@@ -213,7 +215,7 @@ export function MemberBios() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                 <div className="absolute bottom-3 left-3">
-                  <div className="text-2xl font-extrabold text-white leading-none" style={{ fontFamily: 'var(--font-heading)' }}>26</div>
+                  <div className="text-2xl font-extrabold text-white leading-none" style={{ fontFamily: 'var(--font-heading)' }}>{siteStats?.communityPartners ?? ''}</div>
                   <div className="text-[10px] text-white/70 font-medium mt-0.5">{language === 'en' ? 'Community Partners' : 'Partenaires'}</div>
                 </div>
               </div>

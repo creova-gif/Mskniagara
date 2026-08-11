@@ -13,6 +13,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '.
 import { useState, useCallback, useMemo } from 'react';
 import { useSanityQuery } from '../../lib/sanity/useSanityQuery';
 import { publicationsQuery, type Publication as SanityPublication } from '../../lib/sanity/queries/publication';
+import { siteStatsQuery, type SiteStats } from '../../lib/sanity/queries/siteStats';
 
 // ─── Types ──────────────────────────────────────────────────────────────────
 
@@ -164,6 +165,7 @@ export function KnowledgeDissemination() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   const { data: rawPublications } = useSanityQuery<SanityPublication[]>(publicationsQuery);
+  const { data: siteStats } = useSanityQuery<SiteStats>(siteStatsQuery);
   const publications: Publication[] = useMemo(
     () =>
       (rawPublications ?? []).map((p) => ({
@@ -213,8 +215,8 @@ export function KnowledgeDissemination() {
   };
 
   const stats = [
-    { label: language === 'en' ? 'Publications' : 'Publications', value: '6', icon: BookOpen, color: '#089EA5' },
-    { label: language === 'en' ? 'Research Areas' : 'Domaines de recherche', value: '3', icon: Tag, color: '#6635B1' },
+    { label: language === 'en' ? 'Publications' : 'Publications', value: String(siteStats?.publications ?? publications.length), icon: BookOpen, color: '#089EA5' },
+    { label: language === 'en' ? 'Research Areas' : 'Domaines de recherche', value: String(siteStats?.researchHubs ?? 3), icon: Tag, color: '#6635B1' },
     { label: language === 'en' ? 'Community Impact' : 'Impact communautaire', value: '24+', icon: Users, color: '#FFC956' },
     { label: language === 'en' ? 'Resources Shared' : 'Ressources partagées', value: '15+', icon: Share2, color: '#CC0000' },
   ];
@@ -607,15 +609,15 @@ export function KnowledgeDissemination() {
                 <div className="mt-10 pt-8 border-t border-white/20">
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
                     <div className="space-y-1">
-                      <div className="text-3xl font-bold text-white">56</div>
+                      <div className="text-3xl font-bold text-white">{siteStats?.teamMembers ?? ''}</div>
                       <div className="text-white/90 text-sm">{language === 'en' ? 'Team Members' : 'Membres de l\'équipe'}</div>
                     </div>
                     <div className="space-y-1">
-                      <div className="text-3xl font-bold text-white">12+</div>
+                      <div className="text-3xl font-bold text-white">{siteStats?.communityPartners ?? ''}</div>
                       <div className="text-white/90 text-sm">{language === 'en' ? 'Community Partners' : 'Partenaires communautaires'}</div>
                     </div>
                     <div className="space-y-1">
-                      <div className="text-3xl font-bold text-white">3</div>
+                      <div className="text-3xl font-bold text-white">{siteStats?.researchHubs ?? 3}</div>
                       <div className="text-white/90 text-sm">{language === 'en' ? 'Research Hubs' : 'Pôles de recherche'}</div>
                     </div>
                   </div>

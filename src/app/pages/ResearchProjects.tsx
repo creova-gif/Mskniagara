@@ -9,6 +9,7 @@ import { ExternalLink, Users, Calendar, Mail, TrendingUp, Heart, Zap, Graduation
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../components/ui/select';
 import { useSanityQuery } from '../../lib/sanity/useSanityQuery';
 import { researchProjectsQuery, type ResearchProject } from '../../lib/sanity/queries/researchProject';
+import { siteStatsQuery, type SiteStats } from '../../lib/sanity/queries/siteStats';
 
 const PROJECT_ICONS: Record<string, LucideIcon> = { GraduationCap, HandHeart, Sprout, Network, Activity };
 
@@ -31,6 +32,7 @@ export function ResearchProjects() {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
 
   const { data: rawProjects } = useSanityQuery<ResearchProject[]>(researchProjectsQuery);
+  const { data: siteStats } = useSanityQuery<SiteStats>(siteStatsQuery);
   const projects = useMemo(
     () =>
       (rawProjects ?? []).map((p) => {
@@ -88,27 +90,27 @@ export function ResearchProjects() {
 
   // Statistics
   const stats = [
-    { 
-      label: language === 'en' ? 'Active Projects' : 'Projets actifs', 
-      value: '5',
+    {
+      label: language === 'en' ? 'Active Projects' : 'Projets actifs',
+      value: String(siteStats?.researchProjects ?? projects.length),
       icon: TrendingUp,
       color: '#089EA5'
     },
-    { 
-      label: language === 'en' ? 'Research Hubs' : 'Pôles de recherche', 
-      value: '3',
+    {
+      label: language === 'en' ? 'Research Hubs' : 'Pôles de recherche',
+      value: String(siteStats?.researchHubs ?? 3),
       icon: Target,
       color: '#6635B1'
     },
-    { 
-      label: language === 'en' ? 'Team Members' : 'Membres d\'équipe', 
-      value: '56',
+    {
+      label: language === 'en' ? 'Team Members' : 'Membres d\'équipe',
+      value: String(siteStats?.teamMembers ?? ''),
       icon: Users,
       color: '#FFC956'
     },
-    { 
-      label: language === 'en' ? 'Community Partners' : 'Partenaires', 
-      value: '24',
+    {
+      label: language === 'en' ? 'Community Partners' : 'Partenaires',
+      value: String(siteStats?.communityPartners ?? ''),
       icon: HandHeart,
       color: '#CC0000'
     },
