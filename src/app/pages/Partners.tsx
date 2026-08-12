@@ -86,12 +86,6 @@ export function Partners() {
       else if (p.category === 'research') buckets.academic.push(entry);
       else buckets.community.push(entry);
     }
-    // Two placeholder "coming soon" rows — intentionally not real content,
-    // kept here rather than in Sanity so they're easy to remove once filled in.
-    buckets.community.push(
-      { name: en ? 'Black Community Organization' : 'Organisation communautaire noire', url: '#', logo: null },
-      { name: en ? 'Migrant Worker Support Center' : 'Centre de soutien aux travailleurs migrants', url: '#', logo: null }
-    );
     return buckets;
   }, [rawPartners, en]);
 
