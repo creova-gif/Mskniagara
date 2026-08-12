@@ -1,5 +1,6 @@
 import { sanitizeEmail, sanitizeUrl } from '../utils/security';
 import { useLanguage } from '../contexts/LanguageContext';
+import { Link } from 'react-router';
 import { Badge } from '../components/ui/badge';
 import { Button } from '../components/ui/button';
 import { useMemo, useState } from 'react';
@@ -629,12 +630,16 @@ export function ResearchProjects() {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button className="bg-white text-[#CC0000] hover:bg-gray-100 font-bold px-10 py-7 rounded-xl text-lg shadow-xl transition-all duration-300 hover:scale-105">
-                  {language === 'en' ? 'Get Involved' : 'Participez'}
-                </Button>
-                <Button variant="outline" className="border-2 border-white text-white hover:bg-white/10 font-bold px-10 py-7 rounded-xl text-lg backdrop-blur-sm transition-all duration-300 hover:scale-105">
-                  {language === 'en' ? 'Contact Us' : 'Contactez-nous'}
-                </Button>
+                <Link to="/community">
+                  <Button className="bg-white text-[#CC0000] hover:bg-gray-100 font-bold px-10 py-7 rounded-xl text-lg shadow-xl transition-all duration-300 hover:scale-105">
+                    {language === 'en' ? 'Get Involved' : 'Participez'}
+                  </Button>
+                </Link>
+                <a href="mailto:contact@msk-niagara.ca">
+                  <Button variant="outline" className="border-2 border-white text-white hover:bg-white/10 font-bold px-10 py-7 rounded-xl text-lg backdrop-blur-sm transition-all duration-300 hover:scale-105">
+                    {language === 'en' ? 'Contact Us' : 'Contactez-nous'}
+                  </Button>
+                </a>
               </div>
             </div>
           </div>

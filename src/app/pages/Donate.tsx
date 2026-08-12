@@ -20,6 +20,20 @@ export function Donate() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const form = e.currentTarget as HTMLFormElement;
+    const firstName = (form.elements.namedItem('firstName') as HTMLInputElement)?.value || '';
+    const lastName = (form.elements.namedItem('lastName') as HTMLInputElement)?.value || '';
+    const email = (form.elements.namedItem('email') as HTMLInputElement)?.value || '';
+    const amt = amount === 'custom' ? customAmount : String(amount);
+    const subject = encodeURIComponent(`Donation Inquiry — $${amt} to MSK Niagara`);
+    const body = encodeURIComponent(
+      `Hello MSK Partnership Office,\n\nI would like to make a donation of $${amt} CAD to the ${
+        fund === 'general' ? 'General Research Fund' :
+        fund === 'childhood' ? 'Childhood & Growing Up Hub' :
+        fund === 'health' ? 'Health Literacy Hub' : 'Identity, Connections & Belonging Hub'
+      }.\n\nName: ${firstName} ${lastName}\nEmail: ${email}\n\nPlease let me know the next steps.\n\nThank you,\n${firstName}`
+    );
+    window.location.href = `mailto:contact@msk-niagara.ca?subject=${subject}&body=${body}`;
     setIsSubmitted(true);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -30,22 +44,26 @@ export function Donate() {
     return (
       <div className="min-h-screen bg-white pt-32 pb-20 px-4">
         <div className="max-w-2xl mx-auto text-center animate-fade-in-up">
-          <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-8">
-            <CheckCircle2 className="w-12 h-12 text-green-600" />
+          <div className="w-24 h-24 bg-[#CC0000]/10 rounded-full flex items-center justify-center mx-auto mb-8">
+            <Heart className="w-12 h-12 text-[#CC0000]" fill="#CC0000" />
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-[#0A0A0A] mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
-            {language === 'en' ? 'Thank You for Your Support' : 'Merci de votre soutien'}
+            {language === 'en' ? 'Thank You for Your Interest' : 'Merci de votre intérêt'}
           </h1>
-          <p className="text-xl text-gray-600 mb-10 leading-relaxed">
-            {language === 'en' 
-              ? `Your generous contribution of $${finalAmount} will directly support the MSK Niagara Research Partnership.`
-              : `Votre généreuse contribution de ${finalAmount}$ soutiendra directement le partenariat de recherche MSK Niagara.`}
+          <p className="text-xl text-gray-600 mb-6 leading-relaxed">
+            {language === 'en'
+              ? 'Your email client has been opened with a pre-filled donation inquiry. Please send the email to connect with our partnership office — they will confirm next steps and payment options.'
+              : 'Votre client de messagerie a été ouvert avec une demande de don pré-remplie. Veuillez envoyer le courriel pour contacter notre bureau de partenariat.'}
           </p>
-          <button 
+          <p className="text-sm text-gray-400 mb-8">
+            {language === 'en' ? 'If your email client did not open, please contact us directly at ' : 'Si votre client de messagerie ne s\'est pas ouvert, contactez-nous directement à '}
+            <a href="mailto:contact@msk-niagara.ca" className="text-[#CC0000] hover:underline font-semibold">contact@msk-niagara.ca</a>
+          </p>
+          <button
             onClick={() => setIsSubmitted(false)}
             className="px-8 py-4 bg-[#0A0A0A] text-white rounded-xl font-semibold hover:bg-[#1A1A1A] transition-colors"
           >
-            {language === 'en' ? 'Make another donation' : 'Faire un autre don'}
+            {language === 'en' ? 'Start a new inquiry' : 'Nouvelle demande de don'}
           </button>
         </div>
       </div>
@@ -172,7 +190,7 @@ export function Donate() {
                 )}
               </section>
 
-              {/* Step 3: Payment Mockup */}
+              {/* Step 3: Contact Details */}
               <section>
                 <h2 className="text-xl font-semibold text-[#0A0A0A] mb-4 flex items-center gap-3" style={{ fontFamily: 'var(--font-heading)' }}>
                   <span className="w-8 h-8 rounded-full bg-[#CC0000]/10 text-[#CC0000] flex items-center justify-center text-sm font-bold">3</span>
@@ -180,35 +198,36 @@ export function Donate() {
                 </h2>
                 <div className="space-y-4">
                   <div className="grid grid-cols-2 gap-4">
-                    <input type="text" aria-label={language === 'en' ? 'First Name' : 'Prénom'} placeholder={language === 'en' ? 'First Name' : 'Prénom'} required className="w-full p-4 rounded-xl border border-gray-200 focus:border-[#CC0000] focus:ring-1 focus:ring-[#CC0000] outline-none transition-all" />
-                    <input type="text" aria-label={language === 'en' ? 'Last Name' : 'Nom de famille'} placeholder={language === 'en' ? 'Last Name' : 'Nom de famille'} required className="w-full p-4 rounded-xl border border-gray-200 focus:border-[#CC0000] focus:ring-1 focus:ring-[#CC0000] outline-none transition-all" />
+                    <input name="firstName" type="text" aria-label={language === 'en' ? 'First Name' : 'Prénom'} placeholder={language === 'en' ? 'First Name' : 'Prénom'} required className="w-full p-4 rounded-xl border border-gray-200 focus:border-[#CC0000] focus:ring-1 focus:ring-[#CC0000] outline-none transition-all" />
+                    <input name="lastName" type="text" aria-label={language === 'en' ? 'Last Name' : 'Nom de famille'} placeholder={language === 'en' ? 'Last Name' : 'Nom de famille'} required className="w-full p-4 rounded-xl border border-gray-200 focus:border-[#CC0000] focus:ring-1 focus:ring-[#CC0000] outline-none transition-all" />
                   </div>
-                  <input type="email" aria-label={language === 'en' ? 'Email Address' : 'Adresse courriel'} placeholder={language === 'en' ? 'Email Address' : 'Adresse courriel'} required className="w-full p-4 rounded-xl border border-gray-200 focus:border-[#CC0000] focus:ring-1 focus:ring-[#CC0000] outline-none transition-all" />
-                  
-                  <div className="bg-gray-50 p-4 rounded-xl border border-gray-200 mt-6">
-                    <div className="flex items-center gap-2 mb-4 text-gray-500 text-sm">
-                      <Lock className="w-4 h-4" />
-                      {language === 'en' ? 'Secure Payment processing' : 'Traitement des paiements sécurisé'}
-                    </div>
-                    <div className="h-12 bg-white border border-gray-200 rounded-lg flex items-center justify-center text-gray-500 text-sm italic">
-                      [ Stripe / Payment Gateway Mockup ]
-                    </div>
+                  <input name="email" type="email" aria-label={language === 'en' ? 'Email Address' : 'Adresse courriel'} placeholder={language === 'en' ? 'Email Address' : 'Adresse courriel'} required className="w-full p-4 rounded-xl border border-gray-200 focus:border-[#CC0000] focus:ring-1 focus:ring-[#CC0000] outline-none transition-all" />
+
+                  <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 flex gap-3 mt-2">
+                    <span className="text-amber-600 text-lg">&#9432;</span>
+                    <p className="text-sm text-amber-800 leading-relaxed">
+                      {language === 'en'
+                        ? 'Online payment is being set up. Clicking the button below will open your email client with a pre-filled donation inquiry to our team, who will confirm payment options.'
+                        : 'Le paiement en ligne est en cours de configuration. En cliquant ci-dessous, votre client de messagerie s\'ouvrira avec une demande pré-remplie.'}
+                    </p>
                   </div>
                 </div>
               </section>
 
-              <button 
+              <button
                 type="submit"
                 className="w-full py-5 bg-[#CC0000] text-white rounded-xl font-bold text-lg hover:bg-[#DA0C0C] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2 group"
               >
-                {language === 'en' ? `Donate $${finalAmount || '0'}` : `Faire un don de ${finalAmount || '0'}$`}
+                {language === 'en'
+                  ? `Send Donation Inquiry — $${finalAmount || '0'} CAD`
+                  : `Envoyer ma demande de don — ${finalAmount || '0'}$ CAD`}
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
 
               <p className="text-center text-xs text-gray-500 mt-4">
-                {language === 'en' 
-                  ? 'MSK Niagara is supported by Brock University. Charitable tax receipts will be issued for eligible donations.'
-                  : 'MSK Niagara est soutenu par l\'Université Brock. Des reçus fiscaux pour dons de bienfaisance seront émis pour les dons admissibles.'}
+                {language === 'en'
+                  ? 'MSK Niagara is supported by Brock University. Our team will contact you to confirm your donation and provide tax receipt information.'
+                  : 'MSK Niagara est soutenu par l\'Université Brock. Notre équipe vous contactera pour confirmer votre don et fournir des renseignements sur les reçus fiscaux.'}
               </p>
             </form>
           </div>

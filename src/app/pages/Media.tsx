@@ -191,13 +191,17 @@ export function Media() {
       {/* ── TAB NAV ──────────────────────────────────── */}
       <div className="sticky top-[68px] z-30 bg-white border-b border-gray-100 shadow-sm">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex gap-0">
+          <div className="flex gap-0" role="tablist" aria-label={language === 'en' ? 'Media content sections' : 'Sections de contenu média'}>
             {tabs.map(tab => {
               const Icon = tab.icon;
               const active = activeTab === tab.key;
               return (
                 <button
                   key={tab.key}
+                  role="tab"
+                  aria-selected={active}
+                  aria-controls={`media-panel-${tab.key}`}
+                  id={`media-tab-${tab.key}`}
                   onClick={() => setActiveTab(tab.key as typeof activeTab)}
                   className={`relative flex items-center gap-2 px-6 py-4 text-sm font-semibold transition-all duration-200 ${
                     active
