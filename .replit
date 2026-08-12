@@ -49,3 +49,13 @@ externalPort = 3002
 deploymentTarget = "static"
 publicDir = "dist"
 build = ["npm", "run", "build"]
+
+# SPA fallback: this is a client-side-routed React app (react-router), so a
+# direct visit or refresh on any deep route (e.g. /about/hubs/health) must
+# still resolve to index.html for the client router to take over. Real files
+# (JS/CSS/images) take precedence over this rewrite per Replit's own rules,
+# and the app's own NotFound.tsx still handles routes react-router doesn't
+# recognize — this rewrite only gets requests to the SPA shell, nothing more.
+[[deployment.rewrites]]
+from = "/*"
+to = "/index.html"
