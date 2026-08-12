@@ -128,9 +128,9 @@ export function HubDetail() {
               <HubIcon className="w-10 h-10 text-white" />
             </div>
             <div>
-              <div className="flex items-center gap-2 mb-2">
-                <div className="w-3 h-px bg-white/40" />
-                <span className="text-[10px] font-semibold tracking-[0.2em] uppercase text-white/90">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/15 mb-2">
+                <Target className="w-3.5 h-3.5 text-white/90" />
+                <span className="text-xs text-white/90 font-semibold tracking-[0.12em] uppercase">
                   {language === 'en' ? 'Research Hub' : 'Pôle de recherche'}
                 </span>
               </div>

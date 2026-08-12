@@ -144,9 +144,9 @@ export function MemberBios() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left: text */}
             <div>
-              <div className="flex items-center gap-2 mb-6">
-                <div className="w-8 h-px bg-[#CC0000]" />
-                <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-white/50">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/15 mb-6">
+                <User className="w-3.5 h-3.5 text-white/90" />
+                <span className="text-xs text-white/90 font-semibold tracking-[0.12em] uppercase">
                   {language === 'en' ? 'Our People' : 'Notre équipe'}
                 </span>
               </div>

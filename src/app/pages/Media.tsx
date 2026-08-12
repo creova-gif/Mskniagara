@@ -172,10 +172,10 @@ export function Media() {
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 md:py-28">
           <div className="max-w-3xl">
             {/* Overline */}
-            <div className="inline-flex items-center gap-2 mb-6"
-              style={{ animation: 'fade-in-up 0.5s cubic-bezier(0.16,1,0.3,1) 0.1s both' }}>
-              <div className="w-8 h-px bg-white/40" />
-              <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-white/90">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/15 mb-6"
+              style={{ animation: 'fade-in-down 0.5s cubic-bezier(0.16,1,0.3,1) 0.1s both' }}>
+              <Camera className="w-3.5 h-3.5 text-white/90" />
+              <span className="text-xs text-white/90 font-semibold tracking-[0.12em] uppercase">
                 {l('MSK Niagara', 'MSK Niagara')}
               </span>
             </div>
