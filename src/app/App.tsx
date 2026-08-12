@@ -28,6 +28,7 @@ const Media = lazy(() => import('./pages/Media').then(m => ({ default: m.Media }
 const Partners = lazy(() => import('./pages/Partners').then(m => ({ default: m.Partners })));
 const Donate = lazy(() => import('./pages/Donate').then(m => ({ default: m.Donate })));
 const StudioRedirect = lazy(() => import('./pages/StudioRedirect').then(m => ({ default: m.StudioRedirect })));
+const NotFound = lazy(() => import('./pages/NotFound').then(m => ({ default: m.NotFound })));
 
 /**
  * App Content Component
@@ -68,6 +69,7 @@ function AppContent() {
               <Route path="/media" element={<Media />} />
               <Route path="/donate" element={<Donate />} />
               <Route path="/studio" element={<StudioRedirect />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
         </main>

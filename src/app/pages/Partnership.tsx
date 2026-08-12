@@ -161,10 +161,10 @@ export function Partnership() {
               <h2 className="text-3xl font-extrabold text-[#0A0A0A]" style={{ fontFamily: 'var(--font-heading)' }}>
                 {language === 'en' ? 'Our Partners' : 'Nos partenaires'}
               </h2>
-              <a href="/community" className="text-sm font-semibold text-[#CC0000] hover:underline flex items-center gap-1">
+              <Link to="/community" className="text-sm font-semibold text-[#CC0000] hover:underline flex items-center gap-1">
                 {language === 'en' ? 'All partners' : 'Tous les partenaires'}
                 <ArrowRight className="w-3.5 h-3.5" />
-              </a>
+              </Link>
             </div>
             <div className="relative">
               <div className="overflow-hidden" ref={emblaRef}>
