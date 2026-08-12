@@ -318,10 +318,10 @@ export function Home() {
 
       {/* Rooted in Niagara — Full-bleed aerial anchor section */}
       <section className="relative overflow-hidden h-[380px] md:h-[460px] flex items-end">
-        {/* Niagara Falls aerial background */}
+        {/* Aerial view of Brock University and the Niagara Region */}
         <img
-          src="/campus/childhood-hub-cover.jpg"
-          alt="Aerial view of Niagara Falls and the surrounding Niagara Region, Ontario, Canada"
+          src="/campus/brock-campus-aerial-1200.jpg"
+          alt="Aerial view of Brock University and the Niagara Region, Ontario, Canada"
           className="absolute inset-0 w-full h-full object-cover object-center"
           loading="lazy"
         />
@@ -879,9 +879,9 @@ export function Home() {
               <div className="absolute inset-0 bg-[#CC0000]/10 mix-blend-multiply z-10"></div>
               {/* Highlight border decoration */}
               <div className="absolute inset-0 border-2 border-[#CC0000]/30 rounded-2xl z-20 pointer-events-none m-2"></div>
-              <img 
-                src="/campus/childhood-hub-cover.jpg"
-                alt={language === 'en' ? 'Stunning Niagara Falls landscape representing the Niagara Region partnership' : 'Magnifique paysage des chutes du Niagara représentant le partenariat régional'}
+              <img
+                src="/campus/st-catharines-birdseye.jpg"
+                alt={language === 'en' ? 'Aerial view of Brock University and St. Catharines in the Niagara Region' : 'Vue aérienne de l’Université Brock et de St. Catharines dans la région de Niagara'}
                 className="w-full h-[500px] lg:h-[650px] object-cover transition-transform duration-700 group-hover/img:scale-105"
               />
               <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-8 z-20 text-white">
@@ -964,7 +964,7 @@ export function Home() {
                 descEn: 'Three collaborative hubs advancing community health, youth development, and belonging in Niagara.',
                 descFr: 'Trois pôles collaboratifs pour la santé communautaire, le développement des jeunes et l\'appartenance.',
                 delay: 0,
-                bgImage: '/campus/childhood-hub-cover.jpg'
+                bgImage: '/campus/st-catharines-birdseye.jpg'
               },
               {
                 to: '/research/projects',
@@ -983,10 +983,10 @@ export function Home() {
                 Icon: Calendar,
                 titleEn: 'Community Partners',
                 titleFr: 'Partenaires communautaires',
-                descEn: '26 partner organizations co-creating equitable programs across the Niagara region.',
-                descFr: '26 organisations partenaires co-créant des programmes équitables dans la région de Niagara.',
+                descEn: `${siteStats?.communityPartners ?? 20}+ partner organizations co-creating equitable programs across the Niagara region.`,
+                descFr: `${siteStats?.communityPartners ?? 20}+ organisations partenaires co-créant des programmes équitables dans la région de Niagara.`,
                 delay: 200,
-                bgImage: '/campus/childhood-hub-cover.jpg'
+                bgImage: '/campus/brock-university-birdseye.jpg'
               },
             ].map(({ to, num, Icon, titleEn, titleFr, descEn, descFr, delay, bgImage }) => (
               <Link
