@@ -472,70 +472,8 @@
   50%       { box-shadow: 0 0 0 8px rgba(204,0,0,0.12); }
 }
 
-/* ── HERO-SPECIFIC KEYFRAMES ── */
-
-/* Orbs floating upward (Home, Community) */
-@keyframes hero-float {
-  0%   { transform: translateY(0px) scale(1);   opacity: 0.12; }
-  50%  { transform: translateY(-40px) scale(1.08); opacity: 0.2; }
-  100% { transform: translateY(-80px) scale(0.9); opacity: 0; }
-}
-
-/* Ripple rings (Community) */
-@keyframes hero-ripple {
-  0%   { transform: scale(0.3); opacity: 0.5; }
-  100% { transform: scale(3);   opacity: 0; }
-}
-
-/* Heartbeat pulse dot */
-@keyframes hero-pulse-dot {
-  0%, 100% { transform: scale(1);   opacity: 0.8; }
-  50%      { transform: scale(1.5); opacity: 1; }
-}
-
-/* Bar chart bars rising */
-@keyframes hero-bar-rise {
-  from { transform: scaleY(0); opacity: 0; }
-  to   { transform: scaleY(1); opacity: 1; }
-}
-
-/* Scan line sweep */
-@keyframes hero-scan {
-  0%   { transform: translateY(-100%); opacity: 0.6; }
-  100% { transform: translateY(400%);  opacity: 0; }
-}
-
-/* Node pop-in */
-@keyframes hero-node-pop {
-  0%   { transform: scale(0); opacity: 0; }
-  70%  { transform: scale(1.2); opacity: 1; }
-  100% { transform: scale(1);   opacity: 1; }
-}
-
-/* Beam draw left-to-right */
-@keyframes hero-beam-draw {
-  from { clip-path: inset(0 100% 0 0); }
-  to   { clip-path: inset(0 0% 0 0); }
-}
-
-/* Constellation line draw */
-@keyframes hero-line-draw {
-  from { stroke-dashoffset: 1; }
-  to   { stroke-dashoffset: 0; }
-}
-
-/* Word reveal (clip from bottom) */
-@keyframes hero-word-reveal {
-  from { clip-path: inset(100% 0 0 0); transform: translateY(12px); }
-  to   { clip-path: inset(0% 0 0 0);   transform: translateY(0); }
-}
-
-/* Ember drift */
-@keyframes hero-ember {
-  0%   { transform: translate(0, 0)    scale(1);    opacity: 0; }
-  20%  { opacity: 0.9; }
-  100% { transform: translate(var(--dx, 20px), -120px) scale(0.3); opacity: 0; }
-}
+/* Hero background decorations (src/app/components/HeroAnimations.tsx) are
+   driven by the `motion` library, not CSS keyframes — see that file. */
 
 /* ─────────────────────────────────────────────
    ANIMATION UTILITIES
