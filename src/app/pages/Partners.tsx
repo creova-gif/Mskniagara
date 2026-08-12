@@ -108,7 +108,16 @@ export function Partners() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setFormStatus('submitting');
-    setTimeout(() => setFormStatus('success'), 1500);
+    const form = e.currentTarget as HTMLFormElement;
+    const orgName = (form.elements.namedItem('orgName') as HTMLInputElement)?.value || '';
+    const contactEmail = (form.elements.namedItem('contactEmail') as HTMLInputElement)?.value || '';
+    const role = (form.elements.namedItem('role') as HTMLSelectElement)?.value || '';
+    const subject = encodeURIComponent(`Partner Network Inquiry — ${orgName}`);
+    const body = encodeURIComponent(
+      `Hello MSK Partnership Office,\n\nOur organization would like to join the MSK Niagara partner network.\n\nOrganization: ${orgName}\nContact email: ${contactEmail}\nRole: ${role}\n\nPlease let us know the next steps.\n\nThank you.`
+    );
+    window.location.href = `mailto:contact@msk-niagara.ca?subject=${subject}&body=${body}`;
+    setFormStatus('success');
   };
 
   const inputCls =
@@ -349,6 +358,7 @@ export function Partners() {
                   <input
                     required
                     type="text"
+                    name="orgName"
                     aria-label={en ? 'Organization name' : 'Nom de l’organisation'}
                     placeholder={en ? 'Organization name' : 'Nom de l’organisation'}
                     className={inputCls}
@@ -356,12 +366,14 @@ export function Partners() {
                   <input
                     required
                     type="email"
+                    name="contactEmail"
                     aria-label={en ? 'Contact email' : 'Courriel'}
                     placeholder={en ? 'Contact email' : 'Courriel'}
                     className={inputCls}
                   />
                   <select
                     required
+                    name="role"
                     defaultValue=""
                     aria-label={en ? 'Partnership type' : 'Type de partenariat'}
                     className={`${inputCls} appearance-none`}

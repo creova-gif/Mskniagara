@@ -11,6 +11,29 @@ import { useSanityQuery } from '../../lib/sanity/useSanityQuery';
 import { mediaPhotosQuery, mediaVideosQuery, annualReportsQuery, type MediaPhoto, type MediaVideo, type AnnualReport } from '../../lib/sanity/queries/media';
 import { urlForImage } from '../../lib/sanity/image';
 
+/* Converts a YouTube/Vimeo watch URL into its embeddable iframe src.
+   Returns null for direct video files (mp4 etc.) or anything unrecognized,
+   which the caller falls back to a native <video> tag for. */
+function getEmbedSrc(url: string): string | null {
+  try {
+    const u = new URL(url);
+    if (u.hostname.includes('youtube.com')) {
+      const id = u.searchParams.get('v');
+      return id ? `https://www.youtube-nocookie.com/embed/${id}` : null;
+    }
+    if (u.hostname === 'youtu.be') {
+      return `https://www.youtube-nocookie.com/embed/${u.pathname.slice(1)}`;
+    }
+    if (u.hostname.includes('vimeo.com')) {
+      const id = u.pathname.split('/').filter(Boolean)[0];
+      return id ? `https://player.vimeo.com/video/${id}` : null;
+    }
+  } catch {
+    return null;
+  }
+  return null;
+}
+
 /* ─── DATA ─────────────────────────────────────────── */
 
 const categories = [
@@ -81,6 +104,7 @@ export function Media() {
         description: v.description?.en ?? '',
         descriptionFr: v.description?.fr ?? '',
         thumbnail: urlForImage(v.thumbnail)?.width(800).url() ?? '',
+        videoUrl: v.videoUrl ?? '',
       })),
     [rawVideos]
   );
@@ -649,20 +673,38 @@ export function Media() {
             aria-modal="true"
             aria-label={language === 'en' ? lightboxVideo.title : lightboxVideo.titleFr}
           >
-            {/* Placeholder player */}
-            <div className="relative bg-gray-900 aspect-video flex items-center justify-center">
-              <img
-                src={lightboxVideo.thumbnail}
-                alt=""
-                className="absolute inset-0 w-full h-full object-cover opacity-40"
-              />
-              <div className="relative text-center text-white p-8">
-                <div className="w-20 h-20 rounded-full border-2 border-white/40 flex items-center justify-center mx-auto mb-4 bg-white/10">
-                  <Play className="w-8 h-8 ml-1" fill="white" />
-                </div>
-                <p className="text-white/60 text-sm">{l('Video playback coming soon', 'Lecture vidéo à venir')}</p>
+            {lightboxVideo.videoUrl && getEmbedSrc(lightboxVideo.videoUrl) ? (
+              <div className="relative bg-black aspect-video">
+                <iframe
+                  src={getEmbedSrc(lightboxVideo.videoUrl)!}
+                  title={language === 'en' ? lightboxVideo.title : lightboxVideo.titleFr}
+                  className="absolute inset-0 w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
               </div>
-            </div>
+            ) : lightboxVideo.videoUrl ? (
+              <video
+                src={lightboxVideo.videoUrl}
+                poster={lightboxVideo.thumbnail}
+                controls
+                className="w-full aspect-video bg-black"
+              />
+            ) : (
+              <div className="relative bg-gray-900 aspect-video flex items-center justify-center">
+                <img
+                  src={lightboxVideo.thumbnail}
+                  alt=""
+                  className="absolute inset-0 w-full h-full object-cover opacity-40"
+                />
+                <div className="relative text-center text-white p-8">
+                  <div className="w-20 h-20 rounded-full border-2 border-white/40 flex items-center justify-center mx-auto mb-4 bg-white/10">
+                    <Play className="w-8 h-8 ml-1" fill="white" />
+                  </div>
+                  <p className="text-white/60 text-sm">{l('Video playback coming soon', 'Lecture vidéo à venir')}</p>
+                </div>
+              </div>
+            )}
             <div className="bg-white p-5">
               <div className="flex items-start justify-between gap-4">
                 <div>
