@@ -338,11 +338,10 @@ export function PrivacyPolicy() {
                     <span className="w-2 h-2 bg-[#CC0000] rounded-full flex-shrink-0 mt-2"></span>
                     <span><strong>Essential Cookies:</strong> Required for website functionality (language preferences, session management)</span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <span className="w-2 h-2 bg-[#CC0000] rounded-full flex-shrink-0 mt-2"></span>
-                    <span><strong>Analytics Cookies:</strong> Help us understand how visitors use our website (anonymized data)</span>
-                  </li>
                 </ul>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  We do not currently use analytics, advertising, or other tracking cookies. If this changes in the future, this policy will be updated accordingly before any such technology is introduced.
+                </p>
                 <p className="text-gray-700">
                   You can control cookies through your browser settings. However, disabling cookies may affect website functionality.
                 </p>
@@ -674,11 +673,10 @@ export function PrivacyPolicy() {
                     <span className="w-2 h-2 bg-[#CC0000] rounded-full flex-shrink-0 mt-2"></span>
                     <span><strong>Cookies essentiels :</strong> Requis pour la fonctionnalité (préférences linguistiques)</span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <span className="w-2 h-2 bg-[#CC0000] rounded-full flex-shrink-0 mt-2"></span>
-                    <span><strong>Cookies analytiques :</strong> Nous aident à comprendre l'utilisation du site (données anonymisées)</span>
-                  </li>
                 </ul>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  Nous n'utilisons actuellement aucun cookie analytique, publicitaire ou de suivi. Si cela devait changer, cette politique sera mise à jour en conséquence avant l'introduction d'une telle technologie.
+                </p>
                 <p className="text-gray-700">
                   Vous pouvez contrôler les cookies via les paramètres de votre navigateur.
                 </p>
