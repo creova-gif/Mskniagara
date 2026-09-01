@@ -1,5 +1,7 @@
-import { Link, useLocation } from 'react-router';
+import { useLocation } from 'react-router';
+import { Link } from './LocalizedLink';
 import { useLanguage } from '../contexts/LanguageContext';
+import { stripLangPrefix } from '../utils/i18nPath';
 import { ChevronDown, Menu, X, ArrowRight, Users, BookOpen, Building2, Lightbulb, Globe, Handshake, Heart, Calendar, Camera } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 
@@ -127,8 +129,13 @@ export function Header() {
     if (closeTimeout.current) clearTimeout(closeTimeout.current);
   };
 
+  // Active-nav-state checks compare against the bare (language-stripped)
+  // path — a French visitor on /fr/about/hubs should still see "About"
+  // highlighted, the same as an English visitor on /about/hubs.
+  const barePath = stripLangPrefix(location.pathname);
+
   const isActive = (href: string) =>
-    href === '/' ? location.pathname === '/' : location.pathname.startsWith(href);
+    href === '/' ? barePath === '/' : barePath.startsWith(href);
 
   const isDark = !scrolled;
 
@@ -234,7 +241,7 @@ export function Header() {
             >
               <button
                 className={`relative inline-flex items-center gap-1 px-3.5 py-2 text-sm font-medium rounded-md transition-all duration-200 ${
-                  location.pathname.startsWith('/about')
+                  barePath.startsWith('/about')
                     ? isDark
                       ? 'text-white'
                       : 'text-[#0A0A0A]'
@@ -249,7 +256,7 @@ export function Header() {
                     activeDropdown === 'about' ? 'rotate-180' : ''
                   }`}
                 />
-                {location.pathname.startsWith('/about') && (
+                {barePath.startsWith('/about') && (
                   <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[#CC0000]" />
                 )}
               </button>
@@ -306,7 +313,7 @@ export function Header() {
             >
               <button
                 className={`relative inline-flex items-center gap-1 px-3.5 py-2 text-sm font-medium rounded-md transition-all duration-200 ${
-                  location.pathname.startsWith('/research')
+                  barePath.startsWith('/research')
                     ? isDark
                       ? 'text-white'
                       : 'text-[#0A0A0A]'
@@ -321,7 +328,7 @@ export function Header() {
                     activeDropdown === 'research' ? 'rotate-180' : ''
                   }`}
                 />
-                {location.pathname.startsWith('/research') && (
+                {barePath.startsWith('/research') && (
                   <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[#CC0000]" />
                 )}
               </button>
@@ -378,7 +385,7 @@ export function Header() {
             >
               <button
                 className={`relative inline-flex items-center gap-1 px-3.5 py-2 text-sm font-medium rounded-md transition-all duration-200 ${
-                  ['/partners', '/community', '/timeline', '/media'].some((p) => location.pathname.startsWith(p))
+                  ['/partners', '/community', '/timeline', '/media'].some((p) => barePath.startsWith(p))
                     ? isDark
                       ? 'text-white'
                       : 'text-[#0A0A0A]'
@@ -393,7 +400,7 @@ export function Header() {
                     activeDropdown === 'engage' ? 'rotate-180' : ''
                   }`}
                 />
-                {['/partners', '/community', '/timeline', '/media'].some((p) => location.pathname.startsWith(p)) && (
+                {['/partners', '/community', '/timeline', '/media'].some((p) => barePath.startsWith(p)) && (
                   <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[#CC0000]" />
                 )}
               </button>

@@ -9,7 +9,7 @@ import { Breadcrumbs } from './components/Breadcrumbs';
 import { PageTransition } from './components/PageTransition';
 import { ScrollToTop } from './components/ScrollToTop';
 
-import { Suspense, lazy } from 'react';
+import { Suspense, lazy, type ReactElement } from 'react';
 import { PageLoader } from './components/PageLoader';
 
 // Page Components (Lazy Loaded)
@@ -29,6 +29,28 @@ const Partners = lazy(() => import('./pages/Partners').then(m => ({ default: m.P
 const Donate = lazy(() => import('./pages/Donate').then(m => ({ default: m.Donate })));
 const StudioRedirect = lazy(() => import('./pages/StudioRedirect').then(m => ({ default: m.StudioRedirect })));
 const NotFound = lazy(() => import('./pages/NotFound').then(m => ({ default: m.NotFound })));
+
+// Every content route exists at a bare English path AND, mirrored, under a
+// `/fr` prefix — both are real, independently indexable, crawlable URLs (see
+// usePageMeta's hreflang tags and sitemap.xml). This is the single list of
+// routes both namespaces are generated from; /studio and the 404 catch-all
+// are deliberately outside it (see below).
+const CONTENT_ROUTES: { path: string; element: ReactElement }[] = [
+  { path: '/', element: <Home /> },
+  { path: '/about/partnership', element: <Partnership /> },
+  { path: '/about/hubs', element: <ResearchHubs /> },
+  { path: '/about/hubs/:hubId', element: <HubDetail /> },
+  { path: '/about/members', element: <MemberBios /> },
+  { path: '/partners', element: <Partners /> },
+  { path: '/research/projects', element: <ResearchProjects /> },
+  { path: '/research/knowledge', element: <KnowledgeDissemination /> },
+  { path: '/community', element: <Community /> },
+  { path: '/timeline', element: <Timeline /> },
+  { path: '/privacy-policy', element: <PrivacyPolicy /> },
+  { path: '/help', element: <HelpCenter /> },
+  { path: '/media', element: <Media /> },
+  { path: '/donate', element: <Donate /> },
+];
 
 /**
  * App Content Component
@@ -54,20 +76,12 @@ function AppContent() {
         <main id="main-content" tabIndex={-1} className="flex-1 focus:outline-none">
           <Suspense fallback={<PageLoader />}>
             <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about/partnership" element={<Partnership />} />
-              <Route path="/about/hubs" element={<ResearchHubs />} />
-              <Route path="/about/hubs/:hubId" element={<HubDetail />} />
-              <Route path="/about/members" element={<MemberBios />} />
-              <Route path="/partners" element={<Partners />} />
-              <Route path="/research/projects" element={<ResearchProjects />} />
-              <Route path="/research/knowledge" element={<KnowledgeDissemination />} />
-              <Route path="/community" element={<Community />} />
-              <Route path="/timeline" element={<Timeline />} />
-              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-              <Route path="/help" element={<HelpCenter />} />
-              <Route path="/media" element={<Media />} />
-              <Route path="/donate" element={<Donate />} />
+              {CONTENT_ROUTES.map(({ path, element }) => (
+                <Route key={`en:${path}`} path={path} element={element} />
+              ))}
+              {CONTENT_ROUTES.map(({ path, element }) => (
+                <Route key={`fr:${path}`} path={path === '/' ? '/fr' : `/fr${path}`} element={element} />
+              ))}
               <Route path="/studio" element={<StudioRedirect />} />
               <Route path="*" element={<NotFound />} />
             </Routes>

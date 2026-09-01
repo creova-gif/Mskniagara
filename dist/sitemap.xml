@@ -1,19 +1,259 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemap.org/schemas/sitemap/0.9">
-  <url><loc>https://msk-niagara.ca/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://msk-niagara.ca/about/partnership</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://msk-niagara.ca/about/hubs</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://msk-niagara.ca/about/hubs/childhood</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://msk-niagara.ca/about/hubs/health</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://msk-niagara.ca/about/hubs/identity</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://msk-niagara.ca/about/members</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://msk-niagara.ca/partners</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://msk-niagara.ca/research/projects</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://msk-niagara.ca/research/knowledge</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://msk-niagara.ca/community</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://msk-niagara.ca/timeline</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://msk-niagara.ca/media</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://msk-niagara.ca/donate</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://msk-niagara.ca/help</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://msk-niagara.ca/privacy-policy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://msk-niagara.ca/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://msk-niagara.ca/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://msk-niagara.ca/fr" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://msk-niagara.ca/" />
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://msk-niagara.ca/fr</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://msk-niagara.ca/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://msk-niagara.ca/fr" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://msk-niagara.ca/" />
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://msk-niagara.ca/about/partnership</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://msk-niagara.ca/about/partnership" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://msk-niagara.ca/fr/about/partnership" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://msk-niagara.ca/about/partnership" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://msk-niagara.ca/fr/about/partnership</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://msk-niagara.ca/about/partnership" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://msk-niagara.ca/fr/about/partnership" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://msk-niagara.ca/about/partnership" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://msk-niagara.ca/about/hubs</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://msk-niagara.ca/about/hubs" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://msk-niagara.ca/fr/about/hubs" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://msk-niagara.ca/about/hubs" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://msk-niagara.ca/fr/about/hubs</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://msk-niagara.ca/about/hubs" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://msk-niagara.ca/fr/about/hubs" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://msk-niagara.ca/about/hubs" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://msk-niagara.ca/about/hubs/childhood</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://msk-niagara.ca/about/hubs/childhood" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://msk-niagara.ca/fr/about/hubs/childhood" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://msk-niagara.ca/about/hubs/childhood" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://msk-niagara.ca/fr/about/hubs/childhood</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://msk-niagara.ca/about/hubs/childhood" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://msk-niagara.ca/fr/about/hubs/childhood" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://msk-niagara.ca/about/hubs/childhood" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://msk-niagara.ca/about/hubs/health</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://msk-niagara.ca/about/hubs/health" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://msk-niagara.ca/fr/about/hubs/health" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://msk-niagara.ca/about/hubs/health" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://msk-niagara.ca/fr/about/hubs/health</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://msk-niagara.ca/about/hubs/health" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://msk-niagara.ca/fr/about/hubs/health" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://msk-niagara.ca/about/hubs/health" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://msk-niagara.ca/about/hubs/identity</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://msk-niagara.ca/about/hubs/identity" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://msk-niagara.ca/fr/about/hubs/identity" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://msk-niagara.ca/about/hubs/identity" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://msk-niagara.ca/fr/about/hubs/identity</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://msk-niagara.ca/about/hubs/identity" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://msk-niagara.ca/fr/about/hubs/identity" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://msk-niagara.ca/about/hubs/identity" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://msk-niagara.ca/about/members</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://msk-niagara.ca/about/members" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://msk-niagara.ca/fr/about/members" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://msk-niagara.ca/about/members" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://msk-niagara.ca/fr/about/members</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://msk-niagara.ca/about/members" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://msk-niagara.ca/fr/about/members" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://msk-niagara.ca/about/members" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://msk-niagara.ca/partners</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://msk-niagara.ca/partners" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://msk-niagara.ca/fr/partners" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://msk-niagara.ca/partners" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://msk-niagara.ca/fr/partners</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://msk-niagara.ca/partners" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://msk-niagara.ca/fr/partners" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://msk-niagara.ca/partners" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://msk-niagara.ca/research/projects</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://msk-niagara.ca/research/projects" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://msk-niagara.ca/fr/research/projects" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://msk-niagara.ca/research/projects" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://msk-niagara.ca/fr/research/projects</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://msk-niagara.ca/research/projects" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://msk-niagara.ca/fr/research/projects" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://msk-niagara.ca/research/projects" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://msk-niagara.ca/research/knowledge</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://msk-niagara.ca/research/knowledge" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://msk-niagara.ca/fr/research/knowledge" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://msk-niagara.ca/research/knowledge" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://msk-niagara.ca/fr/research/knowledge</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://msk-niagara.ca/research/knowledge" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://msk-niagara.ca/fr/research/knowledge" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://msk-niagara.ca/research/knowledge" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://msk-niagara.ca/community</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://msk-niagara.ca/community" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://msk-niagara.ca/fr/community" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://msk-niagara.ca/community" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://msk-niagara.ca/fr/community</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://msk-niagara.ca/community" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://msk-niagara.ca/fr/community" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://msk-niagara.ca/community" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://msk-niagara.ca/timeline</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://msk-niagara.ca/timeline" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://msk-niagara.ca/fr/timeline" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://msk-niagara.ca/timeline" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://msk-niagara.ca/fr/timeline</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://msk-niagara.ca/timeline" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://msk-niagara.ca/fr/timeline" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://msk-niagara.ca/timeline" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://msk-niagara.ca/media</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://msk-niagara.ca/media" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://msk-niagara.ca/fr/media" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://msk-niagara.ca/media" />
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://msk-niagara.ca/fr/media</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://msk-niagara.ca/media" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://msk-niagara.ca/fr/media" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://msk-niagara.ca/media" />
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://msk-niagara.ca/donate</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://msk-niagara.ca/donate" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://msk-niagara.ca/fr/donate" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://msk-niagara.ca/donate" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://msk-niagara.ca/fr/donate</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://msk-niagara.ca/donate" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://msk-niagara.ca/fr/donate" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://msk-niagara.ca/donate" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://msk-niagara.ca/help</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://msk-niagara.ca/help" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://msk-niagara.ca/fr/help" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://msk-niagara.ca/help" />
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://msk-niagara.ca/fr/help</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://msk-niagara.ca/help" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://msk-niagara.ca/fr/help" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://msk-niagara.ca/help" />
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://msk-niagara.ca/privacy-policy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://msk-niagara.ca/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://msk-niagara.ca/fr/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://msk-niagara.ca/privacy-policy" />
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://msk-niagara.ca/fr/privacy-policy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://msk-niagara.ca/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://msk-niagara.ca/fr/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://msk-niagara.ca/privacy-policy" />
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
 </urlset>

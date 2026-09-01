@@ -1,12 +1,17 @@
-import { Link, useLocation } from 'react-router';
+import { useLocation } from 'react-router';
 import { ChevronRight, Home } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { Link } from './LocalizedLink';
+import { stripLangPrefix } from '../utils/i18nPath';
 
 export function Breadcrumbs() {
   const location = useLocation();
-  const { t, language } = useLanguage();
-  
-  const pathnames = location.pathname.split('/').filter((x) => x);
+  const { language } = useLanguage();
+
+  // Bare (English) path segments — the /fr prefix, if present, is the
+  // language itself, not a breadcrumb. Links below are built from these
+  // bare segments; LocalizedLink re-applies /fr automatically.
+  const pathnames = stripLangPrefix(location.pathname).split('/').filter((x) => x);
 
   if (pathnames.length === 0) {
     return null;

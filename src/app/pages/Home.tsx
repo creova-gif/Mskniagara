@@ -28,7 +28,7 @@
  */
 
 import { useLanguage } from '../contexts/LanguageContext';
-import { Link } from 'react-router';
+import { Link } from '../components/LocalizedLink';
 import { ArrowRight, Users, BookOpen, Calendar, ExternalLink, CheckCircle2, UserCheck, Code, Handshake, Database, Sparkles } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader } from '../components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '../components/ui/avatar';

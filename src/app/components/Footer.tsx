@@ -1,4 +1,4 @@
-import { Link } from 'react-router';
+import { Link } from './LocalizedLink';
 import { useLanguage } from '../contexts/LanguageContext';
 import { ArrowUpRight } from 'lucide-react';
 

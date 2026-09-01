@@ -1,5 +1,5 @@
 import { useLanguage } from '../contexts/LanguageContext';
-import { Link } from 'react-router';
+import { Link } from '../components/LocalizedLink';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
 import { Badge } from '../components/ui/badge';
 import { Button } from '../components/ui/button';
