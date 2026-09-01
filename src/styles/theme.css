@@ -232,6 +232,10 @@
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
     text-rendering: optimizeLegibility;
+    /* WCAG 2.2 SC 2.4.11 Focus Not Obscured: the header is sticky (top-0),
+       so without this, scrolling a focused element (keyboard tab, anchor
+       link) to the top of the viewport can land it fully behind the header. */
+    scroll-padding-top: 96px;
   }
 
   @media (min-width: 1280px) {
