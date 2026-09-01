@@ -1,4 +1,4 @@
-import { Link } from 'react-router';
+import { Link } from '../components/LocalizedLink';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Compass, ArrowRight } from 'lucide-react';
 import { usePageMeta } from '../hooks/usePageMeta';

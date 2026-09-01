@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { useNavigate } from 'react-router';
+import { useLocalizedNavigate } from './LocalizedLink';
 import { MessageCircle, X, Send, Minimize2, HelpCircle, Mail } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -26,7 +26,7 @@ export function ChatWidget() {
   const [isMobile, setIsMobile] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
-  const navigate = useNavigate();
+  const navigate = useLocalizedNavigate();
 
   // Detect mobile viewport
   useEffect(() => {

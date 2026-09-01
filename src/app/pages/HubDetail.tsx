@@ -1,6 +1,7 @@
 import { sanitizeEmail } from '../utils/security';
 import { useLanguage } from '../contexts/LanguageContext';
-import { useParams, Link } from 'react-router';
+import { useParams } from 'react-router';
+import { Link } from '../components/LocalizedLink';
 import { Card, CardContent } from '../components/ui/card';
 import { Badge } from '../components/ui/badge';
 import { Avatar, AvatarFallback, AvatarImage } from '../components/ui/avatar';

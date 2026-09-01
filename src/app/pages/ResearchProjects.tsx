@@ -1,6 +1,6 @@
 import { sanitizeEmail, sanitizeUrl } from '../utils/security';
 import { useLanguage } from '../contexts/LanguageContext';
-import { Link } from 'react-router';
+import { Link } from '../components/LocalizedLink';
 import { Badge } from '../components/ui/badge';
 import { Button } from '../components/ui/button';
 import { useMemo, useState } from 'react';

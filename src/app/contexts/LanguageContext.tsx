@@ -1,22 +1,28 @@
 /**
  * Language Context Provider
- * 
+ *
  * Provides bilingual support (English/French) throughout the MSK Niagara website.
  * This context manages:
- * - Current language state (English or French)
- * - Language switching functionality with localStorage persistence
+ * - Current language, derived from the URL (bare paths = English, `/fr/...` = French)
+ * - Language switching, which navigates to the equivalent path in the other language
  * - Translation function for all UI text
  * - Smooth transition animations
- * 
+ *
+ * Language lives in the URL, not in stored state — a crawler or a shared
+ * link has no localStorage, and a real French page needs a real French URL
+ * to be independently indexable. See App.tsx for the mirrored `/fr` routes
+ * and LocalizedLink.tsx for how internal links stay in the current language.
+ *
  * Usage:
  * const { language, setLanguage, t } = useLanguage();
- * 
+ *
  * @author MSK Development Team
- * @version 3.0
+ * @version 4.0
  */
 
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { secureStorage } from '../utils/security';
+import { useLocation, useNavigate } from 'react-router';
+import { isFrenchPath, stripLangPrefix } from '../utils/i18nPath';
 
 // Language type: supports English (en) and French (fr)
 export type Language = 'en' | 'fr';
@@ -158,22 +164,19 @@ const translations: Record<Language, Record<string, string>> = {
 
 /**
  * Language Provider Component
- * 
- * Wraps the entire application to provide language context.
- * Manages language state, localStorage persistence, and provides translation function.
- * 
+ *
+ * Wraps the entire application to provide language context. Must be rendered
+ * inside <Router> — language is derived from the current URL.
+ *
  * @param children - React components that need access to language context
  */
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  // Initialize language from localStorage or default to English
-  const [language, setLanguageState] = useState<Language>(() => {
-    if (typeof window !== 'undefined') {
-      const savedLanguage = secureStorage.getItem('msk-language') as Language;
-      return savedLanguage === 'fr' ? 'fr' : 'en';
-    }
-    return 'en';
-  });
-  
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  // Language is derived from the URL, not stored state — see file header.
+  const language: Language = isFrenchPath(location.pathname) ? 'fr' : 'en';
+
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   // Keep the document's lang attribute in sync — required for screen readers
@@ -183,19 +186,18 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
   }, [language]);
 
   /**
-   * Enhanced setLanguage with persistence and transition animation
+   * Switching language navigates to the equivalent path in the other
+   * language's namespace, preserving the current page and query string.
    */
   const setLanguage = (lang: Language) => {
+    if (lang === language) return;
     setIsTransitioning(true);
-    
-    // Save to localStorage
-    if (typeof window !== 'undefined') {
-      secureStorage.setItem('msk-language', lang);
-    }
-    
+    const bare = stripLangPrefix(location.pathname);
+    const target = lang === 'fr' ? (bare === '/' ? '/fr' : `/fr${bare}`) : bare;
+
     // Small delay for smooth transition
     setTimeout(() => {
-      setLanguageState(lang);
+      navigate({ pathname: target, search: location.search });
       setTimeout(() => setIsTransitioning(false), 150);
     }, 150);
   };

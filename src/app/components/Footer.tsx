@@ -1,4 +1,4 @@
-import { Link } from 'react-router';
+import { Link } from './LocalizedLink';
 import { useLanguage } from '../contexts/LanguageContext';
 import { ArrowUpRight } from 'lucide-react';
 
@@ -163,6 +163,11 @@ export function Footer() {
             <Link to="/privacy-policy"
               className="hover:text-white/60 transition-colors">
               {language === 'en' ? 'Privacy Policy' : 'Politique de confidentialité'}
+            </Link>
+            <span className="hidden sm:inline text-white/15">·</span>
+            <Link to="/help"
+              className="hover:text-white/60 transition-colors">
+              {language === 'en' ? 'Help & FAQ' : "Aide et FAQ"}
             </Link>
           </div>
 

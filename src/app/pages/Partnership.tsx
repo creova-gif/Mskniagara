@@ -3,7 +3,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { ArrowRight, ExternalLink, Users, Shield } from 'lucide-react';
 import useEmblaCarousel from 'embla-carousel-react';
 import { useCallback, useEffect, useMemo, useState, useRef } from 'react';
-import { Link } from 'react-router';
+import { Link } from '../components/LocalizedLink';
 import { NetworkNodes } from '../components/HeroAnimations';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useSanityQuery } from '../../lib/sanity/useSanityQuery';

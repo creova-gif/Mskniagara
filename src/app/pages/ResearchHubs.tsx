@@ -1,5 +1,5 @@
 import { useLanguage } from '../contexts/LanguageContext';
-import { Link } from 'react-router';
+import { Link } from '../components/LocalizedLink';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
 import { Badge } from '../components/ui/badge';
 import { Button } from '../components/ui/button';
@@ -13,23 +13,6 @@ import { siteStatsQuery, type SiteStats } from '../../lib/sanity/queries/siteSta
 import { urlForImage } from '../../lib/sanity/image';
 
 const HUB_ICONS: Record<string, LucideIcon> = { Users, BookOpen, Target, Heart, Lightbulb, GraduationCap, HeartPulse, Building2 };
-
-// Import logos
-const uoftOiseLogo = '/7b98ee478f466c3dd71a0410d27d1cae36bc7b2a.png';
-const brockLogo = '/4825dd65e7c70d72bc4874a4e49e5ed0e76764db.png';
-const ywcaLogo = '/af7a99d39d035b273d4e3d0f598d3a6831ad42e6.png';
-const migrantFarmworkersLogo = '/c51299cab84d0db41025a7b6acc2f91dad241f19.png';
-const stCatharinesLibraryLogo = '/8a7aff8c28e41c14965e60ee35fec519925a66c0.png';
-const bridgesNiagaraLogo = '/42685716c968d89e0ce4c2df255a0e5fe47de6e5.png';
-const niagaraFallsHealthLogo = '/a644b274274c47623c7f67a111672ede625bacd4.png';
-const niagaraConnectsLogo = '/5554cc6019e321efeb2a5ae0621a2d5b54fe8190.png';
-const wellandHeritageLogo = '/b988ec04fdec29b54dd9b6f3d4fa9715cff4d6cd.png';
-const niagaraImmigrationPartnershipLogo = '/e3efa50a0dfbeae579a749859aab8f2f63920ab8.png';
-const futureBlackFemaleLogo = '/e63ce6bc137a9cdd5b4c0dfb3801c54c434f206d.png';
-const niagaraRegionLogo = '/584ab02c6f97daaed41f2ba77c0e96e670fdb60d.png';
-const niagaraHealthLogo = '/628de4b1ee9f5dd370379633138c153274cc3bf5.png';
-const toesNiagaraLogo = '/165706a2c9c6deebc6dc1cfda9805cf86e3cd39d.png';
-const universityBuffaloLogo = '/1e02762e71863f48fceb1cc3277e8ecd07e53156.png';
 
 export function ResearchHubs() {
   const { t, language } = useLanguage();
@@ -82,21 +65,6 @@ export function ResearchHubs() {
     };
     return styles[category] || { icon: Building2, gradient: 'from-gray-400 to-gray-600', color: '#666666' };
   };
-
-  const allCommunityPartners = [
-    { name: 'YWCA Niagara Region', category: 'Housing & Support', categoryFr: 'Logement et soutien', logo: ywcaLogo },
-    { name: 'Bridges Niagara', category: 'Settlement Services', categoryFr: 'Services d\'établissement', logo: bridgesNiagaraLogo },
-    { name: 'TOES Niagara', category: 'Employment Support', categoryFr: 'Soutien à l\'emploi', logo: toesNiagaraLogo },
-    { name: 'Migrant Farm Workers Project', category: 'Labor Rights', categoryFr: 'Droits du travail', logo: migrantFarmworkersLogo },
-    { name: 'St. Catharines Public Library', category: 'Community Education', categoryFr: 'Éducation communautaire', logo: stCatharinesLibraryLogo },
-    { name: 'Community Health Centres', category: 'Healthcare Access', categoryFr: 'Accès aux soins de santé', logo: niagaraFallsHealthLogo },
-    { name: 'Niagara Region Public Health', category: 'Public Health', categoryFr: 'Santé publique', logo: niagaraRegionLogo },
-    { name: 'Niagara Connects', category: 'Settlement Services', categoryFr: 'Services d\'établissement', logo: niagaraConnectsLogo },
-    { name: 'Welland Heritage', category: 'Community Education', categoryFr: 'Éducation communautaire', logo: wellandHeritageLogo },
-    { name: 'Niagara Immigration Partnership', category: 'Settlement Services', categoryFr: 'Services d\'établissement', logo: niagaraImmigrationPartnershipLogo },
-    { name: 'Niagara Health', category: 'Healthcare Access', categoryFr: 'Accès aux soins de santé', logo: niagaraHealthLogo },
-    { name: 'Future Black Female', category: 'Community Education', categoryFr: 'Éducation communautaire', logo: futureBlackFemaleLogo },
-  ];
 
   const stats = [
     {
@@ -317,9 +285,9 @@ export function ResearchHubs() {
                 {language === 'en' ? 'Community Partners' : 'Partenaires communautaires'}
               </h2>
               <p className="text-sm text-[#0A0A0A]/60">
-                {language === 'en' 
-                  ? `Collaborating with ${allCommunityPartners.length}+ organizations across Niagara`
-                  : `Collaboration avec plus de ${allCommunityPartners.length} organisations à travers Niagara`}
+                {language === 'en'
+                  ? `Collaborating with ${siteStats?.communityPartners ?? 20} organizations across Niagara`
+                  : `Collaboration avec ${siteStats?.communityPartners ?? 20} organisations à travers Niagara`}
               </p>
             </div>
           </div>
